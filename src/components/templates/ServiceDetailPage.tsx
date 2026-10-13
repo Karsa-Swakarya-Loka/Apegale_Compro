@@ -134,7 +134,7 @@ export async function ServiceDetailPage({ locale, slug }: { locale: Locale; slug
         </section>
       ) : null}
 
-      <CtaBanner title={m.ctaBanner.title} text={m.ctaBanner.text}
+      <CtaBanner title={m.ctaBanner.title} highlight={m.ctaBanner.highlight} text={m.ctaBanner.text}
         primary={{ label: ui.cta?.whatsapp || '', href: waService }}
         secondary={{ label: ui.cta?.consult || '', href: href(locale, 'contact') }} />
     </>

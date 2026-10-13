@@ -8,11 +8,13 @@ import { href, localizeHref } from '@/i18n/routes'
 import {
   asMedia, getAbout, getClients, getFeaturedFaqs, getGaris, getHome, getLatestArticles, getSite, getTestimonials, getTopServices, getUi,
 } from '@/lib/cms'
-import { whatsappHref } from '@/lib/whatsapp'
+import { telHref, whatsappHref } from '@/lib/whatsapp'
+import { ArrowRight } from 'lucide-react'
+import { Button } from '@/components/ui/Button'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Reveal } from '@/components/motion/Reveal'
 import { ClientStrip } from '@/components/content/ClientStrip'
-import { ServiceOrbit } from '@/components/home/ServiceOrbit'
+import { ServicesSection } from '@/components/home/ServicesSection'
 import { Testimonial } from '@/components/content/Testimonial'
 import { FAQList } from '@/components/content/FAQ'
 import { NewsCard } from '@/components/content/NewsCard'
@@ -21,7 +23,8 @@ import { WhySection } from '@/components/home/WhySection'
 import { GarisSection } from '@/components/home/GarisSection'
 import { NetworkSection } from '@/components/home/NetworkSection'
 import { AboutSection } from '@/components/home/AboutSection'
-import { ContactCta } from '@/components/home/ContactCta'
+import { ContactCta, type ContactLine } from '@/components/home/ContactCta'
+import { formatWhatsApp } from '@/components/layout/Header'
 import { ContactForm } from '@/components/forms/ContactForm'
 import { formLabels } from '@/components/forms/labels'
 import { lexicalText, organizationLd } from '@/lib/structured-data'
@@ -49,6 +52,11 @@ export async function HomePage({ locale }: { locale: Locale }) {
   const visibleTestimonials = testimonials.filter(t => t.quote)
   // The old home page shows the first "Tentang Kami" paragraph of the company profile.
   const aboutText = lexicalText(about.profile).split('\n\n')[0] || null
+  const contacts: ContactLine[] = []
+  if (site.phone) contacts.push({ kind: 'phone', label: m.contact.phone, value: site.phone, href: telHref(site.phone) })
+  if (wa) contacts.push({ kind: 'whatsapp', label: 'WhatsApp', value: formatWhatsApp(site.whatsapp), href: wa })
+  if (site.email) contacts.push({ kind: 'email', label: 'Email', value: site.email, href: `mailto:${site.email}` })
+  if (site.address) contacts.push({ kind: 'address', label: m.contact.address, value: site.address, href: site.mapsUrl || undefined })
 
   return (
     <>
@@ -62,19 +70,20 @@ export async function HomePage({ locale }: { locale: Locale }) {
       {show('clients') ? <ClientStrip clients={clients} labels={{ title: ui.sections?.clients || '' }} /> : null}
 
       {show('services') && services.length ? (
-        <ServiceOrbit title={m.home.servicesTitle} highlight={m.home.servicesHighlight} intro={m.home.servicesIntro}
+        <ServicesSection title={m.home.servicesTitle} highlight={m.home.servicesHighlight} intro={m.home.servicesIntro} moreLabel={ui.cta?.more || ''}
+          all={ui.cta?.viewServices ? { label: ui.cta.viewServices, href: href(locale, 'services') } : undefined}
           services={services.map(s => ({ slug: s.slug, title: s.title, summary: s.summary, icon: s.icon, href: serviceHref(s.slug) }))} />
       ) : null}
 
       {show('why') ? <WhySection eyebrow={ui.sections?.why} title={m.home.whyTitle} highlight={m.home.whyHighlight} items={home.why ?? []} /> : null}
 
       {show('garis') ? (
-        <GarisSection garis={garis} title={m.home.garisTitle} intro={m.home.garisIntro} whatsapp={wa} more={{ label: ui.cta?.more || '', href: href(locale, 'garis') }}
+        <GarisSection garis={garis} title={m.home.garisTitle} highlight={m.home.garisHighlight} intro={m.home.garisIntro} whatsapp={wa} more={{ label: ui.cta?.more || '', href: href(locale, 'garis') }}
           labels={{ login: m.home.garisLogin, trial: m.home.garisTrial, comingSoon: ui.cta?.comingSoon || '', ask: ui.cta?.askWhatsapp || '' }} />
       ) : null}
 
       {show('network') && home.network?.title ? (
-        <NetworkSection title={home.network.title} text={home.network.text}
+        <NetworkSection tone="soft" title={home.network.title} text={home.network.text}
           cities={home.network.cities ?? []} citiesLabel={m.home.networkCities} />
       ) : null}
 
@@ -85,9 +94,9 @@ export async function HomePage({ locale }: { locale: Locale }) {
       ) : null}
 
       {show('testimonials') && visibleTestimonials.length ? (
-        <section className="ag-section ag-section--soft" aria-labelledby="testimonials-title">
+        <section className="ag-section ag-section--dark" aria-labelledby="testimonials-title">
           <div className="ag-container ag-stack">
-            <Reveal><SectionHeading id="testimonials-title" align="center" title={m.home.testimonialsTitle} /></Reveal>
+            <Reveal><SectionHeading id="testimonials-title" title={m.home.testimonialsTitle} highlight={m.home.testimonialsHighlight} /></Reveal>
             <div className="ag-grid ag-grid--3">{visibleTestimonials.slice(0, 3).map(t => <Testimonial key={t.id} item={t} />)}</div>
           </div>
         </section>
@@ -96,16 +105,19 @@ export async function HomePage({ locale }: { locale: Locale }) {
       {show('faq') && faqs.length ? (
         <section className="ag-section ag-section--soft" aria-labelledby="faq-title">
           <div className="ag-container ag-split">
-            <Reveal><SectionHeading id="faq-title" title={m.home.faqTitle} /></Reveal>
+            <Reveal><SectionHeading id="faq-title" title={m.home.faqTitle} highlight={m.home.faqHighlight} /></Reveal>
             <Reveal step={1}><FAQList items={faqs} /></Reveal>
           </div>
         </section>
       ) : null}
 
       {show('news') && articles.length ? (
-        <section className="ag-section ag-section--soft" aria-labelledby="news-title">
+        <section className="ag-section" aria-labelledby="news-title">
           <div className="ag-container ag-stack">
-            <Reveal><SectionHeading id="news-title" title={m.home.newsTitle} /></Reveal>
+            <div className="ag-headrow">
+              <Reveal><SectionHeading id="news-title" title={m.home.newsTitle} highlight={m.home.newsHighlight} /></Reveal>
+              <Button variant="ghost" href={href(locale, 'news')} label={ui.cta?.more || ''} icon={<ArrowRight size={18} aria-hidden="true" />} />
+            </div>
             <div className="ag-grid ag-grid--3">
               {articles.map(a => (
                 <NewsCard key={`${a.kind}-${a.slug}`} locale={locale} title={a.title} cover={a.cover} date={a.date} readLabel={ui.cta?.read || ''}
@@ -118,7 +130,7 @@ export async function HomePage({ locale }: { locale: Locale }) {
       ) : null}
 
       {show('contactCta') ? (
-        <ContactCta title={m.ctaBanner.title} text={m.ctaBanner.text} chatLabel={ui.cta?.whatsapp || ''} whatsapp={wa}
+        <ContactCta title={m.ctaBanner.title} highlight={m.ctaBanner.highlight} text={m.ctaBanner.text} contacts={contacts}
           form={<ContactForm variant="compact" locale={locale} idPrefix="quick" labels={formLabels(ui, m, m.home.formTitle)}
             services={services.map(s => ({ value: s.slug, label: s.title }))} />} />
       ) : null}

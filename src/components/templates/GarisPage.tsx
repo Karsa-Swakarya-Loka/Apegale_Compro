@@ -42,8 +42,8 @@ export async function GarisPage({ locale }: { locale: Locale }) {
       <PageHeader title="GARIS" intro={m.home.garisTitle} crumbLabel={m.services.breadcrumb}
         crumbs={[{ label: ui.nav?.home || 'Home', href: href(locale, 'home') }, { label: 'GARIS' }]}
         actions={<>
-          {action(m.home.garisLogin, garis.loginUrl, 'light')}
           {wa ? <Button variant="wa" href={wa} label={ui.cta?.askWhatsapp || ''} icon={<WhatsAppIcon size={20} />} /> : null}
+          {action(m.home.garisLogin, garis.loginUrl, 'light')}
         </>} />
 
       {shots.length ? (
@@ -65,7 +65,7 @@ export async function GarisPage({ locale }: { locale: Locale }) {
       ) : null}
 
       {modules.length ? (
-        <section className="ag-section ag-section--brand" aria-labelledby="garis-modules-title">
+        <section className="ag-section ag-section--dark" aria-labelledby="garis-modules-title">
           <div className="ag-container ag-stack">
             <SectionHeading id="garis-modules-title" title={m.garis.modulesTitle} />
             <ul className="ag-why ag-why--3">
@@ -75,7 +75,7 @@ export async function GarisPage({ locale }: { locale: Locale }) {
                 return (
                   <li key={v.id ?? v.name}>
                     <Reveal step={(i % 3) as 0 | 1 | 2} className="ag-why__item">
-                      <span className="ag-service__icon"><Glyph size={26} aria-hidden="true" /></span>
+                      <span className="ag-why__icon"><Glyph size={24} aria-hidden="true" /></span>
                       <h3>{v.name}</h3>
                       {v.text ? <div className="ag-module__text">{v.text.split(/\n\s*\n/).map((paragraph, index) => <p key={index}>{paragraph}</p>)}</div> : null}
                       {img?.url && img.width && img.height ? <Image src={img.url} alt={img.alt || ''} width={img.width} height={img.height} sizes="360px" className="ag-garis__module-img" /> : null}
@@ -104,8 +104,8 @@ export async function GarisPage({ locale }: { locale: Locale }) {
           <Reveal className="ag-stack">
             <SectionHeading id="garis-trial-title" title={m.garis.trialTitle} intro={live ? m.garis.trialLive : m.garis.trialSoon} />
             <div className="ag-row">
-              {action(m.home.garisTrial, garis.trialUrl)}
               {wa ? <Button variant="wa" href={wa} label={ui.cta?.askWhatsapp || ''} icon={<WhatsAppIcon size={20} />} /> : null}
+              {action(m.home.garisTrial, garis.trialUrl)}
             </div>
           </Reveal>
         </div>

@@ -7,12 +7,13 @@ import { JsonLd } from '@/components/seo/JsonLd'
 type Crumb = { label: string; href?: string }
 type Props = { eyebrow?: string | null; title: string; intro?: string | null; crumbs: Crumb[]; crumbLabel: string; actions?: ReactNode }
 
-/** Inner-page header: breadcrumb (+ BreadcrumbList JSON-LD), eyebrow, H1, intro, optional actions, over a smaller diagonal slab. */
+/** Inner-page header in the template's dark slide style: breadcrumb (+ BreadcrumbList JSON-LD), eyebrow, H1 with accent
+ *  bar, intro and optional actions on charcoal, with diagonal maroon planes and the corner wedge on the right. */
 export function PageHeader({ eyebrow, title, intro, crumbs, crumbLabel, actions }: Props) {
   return (
-    <section className="ag-pagehead">
+    <section className="ag-pagehead ag-dark">
       <JsonLd data={breadcrumbLd(crumbs)} />
-      <div className="ag-pagehead__slab" aria-hidden="true" />
+      <span className="ag-pagehead__plane" aria-hidden="true" />
       <div className="ag-container ag-pagehead__in">
         <nav aria-label={crumbLabel}>
           <ol className="ag-crumbs">
@@ -31,6 +32,7 @@ export function PageHeader({ eyebrow, title, intro, crumbs, crumbLabel, actions 
         </div>
         {actions ? <div className="ag-row">{actions}</div> : null}
       </div>
+      <span className="ag-wedge" aria-hidden="true" />
     </section>
   )
 }

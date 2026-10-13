@@ -119,7 +119,7 @@ export async function AboutPage({ locale }: { locale: Locale }) {
           cities={home.network.cities ?? []} citiesLabel={m.home.networkCities} />
       ) : null}
 
-      <CtaBanner title={m.ctaBanner.title} text={m.ctaBanner.text}
+      <CtaBanner title={m.ctaBanner.title} highlight={m.ctaBanner.highlight} text={m.ctaBanner.text}
         primary={{ label: ui.cta?.whatsapp || '', href: wa }}
         secondary={{ label: ui.cta?.consult || '', href: href(locale, 'contact') }} />
     </>

@@ -100,7 +100,7 @@ export async function ArticlesPage({ kind, locale, query }: { kind: Kind; locale
         </div>
       </section>
 
-      <CtaBanner title={m.ctaBanner.title} text={m.ctaBanner.text}
+      <CtaBanner title={m.ctaBanner.title} highlight={m.ctaBanner.highlight} text={m.ctaBanner.text}
         primary={{ label: ui.cta?.whatsapp || '', href: wa }} secondary={{ label: ui.cta?.consult || '', href: href(locale, 'contact') }} />
     </>
   )

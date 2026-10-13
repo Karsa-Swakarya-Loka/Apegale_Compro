@@ -9,16 +9,26 @@ type Props = {
   id?: string
 }
 
-/** design/components/SectionHeading — eyebrow → heading → intro. */
-export function SectionHeading({ eyebrow, title, highlight, intro, align = 'left', as: Tag = 'h2', id }: Props) {
+/** Split a title around its highlight phrase. A phrase at the end drops to its own line, like the
+ *  template's two-tone titles ("WHO / WE ARE"); a phrase elsewhere stays inline. */
+export function highlightTitle(title: string, highlight?: string | null) {
   const at = highlight ? title.indexOf(highlight) : -1
-  const heading = at < 0 || !highlight ? title : (
-    <>{title.slice(0, at)}<em>{highlight}</em>{title.slice(at + highlight.length)}</>
-  )
+  if (at < 0 || !highlight) return { node: title, split: false }
+  const split = at > 0 && at + highlight.length === title.length
+  return {
+    node: <>{title.slice(0, at)}<em>{highlight}</em>{title.slice(at + highlight.length)}</>,
+    split,
+  }
+}
+
+/** design/components/SectionHeading — eyebrow → heading (with accent bar) → intro. */
+export function SectionHeading({ eyebrow, title, highlight, intro, align = 'left', as: Tag = 'h2', id }: Props) {
+  const { node, split } = highlightTitle(title, highlight)
+  const cls = ['ag-sechead', align === 'center' ? 'ag-sechead--center' : '', split ? 'ag-sechead--split' : ''].filter(Boolean).join(' ')
   return (
-    <div className={`ag-sechead${align === 'center' ? ' ag-sechead--center' : ''}`}>
+    <div className={cls}>
       {eyebrow && eyebrow.toLocaleLowerCase() !== title.toLocaleLowerCase() ? <span className="ag-eyebrow">{eyebrow}</span> : null}
-      <Tag id={id}>{heading}</Tag>
+      <Tag id={id}>{node}</Tag>
       {intro ? <p>{intro}</p> : null}
     </div>
   )

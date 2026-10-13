@@ -10,20 +10,14 @@ type Props = {
   image?: Media | null; primary: Cta; secondary: Cta; stats: { value: string; label: string }[]
 }
 
-/** Hero: copy on white, a large photo filling the right side cut on the compro diagonal, maroon/red accent bands on the cut. */
+/** Template slide 01 "Company profile" cover: copy on a charcoal field, the photo filling the right side behind
+ *  a diagonal cut, a red stripe on the cut and a maroon wedge in the corner. Text first on mobile. */
 export function Hero({ eyebrow, headline, highlight, lead, image, primary, secondary, stats }: Props) {
   const at = highlight ? headline.indexOf(highlight) : -1
   const title = at < 0 || !highlight ? headline : <>{headline.slice(0, at)}<em>{highlight}</em>{headline.slice(at + highlight.length)}</>
   const photo = image?.sizes?.hero?.url ? image.sizes.hero : image
   return (
-    <section className="ag-hero">
-      {photo?.url && photo.width && photo.height ? (
-        <div className="ag-hero__media">
-          <Image src={photo.url} alt={image?.alt || ''} fill loading="eager" fetchPriority="high" sizes="(max-width: 1023px) 100vw, 46vw" />
-        </div>
-      ) : null}
-      <div className="ag-hero__band" aria-hidden="true" />
-      <div className="ag-hero__stripe" aria-hidden="true" />
+    <section className="ag-hero ag-dark">
       <div className="ag-hero__in">
         <div className="ag-hero__copy">
           {eyebrow ? <span className="ag-eyebrow">{eyebrow}</span> : null}
@@ -36,6 +30,13 @@ export function Hero({ eyebrow, headline, highlight, lead, image, primary, secon
           <StatBadge items={stats} />
         </div>
       </div>
+      {photo?.url && photo.width && photo.height ? (
+        <div className="ag-hero__media">
+          <Image src={photo.url} alt={image?.alt || ''} fill loading="eager" fetchPriority="high" sizes="(max-width: 1023px) 100vw, 52vw" />
+          <span className="ag-hero__stripe" aria-hidden="true" />
+        </div>
+      ) : null}
+      <span className="ag-wedge" aria-hidden="true" />
     </section>
   )
 }

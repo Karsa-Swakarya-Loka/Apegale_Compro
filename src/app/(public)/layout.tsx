@@ -4,18 +4,13 @@ import type { ReactNode } from 'react'
 import { headers } from 'next/headers'
 import { Montserrat, Roboto } from 'next/font/google'
 import { LanguageSync } from '@/i18n/LanguageSync'
+// Design v9 (template_design.jpeg): base → shell → home → pages, then motion. See design/README.md.
 import '@/styles/tokens.css'
-import '@/styles/components.css'
+import '@/styles/base.css'
 import '@/styles/shell.css'
 import '@/styles/home.css'
 import '@/styles/pages.css'
-import '@/styles/brand.css'
 import '@/styles/motion.css'
-import '@/styles/pivot.css'
-import '@/styles/template.css'
-import '@/styles/hierarchy.css'
-import '@/styles/compro.css'
-import '@/styles/system.css'
 
 // Type from the 2026 Company Profile PDF: Roboto for titles and text (Bold/Black titles), Montserrat ExtraBold for small labels.
 const roboto = Roboto({ subsets: ['latin'], weight: ['400', '500', '700', '900'], style: ['normal', 'italic'], variable: '--font-roboto', display: 'swap' })

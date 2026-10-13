@@ -5,21 +5,21 @@ import { Reveal } from '@/components/motion/Reveal'
 type City = { name: string; lat?: number | null; lng?: number | null }
 type Props = {
   title: string; text?: string | null; cities: City[]; citiesLabel: string
-  stats?: { value: string; label: string }[]; stat?: { value: string; label: string }; tone?: 'brand' | 'soft'
+  stats?: { value: string; label: string }[]; stat?: { value: string; label: string }; tone?: 'soft' | 'plain'
 }
 
-/** Template slide 04 "Impact in numbers": a grey figures tile, the map tile in the middle, a red tile listing the cities.
- *  The outline is a static file used as a CSS mask (public/brand/indonesia-land.svg). */
-export function NetworkSection({ title, text, cities, citiesLabel, stats = [], stat, tone = 'brand' }: Props) {
+/** Template slide 05 "Performance at a glance": title and intro, then a white map card and a charcoal card listing
+ *  the cities (optional figures card first). The outline is a static file used as a CSS mask (public/brand/indonesia-land.svg). */
+export function NetworkSection({ title, text, cities, citiesLabel, stats = [], stat, tone = 'soft' }: Props) {
   const placed = cities.filter((c): c is City & { lat: number; lng: number } => typeof c.lat === 'number' && typeof c.lng === 'number')
   const figures = stats.length ? stats : stat ? [stat] : []
   return (
-    <section className={`ag-section ag-section--${tone} ag-impact-section`} aria-labelledby="network-title">
+    <section className={`ag-section${tone === 'soft' ? ' ag-section--soft' : ''}`} aria-labelledby="network-title">
       <div className="ag-container ag-stack">
         <Reveal><SectionHeading id="network-title" title={title} intro={text} /></Reveal>
         <div className={`ag-impact${figures.length ? '' : ' ag-impact--duo'}`}>
           {figures.length ? (
-            <Reveal className="ag-impact__tile ag-impact__tile--grey">
+            <Reveal className="ag-impact__tile ag-impact__tile--figures">
               <dl className="ag-impact__figures">
                 {figures.map(f => <div key={f.value + f.label}><dt>{f.value}</dt><dd>{f.label}</dd></div>)}
               </dl>
@@ -42,11 +42,12 @@ export function NetworkSection({ title, text, cities, citiesLabel, stats = [], s
               </svg>
             </div>
           </Reveal>
-          <Reveal step={2} className="ag-impact__tile ag-impact__tile--red">
-            <p className="ag-impact__label">{citiesLabel}</p>
+          <Reveal step={2} className="ag-impact__tile ag-impact__tile--cities ag-dark">
+            <p className="ag-eyebrow">{citiesLabel}</p>
             <ul className="ag-impact__cities" aria-label={citiesLabel}>
               {placed.map(c => <li key={c.name}>{c.name}</li>)}
             </ul>
+            <span className="ag-wedge" aria-hidden="true" />
           </Reveal>
         </div>
       </div>

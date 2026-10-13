@@ -23,7 +23,8 @@ function Logos({ clients, hidden }: { clients: Client[]; hidden?: boolean }) {
 }
 
 /**
- * Client logos as a permanent ticker (owner decision, 09 Oct 2026): no pause button and no stop on hover.
+ * Template slide 08 "Trusted by": a compact proof band right under the hero, label left, logos right.
+ * Client logos run as a permanent ticker (owner decision, 09 Oct 2026): no pause button and no stop on hover.
  * Two identical tracks loop seamlessly; the second is hidden from assistive tech. The only exception is the
  * OS "reduce motion" setting, where the logos become a static, centred row.
  */
@@ -31,10 +32,12 @@ export function ClientStrip({ clients, labels }: { clients: Client[]; labels: La
   if (!clients.length) return null
   return (
     <section className="ag-clients" aria-label={labels.title}>
-      {labels.title ? <p className="ag-eyebrow ag-clients__label">{labels.title}</p> : null}
-      <div className="ag-marquee">
-        <Logos clients={clients} />
-        <Logos clients={clients} hidden />
+      <div className="ag-container ag-clients__in">
+        {labels.title ? <p className="ag-clients__label">{labels.title}</p> : null}
+        <div className="ag-marquee">
+          <Logos clients={clients} />
+          <Logos clients={clients} hidden />
+        </div>
       </div>
     </section>
   )

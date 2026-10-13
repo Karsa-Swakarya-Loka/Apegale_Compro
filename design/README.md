@@ -216,3 +216,40 @@ Perbaikan ada di bagian akhir `src/styles/system.css`. Satu perubahan kode: pili
 Review ulang menemukan dua masalah baru, keduanya sudah diperbaiki: judul layanan Beranda menimpa daftar, dan halaman Regulasi mobile bisa digeser ke samping karena baris chip. Sisa yang diterima: di desktop satu chip Regulasi masih turun ke baris kedua karena enam nama kategori terlalu panjang.
 
 Catatan: kotak screenshot GARIS tampak kosong di screenshot headless, tetapi tampil benar di Chrome biasa. Ini bukan bug situs.
+
+## Desain v9 (13 Okt 2026): template 10 slide gelap, palet Company Profile tetap
+
+Acuan: `../template_design.jpeg` (template company profile 10 slide: bidang gelap, foto dipotong diagonal, judul kapital dua warna dengan garis aksen pendek, segitiga warna di pojok kanan bawah, kartu putih berikon). Biru dan navy template diganti palet lama: **charcoal** `#24282A` untuk bidang gelap, **maroon** untuk aksen di latar terang, **red** untuk aksen di latar gelap. Konten, copy, dan urutan seksi tidak berubah.
+
+**CSS diganti total.** Sembilan lapisan override lama (`components`, `brand`, `pivot`, `template`, `hierarchy`, `compro`, `system`, serta `shell`/`home`/`pages` versi lama) dihapus dan ditulis ulang menjadi empat file: `base.css` (konteks warna, tipe, tombol, kartu, form), `shell.css` (topbar, header, menu, footer), `home.css` (seksi Beranda), `pages.css` (halaman dalam). Urutan muat: `tokens → base → shell → home → pages → motion`. Riwayat lama ada di git.
+
+**Konteks warna.** Setiap bidang gelap (`.ag-dark`, `.ag-section--dark`, panel kontak, kartu visi, kartu direktur) menukar custom property `--c-head`, `--c-hl`, `--c-muted`, `--c-icon`, `--btn-pri`, `--wedge-c`, jadi judul, tombol, ikon, dan baji otomatis benar di latar gelap maupun terang. Formulir selalu kembali ke konteks terang.
+
+| Slide template | Bagian situs |
+|---|---|
+| 01 Cover | Hero: bidang charcoal, foto kanan dipotong diagonal + garis merah di potongan, baji merah |
+| 08 Trusted by | Pita klien tepat di bawah hero: label kiri, marquee kanan |
+| 04 Our services | Kartu layanan: ikon heksagon maroon, judul kapital, bilah aksen yang terisi saat hover; tautan "Lihat layanan" di kanan judul |
+| 03 Our approach | "Mengapa Ape Gale": bidang charcoal, judul kiri, empat poin berikon di kanan |
+| 06 Case study | GARIS: checklist modul + aksi di kiri, screenshot di atas bidang maroon diagonal |
+| 05 Performance | Jaringan: kartu peta putih + kartu kota charcoal |
+| 02 Who we are | Tentang Kami: teks kiri, founder di panel charcoal diagonal + kartu nama |
+| 09 Clients say | Testimoni (muncul bila ada data): kartu kutipan di bidang charcoal |
+| 10 Let's build | Penutup Beranda: judul dua warna, baris kontak berikon, formulir putih. Halaman dalam memakai versi banner |
+| (semua slide) | Header halaman dalam: bidang charcoal + bidang maroon diagonal + baji |
+
+**Audit dan perbaikan hierarki.**
+
+| Aspek | Sebelum | Sesudah |
+|---|---|---|
+| Urutan baca | Semua seksi putih/krem dengan judul hitam sama berat; mata tidak tahu mulai dari mana | Ritme gelap–terang: hero gelap → layanan terang → alasan gelap → GARIS terang → … → penutup gelap. Titik fokus pertama selalu judul hero |
+| Tipografi | H2 40/46, frasa sorotan kosong di hampir semua judul | Skala baru: H1 hero 60/64 (Black), H1 dalam 48/54, H2 38/44 (Bold), H3 kartu 18/26 kapital; mobile 36/32/28. Setiap judul seksi dua warna (baris kedua maroon/merah) + garis aksen 48×4 |
+| Spasi | Jarak judul–isi dan padding kartu tidak seragam antar-lapisan CSS | Seksi 96 / 64 (mobile), judul→isi 48 / 32, kartu 32 / 24, grid gap 24 / 16 |
+| Perataan | Layanan berupa daftar dua kolom dengan judul melayang; GARIS punya kotak kosong | Semua seksi rata kiri di satu kontainer 1200; kartu dalam grid 3/2/1 kolom dengan tinggi sama |
+| CTA | Hero dan penutup sama-sama punya dua tombol kuat; tombol "Segera hadir" bersaing dengan WhatsApp | Satu aksi utama per tampilan: hero = Minta penawaran (56px, merah di latar gelap), penutup Beranda = Kirim pesan (lebar penuh di kartu). WhatsApp di penutup menjadi baris kontak. Aksi nonaktif kecil dan selalu setelah aksi aktif |
+
+**Pengecualian palet.** Tombol utama di bidang gelap memakai `red` (maroon terlalu gelap di atas charcoal). Frasa sorotan judul di latar gelap memakai `accent-on-dark` `#E0414F` (red tema gelap, 3.6:1, hanya untuk teks ≥ 24px tebal). Teks kecil di latar gelap tetap putih 78%.
+
+**Token baru** (`tokens.json` v3): `accent-on-dark`, `brand-text-on-dark`, `fs-*-t`/`fs-*-m`, `wedge`, `wedge-m`, `bar-w`, `bar-h`; bayangan kartu tipis dihidupkan lagi.
+
+Verifikasi: 360, 390, 820, 1024, 1440 px di Beranda dan semua halaman dalam (ID + EN), tanpa scroll horizontal; menu mobile diuji tap, submenu, dan Escape; `typecheck`, `lint`, 27 test, `build` lulus.
