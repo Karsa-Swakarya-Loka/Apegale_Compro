@@ -21,6 +21,10 @@ import { StrikethroughFeatureClient as StrikethroughFeatureClient_e70f5e05f09f93
 import { UnderlineFeatureClient as UnderlineFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { BoldFeatureClient as BoldFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { ItalicFeatureClient as ItalicFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
+import { RowLabel as RowLabel_a22f15833f5c099d83eec5874403c04c } from '../../../components/admin/RowLabel'
+import { CheckCell as CheckCell_74778af3946880e31fd7d192e67d5f8d } from '../../../components/admin/CheckCell'
+import { CityPointField as CityPointField_a26c1820135096c527a5026f21547d03 } from '../../../components/admin/CityPointField'
+import { ParentPicker as ParentPicker_ee25c1de46b9b868094017e151a8a348 } from '../../../components/admin/ParentPicker'
 import { AdminIcon as AdminIcon_db845eae23ef682757f9df5d4893ae70 } from '../../../components/admin/AdminBrand'
 import { AdminLogo as AdminLogo_db845eae23ef682757f9df5d4893ae70 } from '../../../components/admin/AdminBrand'
 import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
@@ -50,6 +54,10 @@ export const importMap = {
   "@payloadcms/richtext-lexical/client#UnderlineFeatureClient": UnderlineFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@payloadcms/richtext-lexical/client#BoldFeatureClient": BoldFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@payloadcms/richtext-lexical/client#ItalicFeatureClient": ItalicFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
+  "/components/admin/RowLabel#RowLabel": RowLabel_a22f15833f5c099d83eec5874403c04c,
+  "/components/admin/CheckCell#CheckCell": CheckCell_74778af3946880e31fd7d192e67d5f8d,
+  "/components/admin/CityPointField#CityPointField": CityPointField_a26c1820135096c527a5026f21547d03,
+  "/components/admin/ParentPicker#ParentPicker": ParentPicker_ee25c1de46b9b868094017e151a8a348,
   "/components/admin/AdminBrand#AdminIcon": AdminIcon_db845eae23ef682757f9df5d4893ae70,
   "/components/admin/AdminBrand#AdminLogo": AdminLogo_db845eae23ef682757f9df5d4893ae70,
   "@payloadcms/next/rsc#CollectionCards": CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1

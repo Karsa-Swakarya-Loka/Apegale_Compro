@@ -15,12 +15,19 @@ import { Home } from '../src/globals/Home.ts'
 import { About } from '../src/globals/About.ts'
 import { Garis } from '../src/globals/Garis.ts'
 import { Ui } from '../src/globals/Ui.ts'
+import type { Field } from 'payload'
+
+/** Data fields at one level: unnamed tabs, rows and collapsibles are layout only and are looked through. */
+const dataFields = (fields: Field[]): Field[] => fields.flatMap(f =>
+ f.type === 'tabs' ? f.tabs.flatMap(t => ('name' in t && t.name) ? [] : dataFields(t.fields))
+ : (f.type === 'row' || f.type === 'collapsible') ? dataFields(f.fields) : [f])
+const has = (fields: Field[], name: string) => dataFields(fields).some(f => 'name' in f && f.name === name)
 
 test('public collections restrict reads to published and protect writes', () => {
  for (const collection of [Services,Testimonials,Clients,Faqs,Posts,Regulations]) {
   assert.equal(collection.access?.read, publishedOrStaff)
   assert.deepEqual(collection.versions, { drafts: true })
-  assert.ok(collection.fields.some(f => 'name' in f && f.name === 'enReviewed'))
+  assert.ok(has(collection.fields, 'enReviewed'))
  }
  assert.deepEqual(publishedOrStaff({ req: { user: null } } as Parameters<typeof publishedOrStaff>[0]), { _status: { equals: 'published' } })
  assert.equal(publishedOrStaff({ req: { user: { role: 'editor' } } } as Parameters<typeof publishedOrStaff>[0]), true)
@@ -48,8 +55,12 @@ test('form variants and URL validation match owner decisions', () => {
 
 test('all five globals have drafts; home uses lat/lng and gallery/ui exist', () => {
  for (const global of [Site,Home,About,Garis,Ui]) assert.deepEqual(global.versions, { drafts: true })
- assert.ok(Garis.fields.some(f => 'name' in f && f.name === 'gallery'))
- assert.ok(Ui.fields.some(f => 'name' in f && f.name === 'pages'))
- for (const name of ['priceNote','priceUpdatedAt']) assert.ok(Services.fields.some(f => 'name' in f && f.name === name))
- assert.ok(Inquiries.fields.some(f => 'name' in f && f.name === 'emailStatus'))
+ assert.ok(has(Garis.fields, 'gallery'))
+ assert.ok(has(Ui.fields, 'pages'))
+ for (const name of ['priceNote','priceUpdatedAt']) assert.ok(has(Services.fields, name))
+ assert.ok(has(Inquiries.fields, 'emailStatus'))
+ // City pins keep their stored coordinates; the CMS map picker only sets them.
+ const network = dataFields(Home.fields).find(f => 'name' in f && f.name === 'network')
+ const cities = network && 'fields' in network ? dataFields(network.fields).find(f => 'name' in f && f.name === 'cities') : undefined
+ assert.ok(cities && 'fields' in cities && has(cities.fields, 'lat') && has(cities.fields, 'lng'))
 })

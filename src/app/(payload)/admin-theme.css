@@ -11,7 +11,8 @@
   --color-base-750: #302b2c; --color-base-800: #231f20; --color-base-850: #1b1819; --color-base-900: #141112; --color-base-950: #0c0a0b; --color-base-1000: #000000;
   --style-radius-s: 6px; --style-radius-m: 8px; --style-radius-l: 12px;
 }
-html[data-theme] { --theme-bg: var(--surface); --theme-input-bg: var(--surface); }
+/* Broken white with a red tone: page, nav and panels are warm-pink tints so white cards and inputs stand out. */
+html[data-theme] { --theme-bg: #fcf4f3; --theme-input-bg: #ffffff; --cms-tint: #f6e4e2; --cms-tint-strong: #efd3d0; }
 body { font-family: var(--font-body); }
 ::selection { background: var(--brand-tint); color: var(--maroon); }
 :focus-visible { outline-color: var(--red); }
@@ -23,7 +24,7 @@ body { font-family: var(--font-body); }
 .btn--style-pill { --hover-bg: var(--brand-tint); }
 
 /* Navigation: soft warm panel, maroon active item with a red bar, Montserrat group labels. */
-.nav { background: var(--surface-soft); border-right: 1px solid var(--line); }
+.nav { background: var(--cms-tint); border-right: 1px solid var(--cms-tint-strong); }
 .nav__link { color: var(--ink); }
 .nav__link:hover, .nav__link.active { color: var(--maroon); }
 .nav__link-indicator { background: var(--red); width: 3px; }
@@ -43,8 +44,44 @@ input:focus, textarea:focus, select:focus, .rich-text-lexical .editor:focus-with
 .doc-header__title, .list-header h1, .dashboard h1, .step-nav__last { font-weight: 800; }
 
 /* Login: warm field crossed by the red-gradient slash, form on a white rounded card with the wordmark. */
-.template-minimal { position: relative; isolation: isolate; background: var(--surface-soft); overflow: hidden; }
+.template-minimal { position: relative; isolation: isolate; background: var(--cms-tint); overflow: hidden; }
 .template-minimal::before { content: ""; position: absolute; z-index: -1; top: 0; bottom: 0; right: 8%; width: 220px; background: var(--red-gradient); transform: skewX(-14deg); }
 .template-minimal::after { content: ""; position: absolute; z-index: -1; top: 0; bottom: 0; right: calc(8% + 250px); width: 18px; background: var(--maroon); transform: skewX(-14deg); opacity: 0.6; }
 .template-minimal__wrap { padding: 40px; border-radius: 16px; background: var(--surface); box-shadow: 0 24px 48px color-mix(in srgb, var(--ink) 14%, transparent); }
 .login__brand { margin-bottom: 32px; }
+
+/* ---------- Editing comfort ---------- */
+/* Cards and form panels stay white on the tinted page. */
+.card, .collapsible, .array-field__row, .tabs-field__tabs-wrap { background: #ffffff; }
+.collapsible__toggle-wrap, .array-field .collapsible__toggle-wrap { background: #ffffff; }
+.tabs-field__tab-button--active { color: var(--maroon); box-shadow: inset 0 -3px 0 var(--red); }
+.field-description, .cms-help { color: var(--ink-muted); font-size: 13px; line-height: 18px; }
+.render-fields > .field-type + .field-type { margin-top: 4px; }
+
+/* Ticks instead of true/false in lists. */
+.cms-check { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 6px; border: 1.5px solid var(--line-strong); color: #fff; vertical-align: middle; }
+.cms-check--on { background: var(--red); border-color: var(--red); }
+
+/* Folded list rows show their content. */
+.cms-rowlabel { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; color: var(--ink); }
+.cms-rowlabel b { font-family: var(--font-label); font-size: 11px; font-weight: 800; color: var(--maroon); }
+
+/* Superior picker (organisation chart). */
+.cms-parentpick { display: grid; gap: 6px; }
+.cms-parentpick select { width: 100%; min-height: 40px; padding: 8px 12px; border: 1px solid var(--color-base-200); border-radius: var(--style-radius-s); background: #fff; color: var(--ink); font: inherit; }
+
+/* City map picker. */
+.cms-mappick { display: grid; gap: 10px; margin: 6px 0 4px; padding: 14px; border: 1px solid var(--cms-tint-strong); border-radius: var(--style-radius-l); background: #fff; }
+.cms-mappick__head { display: grid; gap: 2px; }
+.cms-mappick__title { font-weight: 700; color: var(--ink); }
+.cms-mappick__hint { font-size: 13px; color: var(--ink-muted); }
+.cms-mappick__search { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.cms-mappick__search input { flex: 1 1 220px; min-height: 38px; padding: 8px 12px; border: 1px solid var(--color-base-200); border-radius: var(--style-radius-s); font: inherit; background: #fff; }
+.cms-mappick__reset { min-height: 38px; padding: 0 14px; border: 1px solid var(--red); border-radius: var(--style-radius-s); background: #fff; color: var(--red); font: inherit; font-weight: 600; cursor: pointer; }
+.cms-mappick__map { position: relative; width: 100%; max-width: 720px; border-radius: var(--style-radius-m); background: var(--cms-tint); overflow: hidden; }
+.cms-mappick__land { position: absolute; inset: 0; background: #d9a6a3; -webkit-mask-size: 100% 100%; mask-size: 100% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+.cms-mappick__map svg { position: absolute; inset: 0; width: 100%; height: 100%; cursor: crosshair; }
+.cms-mappick__dot { fill: var(--red); stroke: #fff; stroke-width: 3; }
+.cms-mappick__halo { fill: var(--red); opacity: 0.22; }
+.cms-mappick__status { margin: 0; font-size: 13px; color: var(--success); }
+.cms-mappick__status--empty { color: var(--maroon); }
