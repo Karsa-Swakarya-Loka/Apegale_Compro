@@ -119,12 +119,11 @@
   border-top: 1px solid var(--line); font-size: 13px; color: var(--ink-muted); }
 @media (max-width: 1263px) { .ag-footer__base { margin-inline: var(--space-8); } }
 
-/* WhatsApp float: square, with the slanted cut of the filled buttons. */
+/* WhatsApp float: rounded. */
 .ag-wa { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-3) var(--space-6) var(--space-3) var(--space-4); background: var(--whatsapp); color: var(--on-brand);
-  font-family: var(--font-display); font-weight: 700; text-decoration: none; clip-path: polygon(0 0, 100% 0, calc(100% - var(--slash-w)) 100%, 0 100%); }
+  font-family: var(--font-display); font-weight: 700; text-decoration: none; border-radius: var(--radius-pill); box-shadow: var(--shadow-raised); }
 .ag-wa svg { width: 24px; height: 24px; fill: currentColor; }
 .ag-wa--float { position: fixed; right: var(--space-6); bottom: calc(var(--space-6) + env(safe-area-inset-bottom, 0px)); z-index: var(--z-float); }
-.ag-wa--float:focus-visible { clip-path: none; }
 
 @media (max-width: 1099px) {
   .ag-nav, .ag-header__cta { display: none; }
@@ -148,6 +147,6 @@
   .ag-header__lang { display: inline-flex; }
   .ag-footer__in { padding: var(--space-12) var(--space-5) var(--space-8); gap: var(--space-8); }
   .ag-footer__base { margin-inline: var(--space-5); padding-right: calc(var(--wa-size) + var(--space-4)); }
-  .ag-wa--float { right: var(--space-4); bottom: calc(var(--space-4) + env(safe-area-inset-bottom, 0px)); width: var(--wa-size); height: var(--wa-size); padding: 0 var(--space-2) 0 0; justify-content: center; }
+  .ag-wa--float { right: var(--space-4); bottom: calc(var(--space-4) + env(safe-area-inset-bottom, 0px)); width: var(--wa-size); height: var(--wa-size); padding: 0; justify-content: center; }
   .ag-wa--float .ag-wa__label { display: none; }
 }

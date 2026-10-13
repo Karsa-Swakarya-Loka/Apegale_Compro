@@ -68,7 +68,7 @@
 
 /* ---------- About page ---------- */
 .ag-about { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: var(--space-16); align-items: end; }
-.ag-about__photo { position: relative; overflow: hidden; background: var(--surface-soft); }
+.ag-about__photo { position: relative; overflow: hidden; background: var(--surface); border-radius: var(--radius-xl); }
 .ag-about__photo::before { content: ""; position: absolute; top: 0; bottom: 0; left: 22%; width: 46%; background: var(--red-gradient); clip-path: polygon(45% 0, 100% 0, 55% 100%, 0 100%); }
 .ag-founder { position: relative; z-index: 1; }
 .ag-founder img { display: block; width: 100%; height: auto; }
@@ -77,7 +77,7 @@
 .ag-about__founder b { font-family: var(--font-display); font-size: 19px; font-weight: 900; text-transform: uppercase; }
 .ag-about__founder span { font-family: var(--font-label); font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--maroon); }
 .ag-vm { display: grid; gap: var(--space-10); }
-.ag-vm__vision { position: relative; display: grid; gap: var(--space-4); padding: var(--space-10); }
+.ag-vm__vision { position: relative; display: grid; gap: var(--space-4); padding: var(--space-10); border-radius: var(--radius-xl); }
 .ag-vm__vision p { font-family: var(--font-display); font-size: 26px; line-height: 36px; font-weight: 700; letter-spacing: -0.01em; }
 .ag-vm__mission { display: grid; gap: var(--space-4); }
 .ag-vm__mission ol { margin: 0; padding: 0; list-style: none; counter-reset: mission; display: grid; border-top: 1px solid var(--ink); }
@@ -103,7 +103,7 @@
 .ag-org__branch:only-child::after { display: none; }
 .ag-org__team > li { position: relative; padding-top: var(--space-4); }
 .ag-org__team > li::before { content: ""; position: absolute; top: 0; left: 50%; width: 1px; height: var(--space-4); background: var(--org-line); }
-.ag-org__card { display: grid; gap: 2px; padding: var(--space-3) var(--space-2); text-align: center; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); }
+.ag-org__card { display: grid; gap: 2px; padding: var(--space-3) var(--space-2); text-align: center; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); }
 .ag-org__card b { font-weight: 800; color: var(--c-head); }
 .ag-org__card span { font-size: 13px; line-height: 18px; color: var(--c-muted); }
 .ag-org__branch > .ag-org__card { border-top: 3px solid var(--maroon); }
@@ -115,7 +115,9 @@
 .ag-garis__logo { height: 48px; width: auto; }
 .ag-garis__shots { position: relative; padding-bottom: var(--space-12); }
 .ag-garis__shots::before { content: ""; position: absolute; top: 10%; bottom: 0; left: 30%; width: 40%; background: var(--red-gradient); clip-path: polygon(45% 0, 100% 0, 55% 100%, 0 100%); }
-.ag-garis__shot { position: relative; overflow: hidden; background: var(--surface); border: 1px solid var(--line); }
+.ag-garis__shot { position: relative; overflow: hidden; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); }
+/* The dashboard picture is a laptop mock-up on a transparent background: no frame. */
+.ag-garis__shot--wide { overflow: visible; background: none; border: 0; border-radius: 0; }
 .ag-garis__shot img { display: block; width: 100%; height: auto; }
 .ag-garis__shot--wide { width: 88%; }
 .ag-garis__shot--phone { position: absolute; right: 0; bottom: 0; width: 34%; }
@@ -165,7 +167,7 @@
 .ag-contact__list a:hover { color: var(--maroon); }
 .ag-contact__icon { display: grid; place-items: center; height: 26px; color: var(--maroon); }
 .ag-contact__info .ag-btn { justify-self: start; }
-.ag-contact__form { padding: var(--space-10); border-top: 6px solid transparent; border-image: var(--red-gradient) 1; background: var(--surface-soft); }
+.ag-contact__form { padding: var(--space-8); border-radius: var(--radius-xl); background: var(--surface-soft); box-shadow: inset 0 4px 0 var(--red); }
 
 /* ---------- 404 ---------- */
 .ag-notfound .ag-sechead { max-width: 680px; }

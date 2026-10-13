@@ -41,12 +41,13 @@ main:focus { outline: none; }
 
 /* ---------- Layout ---------- */
 .ag-container { max-width: var(--container); margin-inline: auto; padding-inline: var(--space-8); }
-.ag-section { position: relative; padding-block: var(--space-24); overflow-x: clip; }
-.ag-section--soft { background: var(--surface); border-top: 1px solid var(--line); }
+.ag-section { position: relative; padding-block: var(--space-20); overflow-x: clip; }
+.ag-section:not(.ag-section--red) { background: var(--surface); }
+/* Like Affirmate: every plain section changes colour from its neighbour (soft, white, soft…), so sections read as
+   blocks and the spacing between them never looks empty. Red fields keep their gradient. */
+main > .ag-section:nth-child(odd of .ag-section:not(.ag-section--red)) { background: var(--surface-soft); }
 .ag-section--red { overflow: hidden; }
-/* Consecutive white sections are split by a full-width hairline, never by a colour change. */
-.ag-section:not(.ag-section--soft, .ag-section--red) + .ag-section:not(.ag-section--soft, .ag-section--red) { border-top: 1px solid var(--line); }
-.ag-stack { display: grid; gap: var(--space-12); }
+.ag-stack { display: grid; gap: var(--space-10); }
 .ag-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: var(--space-16); align-items: start; }
 .ag-headrow { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--space-6); }
 .ag-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4) var(--space-6); }
@@ -66,7 +67,7 @@ main:focus { outline: none; }
 .ag-index::before { content: ""; width: var(--slash-w); height: 22px; background: var(--red-gradient); transform: skewX(-24deg); }
 .ag-red .ag-index::before, .ag-section--red .ag-index::before { background: var(--on-brand); }
 .ag-index + .ag-eyebrow::before { content: "/"; margin-right: var(--space-3); opacity: 0.5; }
-.ag-sechead { display: grid; gap: var(--space-5); justify-items: start; max-width: 760px; min-width: 0; }
+.ag-sechead { display: grid; gap: var(--space-3); justify-items: start; max-width: 760px; min-width: 0; }
 .ag-sechead :is(h1, h2) { text-transform: uppercase; font-weight: 900; letter-spacing: -0.02em; }
 .ag-sechead h1 { font-size: var(--fs-title); line-height: var(--lh-title); }
 .ag-sechead h2 { font-size: var(--fs-h2); line-height: var(--lh-h2); }
@@ -75,15 +76,14 @@ main:focus { outline: none; }
 .ag-sechead > p { font-size: var(--fs-lead); line-height: var(--lh-lead); color: var(--c-muted); max-width: var(--reading-width); }
 .ag-sechead--center { justify-items: center; text-align: center; margin-inline: auto; }
 
-/* ---------- Buttons: filled = slanted cut (drawn on ::before so focus rings stay whole); outline; text link ---------- */
+/* ---------- Buttons: filled (fill drawn on ::before), outline, text link; rounded corners ---------- */
 .ag-btn { position: relative; isolation: isolate; display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: 52px;
-  padding: var(--space-3) var(--space-6); border: 2px solid transparent; border-radius: 0; background: transparent; font-family: var(--font-display);
+  padding: var(--space-3) var(--space-6); border: 2px solid transparent; border-radius: var(--radius-md); background: transparent; font-family: var(--font-display);
   font-size: 15px; line-height: 20px; font-weight: 700; letter-spacing: 0.01em; text-decoration: none; cursor: pointer;
   transition: color var(--motion-base), border-color var(--motion-base), background-color var(--motion-base); }
 .ag-btn svg { flex: none; }
-.ag-btn:is(.ag-btn--primary, .ag-btn--wa, .ag-btn--light) { padding-right: calc(var(--space-6) + var(--slash-w)); }
 .ag-btn:is(.ag-btn--primary, .ag-btn--wa, .ag-btn--light)::before { content: ""; position: absolute; inset: -2px; z-index: -1; background: var(--btn-fill);
-  clip-path: polygon(0 0, 100% 0, calc(100% - var(--slash-w)) 100%, 0 100%); transition: background-color var(--motion-base); }
+  border-radius: inherit; transition: background-color var(--motion-base); }
 .ag-btn--primary { --btn-fill: var(--btn-bg); color: var(--btn-text); }
 .ag-btn--primary:hover { --btn-fill: var(--btn-bg-hover); }
 .ag-btn--wa { --btn-fill: var(--whatsapp); color: var(--on-brand); }
@@ -137,7 +137,7 @@ main:focus { outline: none; }
 
 /* News entry: picture, label + date, title; no frame. */
 .ag-news { display: grid; grid-template-rows: auto 1fr; gap: var(--space-5); padding-bottom: var(--space-10); }
-.ag-news__img { position: relative; aspect-ratio: 16 / 10; background: var(--surface-soft); overflow: hidden; }
+.ag-news__img { position: relative; aspect-ratio: 16 / 10; background: var(--surface-soft); overflow: hidden; border-radius: var(--radius-xl); }
 .ag-news__img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform var(--motion-reveal) var(--motion-ease-out); }
 .ag-news:is(:hover, :focus-within) .ag-news__img img { transform: scale(1.03); }
 .ag-news__body { display: grid; gap: var(--space-3); align-content: start; }
@@ -165,21 +165,21 @@ main:focus { outline: none; }
 .ag-faq__answer > * + * { margin-top: var(--space-3); }
 
 /* ---------- Form: underlined fields, no boxes ---------- */
-.ag-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6) var(--space-8); color: var(--ink); }
+.ag-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4) var(--space-6); color: var(--ink); }
 .ag .ag-form h3 { font-size: 24px; line-height: 30px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; }
 .ag-field { display: grid; gap: var(--space-1); min-width: 0; }
 .ag-field--full { grid-column: 1 / -1; }
 .ag-field label { font-family: var(--font-label); font-size: 11px; line-height: 16px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); }
 .ag-field__optional { font-weight: 600; letter-spacing: 0.04em; text-transform: none; }
-.ag-field :is(input, select, textarea) { width: 100%; min-height: 48px; padding: var(--space-2) 0; border: 0; border-bottom: 2px solid var(--line-strong); border-radius: 0;
+.ag-field :is(input, select, textarea) { width: 100%; min-height: 44px; padding: var(--space-1) 0; border: 0; border-bottom: 2px solid var(--line-strong); border-radius: 0;
   background: transparent; color: var(--ink); font: inherit; font-size: 17px; transition: border-color var(--motion-fast); }
 .ag-field :is(input, select, textarea):hover { border-bottom-color: var(--ink); }
 .ag-field :is(input, select, textarea):focus-visible { outline: none; border-bottom-color: var(--red); box-shadow: 0 2px 0 var(--red); }
-.ag-field textarea { min-height: 104px; resize: vertical; }
+.ag-field textarea { min-height: 88px; resize: vertical; }
 .ag-field[data-invalid] :is(input, select, textarea) { border-bottom-color: var(--danger); }
 .ag-field__error { display: flex; gap: var(--space-1); align-items: center; color: var(--danger); font-size: 14px; }
-.ag-form__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); margin-top: var(--space-2); }
-.ag-form__actions .ag-btn { min-width: 220px; min-height: 56px; }
+.ag-form__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
+.ag-form__actions .ag-btn { min-width: 220px; min-height: 52px; }
 .ag-form__status:empty { display: none; }
 .ag-form__status:focus { outline: none; }
 .ag-form__ok, .ag-form__fail { display: flex; gap: var(--space-2); align-items: flex-start; margin: 0; padding: var(--space-3) 0 var(--space-3) var(--space-4); border-left: 3px solid currentColor; font-weight: 600; }
@@ -201,13 +201,13 @@ main:focus { outline: none; }
 @media (max-width: 767px) {
   .ag { font-size: 16px; line-height: 26px; }
   .ag-container { padding-inline: var(--space-5); }
-  .ag-section { padding-block: var(--space-16); }
+  .ag-section { padding-block: var(--space-12); }
   .ag-stack { gap: var(--space-8); }
   .ag-grid, .ag-grid--index { grid-template-columns: minmax(0, 1fr); }
   .ag-sechead h1 { font-size: var(--fs-title-m); line-height: var(--lh-title-m); }
   .ag-sechead h2 { font-size: var(--fs-h2-m); line-height: var(--lh-h2-m); }
   .ag-sechead > p { font-size: 17px; line-height: 28px; }
   .ag-service { grid-template-columns: var(--space-10) minmax(0, 1fr); padding-block: var(--space-6) var(--space-8); }
-  .ag-form { grid-template-columns: minmax(0, 1fr); gap: var(--space-5); }
+  .ag-form { grid-template-columns: minmax(0, 1fr); gap: var(--space-4); }
   .ag-form__actions .ag-btn { width: 100%; }
 }

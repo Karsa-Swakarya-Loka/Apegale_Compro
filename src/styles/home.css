@@ -101,8 +101,10 @@
 .ag-showcase__copy { display: grid; gap: var(--space-8); justify-items: start; min-width: 0; }
 .ag-showcase__copy .ag-checklist { width: 100%; }
 .ag-showcase__media { position: relative; margin-right: calc(-1 * var(--space-24)); padding: var(--space-12) 0 var(--space-12) var(--space-10); }
-.ag-showcase__plane { position: absolute; top: 0; bottom: 0; left: 0; width: 46%; background: var(--red-gradient); clip-path: polygon(45% 0, 100% 0, 55% 100%, 0 100%); }
-.ag-showcase__shot { position: relative; overflow: hidden; background: var(--surface); border: 1px solid var(--line); }
+/* The red band behind the laptop runs out to the viewport edge (the section clips it). */
+.ag-showcase__plane { position: absolute; top: 16%; bottom: 10%; left: 22%; right: -100vw; background: var(--red-gradient); border-radius: var(--radius-xl) 0 0 var(--radius-xl);
+  transform: skewX(-12deg); transform-origin: bottom left; }
+.ag-showcase__shot { position: relative; }
 .ag-showcase__shot img { display: block; width: 100%; height: auto; }
 
 /* ---------- Network: map in the red gradient, city index beside it ---------- */
@@ -161,7 +163,7 @@
 .ag-about__quote { position: relative; padding-left: var(--space-8); font-size: 22px; line-height: 34px; font-weight: 500; color: var(--ink); }
 .ag-about__quote::before { content: "\201C"; position: absolute; left: 0; top: -6px; font-size: 56px; line-height: 56px; font-weight: 900; color: var(--maroon); }
 .ag-story__media { position: relative; }
-.ag-story__panel { position: relative; overflow: hidden; aspect-ratio: 4 / 4.2; background: var(--surface-soft); }
+.ag-story__panel { position: relative; overflow: hidden; aspect-ratio: 4 / 4.2; background: var(--surface); border-radius: var(--radius-xl); }
 .ag-story__panel::before { content: ""; position: absolute; top: 0; bottom: 0; left: 18%; width: 46%; background: var(--red-gradient); clip-path: polygon(45% 0, 100% 0, 55% 100%, 0 100%); }
 .ag-story__panel img { object-fit: contain; object-position: 50% 100%; }
 .ag-story__card { display: grid; gap: var(--space-1); padding-top: var(--space-4); border-top: 3px solid var(--maroon); margin-top: var(--space-4); }
@@ -169,18 +171,18 @@
 .ag-story__card span { font-family: var(--font-label); font-size: 11px; line-height: 16px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--maroon); }
 
 /* ---------- Closing: the red field, contacts left, form on a white panel ---------- */
-.ag-closing { position: relative; overflow: hidden; padding-block: var(--space-24); }
+.ag-closing { position: relative; overflow: hidden; padding-block: var(--space-20); }
 .ag-closing::before { content: ""; position: absolute; top: 0; bottom: 0; right: 4%; width: 220px; background: color-mix(in srgb, var(--on-brand) 7%, transparent); clip-path: polygon(55% 0, 100% 0, 45% 100%, 0 100%); }
 .ag-closing__in { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: var(--space-16); align-items: start; }
-.ag-closing__copy { display: grid; gap: var(--space-10); align-content: start; min-width: 0; }
+.ag-closing__copy { display: grid; gap: var(--space-8); align-content: start; min-width: 0; }
 .ag-contactlines { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--c-line); }
 .ag-contactlines li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: var(--space-4); align-items: start; padding-block: var(--space-4); border-bottom: 1px solid var(--c-line); }
 .ag-contactlines__icon { display: grid; place-items: center; height: 26px; color: var(--c-icon); }
 .ag-contactlines a, .ag-contactlines li > span:last-child { color: var(--c-text); font-weight: 700; text-decoration: none; overflow-wrap: anywhere; }
 .ag-contactlines a:hover { text-decoration: underline; }
 .ag-contactlines li:last-child :is(a, span:last-child) { font-weight: 400; }
-.ag-closing__form { padding: var(--space-10); background: var(--surface); }
-.ag-closing--banner { padding-block: var(--space-20); }
+.ag-closing__form { padding: var(--space-8); background: var(--surface); border-radius: var(--radius-xl); }
+.ag-closing--banner { padding-block: var(--space-16); }
 .ag-closing--banner .ag-closing__in { grid-template-columns: minmax(0, 1fr) auto; align-items: end; }
 
 @media (max-width: 1023px) {

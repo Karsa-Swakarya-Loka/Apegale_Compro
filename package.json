@@ -30,6 +30,7 @@
     "content:services": "tsx scripts/migrate-services-content.ts",
     "content:about": "tsx scripts/migrate-about-content.ts",
     "content:client-logos": "tsx scripts/update-client-logos.ts",
+    "content:photos": "tsx scripts/update-photos.ts",
     "content:regulations": "tsx scripts/migrate-regulations.ts",
     "check:redirects": "tsx scripts/check-redirects.ts",
     "og:image": "node scripts/build-og-image.mjs",
