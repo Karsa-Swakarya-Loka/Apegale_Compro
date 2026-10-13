@@ -1,13 +1,13 @@
 import type { CollectionConfig } from 'payload'
 import { contentAccess } from '../lib/access.ts'
-import { listAdmin, review, richText, row, slug, text, textarea } from '../lib/fields.ts'
+import { listAdmin, review, richText, row, slug, text, textarea, statusColumn } from '../lib/fields.ts'
 import { previewUrl } from '../lib/preview.ts'
 export const Regulations: CollectionConfig = {
  slug: 'regulations', labels: { singular: 'Regulasi', plural: 'Regulasi' },
- admin: { group: 'Konten situs', preview: previewUrl('regulations', true), useAsTitle: 'title', defaultColumns: ['title', 'category', 'issuedAt', '_status', 'enReviewed'],
+ admin: { hideAPIURL: true, group: 'Konten situs', preview: previewUrl('regulations', true), useAsTitle: 'title', defaultColumns: ['title', 'category', 'issuedAt', 'statusBadge', 'enReviewed'],
   description: 'Peraturan dan dokumen PDF di halaman Regulasi.' },
  access: contentAccess, versions: { drafts: true },
- fields: [
+ fields: [statusColumn, 
   text('title', true, { label: 'Judul peraturan' }),
   row({ name: 'category', type: 'select', required: true, label: 'Kategori', admin: { width: '40%' }, options: [
     { label: 'Undang-undang Cipta Kerja', value: 'cipta-kerja' }, { label: 'Ketentuan Perizinan TKA', value: 'perizinan-tka' },

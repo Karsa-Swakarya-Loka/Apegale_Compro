@@ -15,7 +15,7 @@ const sections: [string, string][] = [
 ]
 
 export const Home: GlobalConfig = {
- slug: 'home', label: 'Beranda', admin: { group: 'Halaman', preview: previewUrl('home'), description: 'Isi halaman Beranda, dikelompokkan per bagian halaman.' },
+ slug: 'home', label: 'Beranda', admin: { hideAPIURL: true, group: 'Halaman', preview: previewUrl('home'), description: 'Isi halaman Beranda, dikelompokkan per bagian halaman.' },
  access: globalAccess, versions: { drafts: true },
  fields: [
   tabs(

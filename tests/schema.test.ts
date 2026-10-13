@@ -35,7 +35,7 @@ test('public collections restrict reads to published and protect writes', () => 
  assert.equal(adminOnly({ req: { user: { role: 'admin' } } } as Parameters<typeof adminOnly>[0]), true)
  assert.equal(isStaff(null), false); assert.equal(isStaff({ role: 'unknown' }), false)
  assert.equal(isStaff({ role: 'editor' }), true); assert.equal(isStaff({ role: 'admin' }), true)
- assert.equal(Inquiries.access?.read, adminOnly); assert.equal(Inquiries.access?.create, adminOnly)
+ assert.equal(Inquiries.access?.read, adminOnly); assert.equal(typeof Inquiries.access?.create, 'function'); assert.equal((Inquiries.access?.create as () => boolean)(), false)
  assert.equal(Users.access?.update, adminOnly); assert.equal(Site.access?.update, adminOnly)
 })
 

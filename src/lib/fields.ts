@@ -68,3 +68,9 @@ export const cityPin = (geo: Record<string, number | string>): Field[] => [
   { name: 'lat', type: 'number', min: -90, max: 90, required: true, admin: { hidden: true } },
   { name: 'lng', type: 'number', min: -180, max: 180, required: true, admin: { hidden: true } },
 ]
+
+/** List column with a coloured publish-state label (draft vs live). Display only: a `ui` field stores nothing. */
+export const statusColumn: Field = {
+  name: 'statusBadge', type: 'ui', label: 'Status tayang',
+  admin: { disableListColumn: false, components: { Cell: '/components/admin/StatusCell#StatusCell' } },
+}

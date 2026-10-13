@@ -4,10 +4,11 @@ import { row } from '../lib/fields.ts'
 import { emailRequired, validPhone } from '../lib/validation.ts'
 export const Inquiries: CollectionConfig = {
  slug: 'inquiries', labels: { singular: 'Pesan masuk', plural: 'Pesan masuk' },
- admin: { group: 'Pesan masuk', useAsTitle: 'name', defaultColumns: ['name', 'service', 'status', 'createdAt', 'emailStatus'],
+ admin: { hideAPIURL: true, group: 'Pesan masuk', useAsTitle: 'name', defaultColumns: ['name', 'service', 'status', 'createdAt', 'emailStatus'],
   description: 'Pesan dari formulir situs. Ubah status setelah pengirim dihubungi.' },
  // Public forms will use the validated server handler in step 8, never unrestricted REST create.
- access: { create: adminOnly, read: adminOnly, update: adminOnly, delete: adminOnly },
+ // Messages only come from the site's forms (server action with overrideAccess); nobody creates them by hand.
+ access: { create: () => false, read: adminOnly, update: adminOnly, delete: adminOnly },
  timestamps: true,
  hooks: { beforeValidate: [({ data, originalDoc }) => {
    if (data && !emailRequired(data.variant ?? originalDoc?.variant ?? 'full', data.email ?? originalDoc?.email))

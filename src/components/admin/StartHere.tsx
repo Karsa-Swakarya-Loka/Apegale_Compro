@@ -24,7 +24,7 @@ export async function StartHere({ payload, user }: Props) {
           <span className="cms-task__label">Pesan masuk {fresh ? <span className="cms-task__badge">{fresh} baru</span> : null}</span>
           <span className="cms-task__hint">{fresh ? 'Ada pesan yang belum dihubungi' : 'Tidak ada pesan baru'}</span>
         </Link>
-        <Link className="cms-task" href="/admin/collections/posts/create">
+        <Link className="cms-task cms-task--new" href="/admin/collections/posts/create">
           <span className="cms-task__label">Tulis berita</span>
           <span className="cms-task__hint">Berita atau panduan baru</span>
         </Link>

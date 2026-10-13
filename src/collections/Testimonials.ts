@@ -1,10 +1,10 @@
 import type { CollectionConfig } from 'payload'
 import { contentAccess } from '../lib/access.ts'
-import { checkbox, order, review, row, text, textarea, upload } from '../lib/fields.ts'
+import { checkbox, order, review, row, text, textarea, upload, statusColumn } from '../lib/fields.ts'
 import { hasConsentForStatus } from '../lib/validation.ts'
 export const Testimonials: CollectionConfig = {
  slug: 'testimonials', labels: { singular: 'Testimoni', plural: 'Testimoni' },
- admin: { group: 'Konten situs', useAsTitle: 'name', defaultColumns: ['name', 'company', 'consent', '_status', 'enReviewed'],
+ admin: { hideAPIURL: true, group: 'Konten situs', useAsTitle: 'name', defaultColumns: ['name', 'company', 'consent', 'statusBadge', 'enReviewed'],
   description: 'Kutipan klien. Hanya bisa dipublikasikan setelah klien memberi izin.' },
  access: contentAccess, versions: { drafts: true },
  hooks: { beforeChange: [({ data, originalDoc }) => {
@@ -13,7 +13,7 @@ export const Testimonials: CollectionConfig = {
    if (!hasConsentForStatus(status, consent)) throw new Error('Izin tampil wajib sebelum testimoni dipublikasikan.')
    return data
  }] },
- fields: [
+ fields: [statusColumn, 
   textarea('quote', { label: 'Kutipan' }),
   row({ name: 'name', type: 'text', required: true, label: 'Nama', admin: { width: '34%' } }, text('role', false, { label: 'Jabatan', width: '33%' }),
    { name: 'company', type: 'text', required: true, label: 'Perusahaan', admin: { width: '33%' } }),

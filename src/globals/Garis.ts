@@ -4,7 +4,7 @@ import { checkbox, listAdmin, plain, row, seo, tab, tabs, text, textarea, upload
 import { httpUrl } from '../lib/validation.ts'
 import { previewUrl } from '../lib/preview.ts'
 export const Garis: GlobalConfig = {
- slug: 'garis', label: 'GARIS', admin: { group: 'Halaman', preview: previewUrl('garis'), description: 'Isi halaman GARIS dan tombol aksesnya.' },
+ slug: 'garis', label: 'GARIS', admin: { hideAPIURL: true, group: 'Halaman', preview: previewUrl('garis'), description: 'Isi halaman GARIS dan tombol aksesnya.' },
  access: globalAccess, versions: { drafts: true },
  fields: [
   tabs(

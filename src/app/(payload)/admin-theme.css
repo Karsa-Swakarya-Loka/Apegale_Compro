@@ -169,3 +169,20 @@ label.field-label .localized, .field-label .localized { font-size: 12px; font-we
   .tabs-field__tabs-wrap { padding: 12px; }
   .tabs-field__tab-button { padding: 8px 12px 8px 8px; font-size: 14px; }
 }
+
+/* ---------- Review 14 Okt: add-item buttons, status labels ---------- */
+/* Adding a row (price, city, point…) is the main action of a list: a full-width dashed button, not a grey text link. */
+.array-field__add-row.btn { --btn-color: var(--cms-accent-deep); align-self: stretch; justify-content: center; width: 100%; margin-top: 10px; padding: 12px 16px;
+  border: 1.5px dashed color-mix(in srgb, var(--cms-accent) 55%, var(--line)); border-radius: 12px; background: var(--cms-card); font-weight: 700; }
+.array-field__add-row.btn:hover:not(:disabled) { --btn-color: #fff; border-style: solid; border-color: var(--cms-accent); background: var(--cms-accent); }
+.array-field__add-row.btn .btn__label { font-size: 15px; }
+/* Publish state as a label in lists. */
+.cms-status { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; background: var(--color-base-150); color: var(--ink-muted); font-size: 13px; font-weight: 600; white-space: nowrap; }
+.cms-status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--color-base-450); }
+.cms-status--live { background: color-mix(in srgb, var(--success, #2f6b3a) 14%, #fff); color: var(--success, #2f6b3a); }
+.cms-status--live::before { background: var(--success, #2f6b3a); }
+/* Create buttons carry a plus so they read as "add something new" at a glance. */
+.list-header [class*="create-new-button"] .btn__label::before, .cms-task--new .cms-task__label::before {
+  content: ""; display: inline-block; flex: none; width: 12px; height: 12px; margin-right: 8px; vertical-align: -1px;
+  background: linear-gradient(currentColor, currentColor) center / 100% 2px no-repeat, linear-gradient(currentColor, currentColor) center / 2px 100% no-repeat; }
+.cms-task--new .cms-task__label::before { width: 14px; height: 14px; margin-right: 8px; color: var(--cms-accent); }

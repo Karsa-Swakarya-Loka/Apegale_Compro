@@ -1,17 +1,17 @@
 import type { CollectionConfig } from 'payload'
 import { contentAccess } from '../lib/access.ts'
-import { checkbox, icon, listAdmin, order, review, richText, row, seo, slug, tab, tabs, text, textarea, upload } from '../lib/fields.ts'
+import { checkbox, icon, listAdmin, order, review, richText, row, seo, slug, tab, tabs, text, textarea, upload, statusColumn } from '../lib/fields.ts'
 import { previewUrl } from '../lib/preview.ts'
 export const Services: CollectionConfig = {
  slug: 'services', labels: { singular: 'Layanan', plural: 'Layanan' },
- admin: { group: 'Konten situs', preview: previewUrl('services', true), useAsTitle: 'title', defaultColumns: ['title', 'parent', 'showInMenu', '_status', 'enReviewed'],
+ admin: { hideAPIURL: true, group: 'Konten situs', preview: previewUrl('services', true), useAsTitle: 'title', defaultColumns: ['title', 'parent', 'showInMenu', 'statusBadge', 'enReviewed'],
   description: 'Enam layanan utama dan sub-layanannya. Untuk sub-layanan, isi "Induk layanan".' },
  access: contentAccess, versions: { drafts: true },
- fields: [
+ fields: [statusColumn, 
   tabs(
    tab('Isi layanan', [
     text('title', true, { label: 'Nama layanan' }),
-    row({ name: 'parent', type: 'relationship', relationTo: 'services', label: 'Induk layanan (untuk sub-layanan)', admin: { width: '60%', description: 'Kosongkan untuk layanan utama.' } },
+    row({ name: 'parent', type: 'relationship', relationTo: 'services', label: 'Induk layanan', admin: { width: '60%', description: 'Kosongkan untuk layanan utama.' } },
      icon('icon', { width: '40%' })),
     { name: 'summary', type: 'textarea', localized: true, maxLength: 600, label: 'Ringkasan', admin: { description: 'Tampil di kartu layanan dan di bawah judul halaman (maks. 600 karakter).' } },
     richText('body', { label: 'Penjelasan lengkap' }),
