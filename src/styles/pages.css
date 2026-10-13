@@ -104,7 +104,7 @@
 .ag-org__branch:only-child::after { display: none; }
 .ag-org__team > li { position: relative; padding-top: var(--space-4); }
 .ag-org__team > li::before { content: ""; position: absolute; top: 0; left: 50%; width: 1px; height: var(--space-4); background: var(--org-line); }
-.ag-org__card { position: relative; display: grid; width: 100%; max-width: 260px; margin-inline: auto; text-align: left; }
+.ag-org__card { position: relative; display: grid; width: 100%; max-width: 260px; margin-inline: auto; text-align: center; }
 .ag-org__card b { position: relative; z-index: 1; padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); background: var(--maroon); color: var(--on-brand);
   font-family: var(--font-display); font-size: 16px; line-height: 22px; font-weight: 700; box-shadow: 0 6px 14px color-mix(in srgb, var(--maroon) 22%, transparent); }
 .ag-org__card span { margin: calc(-1 * var(--space-2)) var(--space-3) 0; padding: calc(var(--space-2) + var(--space-3)) var(--space-4) var(--space-3);
