@@ -46,6 +46,9 @@ html.ag-fonts { --font-serif: var(--font-roboto), "Segoe UI", system-ui, sans-se
 .ag-topbar a { color: var(--ink-muted); }
 .ag-topbar a:hover { color: var(--ink); }
 .ag-header { border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--surface) 94%, transparent); backdrop-filter: blur(10px); }
+/* Below desktop the header holds the fixed mobile menu panel; a backdrop-filter would make the header its containing
+   block and clip the panel to the header's height. Solid header instead, so the panel is positioned against the viewport. */
+@media (max-width: 1099px) { .ag-header { backdrop-filter: none; background: var(--surface); } }
 .ag-nav a { font-family: var(--font-body); font-weight: 600; font-size: 15px; border-bottom: 0; }
 .ag-nav a[aria-current], .ag-nav__item:hover > a { color: var(--maroon); }
 .ag-nav a[aria-current]::after { content: ""; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--red); margin: 2px auto 0; }
