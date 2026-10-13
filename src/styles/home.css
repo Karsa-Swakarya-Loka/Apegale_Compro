@@ -22,16 +22,16 @@
 .ag-hero__lead { max-width: 34em; padding: var(--space-4) 0 var(--space-8); font-size: 16px; line-height: 26px; color: var(--ink); }
 .ag-hero__cta { display: flex; flex-wrap: wrap; gap: var(--space-5); }
 /* Pill buttons with a round arrow chip (hero + home header). */
-.ag-hero .ag-btn, .ag-masthead[data-home] .ag-header__cta { min-height: 52px; gap: var(--space-3); padding: var(--space-2) var(--space-2) var(--space-2) 22px; border-radius: 50px; font-size: 16px; }
-.ag-hero .ag-btn::before, .ag-masthead[data-home] .ag-header__cta::before { inset: 0; border-radius: 50px; clip-path: none; }
+.ag-hero .ag-btn, .ag-pagehero .ag-btn:not([aria-disabled]), .ag-masthead[data-float] .ag-header__cta { min-height: 52px; gap: var(--space-3); padding: var(--space-2) var(--space-2) var(--space-2) 22px; border-radius: 50px; font-size: 16px; }
+.ag-hero .ag-btn::before, .ag-pagehero .ag-btn::before, .ag-masthead[data-float] .ag-header__cta::before { inset: 0; border-radius: 50px; clip-path: none; }
 .ag-hero .ag-btn--outline { border: 1px solid var(--red); color: var(--red); }
 .ag-hero .ag-btn--outline:hover { background: var(--red); border-color: var(--red); color: var(--on-brand); }
 .ag-btn__chip { display: none; }
-.ag-hero .ag-btn__chip, .ag-masthead[data-home] .ag-btn__chip { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%;
+.ag-hero .ag-btn__chip, .ag-masthead[data-float] .ag-btn__chip { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%;
   background: color-mix(in srgb, var(--on-brand) 22%, transparent); transition: transform var(--motion-base) var(--motion-ease-out); }
 .ag-hero .ag-btn--outline .ag-btn__chip { background: color-mix(in srgb, var(--red) 12%, var(--surface)); }
 .ag-hero .ag-btn--outline:hover .ag-btn__chip { background: color-mix(in srgb, var(--on-brand) 22%, transparent); }
-.ag-hero .ag-btn:hover .ag-btn__chip, .ag-masthead[data-home] .ag-header__cta:hover .ag-btn__chip { transform: translateX(3px); }
+.ag-hero .ag-btn:hover .ag-btn__chip, .ag-masthead[data-float] .ag-header__cta:hover .ag-btn__chip { transform: translateX(3px); }
 /* Photo panel: right half, slanted left edge with a rounded foot, red edge behind it. */
 .ag-hero__media { position: absolute; z-index: 1; top: 0; right: 0; bottom: 0; width: 52%; }
 .ag-hero__media::before { content: ""; position: absolute; inset: 0 0 0 -14px; background: var(--red-gradient); clip-path: url(#ag-hero-clip); }
@@ -44,15 +44,14 @@
 /* Vertical dots on the left edge; the current one sits in a tinted halo. */
 .ag-hero__controls { position: absolute; z-index: 3; left: 25px; top: 50%; transform: translateY(-50%); display: grid; justify-items: center; gap: var(--space-3); }
 .ag-hero__dots { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-1); }
-.ag-hero__dots button, .ag-hero__pause { position: relative; display: grid; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; border-radius: 50%; background: transparent; cursor: pointer; }
+.ag-hero__dots button { position: relative; display: grid; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; border-radius: 50%; background: transparent; cursor: pointer; }
 .ag-hero__dots button::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: color-mix(in srgb, var(--red) 28%, var(--surface)); transition: background-color var(--motion-base); }
 .ag-hero__dots button[aria-current] { background: color-mix(in srgb, var(--red) 14%, var(--surface)); }
 .ag-hero__dots button[aria-current]::before { background: var(--red); }
-.ag-hero__pause { color: var(--maroon); border: 1px solid color-mix(in srgb, var(--red) 28%, var(--surface)); }
 /* Entrance on the active slide (durations from the reference: 1.3 s copy, 1.4 s photo). */
-.js .ag-hero__badge { opacity: 0; transform: translateY(-200px); transition: transform 1300ms ease, opacity 1300ms ease; }
+.js .ag-hero .ag-hero__badge { opacity: 0; transform: translateY(-200px); transition: transform 1300ms ease, opacity 1300ms ease; }
 .js .ag-hero__title, .js .ag-hero__lead, .js .ag-hero__cta { opacity: 0; transform: translateX(-400px); transition: transform 1300ms ease, opacity 1300ms ease; }
-.js .ag-hero__photo img { opacity: 0; transform: translateX(350px); transition: transform 1400ms ease, opacity 1400ms ease; }
+.js .ag-hero .ag-hero__photo img { opacity: 0; transform: translateX(350px); transition: transform 1400ms ease, opacity 1400ms ease; }
 .ag-hero[data-ready] .ag-hero__slide[data-state="active"] :is(.ag-hero__badge, .ag-hero__title, .ag-hero__lead, .ag-hero__cta, .ag-hero__photo img) { opacity: 1; transform: none; }
 
 /* ---------- Clients: one hairline band under the hero ---------- */
@@ -177,15 +176,15 @@
 /* ---------- Closing: the red field, contacts left, form on a white panel ---------- */
 .ag-closing { position: relative; overflow: hidden; padding-block: var(--space-20); }
 .ag-closing::before { content: ""; position: absolute; top: 0; bottom: 0; right: 4%; width: 220px; background: color-mix(in srgb, var(--on-brand) 7%, transparent); clip-path: polygon(55% 0, 100% 0, 45% 100%, 0 100%); }
-.ag-closing__in { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: var(--space-16); align-items: start; }
-.ag-closing__copy { display: grid; gap: var(--space-8); align-content: start; min-width: 0; }
+.ag-closing__in { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-12); align-items: stretch; }
+.ag-closing__copy { display: flex; flex-direction: column; justify-content: space-between; gap: var(--space-8); min-width: 0; }
 .ag-contactlines { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--c-line); }
 .ag-contactlines li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: var(--space-4); align-items: start; padding-block: var(--space-4); border-bottom: 1px solid var(--c-line); }
 .ag-contactlines__icon { display: grid; place-items: center; height: 26px; color: var(--c-icon); }
 .ag-contactlines a, .ag-contactlines li > span:last-child { color: var(--c-text); font-weight: 700; text-decoration: none; overflow-wrap: anywhere; }
 .ag-contactlines a:hover { text-decoration: underline; }
 .ag-contactlines li:last-child :is(a, span:last-child) { font-weight: 400; }
-.ag-closing__form { padding: var(--space-8); background: var(--surface); border-radius: var(--radius-xl); }
+.ag-closing__form { display: flex; flex-direction: column; justify-content: center; padding: var(--space-8); background: var(--surface); border-radius: var(--radius-xl); }
 .ag-closing--banner { padding-block: var(--space-16); }
 .ag-closing--banner .ag-closing__in { grid-template-columns: minmax(0, 1fr) auto; align-items: end; }
 

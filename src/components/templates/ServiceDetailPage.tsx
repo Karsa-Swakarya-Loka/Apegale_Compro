@@ -53,7 +53,7 @@ export async function ServiceDetailPage({ locale, slug }: { locale: Locale; slug
   return (
     <>
       <JsonLd data={serviceLd(service, locale)} />
-      <PageHeader title={service.title} intro={service.summary}
+      <PageHeader locale={locale} title={service.title} intro={service.summary}
         crumbs={crumbs} crumbLabel={m.services.breadcrumb} />
 
       <section className="ag-section">

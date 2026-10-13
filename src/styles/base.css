@@ -164,19 +164,19 @@ main > .ag-section:nth-child(odd of .ag-section:not(.ag-section--red)) { backgro
 .ag-faq__answer > * { margin: 0; }
 .ag-faq__answer > * + * { margin-top: var(--space-3); }
 
-/* ---------- Form: underlined fields, no boxes ---------- */
+/* ---------- Form: clean boxed fields ---------- */
 .ag-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4) var(--space-6); color: var(--ink); }
-.ag .ag-form h3 { font-size: 24px; line-height: 30px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; }
-.ag-field { display: grid; gap: var(--space-1); min-width: 0; }
+.ag .ag-form h3 { font-size: 22px; line-height: 30px; font-weight: 700; }
+.ag-field { display: grid; gap: 6px; min-width: 0; }
 .ag-field--full { grid-column: 1 / -1; }
-.ag-field label { font-family: var(--font-label); font-size: 11px; line-height: 16px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); }
-.ag-field__optional { font-weight: 600; letter-spacing: 0.04em; text-transform: none; }
-.ag-field :is(input, select, textarea) { width: 100%; min-height: 44px; padding: var(--space-1) 0; border: 0; border-bottom: 2px solid var(--line-strong); border-radius: 0;
-  background: transparent; color: var(--ink); font: inherit; font-size: 17px; transition: border-color var(--motion-fast); }
-.ag-field :is(input, select, textarea):hover { border-bottom-color: var(--ink); }
-.ag-field :is(input, select, textarea):focus-visible { outline: none; border-bottom-color: var(--red); box-shadow: 0 2px 0 var(--red); }
-.ag-field textarea { min-height: 88px; resize: vertical; }
-.ag-field[data-invalid] :is(input, select, textarea) { border-bottom-color: var(--danger); }
+.ag-field label { font-size: 14px; line-height: 20px; font-weight: 600; color: var(--ink); }
+.ag-field__optional { font-weight: 400; color: var(--ink-muted); }
+.ag-field :is(input, select, textarea) { width: 100%; min-height: 48px; padding: 10px 14px; border: 1px solid var(--line-strong); border-radius: var(--radius-md);
+  background: var(--surface); color: var(--ink); font: inherit; font-size: 16px; transition: border-color var(--motion-fast), box-shadow var(--motion-fast); }
+.ag-field :is(input, select, textarea):hover { border-color: var(--ink-muted); }
+.ag-field :is(input, select, textarea):focus-visible { outline: none; border-color: var(--red); box-shadow: 0 0 0 3px color-mix(in srgb, var(--red) 18%, transparent); }
+.ag-field textarea { min-height: 112px; resize: vertical; }
+.ag-field[data-invalid] :is(input, select, textarea) { border-color: var(--danger); box-shadow: 0 0 0 1px var(--danger); }
 .ag-field__error { display: flex; gap: var(--space-1); align-items: center; color: var(--danger); font-size: 14px; }
 .ag-form__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
 .ag-form__actions .ag-btn { min-width: 220px; min-height: 52px; }

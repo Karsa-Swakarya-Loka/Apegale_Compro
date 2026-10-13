@@ -31,7 +31,7 @@ export async function ServicesPage({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <PageHeader title={m.services.indexTitle} intro={ui.pages?.services?.intro || m.services.indexIntro}
+      <PageHeader locale={locale} title={m.services.indexTitle} intro={ui.pages?.services?.intro || m.services.indexIntro}
         crumbLabel={m.services.breadcrumb}
         crumbs={[{ label: ui.nav?.home || 'Home', href: href(locale, 'home') }, { label: ui.nav?.services || '' }]} />
 

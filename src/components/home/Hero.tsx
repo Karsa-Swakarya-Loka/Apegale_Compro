@@ -10,7 +10,7 @@ type Props = Slide & {
   image?: Media | null
   /** Further slides after the main message (real CMS content only, e.g. the first services). */
   more?: Slide[]
-  labels: { label: string; slide: string; pause: string; play: string }
+  labels: { label: string; slide: string }
 }
 
 /** Home hero (reference: unifato "Cargon" home 3): a light field under the floating capsule header, copy on the left

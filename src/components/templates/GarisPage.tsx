@@ -39,7 +39,7 @@ export async function GarisPage({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <PageHeader title="GARIS" intro={m.home.garisTitle} crumbLabel={m.services.breadcrumb}
+      <PageHeader locale={locale} title="GARIS" intro={m.home.garisTitle} crumbLabel={m.services.breadcrumb}
         crumbs={[{ label: ui.nav?.home || 'Home', href: href(locale, 'home') }, { label: 'GARIS' }]}
         actions={<>
           {wa ? <Button variant="wa" href={wa} label={ui.cta?.askWhatsapp || ''} icon={<WhatsAppIcon size={20} />} /> : null}

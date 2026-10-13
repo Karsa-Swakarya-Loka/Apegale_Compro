@@ -57,7 +57,7 @@ export async function ArticleDetailPage({ kind, locale, slug }: { kind: Kind; lo
     <>
       <JsonLd data={articleLd({ kind, slug: doc.slug, title: doc.title, description: isReg ? reg.summary : post.excerpt,
         published: isReg ? reg.issuedAt : post.publishedAt, modified: doc.updatedAt, image: cover }, locale)} />
-      <PageHeader title={doc.title} intro={isReg ? reg.summary : post.excerpt} crumbLabel={m.services.breadcrumb}
+      <PageHeader locale={locale} plain={!isReg} title={doc.title} intro={isReg ? reg.summary : post.excerpt} crumbLabel={m.services.breadcrumb}
         crumbs={[{ label: ui.nav?.home || 'Home', href: href(locale, 'home') }, { label: listLabel, href: href(locale, kind) }, { label: doc.title }]} />
 
       <section className="ag-section">

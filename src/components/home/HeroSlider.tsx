@@ -1,21 +1,21 @@
 'use client'
-// Home hero slider (reference: unifato "Cargon" home 3). Slides move horizontally every 3 s; on the active slide the
+// Home hero slider (reference: unifato "Cargon" home 3). Slides move horizontally every 15 s; on the active slide the
 // badge drops in from above, title, text and buttons slide in from the left and the photo from the right. Vertical
-// dots sit on the left edge. Additions for WCAG 2.2.2: autoplay pauses on hover/focus, has a pause button, stops
-// while the tab is hidden and never starts with reduced motion. Without JS the first slide is simply shown.
+// dots sit on the left edge. Autoplay pauses on hover/focus, stops while the tab is hidden and never starts with
+// reduced motion. Without JS the first slide is simply shown.
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
-import { Pause, Play } from 'lucide-react'
+import { HeroClipDefs } from '@/components/ui/HeroClipDefs'
 
-type Labels = { label: string; slide: string; pause: string; play: string }
+type Labels = { label: string; slide: string }
 type Props = { slides: ReactNode[]; labels: Labels; interval?: number }
 
-export function HeroSlider({ slides, labels, interval = 3000 }: Props) {
+export function HeroSlider({ slides, labels, interval = 15000 }: Props) {
   const count = slides.length
   const [active, setActive] = useState(0)
   const [prev, setPrev] = useState<number | null>(null)
   const [dir, setDir] = useState<'next' | 'back'>('next')
   const [ready, setReady] = useState(false)
-  const [stopped, setStopped] = useState(false) // pause button
+  const [stopped, setStopped] = useState(false) // reduced motion
   const [held, setHeld] = useState(false) // hover / focus
   const rootRef = useRef<HTMLElement>(null)
 
@@ -56,10 +56,7 @@ export function HeroSlider({ slides, labels, interval = 3000 }: Props) {
           </div>
         ))}
       </div>
-      <svg className="ag-hero__defs" width="0" height="0" aria-hidden="true" focusable="false">
-        <clipPath id="ag-hero-clip" clipPathUnits="objectBoundingBox"><path d="M0.42 0 L1 0 L1 0.97 L0.14 0.855 Q0.03 0.84 0.045 0.73 Z" /></clipPath>
-        <clipPath id="ag-hero-clip-m" clipPathUnits="objectBoundingBox"><path d="M0 0.2 L1 0 L1 1 L0 1 Z" /></clipPath>
-      </svg>
+      <HeroClipDefs />
       <svg className="ag-hero__wave" viewBox="0 0 220 300" aria-hidden="true" focusable="false">
         <path d="M70 300 C 40 240, 120 200, 70 150 S -40 80, -60 40" />
         <path d="M110 300 C 90 230, 150 190, 95 140 S -20 60, -50 10" />
@@ -75,9 +72,6 @@ export function HeroSlider({ slides, labels, interval = 3000 }: Props) {
               </li>
             ))}
           </ol>
-          <button type="button" className="ag-hero__pause" aria-label={stopped ? labels.play : labels.pause} onClick={() => setStopped(s => !s)}>
-            {stopped ? <Play size={12} aria-hidden="true" /> : <Pause size={12} aria-hidden="true" />}
-          </button>
         </div>
       ) : null}
     </section>

@@ -32,7 +32,7 @@ export async function ContactPage({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <PageHeader title={m.contact.title} intro={ui.pages?.contact?.intro || m.contact.intro} crumbLabel={m.services.breadcrumb}
+      <PageHeader locale={locale} title={m.contact.title} intro={ui.pages?.contact?.intro || m.contact.intro} crumbLabel={m.services.breadcrumb}
         crumbs={[{ label: ui.nav?.home || 'Home', href: href(locale, 'home') }, { label: ui.nav?.contact || '' }]} />
 
       <section className="ag-section">

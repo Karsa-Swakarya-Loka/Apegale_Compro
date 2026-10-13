@@ -58,7 +58,7 @@ export async function ArticlesPage({ kind, locale, query }: { kind: Kind; locale
 
   return (
     <>
-      <PageHeader title={isReg ? m.articles.regulationsTitle : m.articles.newsTitle}
+      <PageHeader locale={locale} plain={!isReg} title={isReg ? m.articles.regulationsTitle : m.articles.newsTitle}
         intro={(isReg && category ? m.regulationCategories.find(c => c.value === category)?.intro : '') || pageInfo?.intro || (isReg ? m.articles.regulationsIntro : m.articles.newsIntro)} crumbLabel={m.services.breadcrumb}
         crumbs={[{ label: ui.nav?.home || 'Home', href: href(locale, 'home') }, { label: (isReg ? ui.nav?.regulations : ui.nav?.news) || '' }]} />
 

@@ -36,7 +36,7 @@ export async function AboutPage({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <PageHeader title={m.about.title} intro={about.intro || m.about.intro} crumbLabel={m.services.breadcrumb}
+      <PageHeader locale={locale} title={m.about.title} intro={about.intro || m.about.intro} crumbLabel={m.services.breadcrumb}
         crumbs={[{ label: ui.nav?.home || 'Home', href: href(locale, 'home') }, { label: ui.nav?.about || '' }]} />
 
       <section className="ag-section" id="salam" aria-labelledby="greeting-title">
