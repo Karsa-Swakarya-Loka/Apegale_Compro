@@ -5,6 +5,7 @@ import type { Locale } from './config.ts'
 const messages = {
   id: {
     skipToContent: 'Lewati ke konten',
+    heroSlider: { label: 'Sorotan utama', slide: 'Slide {n} dari {total}', pause: 'Jeda pergantian slide', play: 'Lanjutkan pergantian slide' },
     preview: { label: 'Mode pratinjau: halaman ini menampilkan draft yang belum dipublish.', exit: 'Keluar pratinjau' },
     mainMenu: 'Menu utama',
     openMenu: 'Buka menu',
@@ -149,6 +150,7 @@ const messages = {
   },
   en: {
     skipToContent: 'Skip to content',
+    heroSlider: { label: 'Highlights', slide: 'Slide {n} of {total}', pause: 'Pause slides', play: 'Play slides' },
     preview: { label: 'Preview mode: this page shows unpublished drafts.', exit: 'Exit preview' },
     mainMenu: 'Main menu',
     openMenu: 'Open menu',

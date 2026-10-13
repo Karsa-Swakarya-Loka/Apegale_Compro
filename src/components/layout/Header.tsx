@@ -8,6 +8,7 @@ import { href } from '@/i18n/routes'
 import { telHref, whatsappHref } from '@/lib/whatsapp'
 import { WhatsAppIcon } from '@/components/ui/BrandIcons'
 import { HeaderNav, type NavItem } from './HeaderNav'
+import { Masthead } from './Masthead'
 import { LanguageToggle } from './LanguageToggle'
 
 type Props = {
@@ -22,7 +23,7 @@ type Props = {
 export function Header({ locale, site, items, cta, messages, languageLabel }: Props) {
   const wa = whatsappHref(site.whatsapp, site.whatsappDefaultMessage)
   return (
-    <>
+    <Masthead homeHref={href(locale, 'home')}>
       <div className="ag-topbar">
         <div className="ag-topbar__in">
           {site.phone ? <a href={telHref(site.phone)}><Phone aria-hidden="true" />{site.phone}</a> : null}
@@ -44,7 +45,7 @@ export function Header({ locale, site, items, cta, messages, languageLabel }: Pr
             labels={{ mainMenu: messages.mainMenu, openMenu: messages.openMenu, closeMenu: messages.closeMenu, showSubmenu: messages.showSubmenu, language: languageLabel }} />
         </div>
       </header>
-    </>
+    </Masthead>
   )
 }
 

@@ -275,3 +275,13 @@ Arahan owner: buang gradien generik, kartu berlebihan, pill, dan tata letak yang
 **Penyimpangan dari aturan lama yang disengaja:** toggle bahasa bukan pill lagi (AGENTS.md menyebut pill) dan tombol bersudut tajam (v8 memakai 6px), keduanya atas arahan owner "tanpa pill".
 
 Verifikasi: Beranda dan halaman dalam di 360/390/820/1024/1440 px tanpa scroll horizontal; menu mobile (tap, submenu, Escape) dan peta interaktif diuji; `typecheck`, `lint`, 27 test, `build` lulus.
+
+## Header Beranda v10.1 (13 Okt 2026): struktur & animasi dari unifato "Cargon" home 3
+
+Hanya header Beranda (masthead + hero). Halaman lain tetap header v10 (topbar + header sticky bergaris rambut).
+
+- **Header kapsul:** topbar disembunyikan; header melayang 24px dari atas sebagai kapsul putih (radius 87px, padding 20/24, bayangan lembut): logo kiri, menu tengah (abu, aktif merah, tanpa garis bawah), tombol pill "Minta penawaran" dengan chip panah bulat, toggle ID/EN. Mulai scroll 1px header jadi bar putih penuh `position: fixed`, sudut 0, padding 15px, turun dari −150px dalam 950ms (`ag-header-down`). Komponen: `layout/Masthead.tsx` (client, `display: contents` agar sticky di halaman lain tetap jalan).
+- **Hero slider:** latar `surface-soft`, tinggi 784px desktop. Tiga slide: hero CMS (satu-satunya `h1`) + dua layanan pertama dari CMS (tanpa copy karangan). Ganti otomatis tiap 3 detik, geser horizontal 300ms; titik vertikal di tepi kiri (aktif merah dengan halo). Panel foto kanan bertepi miring dengan kaki membulat (clipPath SVG `#ag-hero-clip`) dan tepi gradasi merah di belakangnya; garis gelombang merah kiri bawah.
+- **Animasi masuk slide aktif:** badge turun dari −200px, judul/teks/tombol masuk dari kiri −400px (1,3 detik), foto dari kanan 350px (1,4 detik). Tanpa JS slide pertama langsung tampil.
+- **Tambahan aksesibilitas (tidak ada di referensi):** autoplay berhenti saat hover/fokus, tombol jeda/putar, tidak berjalan saat tab tersembunyi atau dengan `prefers-reduced-motion`; slide tidak aktif `inert` + `aria-hidden`; titik berukuran target 24px.
+- **Penyimpangan sadar dari v10:** kapsul, tombol pill dan badge pill di header Beranda (atas permintaan "terapkan persis"); angka 20+/35+ tidak lagi di hero (referensi tidak punya; angka tetap di seksi Jaringan dan Tentang Kami); arahan lama "tanpa slider otomatis" di hero diganti oleh permintaan ini.

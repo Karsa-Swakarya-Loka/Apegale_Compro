@@ -47,7 +47,6 @@ export async function HomePage({ locale }: { locale: Locale }) {
   const cta = (link?: { label?: string | null; href?: string | null }) => ({
     label: link?.label || '', href: link?.href === 'whatsapp' ? wa : localizeHref(link?.href, locale),
   })
-  const stats = (site.stats ?? []).map(s => ({ value: s.value, label: s.label }))
   const serviceHref = (slug: string) => href(locale, 'services', slug)
   const visibleTestimonials = testimonials.filter(t => t.quote)
   // The old home page shows the first "Tentang Kami" paragraph of the company profile.
@@ -62,9 +61,11 @@ export async function HomePage({ locale }: { locale: Locale }) {
     <>
       <JsonLd data={organizationLd(site, locale, home.seo?.description || site.seoDefault?.description)} />
       {show('hero') ? (
-        <Hero eyebrow={home.hero?.eyebrow} headline={home.hero?.headline || 'Ape Gale Indonesia'} highlight={home.hero?.highlight}
-          lead={home.hero?.lead} image={asMedia(home.hero?.image)} primary={cta(home.hero?.primaryCta)}
-          secondary={cta(home.hero?.secondaryCta)} stats={stats} />
+        <Hero eyebrow={home.hero?.eyebrow} title={home.hero?.headline || 'Ape Gale Indonesia'} highlight={home.hero?.highlight}
+          text={home.hero?.lead} image={asMedia(home.hero?.image)} primary={cta(home.hero?.primaryCta)}
+          secondary={cta(home.hero?.secondaryCta)} labels={m.heroSlider}
+          more={services.slice(0, 2).map(s => ({ eyebrow: ui.nav?.services, title: s.title, text: s.summary,
+            primary: { label: ui.cta?.more || '', href: serviceHref(s.slug) }, secondary: cta(home.hero?.primaryCta) }))} />
       ) : null}
 
       {show('clients') ? <ClientStrip clients={clients} labels={{ title: ui.sections?.clients || '' }} /> : null}

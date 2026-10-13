@@ -1,30 +1,59 @@
 /* Home sections (design v10). White carries the page; the red gradient appears as the hero slash, one red field
    (Mengapa Ape Gale), the map's land and the closing field. */
 
-/* ---------- Hero: oversized title on white, photo cut by the red slash ---------- */
-.ag-hero { position: relative; overflow: hidden; background: var(--surface); border-bottom: 1px solid var(--line); }
-.ag-hero__in { position: relative; z-index: 2; max-width: var(--container); min-height: 620px; margin: 0 auto; padding: var(--space-20) var(--space-8) var(--space-16);
-  display: flex; align-items: center; }
-.ag-hero__copy { max-width: 620px; display: grid; justify-items: start; }
-.ag-hero__copy .ag-eyebrow { display: inline-flex; align-items: center; gap: var(--space-3); max-width: 34em; margin-bottom: var(--space-6); }
-.ag-hero__copy .ag-eyebrow::before { content: ""; flex: none; width: var(--slash-w); height: 22px; background: var(--red-gradient); transform: skewX(-24deg); }
-.ag-hero h1 { font-size: var(--fs-display); line-height: var(--lh-display); font-weight: 900; letter-spacing: -0.03em; text-transform: uppercase; color: var(--ink); }
-.ag-hero h1 em { font-style: normal; color: var(--maroon); }
-.ag-hero__lead { margin-top: var(--space-10); max-width: 30em; padding-left: var(--space-5); border-left: 3px solid var(--red); font-size: var(--fs-lead); line-height: var(--lh-lead); color: var(--ink-muted); }
-.ag-hero__cta { margin-top: var(--space-10); }
-.ag-hero__cta .ag-btn { min-height: 60px; padding-inline: var(--space-8); font-size: 16px; }
-.ag-hero__cta .ag-btn--primary { padding-right: calc(var(--space-8) + var(--slash-w)); }
-.ag-stats { margin: var(--space-12) 0 0; display: flex; flex-wrap: wrap; gap: var(--space-6) 0; }
-.ag-stat { padding-right: var(--space-8); margin-right: var(--space-8); border-right: 1px solid var(--line); }
-.ag-stat:last-child { border-right: 0; margin-right: 0; padding-right: 0; }
-.ag-stat dd { margin: 0; display: grid; gap: var(--space-1); }
-.ag-stat b { font-family: var(--font-display); font-size: 48px; line-height: 48px; font-weight: 900; letter-spacing: -0.03em; color: var(--maroon); }
-.ag-stat span { font-family: var(--font-label); font-size: 11px; line-height: 16px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); }
-.ag-hero__media { position: absolute; z-index: 1; top: 0; right: 0; bottom: 0; width: 44%; clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%); }
-.ag-hero__media img { object-fit: cover; }
-/* The signature slash: a thick red-gradient band along the photo's cut, a thin white cut echoing it. */
-.ag-hero__stripe { position: absolute; inset: 0; background: var(--red-gradient); clip-path: polygon(30% 0, 40% 0, 10% 100%, 0 100%); }
-.ag-hero__stripe::after { content: ""; position: absolute; inset: 0; background: var(--surface); clip-path: polygon(40% 0, 41.6% 0, 11.6% 100%, 10% 100%); }
+/* ---------- Hero (reference: unifato "Cargon" home 3) ----------
+   Light field under the floating capsule header. Slides share one grid cell (height = tallest slide) and move
+   horizontally; on the active slide the badge drops in, copy and buttons slide in from the left, the photo from the
+   right. Without JS (no .js class) everything is simply shown. */
+.ag-hero { position: relative; overflow: hidden; background: var(--surface-soft); isolation: isolate; }
+.ag-hero__track { display: grid; }
+.ag-hero__slide { grid-area: 1 / 1; position: relative; min-height: 784px; transform: translateX(100%); }
+.ag-hero[data-dir="back"] .ag-hero__slide[data-state="idle"] { transform: translateX(-100%); }
+.ag-hero__slide[data-state="active"] { z-index: 2; transform: none; transition: transform 300ms ease; }
+.ag-hero__slide[data-state="prev"] { z-index: 1; transform: translateX(-100%); transition: transform 300ms ease; }
+.ag-hero[data-dir="back"] .ag-hero__slide[data-state="prev"] { transform: translateX(100%); }
+.ag-hero__in { max-width: var(--container); height: 100%; margin: 0 auto; padding: 0 var(--space-8); }
+.ag-hero__copy { position: relative; z-index: 2; max-width: 600px; padding: 230px 0 var(--space-20); display: grid; justify-items: start; }
+.ag-hero__badge { display: inline-flex; align-items: center; gap: 10px; padding: 6px var(--space-4); border-radius: 50px; background: color-mix(in srgb, var(--red) 10%, var(--surface));
+  color: var(--maroon); font-size: 15px; line-height: 20px; font-weight: 500; }
+.ag-hero__badge::before { content: ""; width: 2px; height: 14px; background: var(--red); }
+.ag .ag-hero__title { padding-block: var(--space-5); font-size: 64px; line-height: 72px; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); }
+.ag-hero__title em { font-style: normal; color: var(--maroon); }
+.ag-hero__lead { max-width: 34em; padding: var(--space-4) 0 var(--space-8); font-size: 16px; line-height: 26px; color: var(--ink); }
+.ag-hero__cta { display: flex; flex-wrap: wrap; gap: var(--space-5); }
+/* Pill buttons with a round arrow chip (hero + home header). */
+.ag-hero .ag-btn, .ag-masthead[data-home] .ag-header__cta { min-height: 52px; gap: var(--space-3); padding: var(--space-2) var(--space-2) var(--space-2) 22px; border-radius: 50px; font-size: 16px; }
+.ag-hero .ag-btn::before, .ag-masthead[data-home] .ag-header__cta::before { inset: 0; border-radius: 50px; clip-path: none; }
+.ag-hero .ag-btn--outline { border: 1px solid var(--red); color: var(--red); }
+.ag-hero .ag-btn--outline:hover { background: var(--red); border-color: var(--red); color: var(--on-brand); }
+.ag-btn__chip { display: none; }
+.ag-hero .ag-btn__chip, .ag-masthead[data-home] .ag-btn__chip { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%;
+  background: color-mix(in srgb, var(--on-brand) 22%, transparent); transition: transform var(--motion-base) var(--motion-ease-out); }
+.ag-hero .ag-btn--outline .ag-btn__chip { background: color-mix(in srgb, var(--red) 12%, var(--surface)); }
+.ag-hero .ag-btn--outline:hover .ag-btn__chip { background: color-mix(in srgb, var(--on-brand) 22%, transparent); }
+.ag-hero .ag-btn:hover .ag-btn__chip, .ag-masthead[data-home] .ag-header__cta:hover .ag-btn__chip { transform: translateX(3px); }
+/* Photo panel: right half, slanted left edge with a rounded foot, red edge behind it. */
+.ag-hero__media { position: absolute; z-index: 1; top: 0; right: 0; bottom: 0; width: 52%; }
+.ag-hero__media::before { content: ""; position: absolute; inset: 0 0 0 -14px; background: var(--red-gradient); clip-path: url(#ag-hero-clip); }
+.ag-hero__photo { position: absolute; inset: 0; overflow: hidden; clip-path: url(#ag-hero-clip); background: var(--surface-soft); }
+.ag-hero__photo img { object-fit: cover; }
+.ag-hero__defs { position: absolute; width: 0; height: 0; }
+.ag-hero__wave { position: absolute; z-index: 1; left: 0; bottom: 0; width: 220px; height: 300px; fill: none; pointer-events: none; }
+.ag-hero__wave path:first-child { stroke: var(--red); stroke-width: 6; opacity: 0.45; }
+.ag-hero__wave path:last-child { stroke: var(--maroon); stroke-width: 1.5; }
+/* Vertical dots on the left edge; the current one sits in a tinted halo. */
+.ag-hero__controls { position: absolute; z-index: 3; left: 25px; top: 50%; transform: translateY(-50%); display: grid; justify-items: center; gap: var(--space-3); }
+.ag-hero__dots { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-1); }
+.ag-hero__dots button, .ag-hero__pause { position: relative; display: grid; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; border-radius: 50%; background: transparent; cursor: pointer; }
+.ag-hero__dots button::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: color-mix(in srgb, var(--red) 28%, var(--surface)); transition: background-color var(--motion-base); }
+.ag-hero__dots button[aria-current] { background: color-mix(in srgb, var(--red) 14%, var(--surface)); }
+.ag-hero__dots button[aria-current]::before { background: var(--red); }
+.ag-hero__pause { color: var(--maroon); border: 1px solid color-mix(in srgb, var(--red) 28%, var(--surface)); }
+/* Entrance on the active slide (durations from the reference: 1.3 s copy, 1.4 s photo). */
+.js .ag-hero__badge { opacity: 0; transform: translateY(-200px); transition: transform 1300ms ease, opacity 1300ms ease; }
+.js .ag-hero__title, .js .ag-hero__lead, .js .ag-hero__cta { opacity: 0; transform: translateX(-400px); transition: transform 1300ms ease, opacity 1300ms ease; }
+.js .ag-hero__photo img { opacity: 0; transform: translateX(350px); transition: transform 1400ms ease, opacity 1400ms ease; }
+.ag-hero[data-ready] .ag-hero__slide[data-state="active"] :is(.ag-hero__badge, .ag-hero__title, .ag-hero__lead, .ag-hero__cta, .ag-hero__photo img) { opacity: 1; transform: none; }
 
 /* ---------- Clients: one hairline band under the hero ---------- */
 .ag-clients { background: var(--surface); border-bottom: 1px solid var(--line); overflow: hidden; }
@@ -155,12 +184,15 @@
 .ag-closing--banner .ag-closing__in { grid-template-columns: minmax(0, 1fr) auto; align-items: end; }
 
 @media (max-width: 1023px) {
-  .ag-hero__in { min-height: 0; padding: var(--space-16) var(--space-8) var(--space-12); }
-  .ag-hero__copy { max-width: 680px; }
-  .ag-hero h1 { font-size: var(--fs-display-t); line-height: var(--lh-display-t); }
-  .ag-hero__media { position: relative; width: 100%; height: 360px; clip-path: polygon(0 22%, 100% 0, 100% 100%, 0 100%); }
-  .ag-hero__stripe { clip-path: polygon(0 22%, 100% 0, 100% 9%, 0 31%); }
-  .ag-hero__stripe::after { clip-path: polygon(0 31%, 100% 9%, 100% 11%, 0 33%); }
+  .ag-hero__slide { min-height: 0; }
+  .ag-hero__in { display: flex; flex-direction: column; }
+  .ag-hero__copy { order: 1; max-width: 680px; padding: 170px 0 0; }
+  .ag .ag-hero__title { font-size: 52px; line-height: 60px; }
+  .ag-hero__media { position: relative; order: 2; width: auto; height: 340px; margin: var(--space-10) calc(-1 * var(--space-8)) 0; }
+  .ag-hero__controls { top: auto; bottom: 360px; transform: none; left: auto; right: var(--space-8); grid-auto-flow: column; }
+  .ag-hero__dots { grid-auto-flow: column; }
+  .ag-hero__photo, .ag-hero__media::before { clip-path: url(#ag-hero-clip-m); }
+  .ag-hero__media::before { inset: -10px 0 0 0; }
   .ag-services, .ag-approach__in, .ag-showcase, .ag-story, .ag-closing__in { grid-template-columns: minmax(0, 1fr); gap: var(--space-10); }
   .ag-services__head { position: static; }
   .ag-showcase__media { margin-right: 0; padding: var(--space-8) 0 var(--space-8) var(--space-8); }
@@ -169,15 +201,13 @@
   .ag-closing--banner .ag-closing__in { grid-template-columns: minmax(0, 1fr); align-items: start; }
 }
 @media (max-width: 767px) {
-  .ag-hero__in { padding: var(--space-12) var(--space-5) var(--space-10); }
-  .ag-hero h1 { font-size: var(--fs-display-m); line-height: var(--lh-display-m); }
-  .ag-hero__lead { margin-top: var(--space-8); font-size: 17px; line-height: 28px; }
-  .ag-hero__cta { margin-top: var(--space-8); width: 100%; }
-  .ag-hero__cta .ag-btn { flex: 1 1 100%; }
-  .ag-stats { margin-top: var(--space-8); }
-  .ag-stat { padding-right: var(--space-6); margin-right: var(--space-6); }
-  .ag-stat b { font-size: 38px; line-height: 40px; }
-  .ag-hero__media { height: 250px; }
+  .ag-hero__copy { padding-top: 140px; }
+  .ag .ag-hero__title { font-size: 38px; line-height: 46px; padding-block: var(--space-4); }
+  .ag-hero__lead { padding-bottom: var(--space-6); }
+  .ag-hero__cta { gap: var(--space-3); }
+  .ag-hero__media { height: 250px; margin-inline: calc(-1 * var(--space-5)); }
+  .ag-hero__controls { bottom: 266px; right: var(--space-5); }
+  .ag-hero__wave { display: none; }
   .ag-clients__in { grid-template-columns: minmax(0, 1fr); gap: var(--space-4); padding-block: var(--space-6); }
   .ag-clients__label { justify-content: center; }
   .ag-marquee__track { gap: var(--space-10); padding-inline: var(--space-5); }

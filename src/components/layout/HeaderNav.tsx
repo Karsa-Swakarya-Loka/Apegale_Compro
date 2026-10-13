@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useLayoutEffect, useId, useRef, useState, type ReactNode } from 'react'
 import { navCurrent, navDestination } from '@/lib/navigation'
-import { ChevronDown, Menu, X } from 'lucide-react'
+import { ChevronDown, ChevronRight, Menu, X } from 'lucide-react'
 import { LanguageToggle } from './LanguageToggle'
 
 export type NavItem = { label: string; href: string; children?: NavItem[] }
@@ -186,7 +186,7 @@ export function HeaderNav({ items, cta, labels, homeHref, brand }: Props) {
         </ul>
       </nav>
 
-      {cta.href ? <Link className="ag-btn ag-btn--primary ag-btn--sm ag-header__cta" href={cta.href} onNavigate={() => navigate(cta.href!)} {...external(cta.href)}>{cta.label}</Link> : null}
+      {cta.href ? <Link className="ag-btn ag-btn--primary ag-btn--sm ag-header__cta" href={cta.href} onNavigate={() => navigate(cta.href!)} {...external(cta.href)}>{cta.label}<span className="ag-btn__chip" aria-hidden="true"><ChevronRight size={16} /></span></Link> : null}
 
       <LanguageToggle label={labels.language} className="ag-header__lang" />
       <button ref={burgerRef} type="button" className="ag-burger" aria-expanded={mobileOpen}
