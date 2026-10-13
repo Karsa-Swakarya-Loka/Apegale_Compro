@@ -22,3 +22,6 @@ Thumbs.db
 # Kept locally; see README.md.
 legacy/
 reference/
+
+.vercel
+.env*
