@@ -166,8 +166,8 @@
 .ag-about__quote { position: relative; padding-left: var(--space-8); font-size: 22px; line-height: 34px; font-weight: 500; color: var(--ink); }
 .ag-about__quote::before { content: "\201C"; position: absolute; left: 0; top: -6px; font-size: 56px; line-height: 56px; font-weight: 900; color: var(--maroon); }
 .ag-story__media { position: relative; }
-.ag-story__panel { position: relative; overflow: hidden; aspect-ratio: 4 / 4.2; background: var(--surface); border-radius: var(--radius-xl); }
-.ag-story__panel::before { content: ""; position: absolute; top: 0; bottom: 0; left: 18%; width: 46%; background: var(--red-gradient); clip-path: polygon(45% 0, 100% 0, 55% 100%, 0 100%); }
+/* Founder cut-out directly on the section colour (same as the About page): no box, no red band. */
+.ag-story__panel { position: relative; aspect-ratio: 4 / 4.2; }
 .ag-story__panel img { object-fit: contain; object-position: 50% 100%; }
 .ag-story__card { display: grid; gap: var(--space-1); padding-top: var(--space-4); border-top: 3px solid var(--maroon); margin-top: var(--space-4); }
 .ag-story__card b { font-family: var(--font-display); font-size: 19px; line-height: 26px; font-weight: 900; text-transform: uppercase; color: var(--ink); }

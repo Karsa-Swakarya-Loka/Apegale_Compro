@@ -108,7 +108,7 @@
 .ag-org__card b { position: relative; z-index: 1; padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); background: var(--maroon); color: var(--on-brand);
   font-family: var(--font-display); font-size: 16px; line-height: 22px; font-weight: 700; box-shadow: 0 6px 14px color-mix(in srgb, var(--maroon) 22%, transparent); }
 .ag-org__card span { margin: calc(-1 * var(--space-2)) var(--space-3) 0; padding: calc(var(--space-2) + var(--space-3)) var(--space-4) var(--space-3);
-  border-radius: 0 0 var(--radius-lg) var(--radius-lg); background: var(--surface-tile); color: var(--ink); font-size: 14px; line-height: 20px; }
+  border: 1px solid var(--red); border-top: 0; border-radius: 0 0 var(--radius-lg) var(--radius-lg); background: var(--surface-tile); color: var(--ink); font-size: 14px; line-height: 20px; }
 .ag-org__card--lead { max-width: 320px; }
 .ag-org__card--lead b { background: var(--red-gradient); font-size: 19px; line-height: 26px; padding: var(--space-4) var(--space-5); }
 .ag-org__team .ag-org__card b { background: var(--red); font-size: 15px; padding: 10px var(--space-4); box-shadow: none; }
