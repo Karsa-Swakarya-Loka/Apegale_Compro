@@ -78,13 +78,44 @@
 .ag-impact__tile--cities { padding-bottom: var(--space-16); }
 .ag-impact__tile--cities .ag-wedge { width: var(--wedge-m); height: var(--wedge-m); }
 .ag-impact__cities { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-6); }
-.ag-impact__cities li { padding-block: var(--space-2); border-bottom: 1px solid var(--c-line); font-size: 15px; line-height: 22px; }
+.ag-impact__cities li { border-bottom: 1px solid var(--c-line); }
+.ag-impact__cities button { position: relative; display: flex; align-items: center; width: 100%; min-height: var(--touch-target); padding: 0 0 0 var(--space-4); border: 0; background: transparent;
+  color: var(--c-text); font: inherit; font-size: 15px; line-height: 22px; text-align: left; cursor: pointer; transition: color var(--motion-fast), padding var(--motion-base) var(--motion-ease-out); }
+.ag-impact__cities button::before { content: ""; position: absolute; left: 0; top: 50%; width: 6px; height: 6px; margin-top: -3px; border-radius: 50%; background: var(--c-line); transition: background-color var(--motion-fast), transform var(--motion-base); }
+.ag-impact__cities button[data-active] { color: var(--c-hl); padding-left: var(--space-5); font-weight: 700; }
+.ag-impact__cities button[data-active]::before { background: var(--c-hl); transform: scale(1.5); }
+.ag-impact__cities button[aria-pressed="true"]::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--c-hl); }
 .ag-network__canvas { position: relative; aspect-ratio: 1000 / 375; }
 .ag-network__canvas svg { position: relative; display: block; width: 100%; height: auto; }
 .ag-network__land { position: absolute; inset: 0; background: var(--maroon);
   -webkit-mask: url(/brand/indonesia-land.svg) center / 100% 100% no-repeat; mask: url(/brand/indonesia-land.svg) center / 100% 100% no-repeat; }
-.ag-network__dot { fill: var(--on-brand); stroke: var(--red); stroke-width: 3; }
-.ag-network__halo { fill: var(--red); opacity: 0.25; }
+.ag-impact__tile--map { overflow: visible; }
+/* Interactive map (NetworkExplorer): dots drop in once, the active city lifts, pulses and shows its name, others dim. */
+.ag-network__city { cursor: pointer; transition: opacity var(--motion-base) var(--motion-ease-out); }
+.ag-network__mark, .ag-network__dot, .ag-network__halo, .ag-network__pulse { transform-box: fill-box; transform-origin: center; }
+.ag-reveal[data-revealed] .ag-network__mark { animation: ag-dot-in var(--motion-reveal) var(--motion-ease-out) both; animation-delay: calc(var(--i) * var(--motion-stagger)); }
+@keyframes ag-dot-in { from { opacity: 0; transform: translateY(-14px) scale(0.4); } }
+.ag-network__hit { fill: transparent; }
+.ag-network__dot { fill: var(--on-brand); stroke: var(--red); stroke-width: 3; transition: transform var(--motion-base) var(--motion-ease-out), fill var(--motion-base); }
+.ag-network__halo { fill: var(--red); opacity: 0.25; transition: transform var(--motion-base) var(--motion-ease-out), opacity var(--motion-base); }
+.ag-network__pulse { fill: none; stroke: var(--red); stroke-width: 2; opacity: 0; }
+.ag-network__canvas[data-has-active] .ag-network__city:not([data-active]) { opacity: 0.35; }
+.ag-network__city[data-active] .ag-network__dot { fill: var(--red); stroke: var(--on-brand); transform: scale(1.5); }
+.ag-network__city[data-active] .ag-network__halo { opacity: 0.35; transform: scale(1.6); }
+.ag-network__city[data-active] .ag-network__pulse { animation: ag-pulse 1.4s var(--motion-ease-out) infinite; }
+@keyframes ag-pulse { from { opacity: 0.9; transform: scale(1); } to { opacity: 0; transform: scale(2.8); } }
+/* City name above the active dot; flips its anchor near the map's edges so it never leaves the card. */
+.ag-network__label { position: absolute; z-index: 2; padding: var(--space-1) var(--space-3); border-radius: var(--radius-md); background: var(--charcoal); color: var(--on-brand);
+  font-family: var(--font-display); font-size: 13px; line-height: 18px; font-weight: 700; white-space: nowrap; pointer-events: none;
+  opacity: 0; transform: translate(-50%, calc(-100% - 10px)); transition: opacity var(--motion-base) var(--motion-ease-out), transform var(--motion-base) var(--motion-ease-out); }
+.ag-network__label::after { content: ""; position: absolute; left: 50%; bottom: -5px; width: 10px; height: 10px; margin-left: -5px; background: inherit; transform: rotate(45deg); }
+.ag-network__label[data-edge="end"] { transform: translate(calc(-100% + 18px), calc(-100% - 10px)); }
+.ag-network__label[data-edge="end"]::after { left: auto; right: 13px; }
+.ag-network__label[data-edge="start"] { transform: translate(-18px, calc(-100% - 10px)); }
+.ag-network__label[data-edge="start"]::after { left: 18px; }
+.ag-network__label[data-active] { opacity: 1; transform: translate(-50%, calc(-100% - 18px)); }
+.ag-network__label[data-edge="end"][data-active] { transform: translate(calc(-100% + 18px), calc(-100% - 18px)); }
+.ag-network__label[data-edge="start"][data-active] { transform: translate(-18px, calc(-100% - 18px)); }
 
 /* ---------- 02 Who we are → company profile + founder ---------- */
 .ag-story { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-16); align-items: center; }

@@ -1,6 +1,7 @@
 import { INDONESIA_MAP, project } from '@/lib/indonesia-map'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Reveal } from '@/components/motion/Reveal'
+import { NetworkExplorer } from './NetworkExplorer'
 
 type City = { name: string; lat?: number | null; lng?: number | null }
 type Props = {
@@ -9,7 +10,8 @@ type Props = {
 }
 
 /** Template slide 05 "Performance at a glance": title and intro, then a white map card and a charcoal card listing
- *  the cities (optional figures card first). The outline is a static file used as a CSS mask (public/brand/indonesia-land.svg). */
+ *  the cities (optional figures card first); the two are linked interactively by NetworkExplorer.
+ *  The outline is a static file used as a CSS mask (public/brand/indonesia-land.svg). */
 export function NetworkSection({ title, text, cities, citiesLabel, stats = [], stat, tone = 'soft' }: Props) {
   const placed = cities.filter((c): c is City & { lat: number; lng: number } => typeof c.lat === 'number' && typeof c.lng === 'number')
   const figures = stats.length ? stats : stat ? [stat] : []
@@ -25,30 +27,8 @@ export function NetworkSection({ title, text, cities, citiesLabel, stats = [], s
               </dl>
             </Reveal>
           ) : null}
-          <Reveal step={1} className="ag-impact__tile ag-impact__tile--map">
-            <div className="ag-network__canvas">
-              <span className="ag-network__land" aria-hidden="true" />
-              <svg viewBox={`0 0 ${INDONESIA_MAP.width} ${INDONESIA_MAP.height}`} role="img" aria-labelledby="network-map-title">
-                <title id="network-map-title">{`${citiesLabel}: ${placed.map(c => c.name).join(', ')}`}</title>
-                {placed.map(c => {
-                  const { x, y } = project(c.lat, c.lng)
-                  return (
-                    <g key={c.name} className="ag-network__city" transform={`translate(${x.toFixed(1)} ${y.toFixed(1)})`}>
-                      <circle r="14" className="ag-network__halo" />
-                      <circle r="6" className="ag-network__dot" />
-                    </g>
-                  )
-                })}
-              </svg>
-            </div>
-          </Reveal>
-          <Reveal step={2} className="ag-impact__tile ag-impact__tile--cities ag-dark">
-            <p className="ag-eyebrow">{citiesLabel}</p>
-            <ul className="ag-impact__cities" aria-label={citiesLabel}>
-              {placed.map(c => <li key={c.name}>{c.name}</li>)}
-            </ul>
-            <span className="ag-wedge" aria-hidden="true" />
-          </Reveal>
+          <NetworkExplorer label={citiesLabel} width={INDONESIA_MAP.width} height={INDONESIA_MAP.height}
+            cities={placed.map(c => ({ name: c.name, ...project(c.lat, c.lng) }))} />
         </div>
       </div>
     </section>
