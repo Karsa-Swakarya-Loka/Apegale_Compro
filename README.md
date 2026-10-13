@@ -153,8 +153,9 @@ Vercel serverless: tanpa disk permanen, jadi database harus Postgres ter-host da
 1. **Database**: Vercel → Storage → Create → Neon (Postgres). Salin connection string (pooled).
 2. **Blob**: Vercel → Storage → Create → Blob, hubungkan ke project (otomatis menambah `BLOB_READ_WRITE_TOKEN`).
 3. **Environment variables** (Production + Preview): `PAYLOAD_SECRET` (acak ≥32), `DATABASE_ADAPTER=postgres`, `DATABASE_URI` (dari Neon), `NEXT_PUBLIC_SITE_URL` (URL Vercel/domain final), `BLOB_READ_WRITE_TOKEN`, SMTP_* bila form harus mengirim email.
-4. **Migrasi + seed sekali dari laptop** sebelum deploy pertama (build membaca CMS, jadi tabel harus ada), dengan env yang sama di terminal:
-   `DATABASE_ADAPTER=postgres DATABASE_URI=... PAYLOAD_SECRET=... BLOB_READ_WRITE_TOKEN=... npm run migrate && npm run seed`
-5. Redeploy. Buat admin pertama di `/admin`.
+4. **Isi database sekali dari laptop** sebelum deploy pertama (build membaca CMS, jadi tabel harus ada). Set env yang sama di terminal (`DATABASE_ADAPTER=postgres`, `DATABASE_URI`, `PAYLOAD_SECRET`, `BLOB_READ_WRITE_TOKEN`, `ADMIN_EMAIL`, `ADMIN_PASSWORD`), lalu jalankan urutan "Rilis pertama" di atas dari `npm run migrate` sampai `npm run setup:admin` (tanpa build/start). Media seed ikut terunggah ke Blob.
+5. Redeploy di Vercel. `setup:admin` harus sudah jalan sebelum situs publik (tanpa user, `/admin` membuka form admin pertama untuk siapa saja).
+
+Catatan serverless: rate limit form ada di memori per instance, jadi di Vercel lebih longgar daripada di satu proses Node.
 
 Skema berubah → `npm run migrate:create` (kedua adapter), commit, lalu jalankan `npm run migrate` ke database Neon sebelum push.
