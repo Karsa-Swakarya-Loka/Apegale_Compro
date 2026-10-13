@@ -3,7 +3,7 @@ import { globalAccess } from '../lib/access.ts'
 import { listAdmin, plain, richText, row, seo, tab, tabs, text, textarea } from '../lib/fields.ts'
 import { previewUrl } from '../lib/preview.ts'
 export const About: GlobalConfig = {
- slug: 'about', label: 'Tentang Kami', admin: { hideAPIURL: true, group: 'Halaman', preview: previewUrl('about'), description: 'Isi halaman Tentang Kami.' },
+ slug: 'about', label: 'Tentang Kami', admin: { hideAPIURL: true, group: 'Halaman', preview: previewUrl('about') },
  access: globalAccess, versions: { drafts: true },
  fields: [
   tabs(

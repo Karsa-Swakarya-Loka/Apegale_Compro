@@ -5,7 +5,7 @@ import { hasConsentForStatus } from '../lib/validation.ts'
 export const Testimonials: CollectionConfig = {
  slug: 'testimonials', labels: { singular: 'Testimoni', plural: 'Testimoni' },
  admin: { hideAPIURL: true, group: 'Konten situs', useAsTitle: 'name', defaultColumns: ['name', 'company', 'consent', 'statusBadge', 'enReviewed'],
-  description: 'Kutipan klien. Hanya bisa dipublikasikan setelah klien memberi izin.' },
+  description: 'Tayang hanya setelah klien memberi izin.' },
  access: contentAccess, versions: { drafts: true },
  hooks: { beforeChange: [({ data, originalDoc }) => {
    const status = data._status ?? originalDoc?._status

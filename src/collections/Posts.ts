@@ -4,8 +4,7 @@ import { review, richText, row, seo, slug, text, textarea, upload, statusColumn 
 import { previewUrl } from '../lib/preview.ts'
 export const Posts: CollectionConfig = {
  slug: 'posts', labels: { singular: 'Berita', plural: 'Berita' },
- admin: { hideAPIURL: true, group: 'Konten situs', preview: previewUrl('news', true), useAsTitle: 'title', defaultColumns: ['title', 'category', 'publishedAt', 'statusBadge', 'enReviewed'],
-  description: 'Berita dan panduan di halaman Berita.' },
+ admin: { hideAPIURL: true, group: 'Konten situs', preview: previewUrl('news', true), useAsTitle: 'title', defaultColumns: ['title', 'category', 'publishedAt', 'statusBadge', 'enReviewed'] },
  access: contentAccess, versions: { drafts: true },
  fields: [statusColumn, 
   text('title', true, { label: 'Judul' }),

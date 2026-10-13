@@ -10,7 +10,7 @@ const group = (name: string, items: [string, string][]): Field => ({
 const pages: [string, string][] = [['services', 'Halaman Layanan'], ['regulations', 'Halaman Regulasi'], ['news', 'Halaman Berita'], ['contact', 'Halaman Hubungi Kami']]
 
 export const Ui: GlobalConfig = {
- slug: 'ui', label: 'Teks tombol & menu', admin: { hideAPIURL: true, group: 'Pengaturan', description: 'Teks pendek di menu, tombol dan formulir. Isi versi Indonesia dan Inggris lewat pilihan bahasa di kanan atas.' },
+ slug: 'ui', label: 'Teks tombol & menu', admin: { hideAPIURL: true, group: 'Pengaturan', description: 'Versi Inggris diisi setelah mengganti bahasa di kanan atas.' },
  access: globalAccess, versions: { drafts: true },
  fields: [
   tabs(

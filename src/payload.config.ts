@@ -23,6 +23,7 @@ import { Garis } from './globals/Garis.ts'
 import { Ui } from './globals/Ui.ts'
 import { database } from './lib/database.ts'
 import { localization } from './i18n/config.ts'
+import { adminTranslations } from './lib/admin-i18n.ts'
 
 const dirname = path.dirname(fileURLToPath(import.meta.url))
 const secret = process.env.PAYLOAD_SECRET
@@ -49,7 +50,7 @@ export default buildConfig({
   },
  },
  // CMS interface in Indonesian only, for the client's team (content itself stays bilingual via localization).
- i18n: { supportedLanguages: { id }, fallbackLanguage: 'id' },
+ i18n: { supportedLanguages: { id }, fallbackLanguage: 'id', translations: adminTranslations },
  localization,
  collections: [Services, Testimonials, Clients, Faqs, Posts, Regulations, Media, Inquiries, Users],
  globals: [Site, Home, About, Garis, Ui],

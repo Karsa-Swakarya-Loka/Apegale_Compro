@@ -2,7 +2,7 @@ import type { CollectionConfig } from 'payload'
 import { adminField, adminOnly, isStaff } from '../lib/access.ts'
 export const Users: CollectionConfig = {
  slug: 'users', auth: true, labels: { singular: 'Pengguna CMS', plural: 'Pengguna CMS' },
- admin: { hideAPIURL: true, group: 'Pengaturan', useAsTitle: 'email', defaultColumns: ['email', 'role'], description: 'Akun yang bisa masuk ke CMS.' },
+ admin: { hideAPIURL: true, group: 'Pengaturan', useAsTitle: 'email', defaultColumns: ['email', 'role'] },
  access: { admin: ({ req }) => isStaff(req.user), create: adminOnly, read: adminOnly, update: adminOnly, delete: adminOnly },
  fields: [{ name: 'role', type: 'select', required: true, defaultValue: 'editor', label: 'Peran',
   options: [{ label: 'Admin (semua akses)', value: 'admin' }, { label: 'Editor (ubah konten)', value: 'editor' }],

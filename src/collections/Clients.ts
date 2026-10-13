@@ -5,7 +5,7 @@ import { httpUrl } from '../lib/validation.ts'
 export const Clients: CollectionConfig = {
  slug: 'clients', labels: { singular: 'Klien', plural: 'Klien' },
  admin: { hideAPIURL: true, group: 'Konten situs', useAsTitle: 'name', defaultColumns: ['name', 'order', 'statusBadge', 'enReviewed'],
-  description: 'Logo klien yang berjalan di Beranda.' },
+  description: 'Berjalan di pita logo Beranda.' },
  access: contentAccess, versions: { drafts: true },
  fields: [statusColumn, 
   row({ name: 'name', type: 'text', required: true, unique: true, label: 'Nama klien', admin: { width: '50%' } },

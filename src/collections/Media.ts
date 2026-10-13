@@ -4,8 +4,7 @@ import { contentAccess } from '../lib/access.ts'
 import { review, seedKey, text, statusColumn } from '../lib/fields.ts'
 export const Media: CollectionConfig = {
  slug: 'media', labels: { singular: 'Foto & file', plural: 'Foto & file' },
- admin: { hideAPIURL: true, group: 'Konten situs', useAsTitle: 'alt', defaultColumns: ['filename', 'alt', 'statusBadge'],
-  description: 'Semua foto, logo dan PDF yang dipakai situs.' },
+ admin: { hideAPIURL: true, group: 'Konten situs', useAsTitle: 'alt', defaultColumns: ['filename', 'alt', 'statusBadge'] },
  access: contentAccess, versions: { drafts: true },
  upload: {
   staticDir: path.resolve(/*turbopackIgnore: true*/ process.cwd(), process.env.MEDIA_DIR || 'media'),

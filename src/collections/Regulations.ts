@@ -4,8 +4,7 @@ import { listAdmin, review, richText, row, slug, text, textarea, statusColumn } 
 import { previewUrl } from '../lib/preview.ts'
 export const Regulations: CollectionConfig = {
  slug: 'regulations', labels: { singular: 'Regulasi', plural: 'Regulasi' },
- admin: { hideAPIURL: true, group: 'Konten situs', preview: previewUrl('regulations', true), useAsTitle: 'title', defaultColumns: ['title', 'category', 'issuedAt', 'statusBadge', 'enReviewed'],
-  description: 'Peraturan dan dokumen PDF di halaman Regulasi.' },
+ admin: { hideAPIURL: true, group: 'Konten situs', preview: previewUrl('regulations', true), useAsTitle: 'title', defaultColumns: ['title', 'category', 'issuedAt', 'statusBadge', 'enReviewed'] },
  access: contentAccess, versions: { drafts: true },
  fields: [statusColumn, 
   text('title', true, { label: 'Judul peraturan' }),

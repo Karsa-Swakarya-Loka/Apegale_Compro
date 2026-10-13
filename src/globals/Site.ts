@@ -3,7 +3,7 @@ import { adminOnly, globalAccess } from '../lib/access.ts'
 import { listAdmin, row, seo, tab, tabs, text, textarea } from '../lib/fields.ts'
 import { httpUrl } from '../lib/validation.ts'
 export const Site: GlobalConfig = {
- slug: 'site', label: 'Kontak & pengaturan situs', admin: { hideAPIURL: true, group: 'Pengaturan', description: 'Kontak, alamat, angka resmi dan media sosial yang tampil di seluruh situs.' },
+ slug: 'site', label: 'Kontak & pengaturan situs', admin: { hideAPIURL: true, group: 'Pengaturan' },
  access: { ...globalAccess, update: adminOnly }, versions: { drafts: true },
  fields: [
   tabs(

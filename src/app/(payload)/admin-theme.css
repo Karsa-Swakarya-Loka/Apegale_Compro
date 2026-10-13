@@ -1,188 +1,266 @@
-/* CMS (Payload admin) in the Ape Gale design: the site's tokens, Roboto + Montserrat labels, warm neutrals, red primary
-   actions, maroon accents and the red gradient on the login screen. Light theme only, like the public site.
+/* CMS (Payload admin) in the Ape Gale "garis" system: broken-white paper, white panels on warm hairlines, square-cut 4–6px
+   corners, Roboto for text and Montserrat ExtraBold for small labels. Red is kept for actions and for the one signature
+   mark, a short red rule (the garis) above every page title and before every section label. Light theme only.
    Payload's own styles live in @layer, so these unlayered rules win without !important. */
 @import '../../styles/tokens.css';
 
 :root {
-  /* Warm neutral scale (ink #231f20 → white) replacing Payload's cool greys. */
-  --color-base-0: #ffffff; --color-base-50: #fbf8f7; --color-base-100: #f6f0ef; --color-base-150: #ede5e4; --color-base-200: #e2d9d8;
-  --color-base-250: #d5cbca; --color-base-300: #c4b9b8; --color-base-350: #b1a6a6; --color-base-400: #9c9192; --color-base-450: #8a8283;
-  --color-base-500: #776f70; --color-base-550: #665e5f; --color-base-600: #564f50; --color-base-650: #484243; --color-base-700: #3b3637;
-  --color-base-750: #302b2c; --color-base-800: #231f20; --color-base-850: #1b1819; --color-base-900: #141112; --color-base-950: #0c0a0b; --color-base-1000: #000000;
-  --style-radius-s: 6px; --style-radius-m: 8px; --style-radius-l: 12px;
+  /* Warm neutral scale (ink #231f20 → white) on the site's broken white, replacing Payload's cool greys. */
+  --color-base-0: #ffffff; --color-base-50: #faf9f6; --color-base-100: #f3f1ec; --color-base-150: #ebe8e2; --color-base-200: #dfdad2;
+  --color-base-250: #d0cac1; --color-base-300: #bdb6ac; --color-base-350: #a8a197; --color-base-400: #938c83; --color-base-450: #7f7971;
+  --color-base-500: #6b6660; --color-base-550: #5b5752; --color-base-600: #4c4845; --color-base-650: #403d3a; --color-base-700: #353231;
+  --color-base-750: #2b2829; --color-base-800: #231f20; --color-base-850: #1b1819; --color-base-900: #141112; --color-base-950: #0c0a0b; --color-base-1000: #000000;
+  --style-radius-s: 4px; --style-radius-m: 6px; --style-radius-l: 6px;
+
+  /* The system. */
+  --sys-paper: var(--broken-white);
+  --sys-panel: #ffffff;
+  --sys-hover: #faf9f6;
+  --sys-rule: #e6e1d9;
+  --sys-rule-strong: #cfc8bd;
+  --sys-muted: #6b6660;
+  --sys-accent: var(--red);
+  --sys-accent-deep: var(--maroon);
+  --sys-radius: 6px;
+  --sys-radius-control: 4px;
+  --sys-font-label: var(--font-label);
+  /* Signature mark: a flat red rule. */
+  --sys-mark: var(--red);
+  --sys-mark-w: 28px; --sys-mark-h: 3px; --sys-mark-radius: 0;
+  --sys-mark-sm-w: 14px; --sys-mark-sm-h: 2px;
 }
-/* Broken white with a red tone: page, nav and panels are warm-pink tints so white cards and inputs stand out. */
-html[data-theme] { --theme-bg: #fcf4f3; --theme-input-bg: #ffffff; --cms-tint: #f6e4e2; --cms-tint-strong: #efd3d0; }
-body { font-family: var(--font-body); }
+html[data-theme] { --theme-bg: var(--sys-paper); --theme-input-bg: #ffffff; }
+body { font-family: var(--font-body); color: var(--ink); }
 ::selection { background: var(--brand-tint); color: var(--maroon); }
-:focus-visible { outline-color: var(--red); }
+:focus-visible { outline-color: var(--sys-accent); }
 
-/* Actions: primary = red (hover maroon), like the site's buttons. */
-.btn--style-primary { --bg-color: var(--red); --hover-bg: var(--maroon); --color: var(--on-brand); --hover-color: var(--on-brand); }
-.btn--style-primary.btn--disabled { --bg-color: var(--color-base-200); --color: var(--color-base-500); --hover-bg: var(--bg-color); }
-.btn--style-secondary { --hover-bg: var(--brand-tint); }
-.btn--style-pill { --hover-bg: var(--brand-tint); }
+/* ---------- Small-label voice: uppercase Montserrat, tracked, muted ---------- */
+.nav-group__toggle, .nav__label, .collections__label, .cms-tile__label, .group-field__title, .array-field__title, .table thead th, .tabs-field__tab-button::before {
+  font-family: var(--sys-font-label); font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
 
-/* Navigation: soft warm panel, maroon active item with a red bar, Montserrat group labels. */
-.nav { background: var(--cms-tint); border-right: 1px solid var(--cms-tint-strong); }
-.nav__link { color: var(--ink); }
-.nav__link:hover, .nav__link.active { color: var(--maroon); }
-.nav__link-indicator { background: var(--red); width: 3px; }
-.nav-group__toggle, .nav__label { font-family: var(--font-label); font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--maroon); }
-.nav__header { border-bottom: 1px solid var(--line); }
+/* ---------- Buttons ---------- */
+.btn { --btn-font-weight: 600; border-radius: var(--sys-radius-control); }
+.btn--style-primary { --bg-color: var(--sys-accent); --hover-bg: var(--sys-accent-deep); --color: #fff; --hover-color: #fff; }
+.btn--style-primary.btn--disabled { --bg-color: var(--color-base-150); --color: var(--color-base-450); --hover-bg: var(--bg-color); --hover-color: var(--color); }
+.btn--style-secondary { --bg-color: var(--sys-panel); --color: var(--ink); --btn-border: 1px solid var(--sys-rule-strong); --hover-color: var(--ink); --hover-btn-border: 1px solid var(--ink); }
+.btn--style-secondary.btn--disabled { --bg-color: transparent; --color: var(--color-base-350); --btn-border: 1px solid var(--sys-rule); --hover-btn-border: var(--btn-border); }
+.btn--style-pill { --bg-color: var(--sys-panel); --hover-bg: var(--sys-hover); border: 1px solid var(--sys-rule); }
+.pill--style-light { background: var(--sys-panel); box-shadow: inset 0 0 0 1px var(--sys-rule); border-radius: var(--sys-radius-control); }
+.pill--style-light:hover { box-shadow: inset 0 0 0 1px var(--sys-rule-strong); }
+/* Create actions carry a plus. */
+.list-header [class*="create-new-button"] .btn__label::before, .cms-action--new::before {
+  content: ""; display: inline-block; flex: none; width: 11px; height: 11px; margin-right: 8px; vertical-align: -1px;
+  background: linear-gradient(currentColor, currentColor) center / 100% 2px no-repeat, linear-gradient(currentColor, currentColor) center / 2px 100% no-repeat; }
+.list-header [class*="create-new-button"].btn { --bg-color: var(--sys-accent); --color: #fff; --hover-bg: var(--sys-accent-deep); --hover-color: #fff; border: 0; padding-inline: 14px; }
 
-/* Fields: red focus ring like the site's forms. */
-input:focus, textarea:focus, select:focus, .rich-text-lexical .editor:focus-within, .react-select .rs__control--is-focused {
-  border-color: var(--red) !important; box-shadow: 0 0 0 3px color-mix(in srgb, var(--red) 16%, transparent) !important; }
+/* ---------- Navigation: white rail on a hairline, red rule on the active item ---------- */
+.nav { background: var(--sys-panel); border-right: 1px solid var(--sys-rule); }
+.nav__header { border-bottom: 1px solid var(--sys-rule); }
+.nav-group__toggle, .nav__label { font-size: 10.5px; color: var(--sys-muted); }
+.nav__link { color: var(--ink); font-size: 14.5px; }
+.nav__link:hover { color: var(--sys-accent-deep); }
+.nav__link.active { color: var(--ink); font-weight: 700; }
+.nav__link-indicator { background: var(--sys-accent); width: 3px; }
 
-/* Dashboard cards: white, rounded, red edge on hover. */
-.card { border-radius: var(--style-radius-l); box-shadow: inset 0 0 0 1px var(--line); transition: box-shadow 160ms ease; }
-.card--has-onclick:hover { box-shadow: inset 0 0 0 1px var(--red), 0 8px 20px color-mix(in srgb, var(--ink) 8%, transparent); }
-.collections__label { font-family: var(--font-label); font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--maroon); }
+/* ---------- Top bar: language as a coded chip ---------- */
+.localizer-button { padding: 4px 10px 4px 4px; border: 1px solid var(--sys-rule); border-radius: var(--sys-radius-control); background: var(--sys-panel); }
+.localizer-button__label { display: none; }
+.localizer-button::before { content: attr(data-locale); display: inline-grid; place-items: center; min-width: 26px; height: 20px; margin-right: 8px; padding: 0 4px;
+  border-radius: 3px; background: var(--ink); color: #fff; font-family: var(--sys-font-label); font-size: 10px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.localizer-button__current-label { font-weight: 600; }
 
-/* Headings: the site's heavy Roboto. */
-.doc-header__title, .list-header h1, .dashboard h1, .step-nav__last { font-weight: 800; }
+/* ---------- Page titles: the garis above, the title, a quiet line of description ---------- */
+.doc-header__title, .list-header__title { font-size: 28px; line-height: 34px; font-weight: 800; letter-spacing: -0.01em; }
+.doc-header__title::before, .list-header__title::before, .cms-board__title::before {
+  content: ""; display: block; width: var(--sys-mark-w); height: var(--sys-mark-h); margin-bottom: 14px; border-radius: var(--sys-mark-radius); background: var(--sys-mark); }
+.list-header__title-and-actions { align-items: flex-end; }
+.custom-view-description { max-width: 72ch; color: var(--sys-muted); font-size: 14px; line-height: 21px; }
+.doc-tab { --btn-font-weight: 600; }
 
-/* Login: warm field crossed by the red-gradient slash, form on a white rounded card with the wordmark. */
-.template-minimal { position: relative; isolation: isolate; background: var(--cms-tint); overflow: hidden; }
+/* ---------- Save bar: a white strip; the state reads as a dot + word ---------- */
+.doc-controls { background: var(--sys-panel); border-block: 1px solid var(--sys-rule); }
+.doc-controls__label, .status__label { font-weight: 400; color: var(--sys-muted); }
+.doc-controls__value { font-weight: 500; }
+.status__value { display: inline-flex; align-items: center; gap: 7px; font-weight: 700; color: var(--ink); }
+.status__value::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--color-base-400); }
+.status[title$="Diterbitkan"] .status__value { color: var(--success); }
+.status[title$="Diterbitkan"] .status__value::before { background: var(--success); }
+
+/* ---------- Section index inside forms: numbered items on one rule, the active one underlined ---------- */
+.tabs-field { margin-top: 8px; }
+.tabs-field__tabs-wrap { overflow: visible; margin: 0 var(--gutter-h) 28px; padding: 0; border: 0; border-bottom: 1px solid var(--sys-rule); background: none; }
+.tabs-field__tabs { display: flex; flex-wrap: wrap; gap: 0 28px; min-width: 0; border-bottom: 0; counter-reset: cmstab; }
+.tabs-field__tabs::before, .tabs-field__tabs::after { display: none; }
+.tabs-field__tab-button { counter-increment: cmstab; display: inline-flex; align-items: baseline; gap: 8px; margin: 0 0 -1px; padding: 12px 0 13px; border: 0; border-radius: 0;
+  background: none; color: var(--sys-muted); opacity: 1; font-size: 15px; line-height: 20px; font-weight: 600; letter-spacing: 0; box-shadow: inset 0 -3px 0 transparent;
+  transition: color 140ms ease, box-shadow 140ms ease; }
+.tabs-field__tab-button::before { content: counter(cmstab, decimal-leading-zero); font-size: 10.5px; color: var(--color-base-350); }
+.tabs-field__tab-button::after { display: none; }
+.tabs-field__tab-button:hover { opacity: 1; color: var(--ink); }
+.tabs-field__tab-button--active, .tabs-field__tab-button--active:hover { color: var(--ink); box-shadow: inset 0 -3px 0 var(--sys-accent); }
+.tabs-field__tab-button--active::before { color: var(--sys-accent); }
+.tabs-field__tab-button--has-error { color: var(--theme-error-750); }
+.tabs-field__tab-button--has-error::before { content: "!"; color: var(--theme-error-500); }
+.tabs-field__tab-button:focus-visible { outline: 2px solid var(--sys-accent); outline-offset: 2px; }
+.tabs-field__description { margin-bottom: 20px; color: var(--sys-muted); font-size: 14px; line-height: 21px; }
+
+/* ---------- Fields ---------- */
+label.field-label:not(.unstyled) { font-size: 13.5px; line-height: 20px; font-weight: 600; color: var(--ink); }
+/* Per-language fields carry the language code instead of "— Bahasa Indonesia" after every label. */
+.field-label .localized { display: inline-flex; align-items: center; font-size: 0; vertical-align: middle; }
+.field-label .localized::after { display: inline-flex; align-items: center; height: 16px; margin-left: 8px; padding: 0 5px; border: 1px solid var(--sys-rule-strong); border-radius: 3px;
+  color: var(--sys-muted); font-family: var(--sys-font-label); font-size: 9.5px; font-weight: 800; letter-spacing: 0.08em; content: "ID"; }
+body:has(.localizer-button[data-locale="en"]) .field-label .localized::after { content: "EN"; }
+.field-description, .cms-help { margin-top: 6px; color: var(--sys-muted); font-size: 13px; line-height: 18px; }
+.field-type input, .field-type textarea, .react-select .rs__control { border-color: var(--sys-rule-strong); border-radius: var(--sys-radius-control); box-shadow: none; }
+.field-type input:hover, .field-type textarea:hover, .react-select .rs__control:hover { border-color: var(--color-base-400); }
+input:focus, textarea:focus, select:focus, .react-select .rs__control--is-focused {
+  border-color: var(--sys-accent) !important; box-shadow: 0 0 0 3px color-mix(in srgb, var(--sys-accent) 14%, transparent) !important; }
+.rich-text-lexical .editor-container { border: 1px solid var(--sys-rule-strong); border-radius: var(--sys-radius-control); background: var(--theme-input-bg); }
+.rich-text-lexical .editor-container:focus-within { border-color: var(--sys-accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--sys-accent) 14%, transparent); }
+
+/* Groups inside a section ("Tombol utama"): a ruled label with the small garis, not a second page title. */
+.group-field__header { margin-top: 12px; padding-top: 22px; border-top: 1px solid var(--sys-rule); }
+.group-field__title, .array-field__title { display: flex; align-items: center; gap: 10px; margin: 0 0 4px; font-size: 11px; line-height: 16px; color: var(--ink); }
+.group-field__title::before, .array-field__title::before { content: ""; flex: none; width: var(--sys-mark-sm-w); height: var(--sys-mark-sm-h); border-radius: var(--sys-mark-radius); background: var(--sys-mark); }
+.group-field__title .field-label, .array-field__title .field-label { font: inherit; letter-spacing: inherit; color: inherit; }
+
+.array-field__header-action { white-space: nowrap; font-size: 13px; color: var(--sys-muted); }
+.array-field__header-action:hover { color: var(--ink); }
+
+/* Panels: uploads, collapsibles and list rows sit on white with a hairline. */
+.card, .collapsible, .array-field__row, .file-details, .upload__dropzoneAndUpload, .upload-relationship-details, .relationship-add-new__add-button {
+  border-radius: var(--sys-radius); }
+.collapsible, .array-field__row { background: var(--sys-panel); box-shadow: inset 0 0 0 1px var(--sys-rule); border: 0; }
+.collapsible__toggle-wrap { background: var(--sys-panel); }
+.collapsible__toggle-wrap:hover { background: var(--sys-hover); }
+/* Adding a row: a full-width dashed slot. */
+.array-field__add-row.btn { --color: var(--ink); --hover-color: var(--sys-accent-deep); --btn-border: 1px dashed var(--sys-rule-strong); --hover-btn-border: 1px dashed var(--sys-accent);
+  --bg-color: transparent; --hover-bg: var(--sys-panel); align-self: stretch; justify-content: center; width: 100%; margin-top: 10px; padding: 11px 16px; border-radius: var(--sys-radius); }
+.array-field__add-row.btn .btn__label { font-size: 14px; font-weight: 600; }
+
+/* ---------- Lists: one white sheet, hairline rows, label-voice headings ---------- */
+.list-controls .search-bar { background: var(--sys-panel); box-shadow: inset 0 0 0 1px var(--sys-rule); border-radius: var(--sys-radius); }
+.collection-list .table, .list-drawer .table { background: var(--sys-panel); box-shadow: inset 0 0 0 1px var(--sys-rule); border-radius: var(--sys-radius); }
+.table table { border-collapse: collapse; }
+.table thead th { padding-block: 13px; font-size: 10.5px; color: var(--sys-muted); }
+.table thead .field-label { font: inherit; letter-spacing: inherit; text-transform: inherit; color: inherit; }
+.table tbody tr, .table tbody tr:nth-child(odd) { background: transparent; border-radius: 0; }
+.table tbody td { border-top: 1px solid var(--sys-rule); vertical-align: middle; }
+.table tbody tr:hover td { background: var(--sys-hover); }
+.table tbody td a { color: var(--ink); font-weight: 600; text-decoration: none; }
+.table tbody td a:hover { color: var(--sys-accent-deep); text-decoration: underline; text-underline-offset: 3px; }
+.sort-column__button { opacity: 0.5; }
+
+/* Publish state as dot + word; ticks in ink. */
+.cms-status { display: inline-flex; align-items: center; gap: 7px; color: var(--sys-muted); font-size: 13.5px; font-weight: 600; white-space: nowrap; }
+.cms-status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--color-base-350); }
+.cms-status--live { color: var(--success); }
+.cms-status--live::before { background: var(--success); }
+.cms-check { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 3px; border: 1.5px solid var(--sys-rule-strong); color: #fff; vertical-align: middle; }
+.cms-check--on { background: var(--ink); border-color: var(--ink); }
+
+/* ---------- Dashboard: status board, then the index as a ruled sheet ---------- */
+.cms-board { margin: 8px 0 48px; }
+.cms-board__head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 8px 24px; margin-bottom: 22px; }
+.cms-board__title { margin: 0; font-size: 30px; line-height: 36px; font-weight: 800; letter-spacing: -0.01em; color: var(--ink); }
+.cms-board__site { color: var(--sys-muted); font-size: 14px; font-weight: 500; text-decoration: none; }
+.cms-board__site:hover { color: var(--sys-accent-deep); text-decoration: underline; text-underline-offset: 3px; }
+.cms-board__grid { display: grid; grid-template-columns: 1.35fr repeat(3, 1fr); overflow: hidden; border-radius: var(--sys-radius); background: var(--sys-panel); box-shadow: inset 0 0 0 1px var(--sys-rule); }
+.cms-tile { position: relative; display: grid; grid-template-rows: auto 1fr auto; gap: 14px; min-height: 164px; padding: 20px 22px; border-left: 1px solid var(--sys-rule);
+  color: var(--ink); text-decoration: none; transition: background-color 140ms ease; }
+.cms-tile:first-child { border-left: 0; }
+.cms-tile:hover { background: var(--sys-hover); }
+.cms-tile:focus-visible { outline: 2px solid var(--sys-accent); outline-offset: -2px; }
+.cms-tile__label { font-size: 10.5px; line-height: 14px; color: var(--sys-muted); }
+.cms-tile__num { align-self: end; font-size: 46px; line-height: 1; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.cms-tile__meta { font-size: 13px; line-height: 18px; color: var(--sys-muted); }
+.cms-tile:hover .cms-tile__num, .cms-tile--alert .cms-tile__num { color: var(--sys-accent); }
+.cms-tile--primary { overflow: hidden; isolation: isolate; background: var(--ink); color: #fff; }
+.cms-tile--primary:hover { background: #2e292a; }
+.cms-tile--primary .cms-tile__label, .cms-tile--primary .cms-tile__meta { color: rgba(255, 255, 255, 0.72); }
+.cms-tile--primary .cms-tile__meta { font-weight: 600; color: #fff; }
+.cms-tile__title { align-self: end; font-size: 30px; line-height: 34px; font-weight: 800; letter-spacing: -0.01em; }
+/* The login's red slash, small, on the primary tile. */
+.cms-tile--primary::after { content: ""; position: absolute; z-index: -1; top: -10px; bottom: -10px; right: 36px; width: 14px; background: var(--red-gradient, var(--red)); transform: skewX(-14deg); }
+.cms-tile--primary::before { content: ""; position: absolute; z-index: -1; top: -10px; bottom: -10px; right: 60px; width: 4px; background: var(--maroon); transform: skewX(-14deg); opacity: 0.8; }
+.cms-board__actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.cms-action { display: inline-flex; align-items: center; min-height: 36px; padding: 0 14px; border: 1px solid var(--sys-rule-strong); border-radius: var(--sys-radius-control);
+  background: var(--sys-panel); color: var(--ink); font-size: 14px; font-weight: 600; text-decoration: none; transition: border-color 140ms ease, color 140ms ease; }
+.cms-action:hover { border-color: var(--ink); }
+.cms-action--new { border-color: var(--sys-accent); background: var(--sys-accent); color: #fff; }
+.cms-action--new:hover { border-color: var(--sys-accent-deep); background: var(--sys-accent-deep); }
+.cms-action:focus-visible { outline: 2px solid var(--sys-accent); outline-offset: 2px; }
+
+/* Collection index: each group is one ruled sheet of rows instead of tall empty cards. */
+/* Payload sets the widget padding inline; the index lines up with the board above. */
+.modular-dashboard .widget { padding: 0 !important; }
+.collections__wrap { gap: 36px; }
+.collections__group { gap: 12px; }
+.collections__label { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 11px; color: var(--ink); }
+.collections__label::before { content: ""; flex: none; width: var(--sys-mark-sm-w); height: var(--sys-mark-sm-h); border-radius: var(--sys-mark-radius); background: var(--sys-mark); }
+.collections__card-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0; overflow: hidden; border-radius: var(--sys-radius);
+  background: var(--sys-panel); box-shadow: inset 0 0 0 1px var(--sys-rule); }
+.collections__card-list > li { margin: 0 -1px -1px 0; border-right: 1px solid var(--sys-rule); border-bottom: 1px solid var(--sys-rule); }
+.collections__card-list .card { min-height: 0; padding: 15px 18px; border-radius: 0; background: transparent; box-shadow: none; }
+.collections__card-list .card:hover { background: var(--sys-hover); box-shadow: none; }
+.collections__card-list .card__title { margin: 0; font-size: 15px; line-height: 22px; font-weight: 600; }
+.collections__card-list .card:hover .card__title { color: var(--sys-accent-deep); }
+.collections__card-list .card__actions .btn { --btn-border: 1px solid var(--sys-rule-strong); }
+
+/* ---------- Login: paper crossed by the red slash, form on a white sheet ---------- */
+.template-minimal { position: relative; isolation: isolate; background: var(--sys-paper); overflow: hidden; }
 .template-minimal::before { content: ""; position: absolute; z-index: -1; top: 0; bottom: 0; right: 8%; width: 220px; background: var(--red-gradient); transform: skewX(-14deg); }
 .template-minimal::after { content: ""; position: absolute; z-index: -1; top: 0; bottom: 0; right: calc(8% + 250px); width: 18px; background: var(--maroon); transform: skewX(-14deg); opacity: 0.6; }
-.template-minimal__wrap { padding: 40px; border-radius: 16px; background: var(--surface); box-shadow: 0 24px 48px color-mix(in srgb, var(--ink) 14%, transparent); }
+.template-minimal__wrap { padding: 40px; border-radius: var(--sys-radius); background: var(--sys-panel); box-shadow: inset 0 0 0 1px var(--sys-rule), 0 24px 48px color-mix(in srgb, var(--ink) 12%, transparent); }
 .login__brand { margin-bottom: 32px; }
 
-/* ---------- Editing comfort ---------- */
-/* Cards and form panels stay white on the tinted page. */
-.card, .collapsible, .array-field__row { background: #ffffff; }
-.collapsible__toggle-wrap, .array-field .collapsible__toggle-wrap { background: #ffffff; }
-.field-description, .cms-help { color: var(--ink-muted); font-size: 13px; line-height: 18px; }
-.render-fields > .field-type + .field-type { margin-top: 4px; }
-
-/* Ticks instead of true/false in lists. */
-.cms-check { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 6px; border: 1.5px solid var(--line-strong); color: #fff; vertical-align: middle; }
-.cms-check--on { background: var(--red); border-color: var(--red); }
-
-/* Folded list rows show their content. */
+/* ---------- Custom field components ---------- */
 .cms-rowlabel { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; color: var(--ink); }
-.cms-rowlabel b { font-family: var(--font-label); font-size: 11px; font-weight: 800; color: var(--maroon); }
+.cms-rowlabel b { font-family: var(--sys-font-label); font-size: 10.5px; font-weight: 800; letter-spacing: 0.08em; color: var(--sys-muted); }
 
-/* Superior picker (organisation chart). */
 .cms-parentpick { display: grid; gap: 6px; }
-.cms-parentpick select { width: 100%; min-height: 40px; padding: 8px 12px; border: 1px solid var(--color-base-200); border-radius: var(--style-radius-s); background: #fff; color: var(--ink); font: inherit; }
+.cms-parentpick select { width: 100%; min-height: 40px; padding: 8px 12px; border: 1px solid var(--sys-rule-strong); border-radius: var(--sys-radius-control); background: #fff; color: var(--ink); font: inherit; }
 
-/* City map picker. */
-.cms-mappick { display: grid; gap: 10px; margin: 6px 0 4px; padding: 14px; border: 1px solid var(--cms-tint-strong); border-radius: var(--style-radius-l); background: #fff; }
+.cms-mappick { display: grid; gap: 10px; margin: 6px 0 4px; padding: 14px; border-radius: var(--sys-radius); background: var(--sys-panel); box-shadow: inset 0 0 0 1px var(--sys-rule); }
 .cms-mappick__head { display: grid; gap: 2px; }
 .cms-mappick__title { font-weight: 700; color: var(--ink); }
-.cms-mappick__hint { font-size: 13px; color: var(--ink-muted); }
+.cms-mappick__hint { font-size: 13px; color: var(--sys-muted); }
 .cms-mappick__search { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-.cms-mappick__search input { flex: 1 1 220px; min-height: 38px; padding: 8px 12px; border: 1px solid var(--color-base-200); border-radius: var(--style-radius-s); font: inherit; background: #fff; }
-.cms-mappick__reset { min-height: 38px; padding: 0 14px; border: 1px solid var(--red); border-radius: var(--style-radius-s); background: #fff; color: var(--red); font: inherit; font-weight: 600; cursor: pointer; }
-.cms-mappick__map { position: relative; width: 100%; max-width: 720px; border-radius: var(--style-radius-m); background: var(--cms-tint); overflow: hidden; }
-.cms-mappick__land { position: absolute; inset: 0; background: #d9a6a3; -webkit-mask-size: 100% 100%; mask-size: 100% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+.cms-mappick__search input { flex: 1 1 220px; min-height: 38px; padding: 8px 12px; border: 1px solid var(--sys-rule-strong); border-radius: var(--sys-radius-control); font: inherit; background: #fff; }
+.cms-mappick__reset { min-height: 38px; padding: 0 14px; border: 1px solid var(--sys-rule-strong); border-radius: var(--sys-radius-control); background: #fff; color: var(--ink); font: inherit; font-weight: 600; cursor: pointer; }
+.cms-mappick__reset:hover { border-color: var(--ink); }
+.cms-mappick__map { position: relative; width: 100%; max-width: 720px; border-radius: var(--sys-radius-control); background: var(--sys-paper); overflow: hidden; }
+.cms-mappick__land { position: absolute; inset: 0; background: #d6cfc5; -webkit-mask-size: 100% 100%; mask-size: 100% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
 .cms-mappick__map svg { position: absolute; inset: 0; width: 100%; height: 100%; cursor: crosshair; }
 .cms-mappick__dot { fill: var(--red); stroke: #fff; stroke-width: 3; }
 .cms-mappick__halo { fill: var(--red); opacity: 0.22; }
 .cms-mappick__status { margin: 0; font-size: 13px; color: var(--success); }
 .cms-mappick__status--empty { color: var(--maroon); }
 
-:root { --cms-accent: var(--red); --cms-accent-deep: var(--maroon); --cms-card: #ffffff; }
-
-/* ---------- Hierarchy (audit 14 Okt 2026): one clear place to start, titles that don't shout, obvious actions ---------- */
-
-/* 1. Dashboard: the starting panel leads; the full card grid below is the reference list. */
-.cms-start { margin: 4px 0 44px; padding: 28px; border-radius: 16px; background: var(--cms-card); box-shadow: inset 0 0 0 1px var(--line); }
-.cms-start__eyebrow { margin: 0 0 6px; font-size: 12px; line-height: 16px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cms-accent-deep); }
-.cms-start__title { margin: 0; font-size: 30px; line-height: 36px; font-weight: 800; color: var(--ink); }
-.cms-start__lead { margin: 8px 0 0; max-width: 64ch; font-size: 15px; line-height: 24px; color: var(--ink-muted); }
-.cms-start__tasks { display: grid; grid-template-columns: 1.2fr 1fr 1fr; grid-auto-rows: minmax(84px, auto); gap: 12px; margin-top: 24px; }
-.cms-task { display: grid; align-content: center; gap: 4px; padding: 16px 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--theme-bg);
-  color: var(--ink); text-decoration: none; transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease; }
-.cms-task:hover { border-color: var(--cms-accent); transform: translateY(-1px); }
-.cms-task:focus-visible { outline: 2px solid var(--cms-accent); outline-offset: 2px; }
-.cms-task__label { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 16px; line-height: 22px; font-weight: 700; }
-.cms-task__hint { font-size: 13px; line-height: 18px; color: var(--ink-muted); }
-.cms-task--primary { grid-row: span 2; align-content: end; min-height: 180px; padding: 22px; border-color: var(--cms-accent); background: var(--cms-accent); color: #fff; }
-.cms-task--primary .cms-task__label { font-size: 22px; line-height: 28px; }
-.cms-task--primary .cms-task__label::after { content: "→"; font-weight: 400; }
-.cms-task--primary .cms-task__hint { color: rgba(255, 255, 255, 0.86); font-size: 14px; }
-.cms-task--primary:hover { background: var(--cms-accent-deep); border-color: var(--cms-accent-deep); }
-.cms-task--ghost { background: transparent; border-style: dashed; }
-.cms-task__badge { padding: 1px 8px; border-radius: 999px; background: var(--cms-accent); color: #fff; font-size: 12px; line-height: 18px; font-weight: 700; }
-.cms-start__more { margin: 16px 0 0; font-size: 13px; color: var(--ink-muted); }
-.cms-start__more a { margin-left: 6px; color: var(--cms-accent-deep); font-weight: 700; }
-.collections__group + .collections__group { margin-top: 8px; }
-.card { padding-block: 14px; }
-.card__title { font-size: 15px; line-height: 20px; font-weight: 600; }
-
-/* 2. Page titles: clear but not louder than the content they head. */
-.doc-header__title { font-size: 28px; line-height: 34px; font-weight: 800; }
-.list-header__title { font-size: 30px; line-height: 36px; font-weight: 800; }
-
-/* 3. The main action in a list ("Buat Baru") is a real primary button. */
-.list-header__create-new-button.btn, .list-header .btn--style-pill {
-  --bg-color: var(--cms-accent); --color: #fff; --hover-bg: var(--cms-accent-deep); --hover-color: #fff; padding-inline: 14px; font-weight: 700; }
-
-/* 4. Labels lead, help follows: labels darker and heavier, the language note and help text quiet. */
-label.field-label:not(.unstyled) { font-size: 14px; line-height: 20px; font-weight: 600; color: var(--ink); }
-label.field-label .localized, .field-label .localized { font-size: 12px; font-weight: 400; color: var(--color-base-450); }
-.field-description { margin-top: 6px; }
-
-/* 5. Rich text looks like an input you can type in. */
-.rich-text-lexical .editor-container { border: 1px solid var(--color-base-200); border-radius: var(--style-radius-s); background: var(--theme-input-bg); }
-.rich-text-lexical .editor-container:focus-within { border-color: var(--cms-accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--cms-accent) 16%, transparent); }
-
-/* 6. Status bar: the state reads first, dates are secondary. */
-.doc-controls__label { font-weight: 400; color: var(--ink-muted); }
-.doc-controls__value { font-weight: 500; }
-.status__value { font-weight: 700; color: var(--cms-accent-deep); }
-
+/* ---------- Small screens ---------- */
 @media (max-width: 1023px) {
-  .cms-start__tasks { grid-template-columns: 1fr 1fr; }
-  .cms-task--primary { grid-row: auto; grid-column: 1 / -1; min-height: 120px; }
+  .cms-board__grid { grid-template-columns: 1fr 1fr; }
+  .cms-tile--primary { grid-column: 1 / -1; min-height: 140px; }
+  .cms-tile { border-top: 1px solid var(--sys-rule); }
+  .cms-tile--primary, .cms-tile:nth-child(2), .cms-tile:nth-child(4) { border-left: 0; }
+  .cms-tile--primary { border-top: 0; }
 }
 @media (max-width: 600px) {
-  .cms-start { padding: 20px; }
-  .cms-start__title { font-size: 24px; line-height: 30px; }
-  .cms-start__tasks { grid-template-columns: 1fr; }
+  .cms-board__title { font-size: 25px; line-height: 30px; }
+  .cms-board__grid { grid-template-columns: repeat(3, 1fr); }
+  .cms-tile { gap: 10px; min-height: 0; padding: 14px; }
+  .cms-tile, .cms-tile:nth-child(4) { border-left: 1px solid var(--sys-rule); }
+  .cms-tile--primary, .cms-tile:nth-child(2) { border-left: 0; }
+  .cms-tile--primary { min-height: 120px; padding: 16px; }
+  .cms-tile__num { align-self: start; font-size: 32px; }
+  .cms-tile__label { min-height: 26px; }
+  .cms-tile__label { font-size: 9.5px; letter-spacing: 0.08em; }
+  .cms-tile__meta { font-size: 12px; line-height: 16px; }
+  .localizer-button { padding-right: 6px; }
+  .localizer-button__current-label { display: none; }
+  .localizer-button::before { margin-right: 4px; }
   .doc-header__title, .list-header__title { font-size: 24px; line-height: 30px; }
+  .tabs-field__tabs { gap: 0 20px; }
+  .tabs-field__tab-button { font-size: 14px; }
 }
-
-/* ---------- Section navigation inside forms (tabs): numbered, bordered, active filled; wraps instead of scrolling ---------- */
-.tabs-field { margin-top: 24px; }
-.tabs-field__tabs-wrap { overflow: visible; margin: 0 var(--gutter-h) 24px; padding: 14px 16px 16px; border: 1px solid var(--line); border-radius: 14px; background: var(--cms-card); }
-.tabs-field__tabs-wrap::before { content: "Bagian halaman, klik untuk pindah"; display: block; margin-bottom: 10px; font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); }
-.tabs-field__tabs { display: flex; flex-wrap: wrap; gap: 8px; min-width: 0; border-bottom: 0; counter-reset: cmstab; }
-.tabs-field__tabs::before, .tabs-field__tabs::after { display: none; }
-.tabs-field__tab-button { counter-increment: cmstab; align-items: center; gap: 8px; margin: 0; padding: 9px 16px 9px 10px; border: 1px solid var(--line); border-radius: 999px;
-  background: var(--theme-bg); color: var(--ink); opacity: 1; font-size: 15px; line-height: 20px; font-weight: 600; letter-spacing: 0; transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease; }
-.tabs-field__tab-button::before { content: counter(cmstab); display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--color-base-150);
-  color: var(--ink); font-size: 12px; font-weight: 800; }
-.tabs-field__tab-button::after { display: none; }
-.tabs-field__tab-button:hover { opacity: 1; border-color: var(--cms-accent); color: var(--cms-accent-deep); }
-.tabs-field__tab-button--active, .tabs-field__tab-button--active:hover { border-color: var(--cms-accent); background: var(--cms-accent); color: #fff; }
-.tabs-field__tab-button--active::before { background: #fff; color: var(--cms-accent-deep); }
-.tabs-field__tab-button--has-error { border-color: var(--theme-error-500); color: var(--theme-error-750); }
-.tabs-field__tab-button--has-error::before { background: var(--theme-error-500); color: #fff; content: "!"; }
-.tabs-field__tab-button:focus-visible { outline: 2px solid var(--cms-accent); outline-offset: 2px; }
-.tabs-field__description { padding: 10px 14px; border-left: 3px solid var(--cms-accent); border-radius: 0 8px 8px 0; background: var(--cms-card); color: var(--ink-muted); font-size: 14px; }
-@media (max-width: 600px) {
-  .tabs-field__tabs-wrap { padding: 12px; }
-  .tabs-field__tab-button { padding: 8px 12px 8px 8px; font-size: 14px; }
-}
-
-/* ---------- Review 14 Okt: add-item buttons, status labels ---------- */
-/* Adding a row (price, city, point…) is the main action of a list: a full-width dashed button, not a grey text link. */
-.array-field__add-row.btn { --btn-color: var(--cms-accent-deep); align-self: stretch; justify-content: center; width: 100%; margin-top: 10px; padding: 12px 16px;
-  border: 1.5px dashed color-mix(in srgb, var(--cms-accent) 55%, var(--line)); border-radius: 12px; background: var(--cms-card); font-weight: 700; }
-.array-field__add-row.btn:hover:not(:disabled) { --btn-color: #fff; border-style: solid; border-color: var(--cms-accent); background: var(--cms-accent); }
-.array-field__add-row.btn .btn__label { font-size: 15px; }
-/* Publish state as a label in lists. */
-.cms-status { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; background: var(--color-base-150); color: var(--ink-muted); font-size: 13px; font-weight: 600; white-space: nowrap; }
-.cms-status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--color-base-450); }
-.cms-status--live { background: color-mix(in srgb, var(--success, #2f6b3a) 14%, #fff); color: var(--success, #2f6b3a); }
-.cms-status--live::before { background: var(--success, #2f6b3a); }
-/* Create buttons carry a plus so they read as "add something new" at a glance. */
-.list-header [class*="create-new-button"] .btn__label::before, .cms-task--new .cms-task__label::before {
-  content: ""; display: inline-block; flex: none; width: 12px; height: 12px; margin-right: 8px; vertical-align: -1px;
-  background: linear-gradient(currentColor, currentColor) center / 100% 2px no-repeat, linear-gradient(currentColor, currentColor) center / 2px 100% no-repeat; }
-.cms-task--new .cms-task__label::before { width: 14px; height: 14px; margin-right: 8px; color: var(--cms-accent); }

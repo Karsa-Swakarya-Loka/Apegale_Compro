@@ -1,43 +1,53 @@
-// Dashboard starting point (admin.components.beforeDashboard): the one main task first, then the frequent ones, with the
-// number of new messages that still need a reply. Gives the team an obvious place to begin.
+// Dashboard head (admin.components.beforeDashboard): the site's state in numbers, each tile opening the place where it is
+// changed, plus the two most frequent actions. The collection index below stays Payload's own.
 import Link from 'next/link'
-import type { Payload } from 'payload'
+import type { CollectionSlug, Payload, Where } from 'payload'
 
-type Props = { payload: Payload; user?: { email?: string | null } | null }
+type Props = { payload: Payload }
 
-export async function StartHere({ payload, user }: Props) {
-  const fresh = await payload.count({ collection: 'inquiries', where: { status: { equals: 'baru' } }, overrideAccess: true }).then(r => r.totalDocs).catch(() => 0)
-  const name = user?.email?.split('@')[0]
+export async function StartHere({ payload }: Props) {
+  const count = (collection: CollectionSlug, where: Where) =>
+    payload.count({ collection, where, overrideAccess: true }).then(r => r.totalDocs).catch(() => 0)
+  const [fresh, postsLive, postsDraft, services] = await Promise.all([
+    count('inquiries', { status: { equals: 'baru' } }),
+    count('posts', { _status: { equals: 'published' } }),
+    count('posts', { _status: { equals: 'draft' } }),
+    count('services', { _status: { equals: 'published' } }),
+  ])
+  const site = process.env.NEXT_PUBLIC_SITE_URL || '/'
+  const host = site.replace(/^https?:\/\//, '').replace(/\/$/, '')
   return (
-    <section className="cms-start" aria-labelledby="cms-start-title">
-      <div className="cms-start__intro">
-        <p className="cms-start__eyebrow">CMS Ape Gale Indonesia</p>
-        <h1 id="cms-start-title" className="cms-start__title">Selamat datang{name ? `, ${name}` : ''}</h1>
-        <p className="cms-start__lead">Ubah isi situs dari sini. Tekan <b>Simpan Draf</b> untuk menyimpan tanpa menampilkan, lalu <b>Publikasikan</b> agar perubahan tampil di situs.</p>
+    <section className="cms-board" aria-labelledby="cms-board-title">
+      <header className="cms-board__head">
+        <h1 id="cms-board-title" className="cms-board__title">Ape Gale Indonesia</h1>
+        <a className="cms-board__site" href={site} target="_blank" rel="noopener noreferrer">{host || 'Lihat situs'} ↗</a>
+      </header>
+      <div className="cms-board__grid">
+        <Link className="cms-tile cms-tile--primary" href="/admin/globals/home">
+          <span className="cms-tile__label">Halaman utama</span>
+          <span className="cms-tile__title">Beranda</span>
+          <span className="cms-tile__meta">Ubah isi →</span>
+        </Link>
+        <Link className={`cms-tile${fresh ? ' cms-tile--alert' : ''}`} href="/admin/collections/inquiries">
+          <span className="cms-tile__label">Pesan baru</span>
+          <span className="cms-tile__num">{fresh}</span>
+          <span className="cms-tile__meta">{fresh ? 'Belum dihubungi' : 'Semua sudah ditangani'}</span>
+        </Link>
+        <Link className="cms-tile" href="/admin/collections/posts">
+          <span className="cms-tile__label">Berita tayang</span>
+          <span className="cms-tile__num">{postsLive}</span>
+          <span className="cms-tile__meta">{postsDraft} draf</span>
+        </Link>
+        <Link className="cms-tile" href="/admin/collections/services">
+          <span className="cms-tile__label">Layanan tayang</span>
+          <span className="cms-tile__num">{services}</span>
+          <span className="cms-tile__meta">Termasuk sub-layanan</span>
+        </Link>
       </div>
-      <div className="cms-start__tasks">
-        <Link className="cms-task cms-task--primary" href="/admin/globals/home">
-          <span className="cms-task__label">Ubah isi Beranda</span>
-          <span className="cms-task__hint">Judul, foto, keunggulan, kota jaringan, pendiri</span>
-        </Link>
-        <Link className="cms-task" href="/admin/collections/inquiries">
-          <span className="cms-task__label">Pesan masuk {fresh ? <span className="cms-task__badge">{fresh} baru</span> : null}</span>
-          <span className="cms-task__hint">{fresh ? 'Ada pesan yang belum dihubungi' : 'Tidak ada pesan baru'}</span>
-        </Link>
-        <Link className="cms-task cms-task--new" href="/admin/collections/posts/create">
-          <span className="cms-task__label">Tulis berita</span>
-          <span className="cms-task__hint">Berita atau panduan baru</span>
-        </Link>
-        <Link className="cms-task" href="/admin/collections/services">
-          <span className="cms-task__label">Kelola layanan</span>
-          <span className="cms-task__hint">Isi, harga dan FAQ layanan</span>
-        </Link>
-        <Link className="cms-task" href="/admin/globals/site">
-          <span className="cms-task__label">Kontak & alamat</span>
-          <span className="cms-task__hint">Telepon, WhatsApp, email, media sosial</span>
-        </Link>
+      <div className="cms-board__actions">
+        <Link className="cms-action cms-action--new" href="/admin/collections/posts/create">Tulis berita</Link>
+        <Link className="cms-action" href="/admin/globals/site">Kontak & alamat</Link>
       </div>
-      <p className="cms-start__more">Semua bagian lain ada di bawah dan di menu kiri. <a href="/" target="_blank" rel="noopener noreferrer">Lihat situs ↗</a></p>
     </section>
   )
 }

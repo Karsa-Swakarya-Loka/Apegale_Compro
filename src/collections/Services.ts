@@ -5,7 +5,7 @@ import { previewUrl } from '../lib/preview.ts'
 export const Services: CollectionConfig = {
  slug: 'services', labels: { singular: 'Layanan', plural: 'Layanan' },
  admin: { hideAPIURL: true, group: 'Konten situs', preview: previewUrl('services', true), useAsTitle: 'title', defaultColumns: ['title', 'parent', 'showInMenu', 'statusBadge', 'enReviewed'],
-  description: 'Enam layanan utama dan sub-layanannya. Untuk sub-layanan, isi "Induk layanan".' },
+  description: 'Sub-layanan ditandai dengan mengisi "Induk layanan".' },
  access: contentAccess, versions: { drafts: true },
  fields: [statusColumn, 
   tabs(
