@@ -23,7 +23,7 @@ type Props = {
 export function Header({ locale, site, items, cta, messages, languageLabel }: Props) {
   const wa = whatsappHref(site.whatsapp, site.whatsappDefaultMessage)
   return (
-    <Masthead plainPrefix={href(locale, 'news')}>
+    <Masthead>
       <div className="ag-topbar">
         <div className="ag-topbar__in">
           {site.phone ? <a href={telHref(site.phone)}><Phone aria-hidden="true" />{site.phone}</a> : null}

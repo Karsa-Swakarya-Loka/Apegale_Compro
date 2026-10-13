@@ -46,6 +46,9 @@ main:focus { outline: none; }
 /* Like Affirmate: every plain section changes colour from its neighbour (soft, white, soft…), so sections read as
    blocks and the spacing between them never looks empty. Red fields keep their gradient. */
 main > .ag-section:nth-child(odd of .ag-section:not(.ag-section--red)) { background: var(--surface-soft); }
+/* Pages with the home-style page header (itself soft) start the alternation on white. */
+main:has(> .ag-pagehero) > .ag-section:nth-child(odd of .ag-section:not(.ag-section--red)) { background: var(--surface); }
+main:has(> .ag-pagehero) > .ag-section:nth-child(even of .ag-section:not(.ag-section--red)) { background: var(--surface-soft); }
 .ag-section--red { overflow: hidden; }
 .ag-stack { display: grid; gap: var(--space-10); }
 .ag-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: var(--space-16); align-items: start; }

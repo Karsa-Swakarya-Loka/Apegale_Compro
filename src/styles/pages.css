@@ -162,12 +162,16 @@
 .ag-contact__info { display: flex; flex-direction: column; gap: var(--space-6); }
 .ag .ag-contact__title { font-size: 22px; line-height: 30px; font-weight: 700; }
 .ag-contact__list { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--line); }
-.ag-contact__list li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: var(--space-4); align-items: start; padding-block: var(--space-4); border-bottom: 1px solid var(--line); }
-.ag-contact__list b { display: block; margin-bottom: var(--space-1); font-family: var(--font-label); font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--maroon); }
+/* Icon + value only (like the home closing); the rows share the panel height so they line up with the form beside it. */
+.ag-contact__list { flex: 1; display: flex; flex-direction: column; }
+.ag-contact__list li { flex: 1; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: var(--space-4); align-items: center; padding-block: var(--space-3); border-bottom: 1px solid var(--line); }
 .ag-contact__list address { font-style: normal; line-height: 26px; }
 .ag-contact__list a { color: var(--ink); font-weight: 700; overflow-wrap: anywhere; }
 .ag-contact__list a:hover { color: var(--maroon); }
-.ag-contact__icon { display: grid; place-items: center; height: 26px; color: var(--maroon); }
+.ag-contact__icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: color-mix(in srgb, var(--red) 10%, var(--surface)); color: var(--maroon); }
+.ag-contact__list a { text-decoration: none; }
+.ag-contact__list a:hover { text-decoration: underline; }
+.ag-contact__list address + a { display: inline-block; margin-top: var(--space-1); color: var(--maroon); font-size: 14px; font-weight: 600; text-decoration: underline; }
 .ag-contact__info .ag-btn { align-self: flex-start; margin-top: auto; }
 
 /* ---------- 404 ---------- */
@@ -249,3 +253,7 @@
 /* Buttons without an arrow chip (WhatsApp) keep even side padding in the page header. */
 .ag-pagehero .ag-btn--wa { padding-right: 20px; }
 @media (max-width: 1023px) { .ag-contact__form .ag-form { grid-template-rows: none; } .ag-contact__form .ag-field textarea { height: auto; } }
+
+/* News pages keep the plain header; it starts below the floating capsule navbar. */
+.ag-masthead[data-float] ~ main .ag-pagehead__in { padding-top: 168px; }
+@media (max-width: 767px) { .ag-masthead[data-float] ~ main .ag-pagehead__in { padding-top: 120px; } }

@@ -13,8 +13,8 @@ const messages = {
     showSubmenu: 'Tampilkan submenu {label}',
     allServices: 'Semua layanan',
     aboutAnchors: [
-      { hash: 'salam', label: 'Salam dari Kami' },
       { hash: 'profil', label: 'Profil Perusahaan' },
+      { hash: 'salam', label: 'Salam dari Kami' },
       { hash: 'founder', label: 'Founder' },
       { hash: 'organigram', label: 'Organigram' },
     ],
@@ -158,8 +158,8 @@ const messages = {
     showSubmenu: 'Show {label} submenu',
     allServices: 'All services',
     aboutAnchors: [
-      { hash: 'salam', label: 'Greetings' },
       { hash: 'profil', label: 'Company Profile' },
+      { hash: 'salam', label: 'Greetings' },
       { hash: 'founder', label: 'Founder' },
       { hash: 'organigram', label: 'Organization Chart' },
     ],

@@ -1,5 +1,5 @@
-// /tentang-kami · /en/about — anchors #salam, #founder, #profil, #organigram (menu + old-URL redirects).
-// Section tones alternate white / soft / maroon so red and white carry equal weight.
+// /tentang-kami · /en/about — company profile first, then the greeting. Anchors #profil, #salam, #founder, #organigram
+// (menu + old-URL redirects).
 import type { Metadata } from 'next'
 import { pageMetadata } from '@/lib/seo'
 import Image from 'next/image'
@@ -39,24 +39,7 @@ export async function AboutPage({ locale }: { locale: Locale }) {
       <PageHeader locale={locale} title={m.about.title} intro={about.intro || m.about.intro} crumbLabel={m.services.breadcrumb}
         crumbs={[{ label: ui.nav?.home || 'Home', href: href(locale, 'home') }, { label: ui.nav?.about || '' }]} />
 
-      <section className="ag-section" id="salam" aria-labelledby="greeting-title">
-        <div className="ag-container ag-about">
-          {photo?.url && photo.width && photo.height ? (
-            <Reveal className="ag-about__photo">
-              <figure id="founder" className="ag-founder">
-                <Image src={photo.url} alt={photo.alt || home.founder?.name || ''} width={photo.width} height={photo.height} sizes="(max-width: 767px) 80vw, 360px" />
-              </figure>
-            </Reveal>
-          ) : null}
-          <Reveal step={1} className="ag-about__copy">
-            <SectionHeading id="greeting-title" title={m.about.greetingTitle} />
-            <Prose data={about.greeting} />
-            {home.founder?.name ? <p className="ag-about__founder"><b>{home.founder.name}</b>{home.founder.role ? <span>{home.founder.role}</span> : null}</p> : null}
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="ag-section ag-section--soft" id="profil" aria-labelledby="profile-title">
+      <section className="ag-section" id="profil" aria-labelledby="profile-title">
         <div className="ag-container ag-split">
           <Reveal className="ag-stack">
             <SectionHeading id="profile-title" title={m.about.profileTitle} />
@@ -75,6 +58,23 @@ export async function AboutPage({ locale }: { locale: Locale }) {
                 <ol>{mission.map(x => <li key={x.id ?? x.text}>{x.text}</li>)}</ol>
               </div>
             ) : null}
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="ag-section" id="salam" aria-labelledby="greeting-title">
+        <div className="ag-container ag-about">
+          {photo?.url && photo.width && photo.height ? (
+            <Reveal className="ag-about__photo">
+              <figure id="founder" className="ag-founder">
+                <Image src={photo.url} alt={photo.alt || home.founder?.name || ''} width={photo.width} height={photo.height} sizes="(max-width: 767px) 80vw, 360px" />
+              </figure>
+            </Reveal>
+          ) : null}
+          <Reveal step={1} className="ag-about__copy">
+            <SectionHeading id="greeting-title" title={m.about.greetingTitle} />
+            <Prose data={about.greeting} />
+            {home.founder?.name ? <p className="ag-about__founder"><b>{home.founder.name}</b>{home.founder.role ? <span>{home.founder.role}</span> : null}</p> : null}
           </Reveal>
         </div>
       </section>

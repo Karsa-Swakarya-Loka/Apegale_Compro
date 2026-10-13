@@ -11,7 +11,7 @@ import { HeroClipDefs } from '@/components/ui/HeroClipDefs'
 type Crumb = { label: string; href?: string }
 type Props = {
   locale: Locale; eyebrow?: string | null; title: string; intro?: string | null; crumbs: Crumb[]; crumbLabel: string; actions?: ReactNode
-  /** News pages keep the plain v10 header (white, red slash); every other page gets the home-style header. */
+  /** News pages keep the plain v10 header (white, red slash) under the floating navbar; every other page gets the home-style header. */
   plain?: boolean
 }
 

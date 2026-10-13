@@ -42,24 +42,24 @@ export async function ContactPage({ locale }: { locale: Locale }) {
             <ul className="ag-contact__list">
               {site.address ? (
                 <li><span className="ag-contact__icon"><MapPin size={20} aria-hidden="true" /></span>
-                  <div><b>{m.contact.address}</b><address>{site.address}</address>
+                  <div><b className="ag-visually-hidden">{m.contact.address}: </b><address>{site.address}</address>
                     {site.mapsUrl ? <a href={site.mapsUrl} target="_blank" rel="noopener noreferrer">{m.contact.openMaps}</a> : null}</div></li>
               ) : null}
               {site.phone ? (
                 <li><span className="ag-contact__icon"><Phone size={20} aria-hidden="true" /></span>
-                  <div><b>{m.contact.phone}</b><a href={telHref(site.phone)}>{site.phone}</a></div></li>
+                  <div><b className="ag-visually-hidden">{m.contact.phone}: </b><a href={telHref(site.phone)}>{site.phone}</a></div></li>
               ) : null}
               {wa ? (
                 <li><span className="ag-contact__icon"><WhatsAppIcon size={20} /></span>
-                  <div><b>WhatsApp</b><a href={wa} target="_blank" rel="noopener noreferrer">{formatWhatsApp(site.whatsapp)}</a></div></li>
+                  <div><b className="ag-visually-hidden">WhatsApp: </b><a href={wa} target="_blank" rel="noopener noreferrer">{formatWhatsApp(site.whatsapp)}</a></div></li>
               ) : null}
               {site.email ? (
                 <li><span className="ag-contact__icon"><Mail size={20} aria-hidden="true" /></span>
-                  <div><b>Email</b><a href={`mailto:${site.email}`}>{site.email}</a></div></li>
+                  <div><b className="ag-visually-hidden">Email: </b><a href={`mailto:${site.email}`}>{site.email}</a></div></li>
               ) : null}
               {instagram ? (
                 <li><span className="ag-contact__icon"><InstagramIcon size={20} /></span>
-                  <div><b>Instagram</b><a href={instagram.url} target="_blank" rel="noopener noreferrer">@{instagram.url.replace(/\/+$/, '').split('/').pop()}</a></div></li>
+                  <div><b className="ag-visually-hidden">Instagram: </b><a href={instagram.url} target="_blank" rel="noopener noreferrer">@{instagram.url.replace(/\/+$/, '').split('/').pop()}</a></div></li>
               ) : null}
             </ul>
             {wa ? <Button variant="wa" href={wa} label={ui.cta?.whatsapp || ''} icon={<WhatsAppIcon size={20} />} /> : null}
