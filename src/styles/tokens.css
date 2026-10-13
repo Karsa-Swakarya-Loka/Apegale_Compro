@@ -1,0 +1,134 @@
+/* Ape Gale Indonesia — generated from tokens.json by scripts/build-tokens.mjs. Do not edit by hand. */
+:root, [data-theme="light"] {
+  --surface: #ffffff;
+  --surface-soft: #f6f0ef;
+  --surface-raised: #ffffff;
+  --line: #e9e1e0;
+  --line-strong: #8a8283;
+  --ink: #231f20;
+  --ink-muted: #424143;
+  --maroon: #981a2f;
+  --maroon-hover: #a21c30;
+  --maroon-deep: #740f22;
+  --red: #be2130;
+  --brand-text: #981a2f;
+  --brand-tint: #f7e8ea;
+  --on-brand: #ffffff;
+  --whatsapp: #0f7a3f;
+  --focus: #981a2f;
+  --danger: #b42318;
+  --success: #146c43;
+  --charcoal: #24282a;
+  --shadow-card: none;
+  --shadow-raised: none;
+}
+[data-theme="dark"] {
+  --surface: #140d0e;
+  --surface-soft: #1e1416;
+  --surface-raised: #281a1c;
+  --line: #3e2b2e;
+  --line-strong: #7e6a6d;
+  --ink: #f6eeee;
+  --ink-muted: #bca9ab;
+  --maroon: #a11b28;
+  --maroon-hover: #b8212f;
+  --maroon-deep: #4f1019;
+  --red: #e0414f;
+  --brand-text: #f29ba4;
+  --brand-tint: #3b181d;
+  --on-brand: #ffffff;
+  --whatsapp: #0f7a3f;
+  --focus: #f29ba4;
+  --danger: #ff8f87;
+  --success: #6fd3a0;
+  --charcoal: #24282a;
+  --shadow-card: 0 1px 2px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.35);
+  --shadow-raised: 0 12px 32px rgba(0,0,0,0.55);
+}
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --container: 1200px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 10px;
+  --radius-xxl: 12px;
+  --radius-pill: 6px;
+  --motion-fast: 160ms;
+  --motion-base: 200ms;
+  --motion-reveal: 360ms;
+  --motion-stagger: 60ms;
+  --motion-distance: 12px;
+  --motion-distance-mobile: 8px;
+  --motion-hover-lift: 4px;
+  --motion-icon-shift: 4px;
+  --motion-ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --marquee-duration: 45s;
+  --touch-target: 44px;
+  --header-height: 72px;
+  --logo-height: 40px;
+  --logo-height-mobile: 32px;
+  --wa-size: 56px;
+  --dropdown-width: 280px;
+  --client-logo-height: 48px;
+  --client-logo-height-mobile: 36px;
+  --hero-min-height: 576px;
+  --hero-copy-max: 500px;
+  --reading-width: 68ch;
+  --heading-mobile-size: 26px;
+  --heading-mobile-line: 34px;
+  --z-float: 40;
+  --z-header: 50;
+  --z-panel: 60;
+  --z-skip: 70;
+  --on-dark-muted: 0.85;
+  --on-dark-line: 0.18;
+  --logo-muted: 0.7;
+  --fs-display: 64px;
+  --lh-display: 70px;
+  --fs-title: 52px;
+  --lh-title: 58px;
+  --fs-h2: 40px;
+  --lh-h2: 46px;
+  --fs-h3: 20px;
+  --lh-h3: 28px;
+  --fs-lead: 19px;
+  --lh-lead: 30px;
+  --fs-body: 16px;
+  --lh-body: 26px;
+  --fs-small: 14px;
+  --lh-small: 22px;
+  --fs-label: 12px;
+  --lh-label: 16px;
+  --surface-tile: #ede3e2;
+  --slant: 14%;
+  --cut: 22px;
+  --rule: 2px;
+  --font-display: Roboto, "Segoe UI", system-ui, sans-serif;
+  --font-body: Roboto, "Segoe UI", system-ui, sans-serif;
+  --font-serif: Roboto, "Segoe UI", system-ui, sans-serif;
+  --font-label: Montserrat, Roboto, system-ui, sans-serif;
+}
+.display-xl { font-family: var(--font-display); font-size: 56px; line-height: 60px; font-weight: 700; letter-spacing: -0.5px; }
+.heading-1 { font-family: var(--font-display); font-size: 40px; line-height: 48px; font-weight: 700; }
+.heading-2 { font-family: var(--font-display); font-size: 32px; line-height: 40px; font-weight: 600; }
+.heading-3 { font-family: var(--font-display); font-size: 22px; line-height: 30px; font-weight: 600; }
+.stat { font-family: var(--font-display); font-size: 48px; line-height: 48px; font-weight: 700; }
+.eyebrow { font-family: var(--font-display); font-size: 13px; line-height: 16px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; }
+.body-lg { font-family: var(--font-body); font-size: 18px; line-height: 30px; font-weight: 400; }
+.body { font-family: var(--font-body); font-size: 16px; line-height: 26px; font-weight: 400; }
+.body-strong { font-family: var(--font-body); font-size: 16px; line-height: 26px; font-weight: 600; }
+.small { font-family: var(--font-body); font-size: 14px; line-height: 22px; font-weight: 400; }
+.button { font-family: var(--font-body); font-size: 15px; line-height: 20px; font-weight: 600; }
+.caption { font-family: var(--font-body); font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.4px; }

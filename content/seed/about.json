@@ -1,0 +1,146 @@
+{
+  "vision": {
+    "id": "Menjadi pemimpin layanan perizinan ekspatriat dan pengelolaan tenaga kerja berbasis digital di Indonesia.",
+    "en": "To lead digital expatriate permit services and workforce management in Indonesia."
+  },
+  "mission": [
+    {
+      "id": "Memahami kebutuhan klien dalam menggunakan layanan dan produk Ape Gale Indonesia.",
+      "en": "Understand client needs across Ape Gale Indonesia’s services and products."
+    },
+    {
+      "id": "Menggunakan proses digital untuk mendukung pelayanan kepada klien.",
+      "en": "Use digital processes to support client services."
+    },
+    {
+      "id": "Menjaga kejujuran dan integritas dalam setiap kerja sama.",
+      "en": "Maintain honesty and integrity in every working relationship."
+    },
+    {
+      "id": "Menyesuaikan pengurusan perizinan dan pengelolaan tenaga kerja dengan kebutuhan klien.",
+      "en": "Adapt permit assistance and workforce management to client requirements."
+    }
+  ],
+  "values": [
+    {
+      "title": {
+        "id": "Komitmen pelayanan",
+        "en": "Service commitment"
+      },
+      "text": {
+        "id": "Memahami kebutuhan klien dan menindaklanjuti layanan yang disepakati.",
+        "en": "Understand client needs and follow through on agreed services."
+      }
+    },
+    {
+      "title": {
+        "id": "Pendekatan sesuai kebutuhan",
+        "en": "A practical approach"
+      },
+      "text": {
+        "id": "Menyesuaikan proses dan dukungan teknologi dengan kebutuhan setiap klien.",
+        "en": "Match processes and technology support to each client’s requirements."
+      }
+    },
+    {
+      "title": {
+        "id": "Integritas",
+        "en": "Integrity"
+      },
+      "text": {
+        "id": "Bekerja secara transparan, jujur, dan memenuhi komitmen kepada klien.",
+        "en": "Work transparently, act honestly, and honour commitments to clients."
+      }
+    }
+  ],
+  "organigram": [
+    {
+      "name": "Deny Yandi Imran",
+      "role": {
+        "id": "Direktur",
+        "en": "Director"
+      }
+    },
+    {
+      "name": "Azmi Ardian",
+      "role": {
+        "id": "Manager Operasional",
+        "en": "Operational Manager"
+      },
+      "parent": "Deny Yandi Imran"
+    },
+    {
+      "name": "Diah Pusokowati",
+      "role": {
+        "id": "Finance Manager",
+        "en": "Finance Manager"
+      },
+      "parent": "Deny Yandi Imran"
+    },
+    {
+      "name": "Arif",
+      "role": {
+        "id": "Product Development & Controller",
+        "en": "Product Development & Controller"
+      },
+      "parent": "Deny Yandi Imran"
+    },
+    {
+      "name": "Djoko Mulyono",
+      "role": {
+        "id": "Field Team Leader",
+        "en": "Field Team Leader"
+      },
+      "parent": "Deny Yandi Imran"
+    },
+    {
+      "name": "M. Salman",
+      "role": {
+        "id": "Staf Operasional",
+        "en": "Operational Staff"
+      },
+      "parent": "Azmi Ardian"
+    },
+    {
+      "name": "Ammabil",
+      "role": {
+        "id": "Staf Operasional",
+        "en": "Operational Staff"
+      },
+      "parent": "Azmi Ardian"
+    },
+    {
+      "name": "Dinda",
+      "role": {
+        "id": "Staf Operasional",
+        "en": "Operational Staff"
+      },
+      "parent": "Azmi Ardian"
+    },
+    {
+      "name": "Tiara",
+      "role": {
+        "id": "Finance Officer",
+        "en": "Finance Officer"
+      },
+      "parent": "Diah Pusokowati"
+    },
+    {
+      "name": "Wahyudi",
+      "role": {
+        "id": "Marketing",
+        "en": "Marketing"
+      },
+      "parent": "Arif"
+    },
+    {
+      "name": "Kiki Permana",
+      "role": {
+        "id": "Field Staff",
+        "en": "Field Staff"
+      },
+      "parent": "Djoko Mulyono"
+    }
+  ],
+  "_source": "Visi, misi, nilai, organigram: Company Profile 2026 hal. 2 & 5. Salam dari Kami & profil: migrasi dari legacy/salam-dari-kami.html dan legacy/profil-perusahaan.html."
+}

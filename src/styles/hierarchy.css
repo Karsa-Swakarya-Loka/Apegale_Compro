@@ -1,0 +1,85 @@
+/* ============================================================================
+   Ape Gale — hierarchy pass v4 (12 Okt 2026). Loaded last.
+   Reading order per view: headline → lead → one primary action → supporting detail.
+   One type ramp (tokens fs and lh in tokens.css), one primary button per view, everything
+   else steps down in weight. Copy, sections and order are unchanged.
+   Action ladder: primary = maroon pill (large) · WhatsApp = green pill (channel) ·
+   secondary = quiet outline · tertiary = text link · unavailable = small muted chip.
+   ============================================================================ */
+
+/* ---------- Type ramp ---------- */
+.ag-hero h1 { font-size: var(--fs-display); line-height: var(--lh-display); max-width: 12ch; }
+.ag-sechead h1, .ag .ag-pagehead h1 { font-size: var(--fs-title); line-height: var(--lh-title); }
+.ag-sechead h2, .ag .ag-cta h2, .ag .ag-closing h2 { font-size: var(--fs-h2); line-height: var(--lh-h2); }
+.ag .ag-closing h2 { max-width: 15ch; }
+.ag-sechead p, .ag-hero__lead, .ag-closing__copy p { font-size: var(--fs-lead); line-height: var(--lh-lead); }
+.ag-hero__lead { max-width: 44ch; }
+.ag .ag-why h3, .ag-service h3 { font-size: var(--fs-h3); line-height: var(--lh-h3); }
+.ag-why p, .ag-orbit__text { font-size: 15px; line-height: 24px; }
+.ag-orbit__link { font-size: 18px; line-height: 26px; }
+.ag-about__text { font-size: 17px; line-height: 28px; max-width: 52ch; }
+.ag-tile b { font-size: 15px; line-height: 21px; }
+.ag-faq summary { font-size: 17px; line-height: 24px; }
+.ag-eyebrow { font-size: var(--fs-label); line-height: var(--lh-label); }
+
+/* Heading block rhythm: label sits close to its headline, intro breathes. */
+.ag-sechead { gap: 0; }
+.ag-sechead .ag-eyebrow { margin-bottom: var(--space-3); }
+.ag-sechead > p { margin-top: var(--space-4); }
+
+/* ---------- Hero: headline first, one primary action, figures as quiet proof ---------- */
+.ag-hero__copy { gap: 0; }
+.ag-hero__copy .ag-eyebrow { margin-bottom: var(--space-4); }
+.ag .ag-hero__lead { margin-top: var(--space-6); }
+.ag-hero__copy .ag-hero__cta { margin-top: var(--space-10); gap: var(--space-4); }
+.ag-hero__cta .ag-btn--primary { min-height: 56px; padding-inline: var(--space-8); font-size: var(--fs-body); box-shadow: var(--shadow-raised); }
+.ag-hero__cta .ag-btn--outline { min-height: 56px; border-color: var(--line); border-width: 1px; }
+.ag-hero .ag-stats { margin-top: var(--space-12); padding-top: var(--space-6); border-top: 1px solid var(--line); max-width: 440px; gap: var(--space-8); }
+.ag-hero .ag-stat b { font-size: 32px; line-height: 36px; color: var(--ink); }
+.ag-hero .ag-stat span { font-size: var(--fs-small); line-height: 18px; }
+
+/* Header action is a shortcut, not a rival to the hero's primary. */
+.ag-btn--sm { padding-inline: var(--space-5); min-height: 40px; font-size: var(--fs-small); }
+
+/* ---------- Secondary and tertiary actions step down ---------- */
+.ag-btn--outline { border-width: 1px; }
+.ag-btn--ghost { color: var(--maroon); }
+
+/* ---------- Services: heading, then the ring under it, list on one straight edge to the right ---------- */
+.ag-orbit { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); grid-template-rows: auto 1fr; column-gap: var(--space-16); row-gap: var(--space-10); align-items: start; }
+.ag-orbit__head { grid-column: 1; grid-row: 1; }
+.ag-orbit__ring { grid-column: 1; grid-row: 2; justify-self: start; max-width: 340px; margin-left: var(--space-8); }
+.ag-orbit__list { grid-column: 2; grid-row: 1 / span 2; gap: var(--space-2); }
+.ag-orbit__list li { margin-left: 0; }
+.ag-orbit__item { padding: var(--space-4); }
+
+/* ---------- GARIS: the working action leads, unavailable ones become small muted chips ---------- */
+.ag-modular__copy > .ag-row:has(.ag-btn--wa) { order: 1; margin-top: var(--space-2); }
+.ag-modular__copy > .ag-row:has([aria-disabled="true"]) { order: 2; gap: var(--space-2); }
+/* Site-wide: an unavailable action is a small muted chip placed after the working actions in its row. */
+.ag .ag-btn[aria-disabled="true"] { min-height: 36px; padding: var(--space-2) var(--space-4); font-size: 13px; box-shadow: none;
+  border: 1px solid var(--line); border-style: solid; background: var(--surface-soft); color: var(--ink-muted); }
+.ag-row > .ag-btn[aria-disabled="true"] { order: 1; }
+
+/* ---------- Closing: copy column carries the message, the form is the action ---------- */
+.ag-closing__copy { gap: 0; }
+.ag-closing__copy p { margin-top: var(--space-5); }
+.ag-closing__copy .ag-row { margin-top: var(--space-8); }
+
+/* ---------- Mobile ramp ---------- */
+@media (max-width: 1023px) {
+  .ag-hero h1 { font-size: 48px; line-height: 54px; }
+  .ag-hero__in { padding-block: var(--space-10) var(--space-4); }
+  .ag-orbit { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
+  .ag-orbit__head, .ag-orbit__ring, .ag-orbit__list { grid-column: 1; grid-row: auto; }
+  .ag-orbit__ring { justify-self: center; margin-left: 0; max-width: 280px; }
+}
+@media (max-width: 767px) {
+  .ag-hero h1 { font-size: 40px; line-height: 46px; }
+  .ag-sechead h1, .ag .ag-pagehead h1 { font-size: 36px; line-height: 42px; }
+  .ag-sechead h2, .ag .ag-cta h2, .ag .ag-closing h2 { font-size: 30px; line-height: 36px; }
+  .ag-sechead p, .ag-hero__lead, .ag-closing__copy p { font-size: 17px; line-height: 28px; }
+  .ag-hero__copy .ag-hero__cta { margin-top: var(--space-8); }
+  .ag-hero__cta .ag-btn { flex: 1 1 auto; }
+  .ag-hero .ag-stats { margin-top: var(--space-8); }
+}

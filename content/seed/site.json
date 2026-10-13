@@ -1,0 +1,47 @@
+{
+  "phone": "(021) 5092 8670",
+  "whatsapp": "628119996286",
+  "whatsappDefaultMessage": {
+    "id": "Halo Ape Gale, saya ingin berkonsultasi.",
+    "en": "Hello Ape Gale, I would like a consultation."
+  },
+  "email": "apegale.admin@apegale.com",
+  "address": {
+    "id": "Ascott Sudirman Jakarta, Affirmate Floor 31st Ciputra World II, Jl. Prof. Dr. Satrio Kav. 11, Kel. Karet Kuningan, Kec. Setiabudi, Jakarta Selatan",
+    "en": "Ascott Sudirman Jakarta, Affirmate Floor 31st Ciputra World II, Jl. Prof. Dr. Satrio Kav. 11, Karet Kuningan, Setiabudi, South Jakarta"
+  },
+  "stats": [
+    {
+      "value": "20+",
+      "label": {
+        "id": "tahun pengalaman",
+        "en": "years of experience"
+      }
+    },
+    {
+      "value": "35+",
+      "label": {
+        "id": "kota di Indonesia",
+        "en": "cities across Indonesia"
+      }
+    }
+  ],
+  "social": [
+    {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/apegaleindonesia/"
+    }
+  ],
+  "seoDefault": {
+    "title": {
+      "id": "Conversant Expatriate Services | PT Ape Gale Indonesia",
+      "en": "Conversant Expatriate Services | PT Ape Gale Indonesia"
+    },
+    "description": {
+      "id": "Pengurusan KITAS, KITAP, visa, dan izin tenaga kerja asing di 35+ kota oleh tim berpengalaman lebih dari 20 tahun.",
+      "en": "KITAS, KITAP, visa and foreign-worker permit services in 35+ Indonesian cities by a team with over 20 years of experience."
+    }
+  },
+  "_notes": "Akun sosial lain (LinkedIn, YouTube, Facebook) belum dikonfirmasi klien; jangan diisi tebakan.",
+  "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Ciputra+World+2+Jakarta+Jl.+Prof.+Dr.+Satrio+Kav.+11"
+}

@@ -1,0 +1,35 @@
+/* Shared motion (owner decision #26). Durations, distances and easing come from the transition tokens.
+   Everything is visible without JS and with prefers-reduced-motion. */
+
+.ag-nav__sub { transform: translateY(calc(-1 * var(--motion-icon-shift)));
+  transition: opacity var(--motion-base) var(--motion-ease-out), transform var(--motion-base) var(--motion-ease-out), visibility var(--motion-base); }
+.ag-nav__item[data-open] > .ag-nav__sub { transform: none; }
+.ag-nav__toggle svg, .ag-mnav__toggle svg { transition: transform var(--motion-base) var(--motion-ease-out); }
+.ag-nav a { transition: color var(--motion-fast), border-color var(--motion-fast); }
+
+.ag-mnav:not([hidden]) { animation: ag-panel-in var(--motion-base) var(--motion-ease-out); }
+@keyframes ag-panel-in { from { opacity: 0; transform: translateY(calc(-1 * var(--motion-distance-mobile))); } }
+
+/* Arrow nudge on actionable buttons (not WhatsApp, not disabled). */
+.ag-btn:not(.ag-btn--wa):not([aria-disabled]) svg:last-child { transition: transform var(--motion-fast) var(--motion-ease-out); }
+.ag-btn:not(.ag-btn--wa):not([aria-disabled]):is(:hover, :focus-visible) svg:last-child { transform: translateX(var(--motion-icon-shift)); }
+.ag-btn:not([aria-disabled]):active { transform: translateY(1px); }
+.ag-lang button { transition: color var(--motion-fast), background-color var(--motion-fast); }
+
+/* Reveal: JS marks off-screen blocks as pending; they fade/rise once when scrolled into view. */
+.js .ag-reveal[data-reveal="pending"]:not([data-revealed]) { opacity: 0; transform: translateY(var(--motion-distance)); }
+.ag-reveal[data-revealed="true"] { transition: opacity var(--motion-reveal) var(--motion-ease-out), transform var(--motion-reveal) var(--motion-ease-out); }
+.ag-reveal[data-revealed="true"][data-step="1"] { transition-delay: var(--motion-stagger); }
+.ag-reveal[data-revealed="true"][data-step="2"] { transition-delay: calc(var(--motion-stagger) * 2); }
+
+@media (max-width: 767px) {
+  .js .ag-reveal[data-reveal="pending"]:not([data-revealed]) { transform: translateY(var(--motion-distance-mobile)); }
+  .ag-reveal[data-revealed="true"][data-step] { transition-delay: 0s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .js .ag-reveal[data-reveal="pending"]:not([data-revealed]) { opacity: 1; transform: none; }
+}
+@media print {
+  .js .ag-reveal[data-reveal="pending"]:not([data-revealed]) { opacity: 1; transform: none; }
+}

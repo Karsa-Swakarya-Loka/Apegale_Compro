@@ -1,0 +1,240 @@
+/* ============================================================================
+   Ape Gale — design v2 (12 Okt 2026): adoption of the chosen brochure template.
+   Light pages, serif display headings with a red tail, organic rounded photo
+   shapes, white rounded cards with soft shadows, grey icon circles, numbered
+   process, pill buttons. Content, copy and page structure are untouched;
+   this file only restyles the existing markup. Loaded last, after motion.css.
+   Shape rule: buttons/chips = pill · cards & panels = radius-xl (24px) ·
+   inputs = radius-md (10px) · photos = organic (large asymmetric radii).
+   ============================================================================ */
+
+html.ag-fonts { --font-serif: var(--font-roboto), "Segoe UI", system-ui, sans-serif; }
+
+/* ---------- Typography & hierarchy ---------- */
+.ag h1, .ag h2, .ag .ag-sechead h1, .ag .ag-sechead h2, .ag .ag-cta h2, .ag .ag-pagehead h1, .ag .ag-prose h2 {
+  font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.3px; }
+.ag-hero h1 { font-size: 60px; line-height: 66px; font-weight: 500; letter-spacing: -0.8px; max-width: 11ch; }
+.ag-sechead h1 { font-size: 48px; line-height: 54px; }
+.ag-sechead h2 { font-size: 40px; line-height: 46px; max-width: 18ch; }
+.ag .ag-cta h2 { font-size: 40px; line-height: 46px; }
+.ag-hero h1 em, .ag-sechead h1 em, .ag-sechead h2 em { font-style: normal; color: var(--red); }
+.ag-sechead p, .ag-hero__lead { color: var(--ink-muted); font-size: 18px; line-height: 30px; max-width: 54ch; }
+.ag-sechead { gap: var(--space-4); }
+.ag-eyebrow { font-family: var(--font-body); font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 2px; color: var(--red); }
+.ag-eyebrow::before { display: none; }
+.ag h3 { font-weight: 600; }
+.ag-section { padding-block: var(--space-24); }
+.ag-stack { gap: var(--space-16); }
+
+/* ---------- Buttons: pill, template red ---------- */
+.ag-btn { border-radius: var(--radius-pill); padding-inline: var(--space-8); box-shadow: none; }
+.ag-btn--primary { background: var(--maroon); }
+.ag-btn--primary:hover { background: var(--maroon-hover); box-shadow: var(--shadow-raised); }
+.ag-btn--outline { border-color: var(--line-strong); color: var(--ink); }
+.ag-btn--outline:hover { background: var(--surface-soft); border-color: var(--ink); }
+.ag-btn--light { background: var(--surface-raised); color: var(--maroon); border-color: var(--line); }
+.ag-btn--ghost { padding-inline: 0; }
+.ag-lang { border-radius: var(--radius-pill); background: var(--surface-soft); border-color: transparent; }
+.ag-lang button { border-radius: var(--radius-pill); }
+.ag-lang button[aria-pressed="true"] { background: var(--maroon); color: var(--on-brand); }
+.ag-lang--on-dark { background: var(--surface-soft); }
+.ag-lang--on-dark button { color: var(--ink-muted); }
+.ag-lang--on-dark button[aria-pressed="true"] { background: var(--maroon); color: var(--on-brand); }
+
+/* ---------- Topbar & header: light, quiet ---------- */
+.ag-topbar { background: var(--surface-soft); color: var(--ink-muted); border-bottom: 1px solid var(--line); font-size: 13px; }
+.ag-topbar a { color: var(--ink-muted); }
+.ag-topbar a:hover { color: var(--ink); }
+.ag-header { border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--surface) 94%, transparent); backdrop-filter: blur(10px); }
+.ag-nav a { font-family: var(--font-body); font-weight: 600; font-size: 15px; border-bottom: 0; }
+.ag-nav a[aria-current], .ag-nav__item:hover > a { color: var(--maroon); }
+.ag-nav a[aria-current]::after { content: ""; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--red); margin: 2px auto 0; }
+.ag-nav__sub { border-radius: var(--radius-lg); border-color: var(--line); box-shadow: var(--shadow-raised); padding: var(--space-3); }
+.ag-nav .ag-nav__sub a { border-radius: var(--radius-md); }
+.ag-burger { border-radius: var(--radius-pill); }
+
+/* ---------- Home hero: template cover (photo in an organic shape, red swoosh behind it) ---------- */
+.ag-hero { background: var(--surface); min-height: 0; }
+.ag-hero__in { padding-block: var(--space-16) var(--space-24); }
+.ag-hero__copy { width: 48%; max-width: 560px; gap: var(--space-5); }
+.ag-hero__cta { margin-top: var(--space-4); }
+.ag-hero__media { width: 46%; inset: var(--space-8) 0 var(--space-8) auto; clip-path: none; background: var(--surface-soft);
+  border-radius: 300px 0 0 300px; overflow: hidden; }
+.ag-hero__media img { transform: none; object-position: 50% 45%; }
+.ag-hero__media::after { display: none; }
+/* red crescent tucked under the photo's lower-left curve (template cover); it never reaches the copy column */
+.ag-hero__band { clip-path: none; width: 30%; height: 62%; inset: auto 12% calc(-1 * var(--space-6)) auto; border-radius: 50%; background: var(--maroon);
+  transform: rotate(-22deg); z-index: 0; }
+.ag-hero__stripe { clip-path: none; width: 10%; height: 22%; inset: auto 41% var(--space-6) auto; border-radius: 50%; background: var(--red); opacity: .95;
+  transform: rotate(-22deg); z-index: 0; }
+.ag-hero__in { position: relative; z-index: 2; }
+.ag-hero__media { position: absolute; z-index: 1; }
+.ag-stats { gap: var(--space-12); padding-top: var(--space-6); margin-top: var(--space-2); }
+.ag-stat b { font-family: var(--font-serif); font-weight: 500; font-size: 48px; line-height: 48px; color: var(--red); }
+.ag-stat span { font-size: 14px; color: var(--ink-muted); max-width: 10em; }
+
+/* ---------- Client strip ---------- */
+.ag-clients { background: var(--surface); border-block: 1px solid var(--line); }
+.ag-clients__label { color: var(--ink-muted); }
+
+/* ---------- Cards: white, rounded, soft shadow, no hairline ---------- */
+.ag-card { border: 0; border-radius: var(--radius-xl); box-shadow: var(--shadow-card); transition: transform var(--motion-base) var(--motion-ease-out), box-shadow var(--motion-base) var(--motion-ease-out), background-color var(--motion-base), color var(--motion-base); }
+.ag-card:has(a):is(:hover, :focus-within) { border-color: transparent; box-shadow: var(--shadow-raised); transform: translateY(calc(-1 * var(--motion-hover-lift))); }
+.ag-grid { gap: var(--space-6); }
+
+/* Service tiles: grey icon circle; the whole tile turns red on hover (template "modular solutions") */
+.ag-service { padding: var(--space-8); gap: var(--space-4); }
+.ag-service__icon { width: 56px; height: 56px; border-radius: 50%; background: var(--surface-tile); color: var(--maroon); transition: background-color var(--motion-base), color var(--motion-base); }
+.ag-service__icon .ag-icon { width: 24px; height: 24px; }
+.ag-service h3 { font-size: 20px; line-height: 28px; }
+.ag-service p, .ag-service ul, .ag-service ul a { transition: color var(--motion-base); }
+.ag-service__more { color: var(--maroon); font-family: var(--font-body); font-weight: 700; font-size: 14px; }
+.ag-service:is(:hover, :focus-within) { background: var(--maroon); color: var(--on-brand); }
+.ag-service:is(:hover, :focus-within) h3, .ag-service:is(:hover, :focus-within) p, .ag-service:is(:hover, :focus-within) ul, .ag-service:is(:hover, :focus-within) ul a, .ag-service:is(:hover, :focus-within) .ag-service__more { color: var(--on-brand); }
+.ag-service:is(:hover, :focus-within) .ag-service__icon { background: color-mix(in srgb, var(--on-brand) 18%, transparent); color: var(--on-brand); }
+
+/* ---------- Former maroon sections become light panels ---------- */
+.ag-section--brand { background: var(--surface-soft); color: var(--ink); }
+.ag-section--brand::before { display: none; }
+.ag .ag-section--brand h2, .ag .ag-section--brand h3 { color: var(--ink); }
+.ag-section--brand .ag-eyebrow { color: var(--red); }
+.ag-section--brand p, .ag-section--brand .ag-sechead p { color: var(--ink-muted); opacity: 1; }
+.ag-section--brand .ag-sechead h2 em { color: var(--red); }
+.ag-section--brand :focus-visible { outline-color: var(--focus); }
+.ag-section--brand .ag-service__icon { color: var(--maroon); background: var(--surface-raised); box-shadow: var(--shadow-card); }
+
+/* Why: numbered process on a rail (template "our process"); the last step is red */
+.ag-why { position: relative; gap: var(--space-8); counter-reset: step; }
+.ag-why::before { content: ""; position: absolute; left: 28px; right: 28px; top: 28px; height: 2px; background: var(--line-strong); opacity: .35; }
+.ag-why__item { position: relative; counter-increment: step; gap: var(--space-3); padding-top: 0 !important; }
+.ag-why__item .ag-service__icon { width: 56px; height: 56px; border-radius: 50%; background: var(--surface-raised); color: var(--maroon); box-shadow: 0 0 0 6px var(--surface-soft), var(--shadow-card); position: relative; z-index: 1; }
+.ag-why__item::before { content: counter(step, decimal-leading-zero); font-family: var(--font-serif); font-size: 14px; letter-spacing: 1px; color: var(--ink-muted); margin-bottom: calc(-1 * var(--space-1)); }
+.ag-why > li:last-child .ag-why__item .ag-service__icon { background: var(--maroon); color: var(--on-brand); }
+.ag .ag-why h3 { font-size: 18px; line-height: 26px; }
+.ag-why p { font-size: 15px; line-height: 24px; }
+
+/* GARIS block: screenshots on a rounded grey panel */
+.ag-garis__shots { padding: var(--space-8) var(--space-8) var(--space-16); background: var(--surface-soft); border-radius: var(--radius-xxl); }
+.ag-garis__shot { border: 0; border-radius: var(--radius-lg); }
+.ag-garis__shot--phone { right: var(--space-6); bottom: var(--space-6); }
+.ag-checklist svg { color: var(--maroon); }
+
+/* Network: map on a white rounded panel, red cities */
+.ag-network__map { padding: var(--space-8); background: var(--surface-raised); border-radius: var(--radius-xxl); box-shadow: var(--shadow-card); }
+.ag-network__land, .ag-section--brand .ag-network__land { background: var(--maroon); opacity: 1; }
+.ag-section--brand .ag-network__dot { fill: var(--on-brand); stroke: var(--red); }
+.ag-section--brand .ag-network__halo { fill: var(--red); opacity: .25; }
+.ag-section--brand .ag-network__list li { color: var(--ink-muted); opacity: 1; }
+.ag-network__stat b { font-family: var(--font-serif); font-weight: 500; }
+
+/* About (home + Tentang Kami): photo in an organic shape with a red rounded tile tucked behind it */
+.ag-about__photo { background: var(--surface-tile); border-radius: 200px 200px 200px var(--radius-xl); overflow: visible; }
+.ag-about__photo::before { inset: auto -18px -18px auto; width: 44%; height: 44%; background: var(--maroon); clip-path: none; border-radius: var(--radius-xl); z-index: 0; }
+.ag-about__photo img { border-radius: 200px 200px 200px var(--radius-xl); }
+.ag-about__vision { background: var(--surface-soft); border-radius: var(--radius-xl); }
+.ag-about__quote { font-family: var(--font-serif); font-style: italic; font-size: 20px; line-height: 32px; }
+
+/* Testimonials, news, docs */
+.ag-quote { padding: var(--space-8); }
+.ag-quote__mark { font-family: var(--font-serif); color: var(--red); }
+.ag-quote blockquote { font-family: var(--font-serif); font-size: 18px; line-height: 30px; }
+.ag-news { border-radius: var(--radius-xl); }
+.ag-news__img { background: var(--surface-tile); }
+.ag-chip { background: var(--brand-tint); color: var(--maroon); border-radius: var(--radius-pill); padding: 3px var(--space-3); }
+.ag-doc { border-radius: var(--radius-xl); }
+.ag-doc__icon { border-radius: 50%; background: var(--surface-tile); color: var(--maroon); }
+.ag-chip-link { border-color: var(--line); }
+.ag-chip-link[aria-current="page"] { background: var(--maroon); border-color: var(--maroon); }
+
+/* FAQ: rounded rows; the open one is red (template "market insights") */
+.ag-faq { gap: var(--space-3); }
+.ag-faq details { background: var(--surface-raised); border-radius: var(--radius-lg); padding: 0 var(--space-6); box-shadow: var(--shadow-card); transition: background-color var(--motion-base), color var(--motion-base); }
+.ag-faq summary { padding-block: var(--space-5); font-family: var(--font-body); font-weight: 700; font-size: 16px; }
+.ag-faq summary .ag-icon { color: var(--maroon); }
+.ag-faq details > p, .ag-faq__answer { padding: 0 var(--space-10) var(--space-6) 0; }
+.ag-faq details[open] { background: var(--maroon); color: var(--on-brand); }
+.ag-faq details[open] summary .ag-icon { color: var(--on-brand); }
+.ag-faq details[open] .ag-faq__answer, .ag-faq details[open] > p, .ag-faq details[open] .ag-faq__answer * { color: var(--on-brand); opacity: .92; }
+
+/* ---------- CTA banner & home contact block: light panel with a red accent tile ---------- */
+.ag-cta { background: var(--surface-soft); color: var(--ink); }
+.ag-cta__slab { clip-path: none; width: 420px; height: 420px; inset: auto -120px -220px auto; border-radius: 50%; background: var(--maroon); opacity: .08; }
+.ag .ag-cta h2 { color: var(--ink); }
+.ag-cta p { color: var(--ink-muted); opacity: 1; }
+.ag-cta__in { padding-block: var(--space-24); }
+.ag-cta--form .ag-cta__in { gap: var(--space-16); }
+.ag-form { border: 0; border-radius: var(--radius-xl); box-shadow: var(--shadow-card); padding: var(--space-10); }
+.ag-form--compact { background: var(--surface-raised); }
+.ag-field input, .ag-field select, .ag-field textarea { border-radius: var(--radius-md); border-color: var(--line); background: var(--surface-soft); min-height: 48px; }
+.ag-field input:focus, .ag-field select:focus, .ag-field textarea:focus { background: var(--surface-raised); border-color: var(--maroon); outline: 2px solid var(--focus); outline-offset: 1px; }
+.ag-form__note { font-size: 13px; }
+
+/* ---------- Inner page header: light, serif, red organic accent ---------- */
+.ag-pagehead { background: var(--surface); color: var(--ink); border-bottom: 1px solid var(--line); }
+.ag-pagehead__slab { clip-path: none; width: 620px; height: 620px; inset: -360px -220px auto auto; border-radius: 50%; background: var(--surface-tile); }
+.ag-pagehead__slab::after { clip-path: none; inset: auto auto 24px 60px; width: 132px; height: 132px; border-radius: 36px 36px 36px 12px; background: var(--maroon); }
+.ag .ag-pagehead h1 { color: var(--ink); }
+.ag-pagehead .ag-sechead p { color: var(--ink-muted); opacity: 1; }
+.ag-pagehead .ag-eyebrow { color: var(--red); }
+.ag-crumbs, .ag-crumbs a { color: var(--ink-muted); opacity: 1; }
+.ag-crumbs [aria-current="page"] { color: var(--ink); }
+.ag-crumbs a:hover { color: var(--maroon); }
+.ag-pagehead__in { padding-block: var(--space-12) var(--space-16); }
+.ag-pagehead .ag-btn[aria-disabled="true"] { background: var(--surface-soft); color: var(--ink-muted); border-color: var(--line-strong); }
+
+/* ---------- Tentang Kami ---------- */
+.ag-vm__vision { background: var(--maroon); border-radius: var(--radius-xl); }
+.ag-vm__vision p { font-family: var(--font-serif); font-weight: 500; font-size: 24px; line-height: 34px; }
+.ag-vm__mission { padding: var(--space-8); background: var(--surface-soft); border-radius: var(--radius-xl); }
+.ag-vm__mission li::before { font-family: var(--font-serif); color: var(--red); }
+.ag-value { padding: var(--space-8); background: var(--surface-raised); border-radius: var(--radius-xl); box-shadow: var(--shadow-card); }
+.ag-value__icon { width: 56px; height: 56px; border-radius: 50%; background: var(--surface-tile); color: var(--maroon); }
+.ag-org__card { border-radius: var(--radius-lg); border: 0; box-shadow: var(--shadow-card); }
+.ag-org__card--lead { background: var(--maroon); }
+
+/* ---------- Service detail ---------- */
+.ag-detail__card { border-radius: var(--radius-xl); }
+.ag-detail__links a[aria-current="page"] { color: var(--maroon); }
+.ag-prose li::marker { color: var(--red); }
+
+/* ---------- Hubungi Kami ---------- */
+.ag-contact__info { background: var(--maroon); border-radius: var(--radius-xl); box-shadow: var(--shadow-raised); }
+.ag-contact__icon { background: color-mix(in srgb, var(--on-brand) 14%, transparent); }
+.ag-contact__form .ag-form { padding: 0; box-shadow: none; }
+
+/* ---------- GARIS page ---------- */
+.ag-feature-list li { padding-block: var(--space-5); border-top: 1px solid var(--line); }
+.ag-feature-list li:first-child, .ag-feature-list li:nth-child(2) { border-top: 0; }
+.ag-garis__module-img { border-radius: var(--radius-lg); }
+
+/* ---------- Empty states, pager ---------- */
+.ag-empty { border-radius: var(--radius-xl); border-style: solid; border-color: var(--line); }
+.ag-pager ol a { border-radius: var(--radius-pill); }
+.ag-pager ol a[aria-current="page"] { background: var(--maroon); }
+
+/* ---------- Footer: keep the brand anchor, rounded top edge ---------- */
+.ag-footer { border-radius: var(--radius-xxl) var(--radius-xxl) 0 0; margin-top: var(--space-4); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1023px) {
+  .ag-hero__copy { width: 100%; }
+  .ag-hero__media { position: relative; inset: auto; width: 100%; height: 340px; order: 1; border-radius: var(--radius-xxl) var(--radius-xxl) var(--radius-xxl) 140px; margin-top: var(--space-6); }
+  .ag-hero__band, .ag-hero__stripe { display: none; }
+  .ag-hero h1 { font-size: 44px; line-height: 50px; }
+  .ag-why::before { display: none; }
+}
+@media (max-width: 767px) {
+  .ag-hero h1 { font-size: 36px; line-height: 42px; }
+  .ag-sechead h1 { font-size: 34px; line-height: 40px; }
+  .ag-sechead h2, .ag .ag-cta h2 { font-size: 30px; line-height: 36px; }
+  .ag-section { padding-block: var(--space-16); }
+  .ag-stack { gap: var(--space-12); }
+  .ag-hero__media { height: 260px; border-radius: var(--radius-xl) var(--radius-xl) var(--radius-xl) 96px; }
+  .ag-pagehead__slab { width: 320px; height: 320px; inset: -200px -140px auto auto; }
+  .ag-pagehead__slab::after { width: 84px; height: 84px; inset: auto auto 16px 40px; border-radius: 24px 24px 24px 8px; }
+  .ag-form { padding: var(--space-6); }
+  .ag-about__photo { border-radius: 140px 140px 140px var(--radius-xl); }
+  .ag-about__photo img { border-radius: 140px 140px 140px var(--radius-xl); }
+  .ag-footer { border-radius: var(--radius-xl) var(--radius-xl) 0 0; }
+}
+@media (prefers-reduced-motion: reduce) { .ag-card:has(a):is(:hover, :focus-within) { transform: none; } }

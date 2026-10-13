@@ -1,0 +1,445 @@
+{
+ "_about": "Regulasi dari halaman Enactments apegale.com (2021) beserta PDF-nya, tanpa dokumen khusus Covid-19 (SE Satgas, karantina, pembatasan perjalanan) dan tanpa duplikat lintas kategori. Semua draft sampai status berlakunya diverifikasi klien (keputusan #20). Ditulis ke CMS oleh `npm run content:regulations`, yang juga mengunduh PDF dan menyimpannya di media CMS.",
+ "regulations": [
+  {
+   "slug": "uu-nomor-11-tahun-2020",
+   "title": "UU Nomor 11 Tahun 2020",
+   "number": "UU Nomor 11 Tahun 2020",
+   "category": "cipta-kerja",
+   "year": 2020,
+   "status": "draft",
+   "verify": "Dicabut dan diganti UU Nomor 6 Tahun 2023 (Penetapan Perppu Cipta Kerja). Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/UU_Nomor_11_Tahun_2020-compressed.pdf"
+  },
+  {
+   "slug": "pp-nomor-34-tahun-2021",
+   "title": "PP Nomor 34 Tahun 2021",
+   "number": "PP Nomor 34 Tahun 2021",
+   "category": "cipta-kerja",
+   "year": 2021,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://apegale.com/wp-content/uploads/2021/04/Salinan-PP-Nomor-34-Tahun-2021.pdf"
+  },
+  {
+   "slug": "pp-nomor-35-tahun-2021",
+   "title": "PP Nomor 35 Tahun 2021",
+   "number": "PP Nomor 35 Tahun 2021",
+   "category": "cipta-kerja",
+   "year": 2021,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/Salinan-PP-Nomor-35-Tahun-2021.pdf"
+  },
+  {
+   "slug": "pp-nomor-36-tahun-2021",
+   "title": "PP Nomor 36 Tahun 2021",
+   "number": "PP Nomor 36 Tahun 2021",
+   "category": "cipta-kerja",
+   "year": 2021,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/Salinan-PP-Nomor-36-Tahun-2021.pdf"
+  },
+  {
+   "slug": "pp-nomor-37-tahun-2021",
+   "title": "PP Nomor 37 Tahun 2021",
+   "number": "PP Nomor 37 Tahun 2021",
+   "category": "cipta-kerja",
+   "year": 2021,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/Salinan-PP-Nomor-37-Tahun-2021.pdf"
+  },
+  {
+   "slug": "keppres-nomor-75-tahun-1995",
+   "title": "Keppres Nomor 75 Tahun 1995",
+   "number": "Keppres Nomor 75 Tahun 1995",
+   "category": "perizinan-tka",
+   "year": 1995,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/Keputusan_Presiden_no_75-TH-1995.pdf"
+  },
+  {
+   "slug": "permenakertrans-nomor-40-tahun-2012",
+   "title": "Permenakertrans Nomor 40 Tahun 2012",
+   "number": "Permenakertrans Nomor 40 Tahun 2012",
+   "category": "perizinan-tka",
+   "year": 2012,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/KEPMEN40_TAHUN_2012.pdf"
+  },
+  {
+   "slug": "permenakertrans-nomor-12-tahun-2013",
+   "title": "Permenakertrans Nomor 12 Tahun 2013",
+   "number": "Permenakertrans Nomor 12 Tahun 2013",
+   "category": "perizinan-tka",
+   "year": 2013,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/Permentenkertrans_12_2013.pdf"
+  },
+  {
+   "slug": "permenaker-nomor-10-tahun-2018",
+   "title": "Permenaker Nomor 10 Tahun 2018",
+   "number": "Permenaker Nomor 10 Tahun 2018",
+   "category": "perizinan-tka",
+   "year": 2018,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/Kemnaker-No.-10-Tahun-2018.pdf"
+  },
+  {
+   "slug": "perpres-nomor-20-tahun-2018",
+   "title": "Perpres Nomor 20 Tahun 2018",
+   "number": "Perpres Nomor 20 Tahun 2018",
+   "category": "perizinan-tka",
+   "year": 2018,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/Perpres-Nomor-20-Tahun-2018.pdf"
+  },
+  {
+   "slug": "permenaker-nomor-8-tahun-2021",
+   "title": "Permenaker Nomor 8 Tahun 2021",
+   "number": "Permenaker Nomor 8 Tahun 2021",
+   "category": "perizinan-tka",
+   "year": 2021,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/08/PERMEN-No.-8-Tahun-2021.pdf"
+  },
+  {
+   "slug": "uu-nomor-6-tahun-2011",
+   "title": "UU Nomor 6 Tahun 2011",
+   "number": "UU Nomor 6 Tahun 2011",
+   "category": "keimigrasian-tka",
+   "year": 2011,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/UU-6-Tahun-2011.pdf"
+  },
+  {
+   "slug": "permenkumham-nomor-43-tahun-2015",
+   "title": "Permenkumham Nomor 43 Tahun 2015",
+   "number": "Permenkumham Nomor 43 Tahun 2015",
+   "category": "keimigrasian-tka",
+   "year": 2015,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/Permenkumham-Nomor-43-Tahun-2015.pdf"
+  },
+  {
+   "slug": "permenkumham-nomor-17-tahun-2016",
+   "title": "Permenkumham Nomor 17 Tahun 2016",
+   "number": "Permenkumham Nomor 17 Tahun 2016",
+   "category": "keimigrasian-tka",
+   "year": 2016,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/Permenkumham-Nomor-17-Tahun-2016.pdf"
+  },
+  {
+   "slug": "permenkumham-nomor-4-tahun-2017",
+   "title": "Permenkumham Nomor 4 Tahun 2017",
+   "number": "Permenkumham Nomor 4 Tahun 2017",
+   "category": "keimigrasian-tka",
+   "year": 2017,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/Permenkumham-Nomor-4-Tahun-2017.pdf"
+  },
+  {
+   "slug": "permenkumham-nomor-16-tahun-2018",
+   "title": "Permenkumham Nomor 16 Tahun 2018",
+   "number": "Permenkumham Nomor 16 Tahun 2018",
+   "category": "keimigrasian-tka",
+   "year": 2018,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/Permenkumham-Nomor-16-Tahun-2018.pdf"
+  },
+  {
+   "slug": "pp-nomor-24-tahun-2018",
+   "title": "PP Nomor 24 Tahun 2018",
+   "number": "PP Nomor 24 Tahun 2018",
+   "category": "keimigrasian-tka",
+   "year": 2018,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/PP-Nomor-24-Tahun-2018.pdf"
+  },
+  {
+   "slug": "se-dirjen-imigrasi-nomor-imi-gr-01-01-2493-tahun-2020",
+   "title": "SE Dirjen Imigrasi Nomor IMI-GR.01.01-2493 Tahun 2020",
+   "number": "SE Dirjen Imigrasi Nomor IMI-GR.01.01-2493 Tahun 2020",
+   "category": "keimigrasian-tka",
+   "year": 2020,
+   "status": "draft",
+   "verify": "Surat edaran era pandemi; kemungkinan besar sudah tidak berlaku. Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/SE-Kemenkumham-Nomor-IMI-GR_01_01-2493-Tahun-2020.pdf"
+  },
+  {
+   "slug": "se-dirjen-imigrasi-nomor-imi-gr-01-01-1102-tahun-2020",
+   "title": "SE Dirjen Imigrasi Nomor IMI-GR.01.01-1102 Tahun 2020",
+   "number": "SE Dirjen Imigrasi Nomor IMI-GR.01.01-1102 Tahun 2020",
+   "category": "keimigrasian-tka",
+   "year": 2020,
+   "status": "draft",
+   "verify": "Surat edaran era pandemi; kemungkinan besar sudah tidak berlaku. Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/SE-No.-IMI-GR.01.01-1102-Tahun-2020.pdf"
+  },
+  {
+   "slug": "se-dirjen-imigrasi-nomor-imi-gr-01-01-3558-tahun-2020",
+   "title": "SE Dirjen Imigrasi Nomor IMI-GR.01.01-3558 Tahun 2020",
+   "number": "SE Dirjen Imigrasi Nomor IMI-GR.01.01-3558 Tahun 2020",
+   "category": "keimigrasian-tka",
+   "year": 2020,
+   "status": "draft",
+   "verify": "Surat edaran era pandemi; kemungkinan besar sudah tidak berlaku. Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/SE-No.-IMI-GR.01.01-3558-Tahun-2020.pdf"
+  },
+  {
+   "slug": "se-dirjen-imigrasi-nomor-imi-gr-01-01-4049-tahun-2020",
+   "title": "SE Dirjen Imigrasi Nomor IMI-GR.01.01-4049 Tahun 2020",
+   "number": "SE Dirjen Imigrasi Nomor IMI-GR.01.01-4049 Tahun 2020",
+   "category": "keimigrasian-tka",
+   "year": 2020,
+   "status": "draft",
+   "verify": "Surat edaran era pandemi; kemungkinan besar sudah tidak berlaku. Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/SE-No-IMI-GR.01.01-4049-Tahun-2020.pdf"
+  },
+  {
+   "slug": "se-dirjen-imigrasi-nomor-imi-gr-01-01-4497-tahun-2020",
+   "title": "SE Dirjen Imigrasi Nomor IMI-GR.01.01-4497 Tahun 2020",
+   "number": "SE Dirjen Imigrasi Nomor IMI-GR.01.01-4497 Tahun 2020",
+   "category": "keimigrasian-tka",
+   "year": 2020,
+   "status": "draft",
+   "verify": "Surat edaran era pandemi; kemungkinan besar sudah tidak berlaku. Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/SE-No-IMI-GR.01.01-4497-Tahun-2020.pdf"
+  },
+  {
+   "slug": "permenkumham-nomor-26-tahun-2020",
+   "title": "Permenkumham Nomor 26 Tahun 2020",
+   "number": "Permenkumham Nomor 26 Tahun 2020",
+   "category": "keimigrasian-tka",
+   "year": 2020,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/Permenkumham-Nomor-26-Tahun-2020.pdf"
+  },
+  {
+   "slug": "se-dirjen-imigrasi-nomor-imi-1555-gr-01-01-tahun-2020",
+   "title": "SE Dirjen Imigrasi Nomor IMI-1555.GR.01.01 Tahun 2020",
+   "number": "SE Dirjen Imigrasi Nomor IMI-1555.GR.01.01 Tahun 2020",
+   "category": "keimigrasian-tka",
+   "year": 2020,
+   "status": "draft",
+   "verify": "Surat edaran era pandemi; kemungkinan besar sudah tidak berlaku. Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/SE-No.-IMI-1555.GR_.01.01-Tahun-2020.pdf"
+  },
+  {
+   "slug": "pp-nomor-48-tahun-2021",
+   "title": "PP Nomor 48 Tahun 2021",
+   "number": "PP Nomor 48 Tahun 2021",
+   "category": "keimigrasian-tka",
+   "year": 2021,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/PP_Nomor_48_Tahun_2021.pdf"
+  },
+  {
+   "slug": "se-dirjen-imigrasi-nomor-imi-0103-gr-01-01-tahun-2021",
+   "title": "SE Dirjen Imigrasi Nomor IMI-0103.GR.01.01 Tahun 2021",
+   "number": "SE Dirjen Imigrasi Nomor IMI-0103.GR.01.01 Tahun 2021",
+   "category": "keimigrasian-tka",
+   "year": 2021,
+   "status": "draft",
+   "verify": "Surat edaran era pandemi; kemungkinan besar sudah tidak berlaku. Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/SE-No.-IMI-0103.GR_.01.01-Tahun-2021.pdf"
+  },
+  {
+   "slug": "se-dirjen-imigrasi-nomor-imi-gr-01-01-0210-tahun-2021",
+   "title": "SE Dirjen Imigrasi Nomor IMI-GR.01.01-0210 Tahun 2021",
+   "number": "SE Dirjen Imigrasi Nomor IMI-GR.01.01-0210 Tahun 2021",
+   "category": "keimigrasian-tka",
+   "year": 2021,
+   "status": "draft",
+   "verify": "Surat edaran era pandemi; kemungkinan besar sudah tidak berlaku. Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/SE-No.-IMI-GR.01.01-0210-Tahun-2021.pdf"
+  },
+  {
+   "slug": "se-dirjen-imigrasi-nomor-imi-gr-01-01-0331-tahun-2021",
+   "title": "SE Dirjen Imigrasi Nomor IMI-GR.01.01-0331 Tahun 2021",
+   "number": "SE Dirjen Imigrasi Nomor IMI-GR.01.01-0331 Tahun 2021",
+   "category": "keimigrasian-tka",
+   "year": 2021,
+   "status": "draft",
+   "verify": "Surat edaran era pandemi; kemungkinan besar sudah tidak berlaku. Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/SE-No.-IMI-GR.01.01-0331-Tahun-2021.pdf"
+  },
+  {
+   "slug": "se-dirjen-imigrasi-nomor-imi-0661-gr-01-01-tahun-2021",
+   "title": "SE Dirjen Imigrasi Nomor IMI-0661.GR.01.01 Tahun 2021",
+   "number": "SE Dirjen Imigrasi Nomor IMI-0661.GR.01.01 Tahun 2021",
+   "category": "keimigrasian-tka",
+   "year": 2021,
+   "status": "draft",
+   "verify": "Surat edaran era pandemi; kemungkinan besar sudah tidak berlaku. Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/SE-Dirjenim-Nomor-IMI-0661.GR_.01.01-Tahun-2021.pdf"
+  },
+  {
+   "slug": "se-dirjen-imigrasi-nomor-imi-gr-01-01-0873-tahun-2021",
+   "title": "SE Dirjen Imigrasi Nomor IMI-GR.01.01-0873 Tahun 2021",
+   "number": "SE Dirjen Imigrasi Nomor IMI-GR.01.01-0873 Tahun 2021",
+   "category": "keimigrasian-tka",
+   "year": 2021,
+   "status": "draft",
+   "verify": "Surat edaran era pandemi; kemungkinan besar sudah tidak berlaku. Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/SE-No.-IMI-GR.01.01-0873-Tahun-2021.pdf"
+  },
+  {
+   "slug": "se-menkumham-nomor-m-hh-01-gr-02-07-tahun-2021",
+   "title": "SE Menkumham Nomor M.HH-01.GR.02.07 Tahun 2021",
+   "number": "SE Menkumham Nomor M.HH-01.GR.02.07 Tahun 2021",
+   "category": "keimigrasian-tka",
+   "year": 2021,
+   "status": "draft",
+   "verify": "Surat edaran era pandemi; kemungkinan besar sudah tidak berlaku. Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/07/SE-Menteri-Hukum-dan-HAM-ketentuan-Visa-dan-Intal.pdf"
+  },
+  {
+   "slug": "se-dirjen-imigrasi-nomor-imi-0158-gr-01-01-tahun-2021",
+   "title": "SE Dirjen Imigrasi Nomor IMI-0158.GR.01.01 Tahun 2021",
+   "number": "SE Dirjen Imigrasi Nomor IMI-0158.GR.01.01 Tahun 2021",
+   "category": "keimigrasian-tka",
+   "year": 2021,
+   "status": "draft",
+   "verify": "Surat edaran era pandemi; kemungkinan besar sudah tidak berlaku. Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/07/SE-No.IMI-0158.GR_.01.01-Tahun-2021.pdf"
+  },
+  {
+   "slug": "se-dirjen-imigrasi-nomor-imi-um-01-01-2-3382-dan-permenkumham-nomor-27-tahun-2021",
+   "title": "SE Dirjen Imigrasi Nomor IMI-UM.01.01-2.3382 dan Permenkumham Nomor 27 Tahun 2021",
+   "number": "SE Dirjen Imigrasi Nomor IMI-UM.01.01-2.3382 dan Permenkumham Nomor 27 Tahun 2021",
+   "category": "keimigrasian-tka",
+   "year": 2021,
+   "status": "draft",
+   "verify": "Surat edaran era pandemi; kemungkinan besar sudah tidak berlaku. Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/07/SE-Dirjen-Imigrasi-No.IMI-UM.01.01-2.3382-Permenkumham-No-27-Thn-2021.pdf"
+  },
+  {
+   "slug": "permenkumham-nomor-34-tahun-2021",
+   "title": "Permenkumham Nomor 34 Tahun 2021",
+   "number": "Permenkumham Nomor 34 Tahun 2021",
+   "category": "keimigrasian-tka",
+   "year": 2021,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/09/PERMENKUMHAM-NOMOR-34-TAHUN-2021.pdf"
+  },
+  {
+   "slug": "kepmenkumham-nomor-m-hh-03-gr-01-05-tahun-2021",
+   "title": "Kepmenkumham Nomor M.HH-03.GR.01.05 Tahun 2021",
+   "number": "Kepmenkumham Nomor M.HH-03.GR.01.05 Tahun 2021",
+   "category": "keimigrasian-tka",
+   "year": 2021,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://apegale.com/wp-content/uploads/2021/10/KEPMENKUMHAM-NOMOR-M.HH-03.GR_.01.05-TAHUN-2021.pdf"
+  },
+  {
+   "slug": "permenkumham-nomor-22-tahun-2023",
+   "title": "Permenkumham Nomor 22 Tahun 2023",
+   "number": "Permenkumham Nomor 22 Tahun 2023",
+   "category": "keimigrasian-tka",
+   "year": 2023,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://apegale.com/wp-content/uploads/2023/09/PERMENKUMHAM-22-2023_Peraturan-Terbaru-2023.pdf"
+  },
+  {
+   "slug": "uu-nomor-1-tahun-1970",
+   "title": "UU Nomor 1 Tahun 1970",
+   "number": "UU Nomor 1 Tahun 1970",
+   "category": "manpower-supply",
+   "year": 1970,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/UU-Nomor-1-Tahun-1970.pdf"
+  },
+  {
+   "slug": "uu-nomor-3-tahun-1992",
+   "title": "UU Nomor 3 Tahun 1992",
+   "number": "UU Nomor 3 Tahun 1992",
+   "category": "manpower-supply",
+   "year": 1992,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/UU-Nomor-3-Tahun-1992.pdf"
+  },
+  {
+   "slug": "uu-nomor-21-tahun-2000",
+   "title": "UU Nomor 21 Tahun 2000",
+   "number": "UU Nomor 21 Tahun 2000",
+   "category": "manpower-supply",
+   "year": 2000,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/UU-Nomor-21-Tahun-2000.pdf"
+  },
+  {
+   "slug": "uu-nomor-2-tahun-2004",
+   "title": "UU Nomor 2 Tahun 2004",
+   "number": "UU Nomor 2 Tahun 2004",
+   "category": "manpower-supply",
+   "year": 2004,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/UU-2-Tahun-2004_PPHI.pdf"
+  },
+  {
+   "slug": "permenakertrans-nomor-per-31-men-xii-2008",
+   "title": "Permenakertrans Nomor PER.31/MEN/XII/2008",
+   "number": "Permenakertrans Nomor PER.31/MEN/XII/2008",
+   "category": "manpower-supply",
+   "year": 2008,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/Permenakertrans-Nomor-PER.31-Tahun-2008.pdf"
+  },
+  {
+   "slug": "uu-nomor-16-tahun-2011",
+   "title": "UU Nomor 16 Tahun 2011",
+   "number": "UU Nomor 16 Tahun 2011",
+   "category": "manpower-supply",
+   "year": 2011,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/UU-Nomor-16-Tahun-2011.pdf"
+  },
+  {
+   "slug": "pojk-nomor-9-tahun-2016",
+   "title": "POJK Nomor 9 Tahun 2016",
+   "number": "POJK Nomor 9 Tahun 2016",
+   "category": "manpower-supply",
+   "year": 2016,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/POJK.9-Alih-Daya-Tahun-2016.pdf"
+  },
+  {
+   "slug": "permenkes-nomor-67-tahun-2013",
+   "title": "Permenkes Nomor 67 Tahun 2013",
+   "number": "Permenkes Nomor 67 Tahun 2013",
+   "category": "lainnya",
+   "year": 2013,
+   "status": "draft",
+   "verify": "Status berlaku perlu diverifikasi sebelum dipublish.",
+   "source": "https://www.apegale.com/wp-content/uploads/2021/04/Permenkes_No._67_Tahun_2013.pdf"
+  }
+ ]
+}

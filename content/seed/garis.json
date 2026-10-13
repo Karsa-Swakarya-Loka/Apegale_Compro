@@ -1,0 +1,103 @@
+{
+  "enabled": false,
+  "loginUrl": "",
+  "trialUrl": "",
+  "intro": {
+    "id": "GARIS membantu pengelolaan data dan dokumen untuk Expatriate Hosting, Formalities Service, dan Airport Escort. Akses aplikasi sedang disiapkan kembali.",
+    "en": "GARIS supports data and document management for Expatriate Hosting, Formalities Service, and Airport Escort. App access is being prepared for relaunch."
+  },
+  "variants": [
+    {
+      "name": "GARIS Formalities Services",
+      "text": {
+        "id": "Kelola dokumen perizinan tenaga kerja asing dalam satu sistem.\n\nModul ini dirancang untuk mencatat pengurusan perizinan, memantau progres, dan menyediakan dokumen untuk diunduh.",
+        "en": "Manage foreign worker permit documents in one system.\n\nThis module is designed to record permit applications, track progress, and make documents available for download."
+      }
+    },
+    {
+      "name": "GARIS Airport Escort",
+      "text": {
+        "id": "Atur penjemputan tenaga kerja asing di bandara.\n\nPengguna dapat membuat permintaan, memeriksa status, dan melihat konfirmasi penjemputan.",
+        "en": "Arrange airport pick-ups for foreign workers.\n\nUsers can submit requests, check their status, and view pick-up confirmations."
+      }
+    },
+    {
+      "name": "GARIS Expat & Hosting Management",
+      "text": {
+        "id": "Kelola data ekspatriat, dokumen, dan perkembangan perizinan.\n\nModul ini menyediakan pengingat masa berlaku dokumen serta data untuk kebutuhan pelaporan perusahaan.",
+        "en": "Manage expatriate records, documents, and permit progress.\n\nThis module provides document expiry reminders and data for company reporting."
+      }
+    }
+  ],
+  "images": [
+    "design/assets/Photography/garis-dashboard.png",
+    "design/assets/Photography/garis-expat-monitoring.png"
+  ],
+  "ctaDisabledLabel": {
+    "id": "Segera Hadir",
+    "en": "Coming Soon"
+  },
+  "_source": "Parafrase legacy/garis-in.html dan garis-*-in.html, sesuai permintaan owner 09 Okt 2026. Akses aplikasi tetap nonaktif.",
+  "features": [
+    {
+      "title": {
+        "id": "Data tenaga kerja outsourcing",
+        "en": "Outsourced workforce data"
+      }
+    },
+    {
+      "title": {
+        "id": "Perhitungan gaji, lembur dan kehadiran pekerja",
+        "en": "Salary, overtime and attendance calculation"
+      }
+    },
+    {
+      "title": {
+        "id": "Kebutuhan dan perencanaan outsourcing tenaga kerja",
+        "en": "Workforce outsourcing needs and planning"
+      }
+    },
+    {
+      "title": {
+        "id": "Perencanaan Penggunaan Tenaga Kerja Asing (RPTKA)",
+        "en": "Foreign Worker Utilisation Plan (RPTKA)"
+      }
+    },
+    {
+      "title": {
+        "id": "Kartu Izin Tinggal Terbatas (KITAS)",
+        "en": "Limited Stay Permit Card (KITAS)"
+      }
+    },
+    {
+      "title": {
+        "id": "Kartu Izin Tinggal Tetap (KITAP)",
+        "en": "Permanent Stay Permit Card (KITAP)"
+      }
+    },
+    {
+      "title": {
+        "id": "Surat Keterangan Tempat Tinggal (SKTT)",
+        "en": "Certificate of Residence (SKTT)"
+      }
+    },
+    {
+      "title": {
+        "id": "Notifikasi IMTA (Izin Menggunakan Tenaga Kerja Asing)",
+        "en": "IMTA Notification (Permit to Employ Foreign Workers)"
+      }
+    },
+    {
+      "title": {
+        "id": "Multiple Exit Re-Entry Permit (MERP)",
+        "en": "Multiple Exit Re-Entry Permit (MERP)"
+      }
+    },
+    {
+      "title": {
+        "id": "Surat Tanda Melapor (STM)",
+        "en": "Police Report Certificate (STM)"
+      }
+    }
+  ]
+}

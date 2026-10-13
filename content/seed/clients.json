@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Affirmate",
+    "logo": "design/assets/Clients/official/affirmate.png",
+    "order": 1
+  },
+  {
+    "name": "KSB",
+    "logo": "design/assets/Clients/official/ksb.png",
+    "order": 2
+  },
+  {
+    "name": "AdaKami",
+    "logo": "design/assets/Clients/official/adakami.png",
+    "order": 3
+  },
+  {
+    "name": "unicharm",
+    "logo": "design/assets/Clients/official/unicharm.png",
+    "order": 4
+  },
+  {
+    "name": "CHINT",
+    "logo": "design/assets/Clients/official/chint.png",
+    "order": 5
+  },
+  {
+    "name": "Ferbeck International",
+    "logo": "design/assets/Clients/official/ferbeck.png",
+    "order": 6
+  },
+  {
+    "name": "allnex",
+    "logo": "design/assets/Clients/official/allnex.png",
+    "order": 7
+  },
+  {
+    "name": "Lalamove",
+    "logo": "design/assets/Clients/official/lalamove.png",
+    "order": 8
+  },
+  {
+    "name": "Apple",
+    "logo": "design/assets/Clients/official/apple.png",
+    "order": 9
+  },
+  {
+    "name": "Neo Energy",
+    "logo": "design/assets/Clients/official/neo-energy.png",
+    "order": 10
+  },
+  {
+    "name": "Taiheiyo Cement",
+    "logo": "design/assets/Clients/official/taiheiyo-cement.png",
+    "order": 11
+  }
+]

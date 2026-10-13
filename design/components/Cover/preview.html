@@ -1,0 +1,42 @@
+<!-- @dsCard height=300 -->
+<!doctype html>
+<html lang="id" data-theme="light">
+<head>
+<link rel="stylesheet" href="../../tokens.css">
+<link rel="stylesheet" href="../../components.css">
+<meta charset="utf-8"><title>Ape Gale Indonesia — cover</title>
+<style>
+html,body{margin:0;background:var(--surface)}
+.cv{position:relative;width:960px;height:300px;overflow:hidden;background:var(--surface)}
+.cv svg{position:absolute;inset:0}
+.tint{fill:var(--brand-tint)} .maroon{fill:var(--maroon)} .deep{fill:var(--maroon-deep)} .red{fill:var(--red)} .petal{fill:var(--red)} .petal-light{fill:var(--brand-tint)}
+.cv-text{position:absolute;left:48px;bottom:40px;width:420px}
+.cv-name{font-family:var(--font-display);font-weight:700;font-size:80px;line-height:.95;color:var(--ink);margin:0}
+.cv-tag{margin:16px 0 0;font-family:var(--font-body);font-size:14px;line-height:20px;color:var(--ink-muted)}
+</style></head>
+<body>
+<div class="cv">
+<svg width="960" height="300" viewBox="0 0 960 300" aria-hidden="true">
+<!--
+blocks: brand-tint ground 480x300; maroon wedge (space-24*4 wide at top) cut diagonally like the compro cover; maroon-deep corner wedge; red disc r=space-8 (the logo dot)
+arrangement: one tall diagonal slab bleeding off the right edge, a deeper wedge in its lower-right corner, the red dot floating left of the slab
+pattern: literal motif row - the two-leaf logo built as lenses (radius arcs); chosen because the logo's leaves and dot are the brand's only mark and the compro repeats diagonals
+scales: spacing space-8 (32) / space-24 (96) pitches, lens arcs r=28, disc r=32; square block corners (radius-sm not used)
+-->
+<rect class="tint" x="480" y="0" width="480" height="300"/>
+<polygon class="maroon" points="640,0 960,0 960,300 512,300"/>
+<polygon class="deep" points="960,96 960,300 768,300"/>
+<circle class="red" cx="560" cy="64" r="32"/>
+<g transform="translate(704 48)">
+  <path class="petal-light" d="M0 0 a28 28 0 0 1 0 48 a28 28 0 0 1 0 -48z" transform="rotate(-20)"/>
+  <path class="petal" d="M48 0 a28 28 0 0 1 0 48 a28 28 0 0 1 0 -48z" transform="rotate(20 48 24)"/>
+  <path class="petal-light" d="M96 96 a28 28 0 0 1 0 48 a28 28 0 0 1 0 -48z" transform="rotate(-20 96 120)"/>
+  <path class="petal" d="M144 96 a28 28 0 0 1 0 48 a28 28 0 0 1 0 -48z" transform="rotate(20 144 120)"/>
+  <path class="petal-light" d="M192 0 a28 28 0 0 1 0 48 a28 28 0 0 1 0 -48z" transform="rotate(-20 192 24)"/>
+  <path class="petal" d="M48 192 a28 28 0 0 1 0 48 a28 28 0 0 1 0 -48z" transform="rotate(20 48 216)"/>
+</g>
+</svg>
+<div class="cv-text"><p class="cv-name">Ape Gale<br>Indonesia</p><p class="cv-tag">Solutions are our expertise.</p></div>
+</div>
+</body>
+</html>

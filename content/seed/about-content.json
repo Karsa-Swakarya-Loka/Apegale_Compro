@@ -1,0 +1,47 @@
+{
+  "_about": "Copy editorial diparafrase sesuai permintaan owner 09 Okt 2026. Sumber asli disimpan utuh di legacy/. Tidak mengubah identitas founder atau fakta perusahaan.",
+  "greeting": {
+    "source": "legacy/salam-dari-kami.html",
+    "id": [
+      {
+        "p": "Ape Gale Indonesia mendampingi klien dalam pengurusan ekspatriat dan pengelolaan tenaga kerja. Pengembangan GARIS merupakan bagian dari upaya kami menggunakan teknologi untuk mendukung proses layanan tersebut."
+      },
+      {
+        "p": "Selain pengembangan aplikasi, kami menyediakan konsultasi dan perencanaan penerapan teknologi sesuai kebutuhan klien."
+      },
+      {
+        "p": "Kami terbuka untuk bekerja sama dalam penerapan dan pengembangan layanan ini."
+      }
+    ],
+    "en": [
+      {
+        "p": "Ape Gale Indonesia supports clients with expatriate administration and workforce management. The development of GARIS is part of our work to use technology in these services."
+      },
+      {
+        "p": "Alongside application development, we provide consulting and technology implementation planning based on client requirements."
+      },
+      {
+        "p": "We welcome collaboration in implementing and developing these services."
+      }
+    ]
+  },
+  "profile": {
+    "source": "legacy/profil-perusahaan.html",
+    "id": [
+      {
+        "p": "Ape Gale Indonesia dirintis oleh praktisi dengan pengalaman lebih dari 20 tahun. Kami melayani pengurusan ekspatriat dan penyediaan tenaga kerja untuk perusahaan di sektor asuransi, perbankan, pertambangan, manufaktur, dan industri lainnya di Indonesia."
+      },
+      {
+        "p": "Dukungan digital menjadi bagian dari pengembangan layanan kami, termasuk pengelolaan data dan dokumen melalui GARIS. Akses aplikasi sedang disiapkan kembali."
+      }
+    ],
+    "en": [
+      {
+        "p": "Ape Gale Indonesia was founded by practitioners with more than 20 years of experience. We provide expatriate administration and workforce services for insurance, banking, mining, manufacturing, and other industries in Indonesia."
+      },
+      {
+        "p": "Digital support is part of our service development, including data and document management through GARIS. App access is being prepared for relaunch."
+      }
+    ]
+  }
+}

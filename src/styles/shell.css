@@ -1,0 +1,137 @@
+/* Public shell layout (header, nav, footer, floats). Values come from tokens.css.
+   Breakpoints are literal because media queries cannot read custom properties:
+   767px = mobile, 1099px = header switches to the menu button. */
+
+html.ag-fonts {
+  --font-display: var(--font-roboto), "Segoe UI", system-ui, sans-serif;
+  --font-body: var(--font-roboto), "Segoe UI", system-ui, sans-serif;
+  --font-label: var(--font-montserrat), var(--font-roboto), system-ui, sans-serif;
+}
+html { scroll-padding-top: calc(var(--header-height) + var(--space-4)); }
+body { margin: 0; background: var(--surface); color: var(--ink); }
+main:focus { outline: none; }
+
+.ag-container { max-width: var(--container); margin-inline: auto; padding-inline: var(--space-8); }
+.ag-section { padding-block: var(--space-24); }
+.ag-sechead p, .ag-about__text { max-width: var(--reading-width); }
+.ag-sechead, .ag-about__copy, .ag-garis__copy, .ag-detail__main { min-width: 0; }
+
+.ag-skip { position: absolute; left: var(--space-4); top: calc(-1 * var(--header-height)); z-index: var(--z-skip);
+  padding: var(--space-3) var(--space-4); background: var(--maroon); color: var(--on-brand); border-radius: var(--radius-md); font-weight: 600; }
+.ag-skip:focus { top: var(--space-4); }
+
+/* Expanded hit areas: visual size stays as designed, touch area reaches --touch-target (decision #17). */
+.ag-lang button, .ag-btn--sm { position: relative; }
+.ag-lang button::after, .ag-btn--sm::after { content: ""; position: absolute; inset: calc((100% - var(--touch-target)) / 2); }
+
+/* Topbar */
+.ag-topbar svg { width: 16px; height: 16px; flex: none; }
+
+/* Header */
+.ag-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: var(--z-header); }
+.ag-header__in { min-height: var(--header-height); padding-block: 0; }
+.ag-header__brand { display: flex; flex: none; }
+.ag-header__logo { height: var(--logo-height); width: auto; }
+.ag-header__lang, .ag-burger { display: none; }
+.ag-header__cta { flex: none; }
+
+/* Desktop navigation */
+.ag-nav__list { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: var(--space-4); }
+.ag-nav__item { position: relative; display: flex; align-items: center; gap: 2px; }
+.ag-nav__toggle { display: grid; place-items: center; width: var(--touch-target); height: var(--touch-target); padding: 0; border: 0; border-radius: var(--radius-sm);
+  background: transparent; color: var(--ink-muted); cursor: pointer; }
+.ag-nav__item:hover > a, .ag-nav__item:hover > .ag-nav__toggle, .ag-nav__item[data-open] > a, .ag-nav__item[data-open] > .ag-nav__toggle { color: var(--brand-text); }
+.ag-nav__toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+.ag-nav__sub { position: absolute; top: calc(100% + var(--space-1)); left: calc(-1 * var(--space-3)); min-width: var(--dropdown-width);
+  list-style: none; margin: 0; padding: var(--space-2); background: var(--surface-raised); border: 1px solid var(--line);
+  border-radius: var(--radius-md); box-shadow: var(--shadow-raised); visibility: hidden; opacity: 0; }
+/* Invisible bridge so the pointer can travel from the label into the panel without closing it. */
+.ag-nav__sub::before { content: ""; position: absolute; left: 0; right: 0; top: calc(-1 * var(--space-2)); height: var(--space-2); }
+.ag-nav__item[data-open] > .ag-nav__sub { visibility: visible; opacity: 1; }
+.ag-nav .ag-nav__sub a { display: flex; border-bottom: 0; padding: 10px var(--space-3); border-radius: var(--radius-sm);
+  font-family: var(--font-body); font-size: 14px; font-weight: 500; color: var(--ink); }
+.ag-nav .ag-nav__sub a:hover { background: var(--brand-tint); color: var(--brand-text); }
+.ag-nav .ag-nav__sub a[aria-current] { background: var(--brand-tint); }
+.ag-nav__sub2 { list-style: none; margin: 0 0 var(--space-1) var(--space-3); padding: 0 0 0 var(--space-3); border-left: 1px solid var(--line); }
+.ag-nav .ag-nav__sub2 a { font-weight: 400; font-size: 13px; color: var(--ink-muted); padding-block: var(--space-2); min-height: var(--touch-target); }
+
+/* Mobile menu panel */
+.ag-burger { place-items: center; width: var(--touch-target); height: var(--touch-target); padding: 0; margin-left: var(--space-2);
+  border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface-raised); color: var(--ink); cursor: pointer; }
+.ag-mnav { position: fixed; inset: calc(env(safe-area-inset-top, 0px) + var(--header-height)) 0 0 0; z-index: var(--z-panel);
+  overflow-y: auto; background: var(--surface); border-top: 1px solid var(--line);
+  padding: var(--space-4) var(--space-4) calc(var(--space-12) + env(safe-area-inset-bottom, 0px)); }
+.ag-mnav__list, .ag-mnav__sub { list-style: none; margin: 0; padding: 0; }
+.ag-mnav__list > li { border-bottom: 1px solid var(--line); }
+.ag-mnav__row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); }
+.ag-mnav__row a { flex: 1; display: flex; align-items: center; min-height: 52px; color: var(--ink); text-decoration: none;
+  font-family: var(--font-display); font-size: 18px; font-weight: 600; }
+.ag-mnav a[aria-current] { color: var(--brand-text); }
+.ag-mnav__toggle { display: grid; place-items: center; width: var(--touch-target); height: var(--touch-target); padding: 0; border: 0;
+  border-radius: var(--radius-md); background: transparent; color: var(--brand-text); cursor: pointer; }
+.ag-mnav__toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+.ag-mnav__sub { padding-bottom: var(--space-3); }
+.ag-mnav__sub a { display: flex; align-items: center; min-height: var(--touch-target); padding-left: var(--space-4);
+  color: var(--ink); text-decoration: none; font-weight: 600; }
+.ag-mnav__sub li[data-nested] a { padding-left: var(--space-8); font-weight: 400; color: var(--ink-muted); }
+.ag-mnav__cta { width: 100%; margin-top: var(--space-6); }
+
+/* Section heading variant */
+.ag-sechead--center { margin-inline: auto; text-align: center; justify-items: center; }
+.ag-sechead h1 { font-size: 40px; line-height: 48px; font-weight: 700; }
+.ag-sechead h1 em { font-style: normal; color: var(--brand-text); }
+
+/* CTA banner */
+.ag-cta { position: relative; overflow: hidden; background: var(--maroon-deep); color: var(--on-brand); }
+.ag-cta__slab { position: absolute; inset: 0 0 0 auto; width: 40%; background: var(--maroon); clip-path: polygon(35% 0, 100% 0, 100% 100%, 0 100%); }
+.ag-cta__in { position: relative; max-width: var(--container); margin-inline: auto; padding: var(--space-16) var(--space-8);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-8); }
+.ag-cta__copy { display: grid; gap: var(--space-2); max-width: 640px; }
+.ag .ag-cta h2 { color: var(--on-brand); font-size: 32px; line-height: 40px; font-weight: 600; }
+.ag-cta p { opacity: var(--on-dark-muted); font-size: 18px; line-height: 30px; }
+
+/* Footer: reserve horizontal space for WhatsApp instead of a tall bottom gap. */
+.ag-footer__base { padding-inline-end: calc(var(--wa-size) + var(--space-16) + var(--space-24)); }
+.ag-footer__copyright { display: grid; gap: var(--space-1); min-width: 0; }
+.ag-footer address { font-style: normal; }
+.ag-footer .ag-footer__contacts { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
+.ag-footer__contact-icon { display: inline-grid; place-items: center; width: var(--touch-target); height: var(--touch-target); border-radius: var(--radius-md); transition: background-color var(--motion-fast), opacity var(--motion-fast); }
+.ag-footer__contact-icon:hover { background: color-mix(in srgb, var(--on-brand) 12%, transparent); }
+.ag-footer__contact-icon:focus-visible { outline-color: var(--on-brand); }
+
+/* WhatsApp float */
+.ag-wa--float { position: fixed; right: var(--space-6); bottom: calc(var(--space-6) + env(safe-area-inset-bottom, 0px)); z-index: var(--z-float); }
+
+/* 404 */
+.ag-notfound .ag-sechead { max-width: 640px; }
+
+@media (max-width: 1099px) {
+  .ag-nav, .ag-header__cta { display: none; }
+  .ag-burger { display: grid; }
+  .ag-header__in { gap: var(--space-2); justify-content: space-between; }
+  .ag-header__brand { margin-right: auto; }
+}
+@media (max-width: 767px) {
+  .ag-container { padding-inline: var(--space-4); }
+  .ag-section { padding-block: var(--space-12); }
+  .ag-topbar { display: none; }
+  .ag-header__in { padding-inline: var(--space-4); }
+  .ag-header__logo { height: var(--logo-height-mobile); }
+  .ag-header__lang { display: inline-flex; }
+  .ag-mnav { inset: calc(env(safe-area-inset-top, 0px) + var(--header-height)) 0 0 0; }
+  .ag-sechead h1 { font-size: 30px; line-height: 36px; }
+  .ag-sechead h2 { font-size: var(--heading-mobile-size); line-height: var(--heading-mobile-line); }
+  .ag-cta__in { padding: var(--space-12) var(--space-4); }
+  .ag .ag-cta h2 { font-size: 26px; line-height: 32px; }
+  .ag-cta__slab { width: 100%; height: 30%; inset: auto 0 0 0; }
+  .ag-footer__in { padding: var(--space-12) var(--space-4) var(--space-6); }
+  .ag-footer__brand { grid-column: 1 / -1; }
+  .ag-footer__base { padding-inline: var(--space-4); padding-inline-end: calc(var(--wa-size) + var(--space-8)); padding-bottom: calc(var(--space-6) + env(safe-area-inset-bottom, 0px)); }
+  .ag-wa--float { right: var(--space-4); bottom: calc(var(--space-4) + env(safe-area-inset-bottom, 0px));
+    width: var(--wa-size); height: var(--wa-size); padding: 0; justify-content: center; }
+  .ag-wa--float .ag-wa__label { display: none; }
+}
+@media (min-width: 768px) and (max-width: 1099px) {
+  .ag-section { padding-block: var(--space-16); }
+  .ag-mnav { inset: calc(env(safe-area-inset-top, 0px) + var(--header-height)) 0 0 0; }
+}

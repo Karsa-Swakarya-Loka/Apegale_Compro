@@ -1,0 +1,322 @@
+[
+  {
+    "slug": "broad-expatriate-hosting",
+    "order": 1,
+    "parent": null,
+    "showInMenu": true,
+    "icon": "globe",
+    "title": {
+      "id": "Broad Expatriate Hosting",
+      "en": "Broad Expatriate Hosting"
+    },
+    "summary": {
+      "id": "Pendampingan kebutuhan ekspatriat di Indonesia, dengan dukungan administrasi dan pengelolaan layanan.",
+      "en": "Support for expatriates in Indonesia, including administration and service coordination."
+    },
+    "body": {
+      "source": "legacy/expatriate-hosting.html",
+      "note": "Migrasi isi dari file lama (ID), rapikan, terjemahkan ke EN. Kode & durasi visa di halaman lama (2021) harus dicek ulang terhadap regulasi terbaru sebelum publish."
+    },
+    "priceItems": []
+  },
+  {
+    "slug": "expatriate-formalities",
+    "order": 2,
+    "parent": null,
+    "showInMenu": true,
+    "icon": "file-text",
+    "title": {
+      "id": "Expatriate Formalities",
+      "en": "Expatriate Formalities"
+    },
+    "summary": {
+      "id": "Pengurusan dokumen dan perizinan ekspatriat melalui jaringan layanan kami di Indonesia.",
+      "en": "Expatriate document and permit assistance through our service network in Indonesia."
+    },
+    "body": {
+      "source": "legacy/expatriate-formalities.html",
+      "note": "Migrasi isi dari file lama (ID), rapikan, terjemahkan ke EN. Kode & durasi visa di halaman lama (2021) harus dicek ulang terhadap regulasi terbaru sebelum publish."
+    },
+    "priceItems": []
+  },
+  {
+    "slug": "manpower-supply",
+    "order": 3,
+    "parent": null,
+    "showInMenu": true,
+    "icon": "users",
+    "title": {
+      "id": "Manpower Supply",
+      "en": "Manpower Supply"
+    },
+    "summary": {
+      "id": "Penyediaan tenaga kerja alih daya sesuai kebutuhan perusahaan, disertai pengawasan dan pembinaan kinerja.",
+      "en": "Outsourced staff to meet company requirements, with performance supervision and development."
+    },
+    "body": {
+      "source": "legacy/manpower-supply.html",
+      "note": "Migrasi isi dari file lama (ID), rapikan, terjemahkan ke EN. Kode & durasi visa di halaman lama (2021) harus dicek ulang terhadap regulasi terbaru sebelum publish."
+    },
+    "priceItems": []
+  },
+  {
+    "slug": "legalitas-perusahaan",
+    "order": 4,
+    "parent": null,
+    "showInMenu": true,
+    "icon": "building-2",
+    "title": {
+      "id": "Legalitas Perusahaan",
+      "en": "Company Legalities"
+    },
+    "summary": {
+      "id": "Pendampingan kelengkapan dokumen dan perizinan untuk kegiatan usaha perusahaan.",
+      "en": "Assistance with company documents and permits for business operations."
+    },
+    "body": {
+      "source": "legacy/legalitas-perusahaan.html",
+      "note": "Migrasi isi dari file lama (ID), rapikan, terjemahkan ke EN. Kode & durasi visa di halaman lama (2021) harus dicek ulang terhadap regulasi terbaru sebelum publish."
+    },
+    "priceItems": []
+  },
+  {
+    "slug": "airport-escort",
+    "order": 5,
+    "parent": null,
+    "showInMenu": true,
+    "icon": "plane",
+    "title": {
+      "id": "Airport Escort",
+      "en": "Airport Escort"
+    },
+    "summary": {
+      "id": "Pendampingan kedatangan dan keberangkatan di bandara, termasuk penjemputan, imigrasi, dan bagasi.",
+      "en": "Airport arrival and departure assistance, including meet-and-greet, immigration, and baggage handling."
+    },
+    "body": {
+      "source": "legacy/airport-escort.html",
+      "note": "Migrasi isi dari file lama (ID), rapikan, terjemahkan ke EN. Kode & durasi visa di halaman lama (2021) harus dicek ulang terhadap regulasi terbaru sebelum publish."
+    },
+    "priceItems": []
+  },
+  {
+    "slug": "hr-system-consulting",
+    "order": 6,
+    "parent": null,
+    "showInMenu": true,
+    "icon": "briefcase",
+    "title": {
+      "id": "HR System & Consulting",
+      "en": "HR System & Consulting"
+    },
+    "summary": {
+      "id": "Konsultasi dan perencanaan pengelolaan SDM bersama praktisi dan konsultan kami.",
+      "en": "HR consulting and workforce planning with our practitioners and consultants."
+    },
+    "body": {
+      "source": "legacy/hr-system-consulting.html",
+      "note": "Migrasi isi dari file lama (ID), rapikan, terjemahkan ke EN. Kode & durasi visa di halaman lama (2021) harus dicek ulang terhadap regulasi terbaru sebelum publish."
+    },
+    "priceItems": []
+  },
+  {
+    "slug": "kitas-kitap",
+    "order": 7,
+    "parent": "expatriate-formalities",
+    "showInMenu": true,
+    "icon": "id-card",
+    "title": {
+      "id": "Layanan KITAS & KITAP",
+      "en": "KITAS & KITAP Services"
+    },
+    "summary": {
+      "id": "",
+      "en": ""
+    },
+    "body": {
+      "source": "legacy/layanan-kitas-kitap.html",
+      "note": "Migrasi isi dari file lama (ID), rapikan, terjemahkan ke EN. Kode & durasi visa di halaman lama (2021) harus dicek ulang terhadap regulasi terbaru sebelum publish."
+    },
+    "priceItems": []
+  },
+  {
+    "slug": "visa-paspor",
+    "order": 8,
+    "parent": "expatriate-formalities",
+    "showInMenu": true,
+    "icon": "stamp",
+    "title": {
+      "id": "Layanan Visa & Paspor",
+      "en": "Visa & Passport Services"
+    },
+    "summary": {
+      "id": "",
+      "en": ""
+    },
+    "body": {
+      "source": "legacy/layanan-visa-paspor.html",
+      "note": "Migrasi isi dari file lama (ID), rapikan, terjemahkan ke EN. Kode & durasi visa di halaman lama (2021) harus dicek ulang terhadap regulasi terbaru sebelum publish."
+    },
+    "priceItems": []
+  },
+  {
+    "slug": "all-in-one-solutions",
+    "order": 9,
+    "parent": "expatriate-formalities",
+    "showInMenu": true,
+    "icon": "layers",
+    "title": {
+      "id": "All in One Solutions",
+      "en": "All in One Solutions"
+    },
+    "summary": {
+      "id": "",
+      "en": ""
+    },
+    "body": {
+      "source": "legacy/all-in-one-solutions.html",
+      "note": "Migrasi isi dari file lama (ID), rapikan, terjemahkan ke EN. Kode & durasi visa di halaman lama (2021) harus dicek ulang terhadap regulasi terbaru sebelum publish."
+    },
+    "priceItems": []
+  },
+  {
+    "slug": "kitas-lansia",
+    "order": 10,
+    "parent": "expatriate-formalities",
+    "showInMenu": true,
+    "icon": "sun",
+    "title": {
+      "id": "KITAS Lansia",
+      "en": "Retirement KITAS"
+    },
+    "summary": {
+      "id": "",
+      "en": ""
+    },
+    "body": {
+      "source": "legacy/kitas-lansia.html",
+      "note": "Migrasi isi dari file lama (ID), rapikan, terjemahkan ke EN. Kode & durasi visa di halaman lama (2021) harus dicek ulang terhadap regulasi terbaru sebelum publish."
+    },
+    "priceItems": []
+  },
+  {
+    "slug": "vitas",
+    "order": 11,
+    "parent": "visa-paspor",
+    "showInMenu": false,
+    "icon": "stamp",
+    "title": {
+      "id": "VITAS (Visa Tinggal Terbatas) 312",
+      "en": "VITAS (Limited Stay Visa) 312"
+    },
+    "summary": {
+      "id": "",
+      "en": ""
+    },
+    "body": {
+      "source": "legacy/vitas.html",
+      "note": "Migrasi isi dari file lama (ID), rapikan, terjemahkan ke EN. Kode & durasi visa di halaman lama (2021) harus dicek ulang terhadap regulasi terbaru sebelum publish."
+    },
+    "priceItems": []
+  },
+  {
+    "slug": "multiple-business-visa",
+    "order": 12,
+    "parent": "visa-paspor",
+    "showInMenu": false,
+    "icon": "stamp",
+    "title": {
+      "id": "Multiple Business Visa 212",
+      "en": "Multiple Business Visa 212"
+    },
+    "summary": {
+      "id": "",
+      "en": ""
+    },
+    "body": {
+      "source": "legacy/multiple-business-visa.html",
+      "note": "Migrasi isi dari file lama (ID), rapikan, terjemahkan ke EN. Kode & durasi visa di halaman lama (2021) harus dicek ulang terhadap regulasi terbaru sebelum publish."
+    },
+    "priceItems": []
+  },
+  {
+    "slug": "visa-kunjungan",
+    "order": 13,
+    "parent": "visa-paspor",
+    "showInMenu": false,
+    "icon": "stamp",
+    "title": {
+      "id": "Visa Kunjungan & VKSB (Single) 211",
+      "en": "Visit Visa & VKSB (Single) 211"
+    },
+    "summary": {
+      "id": "",
+      "en": ""
+    },
+    "body": {
+      "source": "legacy/visa-kunjungan.html",
+      "note": "Migrasi isi dari file lama (ID), rapikan, terjemahkan ke EN. Kode & durasi visa di halaman lama (2021) harus dicek ulang terhadap regulasi terbaru sebelum publish."
+    },
+    "priceItems": []
+  },
+  {
+    "slug": "visa-tinggal-terbatas-penyatuan-keluarga",
+    "order": 14,
+    "parent": "visa-paspor",
+    "showInMenu": false,
+    "icon": "stamp",
+    "title": {
+      "id": "Visa Tinggal Terbatas Penyatuan Keluarga C 317",
+      "en": "Family Unification Limited Stay Visa C 317"
+    },
+    "summary": {
+      "id": "",
+      "en": ""
+    },
+    "body": {
+      "source": "legacy/visa-tinggal-terbatas-penyatuan-keluarga.html",
+      "note": "Migrasi isi dari file lama (ID), rapikan, terjemahkan ke EN. Kode & durasi visa di halaman lama (2021) harus dicek ulang terhadap regulasi terbaru sebelum publish."
+    },
+    "priceItems": []
+  },
+  {
+    "slug": "visa-on-arrival",
+    "order": 15,
+    "parent": "visa-paspor",
+    "showInMenu": false,
+    "icon": "stamp",
+    "title": {
+      "id": "Visa On Arrival (VOA)",
+      "en": "Visa On Arrival (VOA)"
+    },
+    "summary": {
+      "id": "",
+      "en": ""
+    },
+    "body": {
+      "source": "legacy/visa-on-arrival.html",
+      "note": "Migrasi isi dari file lama (ID), rapikan, terjemahkan ke EN. Kode & durasi visa di halaman lama (2021) harus dicek ulang terhadap regulasi terbaru sebelum publish."
+    },
+    "priceItems": []
+  },
+  {
+    "slug": "visa-pelajar",
+    "order": 16,
+    "parent": "visa-paspor",
+    "showInMenu": false,
+    "icon": "stamp",
+    "title": {
+      "id": "Visa Pelajar 316",
+      "en": "Student Visa 316"
+    },
+    "summary": {
+      "id": "",
+      "en": ""
+    },
+    "body": {
+      "source": "legacy/visa-pelajar.html",
+      "note": "Migrasi isi dari file lama (ID), rapikan, terjemahkan ke EN. Kode & durasi visa di halaman lama (2021) harus dicek ulang terhadap regulasi terbaru sebelum publish."
+    },
+    "priceItems": []
+  }
+]

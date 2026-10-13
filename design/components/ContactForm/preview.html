@@ -1,0 +1,22 @@
+<!-- @dsCard group="Forms" height=520 width=900 subtitle="Form konsultasi + status error" -->
+<!doctype html>
+<html lang="id" data-theme="light">
+<head>
+<link rel="stylesheet" href="../../tokens.css">
+<link rel="stylesheet" href="../../components.css">
+<meta charset="utf-8"><title>ContactForm — preview</title>
+<style>body{margin:0;padding:24px;background:var(--surface);}</style></head>
+<body>
+<div class="ag">
+<form class="ag-form" onsubmit="event.preventDefault()">
+  <div class="ag-field"><label for="f-name">Nama lengkap</label><input id="f-name" value="Rina Kusuma"></div>
+  <div class="ag-field"><label for="f-company">Perusahaan</label><input id="f-company" value="PT Contoh Industri"></div>
+  <div class="ag-field" data-invalid><label for="f-email">Email</label><input id="f-email" value="rina@" aria-invalid="true" aria-describedby="f-email-err"><span class="ag-field__error" id="f-email-err"><svg class="ag-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>Masukkan alamat email lengkap, mis. nama@perusahaan.com</span></div>
+  <div class="ag-field"><label for="f-wa">Nomor WhatsApp</label><input id="f-wa" value="0812 0000 0000"></div>
+  <div class="ag-field ag-field--full"><label for="f-svc">Layanan</label><select id="f-svc"><option>Expatriate Formalities</option><option>Broad Expatriate Hosting</option><option>Manpower Supply</option><option>Legalitas Perusahaan</option><option>Airport Escort</option><option>HR System &amp; Consulting</option></select></div>
+  <div class="ag-field ag-field--full"><label for="f-msg">Pesan</label><textarea id="f-msg">Kami perlu mengurus KITAS untuk 3 tenaga ahli dari Jepang.</textarea></div>
+  <div class="ag-field--full ag-row"><button class="ag-btn ag-btn--primary" type="submit">Kirim Pesan</button><a class="ag-btn ag-btn--wa" href="#">Chat WhatsApp</a></div>
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,172 @@
+{
+  "hero": {
+    "eyebrow": {
+      "id": "Untuk perusahaan yang mempekerjakan tenaga kerja asing",
+      "en": "For companies employing foreign workers"
+    },
+    "headline": {
+      "id": "Perizinan ekspatriat & tenaga kerja",
+      "en": "Expatriate permits & manpower"
+    },
+    "highlight": {
+      "id": "ekspatriat",
+      "en": "Expatriate permits"
+    },
+    "lead": {
+      "id": "RPTKA, KITAS, hingga tenaga alih daya kami urus dari dokumen sampai selesai, agar operasional Anda tetap patuh aturan.",
+      "en": "RPTKA, KITAS and outsourced manpower handled from paperwork to completion, so your operations stay compliant."
+    },
+    "image": "design/assets/Photography/hero-meeting-city.jpg",
+    "primaryCta": {
+      "label": {
+        "id": "Minta penawaran",
+        "en": "Request a quote"
+      },
+      "href": "/hubungi-kami"
+    },
+    "secondaryCta": {
+      "label": {
+        "id": "Lihat layanan",
+        "en": "View services"
+      },
+      "href": "/layanan"
+    }
+  },
+  "why": [
+    {
+      "icon": "monitor-check",
+      "title": {
+        "id": "Dukungan digital",
+        "en": "Digital support"
+      },
+      "text": {
+        "id": "GARIS dirancang untuk pengelolaan data, dokumen, dan proses layanan. Akses aplikasi akan dibuka kembali.",
+        "en": "GARIS is designed to manage data, documents, and service progress. App access will reopen in a future release."
+      }
+    },
+    {
+      "icon": "timer",
+      "title": {
+        "id": "Pendampingan tim",
+        "en": "Team support"
+      },
+      "text": {
+        "id": "Diskusikan kebutuhan dan proses layanan dengan tim kami melalui telepon atau WhatsApp.",
+        "en": "Speak with our team by phone or WhatsApp about your requirements and the service process."
+      }
+    },
+    {
+      "icon": "shield-check",
+      "title": {
+        "id": "Pengurusan perizinan",
+        "en": "Permit assistance"
+      },
+      "text": {
+        "id": "Pendampingan administrasi dan dokumen untuk kebutuhan ekspatriat serta perusahaan.",
+        "en": "Administrative and document support for expatriates and companies."
+      }
+    },
+    {
+      "icon": "map",
+      "title": {
+        "id": "Jaringan 35+ kota",
+        "en": "A network in 35+ cities"
+      },
+      "text": {
+        "id": "Jaringan layanan kami menjangkau lebih dari 35 kota di Indonesia.",
+        "en": "Our service network covers more than 35 cities in Indonesia."
+      }
+    }
+  ],
+  "network": {
+    "title": {
+      "id": "Jaringan di 35+ kota",
+      "en": "A network across 35+ cities"
+    },
+    "text": {
+      "id": "Kami mendukung kebutuhan layanan di berbagai wilayah Indonesia melalui jaringan di lebih dari 35 kota.",
+      "en": "We support clients across Indonesia through a service network in more than 35 cities."
+    },
+    "cities": [
+      {
+        "name": "Medan",
+        "lat": 3.5952,
+        "lng": 98.6722
+      },
+      {
+        "name": "Pekanbaru",
+        "lat": 0.5071,
+        "lng": 101.4478
+      },
+      {
+        "name": "Batam",
+        "lat": 1.0456,
+        "lng": 104.0305
+      },
+      {
+        "name": "Padang",
+        "lat": -0.9471,
+        "lng": 100.4172
+      },
+      {
+        "name": "Palembang",
+        "lat": -2.9761,
+        "lng": 104.7754
+      },
+      {
+        "name": "Lampung",
+        "lat": -5.3971,
+        "lng": 105.2668
+      },
+      {
+        "name": "Jakarta",
+        "lat": -6.2088,
+        "lng": 106.8456
+      },
+      {
+        "name": "Bandung",
+        "lat": -6.9175,
+        "lng": 107.6191
+      },
+      {
+        "name": "Semarang",
+        "lat": -6.9667,
+        "lng": 110.4167
+      },
+      {
+        "name": "Yogyakarta",
+        "lat": -7.7956,
+        "lng": 110.3695
+      },
+      {
+        "name": "Balikpapan",
+        "lat": -1.2379,
+        "lng": 116.8529
+      },
+      {
+        "name": "Makassar",
+        "lat": -5.1477,
+        "lng": 119.4327
+      },
+      {
+        "name": "Jayapura",
+        "lat": -2.5337,
+        "lng": 140.7181
+      }
+    ],
+    "_note": "lat/lng = koordinat pusat kota (data geografis publik). 'Lampung' = Bandar Lampung. Proyeksikan ke SVG peta Indonesia (equirectangular, bbox ±95–141 BT, 6 LU–11 LS)."
+  },
+  "founder": {
+    "name": "Deny Yandi Imran",
+    "role": {
+      "id": "Founder & Chief Executive Officer",
+      "en": "Founder & Chief Executive Officer"
+    },
+    "photo": "design/assets/Photography/founder-deny-imran.png",
+    "quote": {
+      "id": "[Ambil kutipan 1–2 kalimat dari legacy/salam-dari-kami.html, minta persetujuan klien]",
+      "en": "[Translate the approved quote]"
+    }
+  },
+  "_source": "hero: teks asli apegale.com (index.html). why & network: Company Profile 2026 hal. 3 dan 9. Copy diparafrase sesuai permintaan owner 09 Okt 2026; akses GARIS belum aktif. Hero ditulis ulang 12 Okt 2026 (atas permintaan owner): above the fold menjawab untuk siapa, apa, kenapa penting, dan langkah berikutnya; fakta dari services-content (RPTKA, KITAS, Manpower Supply)."
+}

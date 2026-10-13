@@ -1,0 +1,62 @@
+[
+  {
+    "category": "umum",
+    "featured": true,
+    "question": {
+      "id": "Apa bedanya KITAS dan KITAP?",
+      "en": "What is the difference between KITAS and KITAP?"
+    },
+    "answer": {
+      "id": "KITAS adalah Kartu Izin Tinggal Terbatas, sedangkan KITAP adalah Kartu Izin Tinggal Tetap. KITAP dapat diajukan oleh pemegang izin tinggal terbatas yang telah tinggal di Indonesia beberapa tahun berturut-turut sesuai ketentuan.",
+      "en": "KITAS is the Limited Stay Permit card, while KITAP is the Permanent Stay Permit card. KITAP can be applied for by limited-stay holders who have lived in Indonesia for several consecutive years, as regulated."
+    }
+  },
+  {
+    "category": "umum",
+    "featured": true,
+    "question": {
+      "id": "Dokumen apa yang perlu disiapkan?",
+      "en": "Which documents do I need to prepare?"
+    },
+    "answer": {
+      "id": "Umumnya paspor yang masih berlaku, pas foto, dan dokumen dari sponsor. Daftar lengkap bergantung pada jenis izin; tim kami akan mengirimkan daftarnya.",
+      "en": "Usually a valid passport, photos and sponsor documents. The full list depends on the permit type; our team will send it to you."
+    }
+  },
+  {
+    "category": "garis",
+    "featured": true,
+    "question": {
+      "id": "Apa itu aplikasi GARIS?",
+      "en": "What is the GARIS app?"
+    },
+    "answer": {
+      "id": "GARIS (Gale Resources Information System) adalah aplikasi untuk memantau proses perizinan dan mengingatkan masa berlaku izin. Aplikasi ini sedang disiapkan untuk diaktifkan kembali; sementara itu, tanyakan progres pengurusan Anda lewat WhatsApp.",
+      "en": "GARIS (Gale Resources Information System) is an app for tracking permit processes and expiry reminders. It is being prepared for relaunch; in the meantime, ask for your progress via WhatsApp."
+    }
+  },
+  {
+    "category": "layanan",
+    "featured": true,
+    "question": {
+      "id": "Apakah Ape Gale melayani di luar Jakarta?",
+      "en": "Do you serve clients outside Jakarta?"
+    },
+    "answer": {
+      "id": "Ya. Jaringan kami menjangkau 35+ kota di Indonesia.",
+      "en": "Yes. Our network covers 35+ cities across Indonesia."
+    }
+  },
+  {
+    "category": "layanan",
+    "featured": false,
+    "question": {
+      "id": "Bagaimana cara memulai konsultasi?",
+      "en": "How do I start a consultation?"
+    },
+    "answer": {
+      "id": "Hubungi kami lewat WhatsApp 0811 9996 286 atau isi formulir di halaman Hubungi Kami.",
+      "en": "Contact us on WhatsApp at +62 811 9996 286 or fill in the form on the Contact page."
+    }
+  }
+]

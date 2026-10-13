@@ -1,0 +1,188 @@
+{
+  "nav": {
+    "home": {
+      "id": "Beranda",
+      "en": "Home"
+    },
+    "about": {
+      "id": "Tentang kami",
+      "en": "About us"
+    },
+    "services": {
+      "id": "Layanan",
+      "en": "Services"
+    },
+    "garis": {
+      "id": "GARIS",
+      "en": "GARIS"
+    },
+    "regulations": {
+      "id": "Regulasi",
+      "en": "Regulations"
+    },
+    "news": {
+      "id": "Berita",
+      "en": "News"
+    },
+    "contact": {
+      "id": "Hubungi kami",
+      "en": "Contact us"
+    }
+  },
+  "cta": {
+    "consult": {
+      "id": "Minta penawaran",
+      "en": "Request a quote"
+    },
+    "viewServices": {
+      "id": "Lihat layanan",
+      "en": "View services"
+    },
+    "more": {
+      "id": "Selengkapnya",
+      "en": "Read more"
+    },
+    "read": {
+      "id": "Baca artikel",
+      "en": "Read article"
+    },
+    "whatsapp": {
+      "id": "Chat WhatsApp",
+      "en": "Chat on WhatsApp"
+    },
+    "askWhatsapp": {
+      "id": "Chat WhatsApp",
+      "en": "Chat on WhatsApp"
+    },
+    "send": {
+      "id": "Kirim pesan",
+      "en": "Send message"
+    },
+    "download": {
+      "id": "Unduh dokumen",
+      "en": "Download document"
+    },
+    "comingSoon": {
+      "id": "Segera hadir",
+      "en": "Coming soon"
+    }
+  },
+  "form": {
+    "name": {
+      "id": "Nama",
+      "en": "Name"
+    },
+    "company": {
+      "id": "Perusahaan",
+      "en": "Company"
+    },
+    "email": {
+      "id": "Email kerja",
+      "en": "Work email"
+    },
+    "whatsapp": {
+      "id": "Nomor WhatsApp",
+      "en": "WhatsApp number"
+    },
+    "service": {
+      "id": "Layanan yang dibutuhkan",
+      "en": "Service required"
+    },
+    "message": {
+      "id": "Pesan",
+      "en": "Message"
+    },
+    "errorEmail": {
+      "id": "Masukkan alamat email lengkap, mis. nama@perusahaan.com",
+      "en": "Enter a full email address, e.g. name@company.com"
+    },
+    "errorRequired": {
+      "id": "Wajib diisi.",
+      "en": "This field is required."
+    },
+    "success": {
+      "id": "Pesan Anda sudah diterima. Tim kami akan menghubungi Anda.",
+      "en": "Your message has been received. Our team will contact you."
+    }
+  },
+  "price": {
+    "service": {
+      "id": "Layanan",
+      "en": "Service"
+    },
+    "duration": {
+      "id": "Estimasi proses",
+      "en": "Processing time"
+    },
+    "from": {
+      "id": "Harga mulai",
+      "en": "Starting from"
+    },
+    "contact": {
+      "id": "Hubungi kami",
+      "en": "Contact us"
+    },
+    "note": {
+      "id": "Harga belum termasuk biaya negara (PNBP).",
+      "en": "Prices exclude government fees (PNBP)."
+    }
+  },
+  "sections": {
+    "services": {
+      "id": "Layanan Ape Gale",
+      "en": "Ape Gale Services"
+    },
+    "why": {
+      "id": "Mengapa Ape Gale",
+      "en": "Why Ape Gale"
+    },
+    "clients": {
+      "id": "Klien kami",
+      "en": "Our clients"
+    },
+    "testimonials": {
+      "id": "Kata Klien",
+      "en": "What Clients Say"
+    },
+    "faq": {
+      "id": "Pertanyaan Umum",
+      "en": "FAQ"
+    },
+    "news": {
+      "id": "Berita dan regulasi",
+      "en": "News and regulations"
+    }
+  },
+  "lang": {
+    "label": {
+      "id": "Pilih bahasa",
+      "en": "Choose language"
+    }
+  },
+  "pages": {
+    "services": {
+      "intro": {
+        "id": "Layanan perizinan ekspatriat, tenaga kerja, dan administrasi perusahaan di Indonesia.",
+        "en": "Expatriate permit, workforce, and company administration services in Indonesia."
+      }
+    },
+    "regulations": {
+      "intro": {
+        "id": "Dokumen regulasi terkait ketenagakerjaan, keimigrasian, dan kegiatan usaha.",
+        "en": "Regulatory documents relating to employment, immigration, and business operations."
+      }
+    },
+    "news": {
+      "intro": {
+        "id": "Kabar dan informasi dari Ape Gale Indonesia.",
+        "en": "News and updates from Ape Gale Indonesia."
+      }
+    },
+    "contact": {
+      "intro": {
+        "id": "Sampaikan kebutuhan layanan Anda melalui formulir, telepon, atau WhatsApp.",
+        "en": "Tell us what you need using the form, by phone, or on WhatsApp."
+      }
+    }
+  }
+}
