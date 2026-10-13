@@ -117,7 +117,7 @@
 .ag-garis__shots::before { content: ""; position: absolute; top: 10%; bottom: 0; left: 30%; width: 40%; background: var(--red-gradient); clip-path: polygon(45% 0, 100% 0, 55% 100%, 0 100%); }
 .ag-garis__shot { position: relative; overflow: hidden; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); }
 /* The dashboard picture is a laptop mock-up on a transparent background: no frame. */
-.ag-garis__shot--wide { overflow: visible; background: none; border: 0; border-radius: 0; }
+.ag-garis__shot--wide { overflow: visible; isolation: isolate; background: none; border: 0; border-radius: 0; }
 .ag-garis__shot img { display: block; width: 100%; height: auto; }
 .ag-garis__shot--wide { width: 88%; }
 .ag-garis__shot--phone { position: absolute; right: 0; bottom: 0; width: 34%; }

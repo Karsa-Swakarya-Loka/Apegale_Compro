@@ -104,7 +104,11 @@
 /* The red band behind the laptop runs out to the viewport edge (the section clips it). */
 .ag-showcase__plane { position: absolute; top: 16%; bottom: 10%; left: 22%; right: -100vw; background: var(--red-gradient); border-radius: var(--radius-xl) 0 0 var(--radius-xl);
   transform: skewX(-12deg); transform-origin: bottom left; }
-.ag-showcase__shot { position: relative; }
+/* The laptop is a cut-out: a shadow that follows its shape plus a soft contact shadow under the base keep it grounded. */
+.ag-showcase__shot { position: relative; isolation: isolate; }
+.ag-showcase__shot img, .ag-garis__shot--wide img { filter: drop-shadow(0 28px 30px color-mix(in srgb, var(--ink) 28%, transparent)) drop-shadow(0 6px 8px color-mix(in srgb, var(--ink) 18%, transparent)); }
+.ag-showcase__shot::after, .ag-garis__shot--wide::after { content: ""; position: absolute; z-index: -1; left: 6%; right: 4%; bottom: 1%; height: 7%; border-radius: 50%;
+  background: color-mix(in srgb, var(--ink) 38%, transparent); filter: blur(16px); }
 .ag-showcase__shot img { display: block; width: 100%; height: auto; }
 
 /* ---------- Network: map in the red gradient, city index beside it ---------- */

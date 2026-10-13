@@ -37,13 +37,16 @@
 .ag-header__lang, .ag-burger { display: none; }
 .ag-header__cta { flex: none; }
 
-/* Home masthead (reference: unifato "Cargon" home 3): no topbar; the header floats over the hero as a white capsule
-   24px from the top; from the first pixel of scroll it becomes a full-width fixed white bar that slides down (0.95 s). */
+/* Home masthead (reference: unifato "Cargon" home 3): no topbar; the header is fixed and floats over the hero as a white
+   capsule 24px from the top. From the first pixel of scroll the capsule widens sideways into a full-width bar in place
+   (width, corners, top gap and padding transition together); the menu stays aligned with the page container. */
 .ag-masthead { display: contents; }
 .ag-masthead[data-home] .ag-topbar { display: none; }
-.ag-masthead[data-home] .ag-header { position: absolute; top: 0; left: 0; right: 0; padding: var(--space-6) var(--space-8) 0; background: transparent; border-bottom: 0; }
-.ag-masthead[data-home] .ag-header__in { min-height: 0; padding: var(--space-5) var(--space-6); border-radius: 87px; background: var(--surface);
-  box-shadow: 0 8px 24px color-mix(in srgb, var(--ink) 14%, transparent); }
+.ag-masthead[data-home] .ag-header { position: fixed; top: 0; left: 0; right: 0; padding: var(--space-6) var(--space-8) 0; background: transparent; border-bottom: 0;
+  transition: padding 450ms var(--motion-ease-out); }
+.ag-masthead[data-home] .ag-header__in { min-height: 0; max-width: var(--container); padding: var(--space-5) var(--space-6); border-radius: 87px; background: var(--surface);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--ink) 14%, transparent);
+  transition: max-width 450ms var(--motion-ease-out), border-radius 450ms var(--motion-ease-out), padding 450ms var(--motion-ease-out); }
 .ag-masthead[data-home] .ag-header__in { gap: var(--space-6); }
 .ag-masthead[data-home] .ag-nav__list { gap: var(--space-5); }
 .ag-masthead[data-home] .ag-nav a { min-height: 52px; white-space: nowrap; font-size: 16px; font-weight: 400; color: var(--ink-muted); }
@@ -52,10 +55,9 @@
 .ag-masthead[data-home] .ag-nav__sub { top: calc(100% + var(--space-5)); }
 .ag-masthead[data-home] .ag-nav__sub::after { content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: var(--space-5); }
 .ag-masthead[data-home] .ag-header__lang { display: inline-flex; }
-.ag-masthead[data-home][data-scrolled] .ag-header { position: fixed; padding: 0; background: var(--surface); box-shadow: 0 8px 24px color-mix(in srgb, var(--ink) 14%, transparent);
-  animation: ag-header-down 950ms ease forwards; }
-.ag-masthead[data-home][data-scrolled] .ag-header__in { padding: 15px var(--space-8); border-radius: 0; box-shadow: none; }
-@keyframes ag-header-down { from { margin-top: -150px; } to { margin-top: 0; } }
+.ag-masthead[data-home][data-scrolled] .ag-header { padding: 0; }
+.ag-masthead[data-home][data-scrolled] .ag-header__in { max-width: 100%; border-radius: 0;
+  padding: 15px max(var(--space-8), calc((100% - var(--container)) / 2 + var(--space-8))); }
 
 /* Desktop navigation */
 .ag-nav { display: flex; margin-left: auto; }
@@ -141,6 +143,8 @@
   .ag-masthead[data-home] .ag-header { padding: var(--space-3) var(--space-3) 0; }
   .ag-masthead[data-home] .ag-header__in { padding: var(--space-2) var(--space-2) var(--space-2) var(--space-5); }
   .ag-masthead[data-home][data-scrolled] .ag-header__in { padding: var(--space-2) var(--space-5); }
+  .ag-masthead[data-home] .ag-header { padding-inline: var(--space-3); }
+  .ag-masthead[data-home][data-scrolled] .ag-header { padding: 0; }
   .ag-topbar { display: none; }
   .ag-header__in { padding-inline: var(--space-5); }
   .ag-header__logo { height: var(--logo-height-mobile); }
