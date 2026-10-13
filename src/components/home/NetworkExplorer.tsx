@@ -52,7 +52,7 @@ export function NetworkExplorer({ cities, width, height, label }: Props) {
           })}
         </div>
       </Reveal>
-      <Reveal step={2} className="ag-impact__tile ag-impact__tile--cities ag-dark">
+      <Reveal step={2} className="ag-impact__tile ag-impact__tile--cities">
         <p className="ag-eyebrow">{label}</p>
         <ul className="ag-impact__cities" aria-label={label}>
           {cities.map(c => (

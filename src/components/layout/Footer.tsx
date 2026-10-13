@@ -27,7 +27,7 @@ export function Footer({ locale, site, services, company, messages }: Props) {
     <footer className="ag-footer">
       <div className="ag-footer__in">
         <div className="ag-footer__brand">
-          <Image className="ag-footer__logo" src="/brand/apegale-logo-on-dark.png" alt="Ape Gale Indonesia"
+          <Image className="ag-footer__logo" src="/brand/apegale-logo.png" alt="Ape Gale Indonesia"
             width={1200} height={409} sizes="180px" />
           {site.address ? <address><p>{site.address}</p></address> : null}
           <ul className="ag-footer__contacts" aria-label={messages.footer.contact}>

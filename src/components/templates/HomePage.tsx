@@ -70,31 +70,31 @@ export async function HomePage({ locale }: { locale: Locale }) {
       {show('clients') ? <ClientStrip clients={clients} labels={{ title: ui.sections?.clients || '' }} /> : null}
 
       {show('services') && services.length ? (
-        <ServicesSection title={m.home.servicesTitle} highlight={m.home.servicesHighlight} intro={m.home.servicesIntro} moreLabel={ui.cta?.more || ''}
+        <ServicesSection index="01" title={m.home.servicesTitle} highlight={m.home.servicesHighlight} intro={m.home.servicesIntro} moreLabel={ui.cta?.more || ''}
           all={ui.cta?.viewServices ? { label: ui.cta.viewServices, href: href(locale, 'services') } : undefined}
           services={services.map(s => ({ slug: s.slug, title: s.title, summary: s.summary, icon: s.icon, href: serviceHref(s.slug) }))} />
       ) : null}
 
-      {show('why') ? <WhySection eyebrow={ui.sections?.why} title={m.home.whyTitle} highlight={m.home.whyHighlight} items={home.why ?? []} /> : null}
+      {show('why') ? <WhySection index="02" eyebrow={ui.sections?.why} title={m.home.whyTitle} highlight={m.home.whyHighlight} items={home.why ?? []} /> : null}
 
       {show('garis') ? (
-        <GarisSection garis={garis} title={m.home.garisTitle} highlight={m.home.garisHighlight} intro={m.home.garisIntro} whatsapp={wa} more={{ label: ui.cta?.more || '', href: href(locale, 'garis') }}
+        <GarisSection index="03" garis={garis} title={m.home.garisTitle} highlight={m.home.garisHighlight} intro={m.home.garisIntro} whatsapp={wa} more={{ label: ui.cta?.more || '', href: href(locale, 'garis') }}
           labels={{ login: m.home.garisLogin, trial: m.home.garisTrial, comingSoon: ui.cta?.comingSoon || '', ask: ui.cta?.askWhatsapp || '' }} />
       ) : null}
 
       {show('network') && home.network?.title ? (
-        <NetworkSection tone="soft" title={home.network.title} text={home.network.text}
+        <NetworkSection index="04" tone="plain" title={home.network.title} text={home.network.text}
           cities={home.network.cities ?? []} citiesLabel={m.home.networkCities} />
       ) : null}
 
       {show('founder') ? (
-        <AboutSection eyebrow={m.home.aboutEyebrow} title={m.home.aboutTitle} highlight={m.home.aboutHighlight} text={aboutText}
+        <AboutSection index="05" eyebrow={m.home.aboutEyebrow} title={m.home.aboutTitle} highlight={m.home.aboutHighlight} text={aboutText}
           founder={{ name: home.founder?.name, role: home.founder?.role, quote: home.founder?.quote, photo: asMedia(home.founder?.photo) }}
           more={{ label: ui.cta?.more || '', href: href(locale, 'about') }} />
       ) : null}
 
       {show('testimonials') && visibleTestimonials.length ? (
-        <section className="ag-section ag-section--dark" aria-labelledby="testimonials-title">
+        <section className="ag-section" aria-labelledby="testimonials-title">
           <div className="ag-container ag-stack">
             <Reveal><SectionHeading id="testimonials-title" title={m.home.testimonialsTitle} highlight={m.home.testimonialsHighlight} /></Reveal>
             <div className="ag-grid ag-grid--3">{visibleTestimonials.slice(0, 3).map(t => <Testimonial key={t.id} item={t} />)}</div>
@@ -105,7 +105,7 @@ export async function HomePage({ locale }: { locale: Locale }) {
       {show('faq') && faqs.length ? (
         <section className="ag-section ag-section--soft" aria-labelledby="faq-title">
           <div className="ag-container ag-split">
-            <Reveal><SectionHeading id="faq-title" title={m.home.faqTitle} highlight={m.home.faqHighlight} /></Reveal>
+            <Reveal><SectionHeading index="06" id="faq-title" title={m.home.faqTitle} highlight={m.home.faqHighlight} /></Reveal>
             <Reveal step={1}><FAQList items={faqs} /></Reveal>
           </div>
         </section>
@@ -115,7 +115,7 @@ export async function HomePage({ locale }: { locale: Locale }) {
         <section className="ag-section" aria-labelledby="news-title">
           <div className="ag-container ag-stack">
             <div className="ag-headrow">
-              <Reveal><SectionHeading id="news-title" title={m.home.newsTitle} highlight={m.home.newsHighlight} /></Reveal>
+              <Reveal><SectionHeading index="07" id="news-title" title={m.home.newsTitle} highlight={m.home.newsHighlight} /></Reveal>
               <Button variant="ghost" href={href(locale, 'news')} label={ui.cta?.more || ''} icon={<ArrowRight size={18} aria-hidden="true" />} />
             </div>
             <div className="ag-grid ag-grid--3">

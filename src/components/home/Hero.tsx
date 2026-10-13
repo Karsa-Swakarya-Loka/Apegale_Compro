@@ -10,14 +10,14 @@ type Props = {
   image?: Media | null; primary: Cta; secondary: Cta; stats: { value: string; label: string }[]
 }
 
-/** Template slide 01 "Company profile" cover: copy on a charcoal field, the photo filling the right side behind
- *  a diagonal cut, a red stripe on the cut and a maroon wedge in the corner. Text first on mobile. */
+/** Hero (design v10): oversized title on white, the photo on the right cut by the red-gradient slash that is the
+ *  site's signature mark. Text first on mobile. */
 export function Hero({ eyebrow, headline, highlight, lead, image, primary, secondary, stats }: Props) {
   const at = highlight ? headline.indexOf(highlight) : -1
   const title = at < 0 || !highlight ? headline : <>{headline.slice(0, at)}<em>{highlight}</em>{headline.slice(at + highlight.length)}</>
   const photo = image?.sizes?.hero?.url ? image.sizes.hero : image
   return (
-    <section className="ag-hero ag-dark">
+    <section className="ag-hero">
       <div className="ag-hero__in">
         <div className="ag-hero__copy">
           {eyebrow ? <span className="ag-eyebrow">{eyebrow}</span> : null}

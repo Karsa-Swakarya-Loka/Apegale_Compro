@@ -11,11 +11,11 @@ const icons = {
   email: <Mail size={18} aria-hidden="true" />, address: <MapPin size={18} aria-hidden="true" />,
 }
 
-/** Template slide 10 "Let's build what's next": charcoal closing field, two-tone title, the direct contact lines with
- *  round icons on the left and the short form on a white card on the right. The form's submit is the one primary action. */
+/** Closing (design v10): red-gradient field, two-tone title, the direct contact lines on the left and the short form on
+ *  a white panel on the right. The form's submit is the one primary action. */
 export function ContactCta({ title, highlight, text, contacts, form }: Props) {
   return (
-    <section className="ag-closing ag-dark" aria-labelledby="contact-cta-title">
+    <section className="ag-closing ag-red" aria-labelledby="contact-cta-title">
       <div className="ag-container ag-closing__in">
         <div className="ag-closing__copy">
           <SectionHeading id="contact-cta-title" title={title} highlight={highlight} intro={text} />

@@ -253,3 +253,25 @@ Acuan: `../template_design.jpeg` (template company profile 10 slide: bidang gela
 **Token baru** (`tokens.json` v3): `accent-on-dark`, `brand-text-on-dark`, `fs-*-t`/`fs-*-m`, `wedge`, `wedge-m`, `bar-w`, `bar-h`; bayangan kartu tipis dihidupkan lagi.
 
 Verifikasi: 360, 390, 820, 1024, 1440 px di Beranda dan semua halaman dalam (ID + EN), tanpa scroll horizontal; menu mobile diuji tap, submenu, dan Escape; `typecheck`, `lint`, 27 test, `build` lulus.
+
+## Desain v10 (13 Okt 2026): "Garis merah", putih dominan
+
+Arahan owner: buang gradien generik, kartu berlebihan, pill, dan tata letak yang mudah ditebak; bangun sistem visual yang khas. Palet: merah, putih, gradasi merah, sorotan maroon, dominasi putih. Menggantikan v9 (bidang charcoal dihapus). Konten, copy, dan urutan seksi tidak berubah.
+
+**Tanda khas: garis miring merah.** Gradasi `--red-gradient` (red → maroon → maroon-deep, 118°) hanya dipakai sebagai: pita miring tebal di potongan foto hero, garis miring di header halaman dalam, penanda indeks seksi, daratan peta jaringan, dan **satu bidang merah besar per tampilan** (Beranda: "Mengapa Ape Gale" dan penutup; halaman dalam: banner penutup). Tidak ada gradien sebagai latar dekoratif.
+
+**Tanpa kotak, tanpa pill.** Semua radius 0, semua bayangan `none`. Struktur dari garis rambut (`line`), garis tinta 1px di atas daftar, dan whitespace. Layanan, nilai, berita, dokumen, FAQ, misi, fitur GARIS, kontak menjadi entri terbuka bernomor di bawah garis rambut. Toggle bahasa jadi dua kata bergaris bawah; filter kategori jadi tab bergaris bawah; field formulir bergaris bawah.
+
+**Tombol.** Tombol berisi (primer merah, WhatsApp, terang) punya ujung kanan terpotong miring, digambar di `::before` supaya cincin fokus tetap utuh. Sekunder = outline tinta tajam; tersier = tautan bergaris bawah 2px; belum tersedia = teks redup dengan garis putus-putus.
+
+**Tata letak tidak terduga.** Nomor indeks seksi di Beranda (`01`–`07`) dengan garis miring; judul Layanan menempel (sticky) di kolom kiri sementara enam layanan berjalan sebagai indeks dua kolom; "Mengapa" sebagai buku besar bernomor besar bergaris luar di bidang merah; screenshot GARIS menembus ke luar kontainer di atas garis miring; founder dipotong di atas garis miring dengan nama di bawah garis maroon.
+
+**Tipografi.** Roboto Black kapital dengan tracking rapat: H1 hero 76/76 (tablet 56, mobile 40), H1 halaman 60/62 (mobile 36), H2 46/50 (mobile 30). Label Montserrat ExtraBold 11–13px tracking lebar untuk eyebrow, nomor, breadcrumb, label form. Isi 17/28.
+
+**Konteks warna.** `.ag-red` / `.ag-section--red` menukar custom property (judul putih, sorotan `brand-tint`, tombol putih bertulisan maroon, WhatsApp putih bertulisan hijau). Formulir selalu konteks putih.
+
+**Token** (`tokens.json` v4): `red-gradient`, `red-gradient-v`, `slash-w`; radius 0; bayangan none; skala huruf baru.
+
+**Penyimpangan dari aturan lama yang disengaja:** toggle bahasa bukan pill lagi (AGENTS.md menyebut pill) dan tombol bersudut tajam (v8 memakai 6px), keduanya atas arahan owner "tanpa pill".
+
+Verifikasi: Beranda dan halaman dalam di 360/390/820/1024/1440 px tanpa scroll horizontal; menu mobile (tap, submenu, Escape) dan peta interaktif diuji; `typecheck`, `lint`, 27 test, `build` lulus.

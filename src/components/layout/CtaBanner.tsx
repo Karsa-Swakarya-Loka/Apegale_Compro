@@ -11,11 +11,11 @@ type Props = {
   secondary?: { label: string; href: string }
 }
 
-/** Template slide 10 on inner pages: charcoal closing band, two-tone title and text left, WhatsApp (primary) and the
- *  consultation link (secondary) right, maroon corner wedge. */
+/** Closing band on inner pages (design v10): red-gradient field, two-tone title and text left, WhatsApp (primary) and
+ *  the consultation link (secondary) right. */
 export function CtaBanner({ title, highlight, text, primary, secondary }: Props) {
   return (
-    <section className="ag-closing ag-closing--banner ag-dark" aria-labelledby="cta-title">
+    <section className="ag-closing ag-closing--banner ag-red" aria-labelledby="cta-title">
       <div className="ag-container ag-closing__in">
         <SectionHeading id="cta-title" title={title} highlight={highlight} intro={text} />
         <div className="ag-row">

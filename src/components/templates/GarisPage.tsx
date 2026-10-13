@@ -65,7 +65,7 @@ export async function GarisPage({ locale }: { locale: Locale }) {
       ) : null}
 
       {modules.length ? (
-        <section className="ag-section ag-section--dark" aria-labelledby="garis-modules-title">
+        <section className="ag-section ag-section--red" aria-labelledby="garis-modules-title">
           <div className="ag-container ag-stack">
             <SectionHeading id="garis-modules-title" title={m.garis.modulesTitle} />
             <ul className="ag-why ag-why--3">

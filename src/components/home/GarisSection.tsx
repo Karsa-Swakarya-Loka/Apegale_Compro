@@ -8,14 +8,14 @@ import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Reveal } from '@/components/motion/Reveal'
 
 type Props = {
-  garis: Garis; title: string; highlight?: string; intro?: string | null; labels: { login: string; trial: string; comingSoon: string; ask: string }
+  index?: string; garis: Garis; title: string; highlight?: string; intro?: string | null; labels: { login: string; trial: string; comingSoon: string; ask: string }
   whatsapp?: string; id?: string; more?: { label: string; href: string }
 }
 
-/** Template slide 06 "Case study highlight": copy, the GARIS modules as a checklist and the actions on the left; the
- *  product screenshot over a maroon diagonal plane on the right. Login/trial stay a quiet "coming soon" line after the
- *  live actions until the CMS enables them. */
-export function GarisSection({ garis, title, highlight, intro, labels, whatsapp, id, more }: Props) {
+/** GARIS (design v10): copy, the modules as a checklist and the actions on the left; the product screenshot breaking
+ *  out to the right over the red-gradient slash. Login/trial stay a quiet "coming soon" line after the live actions
+ *  until the CMS enables them. */
+export function GarisSection({ index, garis, title, highlight, intro, labels, whatsapp, id, more }: Props) {
   const live = Boolean(garis.enabled)
   const shot = (garis.gallery ?? []).map(g => asMedia(g.image)).find(m => m?.url && m.width && m.height)
   const modules = (garis.variants ?? []).filter(v => v.name)
@@ -24,7 +24,7 @@ export function GarisSection({ garis, title, highlight, intro, labels, whatsapp,
     <section className="ag-section" id={id} aria-labelledby="garis-title">
       <div className="ag-container ag-showcase">
         <Reveal className="ag-showcase__copy">
-          <SectionHeading id="garis-title" eyebrow="GARIS" title={title} highlight={highlight} intro={intro ?? garis.intro} />
+          <SectionHeading index={index} id="garis-title" eyebrow="GARIS" title={title} highlight={highlight} intro={intro ?? garis.intro} />
           {modules.length ? (
             <ul className="ag-checklist">
               {modules.map(v => <li key={v.name}><CircleCheck size={22} aria-hidden="true" /><b>{v.name}</b></li>)}
