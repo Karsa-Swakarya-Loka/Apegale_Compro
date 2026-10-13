@@ -35,7 +35,16 @@ const blobToken = process.env.BLOB_READ_WRITE_TOKEN
 const storage = blobToken ? [vercelBlobStorage({ collections: { media: true }, token: blobToken, clientUploads: true })] : []
 export default buildConfig({
  serverURL, secret,
- admin: { user: Users.slug, importMap: { baseDir: dirname } },
+ admin: {
+  user: Users.slug, importMap: { baseDir: dirname },
+  // The CMS follows the public site's design: light theme, brand logo/mark, favicon (see app/(payload)/admin-theme.css).
+  theme: 'light',
+  components: { graphics: { Logo: '/components/admin/AdminBrand#AdminLogo', Icon: '/components/admin/AdminBrand#AdminIcon' } },
+  meta: {
+   titleSuffix: ' | CMS Ape Gale Indonesia',
+   icons: [{ rel: 'icon', type: 'image/png', url: '/brand/icon-32.png' }, { rel: 'apple-touch-icon', url: '/brand/apple-touch-icon.png' }],
+  },
+ },
  i18n: { supportedLanguages: { id, en }, fallbackLanguage: 'id' },
  localization,
  collections: [Services, Testimonials, Clients, Faqs, Posts, Regulations, Media, Inquiries, Users],

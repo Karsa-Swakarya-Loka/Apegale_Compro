@@ -1,0 +1,50 @@
+/* CMS (Payload admin) in the Ape Gale design: the site's tokens, Roboto + Montserrat labels, warm neutrals, red primary
+   actions, maroon accents and the red gradient on the login screen. Light theme only, like the public site.
+   Payload's own styles live in @layer, so these unlayered rules win without !important. */
+@import '../../styles/tokens.css';
+
+:root {
+  /* Warm neutral scale (ink #231f20 → white) replacing Payload's cool greys. */
+  --color-base-0: #ffffff; --color-base-50: #fbf8f7; --color-base-100: #f6f0ef; --color-base-150: #ede5e4; --color-base-200: #e2d9d8;
+  --color-base-250: #d5cbca; --color-base-300: #c4b9b8; --color-base-350: #b1a6a6; --color-base-400: #9c9192; --color-base-450: #8a8283;
+  --color-base-500: #776f70; --color-base-550: #665e5f; --color-base-600: #564f50; --color-base-650: #484243; --color-base-700: #3b3637;
+  --color-base-750: #302b2c; --color-base-800: #231f20; --color-base-850: #1b1819; --color-base-900: #141112; --color-base-950: #0c0a0b; --color-base-1000: #000000;
+  --style-radius-s: 6px; --style-radius-m: 8px; --style-radius-l: 12px;
+}
+html[data-theme] { --theme-bg: var(--surface); --theme-input-bg: var(--surface); }
+body { font-family: var(--font-body); }
+::selection { background: var(--brand-tint); color: var(--maroon); }
+:focus-visible { outline-color: var(--red); }
+
+/* Actions: primary = red (hover maroon), like the site's buttons. */
+.btn--style-primary { --bg-color: var(--red); --hover-bg: var(--maroon); --color: var(--on-brand); --hover-color: var(--on-brand); }
+.btn--style-primary.btn--disabled { --bg-color: var(--color-base-200); --color: var(--color-base-500); --hover-bg: var(--bg-color); }
+.btn--style-secondary { --hover-bg: var(--brand-tint); }
+.btn--style-pill { --hover-bg: var(--brand-tint); }
+
+/* Navigation: soft warm panel, maroon active item with a red bar, Montserrat group labels. */
+.nav { background: var(--surface-soft); border-right: 1px solid var(--line); }
+.nav__link { color: var(--ink); }
+.nav__link:hover, .nav__link.active { color: var(--maroon); }
+.nav__link-indicator { background: var(--red); width: 3px; }
+.nav-group__toggle, .nav__label { font-family: var(--font-label); font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--maroon); }
+.nav__header { border-bottom: 1px solid var(--line); }
+
+/* Fields: red focus ring like the site's forms. */
+input:focus, textarea:focus, select:focus, .rich-text-lexical .editor:focus-within, .react-select .rs__control--is-focused {
+  border-color: var(--red) !important; box-shadow: 0 0 0 3px color-mix(in srgb, var(--red) 16%, transparent) !important; }
+
+/* Dashboard cards: white, rounded, red edge on hover. */
+.card { border-radius: var(--style-radius-l); box-shadow: inset 0 0 0 1px var(--line); transition: box-shadow 160ms ease; }
+.card--has-onclick:hover { box-shadow: inset 0 0 0 1px var(--red), 0 8px 20px color-mix(in srgb, var(--ink) 8%, transparent); }
+.collections__label { font-family: var(--font-label); font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--maroon); }
+
+/* Headings: the site's heavy Roboto. */
+.doc-header__title, .list-header h1, .dashboard h1, .step-nav__last { font-weight: 800; }
+
+/* Login: warm field crossed by the red-gradient slash, form on a white rounded card with the wordmark. */
+.template-minimal { position: relative; isolation: isolate; background: var(--surface-soft); overflow: hidden; }
+.template-minimal::before { content: ""; position: absolute; z-index: -1; top: 0; bottom: 0; right: 8%; width: 220px; background: var(--red-gradient); transform: skewX(-14deg); }
+.template-minimal::after { content: ""; position: absolute; z-index: -1; top: 0; bottom: 0; right: calc(8% + 250px); width: 18px; background: var(--maroon); transform: skewX(-14deg); opacity: 0.6; }
+.template-minimal__wrap { padding: 40px; border-radius: 16px; background: var(--surface); box-shadow: 0 24px 48px color-mix(in srgb, var(--ink) 14%, transparent); }
+.login__brand { margin-bottom: 32px; }
