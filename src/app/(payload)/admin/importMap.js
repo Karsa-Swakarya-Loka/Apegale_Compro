@@ -27,6 +27,7 @@ import { CityPointField as CityPointField_a26c1820135096c527a5026f21547d03 } fro
 import { ParentPicker as ParentPicker_ee25c1de46b9b868094017e151a8a348 } from '../../../components/admin/ParentPicker'
 import { AdminIcon as AdminIcon_db845eae23ef682757f9df5d4893ae70 } from '../../../components/admin/AdminBrand'
 import { AdminLogo as AdminLogo_db845eae23ef682757f9df5d4893ae70 } from '../../../components/admin/AdminBrand'
+import { StartHere as StartHere_82da3284379da0161c1851fbba8be50b } from '../../../components/admin/StartHere'
 import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
 
 /** @type import('payload').ImportMap */
@@ -60,5 +61,6 @@ export const importMap = {
   "/components/admin/ParentPicker#ParentPicker": ParentPicker_ee25c1de46b9b868094017e151a8a348,
   "/components/admin/AdminBrand#AdminIcon": AdminIcon_db845eae23ef682757f9df5d4893ae70,
   "/components/admin/AdminBrand#AdminLogo": AdminLogo_db845eae23ef682757f9df5d4893ae70,
+  "/components/admin/StartHere#StartHere": StartHere_82da3284379da0161c1851fbba8be50b,
   "@payloadcms/next/rsc#CollectionCards": CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1
 }

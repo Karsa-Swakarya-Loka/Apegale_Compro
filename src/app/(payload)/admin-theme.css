@@ -52,9 +52,8 @@ input:focus, textarea:focus, select:focus, .rich-text-lexical .editor:focus-with
 
 /* ---------- Editing comfort ---------- */
 /* Cards and form panels stay white on the tinted page. */
-.card, .collapsible, .array-field__row, .tabs-field__tabs-wrap { background: #ffffff; }
+.card, .collapsible, .array-field__row { background: #ffffff; }
 .collapsible__toggle-wrap, .array-field .collapsible__toggle-wrap { background: #ffffff; }
-.tabs-field__tab-button--active { color: var(--maroon); box-shadow: inset 0 -3px 0 var(--red); }
 .field-description, .cms-help { color: var(--ink-muted); font-size: 13px; line-height: 18px; }
 .render-fields > .field-type + .field-type { margin-top: 4px; }
 
@@ -85,3 +84,88 @@ input:focus, textarea:focus, select:focus, .rich-text-lexical .editor:focus-with
 .cms-mappick__halo { fill: var(--red); opacity: 0.22; }
 .cms-mappick__status { margin: 0; font-size: 13px; color: var(--success); }
 .cms-mappick__status--empty { color: var(--maroon); }
+
+:root { --cms-accent: var(--red); --cms-accent-deep: var(--maroon); --cms-card: #ffffff; }
+
+/* ---------- Hierarchy (audit 14 Okt 2026): one clear place to start, titles that don't shout, obvious actions ---------- */
+
+/* 1. Dashboard: the starting panel leads; the full card grid below is the reference list. */
+.cms-start { margin: 4px 0 44px; padding: 28px; border-radius: 16px; background: var(--cms-card); box-shadow: inset 0 0 0 1px var(--line); }
+.cms-start__eyebrow { margin: 0 0 6px; font-size: 12px; line-height: 16px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cms-accent-deep); }
+.cms-start__title { margin: 0; font-size: 30px; line-height: 36px; font-weight: 800; color: var(--ink); }
+.cms-start__lead { margin: 8px 0 0; max-width: 64ch; font-size: 15px; line-height: 24px; color: var(--ink-muted); }
+.cms-start__tasks { display: grid; grid-template-columns: 1.2fr 1fr 1fr; grid-auto-rows: minmax(84px, auto); gap: 12px; margin-top: 24px; }
+.cms-task { display: grid; align-content: center; gap: 4px; padding: 16px 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--theme-bg);
+  color: var(--ink); text-decoration: none; transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease; }
+.cms-task:hover { border-color: var(--cms-accent); transform: translateY(-1px); }
+.cms-task:focus-visible { outline: 2px solid var(--cms-accent); outline-offset: 2px; }
+.cms-task__label { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 16px; line-height: 22px; font-weight: 700; }
+.cms-task__hint { font-size: 13px; line-height: 18px; color: var(--ink-muted); }
+.cms-task--primary { grid-row: span 2; align-content: end; min-height: 180px; padding: 22px; border-color: var(--cms-accent); background: var(--cms-accent); color: #fff; }
+.cms-task--primary .cms-task__label { font-size: 22px; line-height: 28px; }
+.cms-task--primary .cms-task__label::after { content: "→"; font-weight: 400; }
+.cms-task--primary .cms-task__hint { color: rgba(255, 255, 255, 0.86); font-size: 14px; }
+.cms-task--primary:hover { background: var(--cms-accent-deep); border-color: var(--cms-accent-deep); }
+.cms-task--ghost { background: transparent; border-style: dashed; }
+.cms-task__badge { padding: 1px 8px; border-radius: 999px; background: var(--cms-accent); color: #fff; font-size: 12px; line-height: 18px; font-weight: 700; }
+.cms-start__more { margin: 16px 0 0; font-size: 13px; color: var(--ink-muted); }
+.cms-start__more a { margin-left: 6px; color: var(--cms-accent-deep); font-weight: 700; }
+.collections__group + .collections__group { margin-top: 8px; }
+.card { padding-block: 14px; }
+.card__title { font-size: 15px; line-height: 20px; font-weight: 600; }
+
+/* 2. Page titles: clear but not louder than the content they head. */
+.doc-header__title { font-size: 28px; line-height: 34px; font-weight: 800; }
+.list-header__title { font-size: 30px; line-height: 36px; font-weight: 800; }
+
+/* 3. The main action in a list ("Buat Baru") is a real primary button. */
+.list-header__create-new-button.btn, .list-header .btn--style-pill {
+  --bg-color: var(--cms-accent); --color: #fff; --hover-bg: var(--cms-accent-deep); --hover-color: #fff; padding-inline: 14px; font-weight: 700; }
+
+/* 4. Labels lead, help follows: labels darker and heavier, the language note and help text quiet. */
+label.field-label:not(.unstyled) { font-size: 14px; line-height: 20px; font-weight: 600; color: var(--ink); }
+label.field-label .localized, .field-label .localized { font-size: 12px; font-weight: 400; color: var(--color-base-450); }
+.field-description { margin-top: 6px; }
+
+/* 5. Rich text looks like an input you can type in. */
+.rich-text-lexical .editor-container { border: 1px solid var(--color-base-200); border-radius: var(--style-radius-s); background: var(--theme-input-bg); }
+.rich-text-lexical .editor-container:focus-within { border-color: var(--cms-accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--cms-accent) 16%, transparent); }
+
+/* 6. Status bar: the state reads first, dates are secondary. */
+.doc-controls__label { font-weight: 400; color: var(--ink-muted); }
+.doc-controls__value { font-weight: 500; }
+.status__value { font-weight: 700; color: var(--cms-accent-deep); }
+
+@media (max-width: 1023px) {
+  .cms-start__tasks { grid-template-columns: 1fr 1fr; }
+  .cms-task--primary { grid-row: auto; grid-column: 1 / -1; min-height: 120px; }
+}
+@media (max-width: 600px) {
+  .cms-start { padding: 20px; }
+  .cms-start__title { font-size: 24px; line-height: 30px; }
+  .cms-start__tasks { grid-template-columns: 1fr; }
+  .doc-header__title, .list-header__title { font-size: 24px; line-height: 30px; }
+}
+
+/* ---------- Section navigation inside forms (tabs): numbered, bordered, active filled; wraps instead of scrolling ---------- */
+.tabs-field { margin-top: 24px; }
+.tabs-field__tabs-wrap { overflow: visible; margin: 0 var(--gutter-h) 24px; padding: 14px 16px 16px; border: 1px solid var(--line); border-radius: 14px; background: var(--cms-card); }
+.tabs-field__tabs-wrap::before { content: "Bagian halaman, klik untuk pindah"; display: block; margin-bottom: 10px; font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); }
+.tabs-field__tabs { display: flex; flex-wrap: wrap; gap: 8px; min-width: 0; border-bottom: 0; counter-reset: cmstab; }
+.tabs-field__tabs::before, .tabs-field__tabs::after { display: none; }
+.tabs-field__tab-button { counter-increment: cmstab; align-items: center; gap: 8px; margin: 0; padding: 9px 16px 9px 10px; border: 1px solid var(--line); border-radius: 999px;
+  background: var(--theme-bg); color: var(--ink); opacity: 1; font-size: 15px; line-height: 20px; font-weight: 600; letter-spacing: 0; transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease; }
+.tabs-field__tab-button::before { content: counter(cmstab); display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--color-base-150);
+  color: var(--ink); font-size: 12px; font-weight: 800; }
+.tabs-field__tab-button::after { display: none; }
+.tabs-field__tab-button:hover { opacity: 1; border-color: var(--cms-accent); color: var(--cms-accent-deep); }
+.tabs-field__tab-button--active, .tabs-field__tab-button--active:hover { border-color: var(--cms-accent); background: var(--cms-accent); color: #fff; }
+.tabs-field__tab-button--active::before { background: #fff; color: var(--cms-accent-deep); }
+.tabs-field__tab-button--has-error { border-color: var(--theme-error-500); color: var(--theme-error-750); }
+.tabs-field__tab-button--has-error::before { background: var(--theme-error-500); color: #fff; content: "!"; }
+.tabs-field__tab-button:focus-visible { outline: 2px solid var(--cms-accent); outline-offset: 2px; }
+.tabs-field__description { padding: 10px 14px; border-left: 3px solid var(--cms-accent); border-radius: 0 8px 8px 0; background: var(--cms-card); color: var(--ink-muted); font-size: 14px; }
+@media (max-width: 600px) {
+  .tabs-field__tabs-wrap { padding: 12px; }
+  .tabs-field__tab-button { padding: 8px 12px 8px 8px; font-size: 14px; }
+}

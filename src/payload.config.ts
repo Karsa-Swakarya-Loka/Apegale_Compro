@@ -6,7 +6,6 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { id } from '@payloadcms/translations/languages/id'
-import { en } from '@payloadcms/translations/languages/en'
 import sharp from 'sharp'
 import { Services } from './collections/Services.ts'
 import { Testimonials } from './collections/Testimonials.ts'
@@ -39,13 +38,18 @@ export default buildConfig({
   user: Users.slug, importMap: { baseDir: dirname },
   // The CMS follows the public site's design: light theme, brand logo/mark, favicon (see app/(payload)/admin-theme.css).
   theme: 'light',
-  components: { graphics: { Logo: '/components/admin/AdminBrand#AdminLogo', Icon: '/components/admin/AdminBrand#AdminIcon' } },
+  components: {
+   graphics: { Logo: '/components/admin/AdminBrand#AdminLogo', Icon: '/components/admin/AdminBrand#AdminIcon' },
+   // Dashboard starting point: the main task first, then frequent ones and the count of new messages.
+   beforeDashboard: ['/components/admin/StartHere#StartHere'],
+  },
   meta: {
    titleSuffix: ' | CMS Ape Gale Indonesia',
    icons: [{ rel: 'icon', type: 'image/png', url: '/brand/icon-32.png' }, { rel: 'apple-touch-icon', url: '/brand/apple-touch-icon.png' }],
   },
  },
- i18n: { supportedLanguages: { id, en }, fallbackLanguage: 'id' },
+ // CMS interface in Indonesian only, for the client's team (content itself stays bilingual via localization).
+ i18n: { supportedLanguages: { id }, fallbackLanguage: 'id' },
  localization,
  collections: [Services, Testimonials, Clients, Faqs, Posts, Regulations, Media, Inquiries, Users],
  globals: [Site, Home, About, Garis, Ui],
