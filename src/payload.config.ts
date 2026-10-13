@@ -41,8 +41,15 @@ export default buildConfig({
   theme: 'light',
   components: {
    graphics: { Logo: '/components/admin/AdminBrand#AdminLogo', Icon: '/components/admin/AdminBrand#AdminIcon' },
-   // Dashboard starting point: the main task first, then frequent ones and the count of new messages.
+   // Sidebar in the order the team works (components/admin/nav-map.ts), with icons and the count of new messages.
+   Nav: '/components/admin/CmsNav#CmsNav',
+   // Dashboard head: the site's state in numbers and the two most frequent actions.
    beforeDashboard: ['/components/admin/StartHere#StartHere'],
+  },
+  // The dashboard index follows the sidebar's sections instead of Payload's collection cards.
+  dashboard: {
+   widgets: [{ slug: 'site-map', Component: '/components/admin/SiteMap#SiteMap', label: 'Semua bagian CMS', minWidth: 'full', maxWidth: 'full' }],
+   defaultLayout: [{ widgetSlug: 'site-map', width: 'full' }],
   },
   meta: {
    titleSuffix: ' | CMS Ape Gale Indonesia',

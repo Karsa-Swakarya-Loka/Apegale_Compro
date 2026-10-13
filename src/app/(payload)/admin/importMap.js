@@ -26,9 +26,11 @@ import { RowLabel as RowLabel_a22f15833f5c099d83eec5874403c04c } from '../../../
 import { CheckCell as CheckCell_74778af3946880e31fd7d192e67d5f8d } from '../../../components/admin/CheckCell'
 import { CityPointField as CityPointField_a26c1820135096c527a5026f21547d03 } from '../../../components/admin/CityPointField'
 import { ParentPicker as ParentPicker_ee25c1de46b9b868094017e151a8a348 } from '../../../components/admin/ParentPicker'
+import { CmsNav as CmsNav_6db7bb43bc1e56df05fe30fcfd44ca95 } from '../../../components/admin/CmsNav'
 import { AdminIcon as AdminIcon_db845eae23ef682757f9df5d4893ae70 } from '../../../components/admin/AdminBrand'
 import { AdminLogo as AdminLogo_db845eae23ef682757f9df5d4893ae70 } from '../../../components/admin/AdminBrand'
 import { StartHere as StartHere_82da3284379da0161c1851fbba8be50b } from '../../../components/admin/StartHere'
+import { SiteMap as SiteMap_e46f24e33f1b114ddb8ca8bfbddc12c0 } from '../../../components/admin/SiteMap'
 import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
 
 /** @type import('payload').ImportMap */
@@ -61,8 +63,10 @@ export const importMap = {
   "/components/admin/CheckCell#CheckCell": CheckCell_74778af3946880e31fd7d192e67d5f8d,
   "/components/admin/CityPointField#CityPointField": CityPointField_a26c1820135096c527a5026f21547d03,
   "/components/admin/ParentPicker#ParentPicker": ParentPicker_ee25c1de46b9b868094017e151a8a348,
+  "/components/admin/CmsNav#CmsNav": CmsNav_6db7bb43bc1e56df05fe30fcfd44ca95,
   "/components/admin/AdminBrand#AdminIcon": AdminIcon_db845eae23ef682757f9df5d4893ae70,
   "/components/admin/AdminBrand#AdminLogo": AdminLogo_db845eae23ef682757f9df5d4893ae70,
   "/components/admin/StartHere#StartHere": StartHere_82da3284379da0161c1851fbba8be50b,
+  "/components/admin/SiteMap#SiteMap": SiteMap_e46f24e33f1b114ddb8ca8bfbddc12c0,
   "@payloadcms/next/rsc#CollectionCards": CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1
 }
