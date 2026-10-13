@@ -128,6 +128,9 @@
 .ag-wa--float { position: fixed; right: var(--space-6); bottom: calc(var(--space-6) + env(safe-area-inset-bottom, 0px)); z-index: var(--z-float); }
 
 @media (max-width: 1099px) {
+  /* Phones (portrait and landscape) and tablets: the floating WhatsApp button is icon only. */
+  .ag-wa--float { width: var(--wa-size); height: var(--wa-size); padding: 0; justify-content: center; }
+  .ag-wa--float .ag-wa__label { display: none; }
   .ag-nav, .ag-header__cta { display: none; }
   .ag-burger { display: grid; }
   .ag-header__in { gap: var(--space-2); justify-content: space-between; }
@@ -151,6 +154,5 @@
   .ag-header__lang { display: inline-flex; }
   .ag-footer__in { padding: var(--space-12) var(--space-5) var(--space-8); gap: var(--space-8); }
   .ag-footer__base { margin-inline: var(--space-5); padding-right: calc(var(--wa-size) + var(--space-4)); }
-  .ag-wa--float { right: var(--space-4); bottom: calc(var(--space-4) + env(safe-area-inset-bottom, 0px)); width: var(--wa-size); height: var(--wa-size); padding: 0; justify-content: center; }
-  .ag-wa--float .ag-wa__label { display: none; }
+  .ag-wa--float { right: var(--space-4); bottom: calc(var(--space-4) + env(safe-area-inset-bottom, 0px)); }
 }
