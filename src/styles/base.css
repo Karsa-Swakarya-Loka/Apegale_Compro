@@ -19,7 +19,7 @@ main:focus { outline: none; }
   --btn-bg: var(--red); --btn-bg-hover: var(--maroon); --btn-text: var(--on-brand);
   --btn-line: var(--ink); --btn-line-text: var(--ink); --btn-line-hover-text: var(--on-brand);
 }
-.ag-red, .ag-section--red, .ag-vm__vision, .ag-org__card--lead {
+.ag-red, .ag-section--red, .ag-vm__vision {
   --c-head: var(--on-brand); --c-text: var(--on-brand); --c-hl: var(--brand-tint); --c-eyebrow: var(--on-brand);
   --c-muted: color-mix(in srgb, var(--on-brand) 86%, var(--maroon)); --c-line: color-mix(in srgb, var(--on-brand) 28%, var(--maroon));
   --c-rule: var(--on-brand); --c-focus: var(--on-brand); --c-link: var(--on-brand); --c-icon: var(--on-brand);

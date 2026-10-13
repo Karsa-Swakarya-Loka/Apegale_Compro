@@ -32,7 +32,8 @@ export async function GarisPage({ locale }: { locale: Locale }) {
   const soon = ui.cta?.comingSoon || ''
   const action = (label: string, url?: string | null, variant: 'primary' | 'outline' | 'light' = 'primary') =>
     live && url ? <Button variant={variant} href={url} label={label} /> : <Button disabled label={`${label} · ${soon}`} />
-  const shots = (garis.gallery ?? []).map(g => asMedia(g.image)).filter(x => x?.url && x.width && x.height)
+  // Only the laptop preview (first gallery image); the phone preview is no longer shown.
+  const shots = (garis.gallery ?? []).map(g => asMedia(g.image)).filter(x => x?.url && x.width && x.height).slice(0, 1)
   const logo = asMedia(garis.logo)
   const modules = (garis.variants ?? []).filter(v => v.name)
   const features = (garis.features ?? []).filter(f => f.title)

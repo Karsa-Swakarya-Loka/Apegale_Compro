@@ -68,8 +68,8 @@
 
 /* ---------- About page ---------- */
 .ag-about { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: var(--space-16); align-items: end; }
-.ag-about__photo { position: relative; overflow: hidden; background: var(--surface); border-radius: var(--radius-xl); }
-.ag-about__photo::before { content: ""; position: absolute; top: 0; bottom: 0; left: 22%; width: 46%; background: var(--red-gradient); clip-path: polygon(45% 0, 100% 0, 55% 100%, 0 100%); }
+/* The founder cut-out sits directly on the section colour: no white box, no red band. */
+.ag-about__photo { position: relative; }
 .ag-founder { position: relative; z-index: 1; }
 .ag-founder img { display: block; width: 100%; height: auto; }
 .ag-about__copy { display: grid; gap: var(--space-8); justify-items: start; min-width: 0; }
@@ -89,7 +89,8 @@
 .ag .ag-value h3 { font-size: 21px; line-height: 28px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; }
 .ag-value p { color: var(--ink-muted); font-size: 16px; line-height: 26px; }
 
-/* Organisation chart: ruled names, the director on the red gradient. */
+/* Organisation chart (template: name card on top, role card in grey under it, tree lines). No photos.
+   Name cards in the brand palette: director on the red gradient, heads maroon, team members red. */
 .ag-org, .ag-org ul { list-style: none; margin: 0; padding: 0; }
 .ag-org { --org-line: var(--line-strong); --org-drop: var(--space-8); }
 .ag-org__root { display: grid; justify-items: center; }
@@ -103,23 +104,28 @@
 .ag-org__branch:only-child::after { display: none; }
 .ag-org__team > li { position: relative; padding-top: var(--space-4); }
 .ag-org__team > li::before { content: ""; position: absolute; top: 0; left: 50%; width: 1px; height: var(--space-4); background: var(--org-line); }
-.ag-org__card { display: grid; gap: 2px; padding: var(--space-3) var(--space-2); text-align: center; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); }
-.ag-org__card b { font-weight: 800; color: var(--c-head); }
-.ag-org__card span { font-size: 13px; line-height: 18px; color: var(--c-muted); }
-.ag-org__branch > .ag-org__card { border-top: 3px solid var(--maroon); }
-.ag-org__card--lead { min-width: 300px; padding: var(--space-5) var(--space-8); border: 0; background: var(--red-gradient); }
+.ag-org__card { position: relative; display: grid; width: 100%; max-width: 260px; margin-inline: auto; text-align: left; }
+.ag-org__card b { position: relative; z-index: 1; padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); background: var(--maroon); color: var(--on-brand);
+  font-family: var(--font-display); font-size: 16px; line-height: 22px; font-weight: 700; box-shadow: 0 6px 14px color-mix(in srgb, var(--maroon) 22%, transparent); }
+.ag-org__card span { margin: calc(-1 * var(--space-2)) var(--space-3) 0; padding: calc(var(--space-2) + var(--space-3)) var(--space-4) var(--space-3);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg); background: var(--surface-tile); color: var(--ink); font-size: 14px; line-height: 20px; }
+.ag-org__card--lead { max-width: 320px; }
+.ag-org__card--lead b { background: var(--red-gradient); font-size: 19px; line-height: 26px; padding: var(--space-4) var(--space-5); }
+.ag-org__team .ag-org__card b { background: var(--red); font-size: 15px; padding: 10px var(--space-4); box-shadow: none; }
+.ag-org__team .ag-org__card span { font-size: 13px; line-height: 18px; }
 
 /* ---------- GARIS page ---------- */
 .ag-garis { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-16); align-items: center; }
 .ag-garis__copy { display: grid; gap: var(--space-8); justify-items: start; min-width: 0; }
 .ag-garis__logo { height: 48px; width: auto; }
 .ag-garis__shots { position: relative; padding-bottom: var(--space-12); }
-.ag-garis__shots::before { content: ""; position: absolute; top: 10%; bottom: 0; left: 30%; width: 40%; background: var(--red-gradient); clip-path: polygon(45% 0, 100% 0, 55% 100%, 0 100%); }
+.ag-garis__shots::before { content: ""; position: absolute; top: 16%; bottom: 14%; left: 22%; right: -100vw; background: var(--red-gradient);
+  border-radius: var(--radius-xl) 0 0 var(--radius-xl); transform: skewX(-12deg); transform-origin: bottom left; }
 .ag-garis__shot { position: relative; overflow: hidden; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); }
 /* The dashboard picture is a laptop mock-up on a transparent background: no frame. */
 .ag-garis__shot--wide { overflow: visible; isolation: isolate; background: none; border: 0; border-radius: 0; }
 .ag-garis__shot img { display: block; width: 100%; height: auto; }
-.ag-garis__shot--wide { width: 88%; }
+.ag-garis__shot--wide { width: 100%; }
 .ag-garis__shot--phone { position: absolute; right: 0; bottom: 0; width: 34%; }
 .ag-feature-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-12); border-top: 1px solid var(--ink); counter-reset: feature; }
 .ag-feature-list li { counter-increment: feature; display: grid; grid-template-columns: var(--space-10) minmax(0, 1fr); padding-block: var(--space-5); border-bottom: 1px solid var(--line); }
@@ -194,7 +200,6 @@
   .ag-prose { font-size: 17px; line-height: 29px; }
   .ag .ag-prose h2 { font-size: 22px; line-height: 28px; }
   .ag-org .ag-org__level { grid-template-columns: minmax(0, 1fr); row-gap: var(--space-6); }
-  .ag-org__card--lead { min-width: 0; width: 100%; }
   .ag-vm__vision { padding: var(--space-8) var(--space-6); }
   .ag-vm__vision p { font-size: 21px; line-height: 30px; }
   .ag-feature-list { grid-template-columns: minmax(0, 1fr); }
