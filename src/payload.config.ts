@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 import { buildConfig } from 'payload'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { id } from '@payloadcms/translations/languages/id'
 import { en } from '@payloadcms/translations/languages/en'
 import sharp from 'sharp'
@@ -28,6 +29,10 @@ const dirname = path.dirname(fileURLToPath(import.meta.url))
 const secret = process.env.PAYLOAD_SECRET
 if (!secret || secret.length < 32) throw new Error('PAYLOAD_SECRET must contain at least 32 random characters')
 const serverURL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+// Serverless hosts (Vercel) have no persistent disk: with a Blob token, Media files go to Vercel Blob.
+// Without it (local dev, VPS) they stay in MEDIA_DIR. Client uploads skip the 4.5 MB function body limit.
+const blobToken = process.env.BLOB_READ_WRITE_TOKEN
+const storage = blobToken ? [vercelBlobStorage({ collections: { media: true }, token: blobToken, clientUploads: true })] : []
 export default buildConfig({
  serverURL, secret,
  admin: { user: Users.slug, importMap: { baseDir: dirname } },
@@ -37,6 +42,7 @@ export default buildConfig({
  globals: [Site, Home, About, Garis, Ui],
  editor: lexicalEditor(),
  db: database(), sharp,
+ plugins: storage,
  typescript: { outputFile: path.resolve(dirname, 'payload-types.ts') },
  csrf: [serverURL],
  email: process.env.SMTP_HOST ? nodemailerAdapter({

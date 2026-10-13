@@ -145,3 +145,16 @@ Perubahan schema CMS: `npm run migrate:create -- nama_perubahan` di lokal (terha
 2. Buka `/sitemap.xml` dan `/robots.txt`; daftarkan sitemap di Google Search Console & Bing Webmaster.
 3. Kirim satu pesan uji dari `/hubungi-kami` → cek email masuk dan `emailStatus=sent` di admin.
 4. Cek ulang PageSpeed Insights (mobile) untuk Home, Layanan, dan satu detail layanan.
+
+## Deploy ke Vercel
+
+Vercel serverless: tanpa disk permanen, jadi database harus Postgres ter-host dan upload media ke Vercel Blob.
+
+1. **Database**: Vercel → Storage → Create → Neon (Postgres). Salin connection string (pooled).
+2. **Blob**: Vercel → Storage → Create → Blob, hubungkan ke project (otomatis menambah `BLOB_READ_WRITE_TOKEN`).
+3. **Environment variables** (Production + Preview): `PAYLOAD_SECRET` (acak ≥32), `DATABASE_ADAPTER=postgres`, `DATABASE_URI` (dari Neon), `NEXT_PUBLIC_SITE_URL` (URL Vercel/domain final), `BLOB_READ_WRITE_TOKEN`, SMTP_* bila form harus mengirim email.
+4. **Migrasi + seed sekali dari laptop** sebelum deploy pertama (build membaca CMS, jadi tabel harus ada), dengan env yang sama di terminal:
+   `DATABASE_ADAPTER=postgres DATABASE_URI=... PAYLOAD_SECRET=... BLOB_READ_WRITE_TOKEN=... npm run migrate && npm run seed`
+5. Redeploy. Buat admin pertama di `/admin`.
+
+Skema berubah → `npm run migrate:create` (kedua adapter), commit, lalu jalankan `npm run migrate` ke database Neon sebelum push.
