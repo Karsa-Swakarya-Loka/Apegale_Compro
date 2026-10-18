@@ -1,17 +1,22 @@
-# Sumber logo klien (09 Okt 2026)
+# Sumber logo klien (18 Okt 2026)
 
-Semua dinormalisasi: latar transparan, di-trim, tinggi maks. 200px (PNG).
+Sumber tunggal: **Company Profile Ape Gale 2026 hal. 8 ("Our Clients")**. Semua 11 logo dipotong langsung dari PDF itu
+(render 600 dpi, dipangkas, latar luar dibuat transparan, tinggi 400 px, PNG) agar tampil persis seperti yang disetujui klien.
+Versi sebelumnya (09 Okt 2026) memakai berkas dari Wikimedia/situs brand; satu di antaranya keliru: **"Apple" di compro adalah
+perusahaan lain berlogo "A" biru gelap, bukan Apple Inc.**, sehingga logo Apple Inc. diganti.
 
-| File | Sumber |
+| File | Logo di compro hal. 8 |
 |---|---|
-| affirmate.png | Company Profile Ape Gale 2026 hal. 8 (versi warna; versi putih di affirmate.co.id tidak terbaca di latar terang) |
-| ksb.png | Wikimedia Commons — File:Official KSB Aktiengesellschaft Logo.png (KSB SE, produsen pompa Jerman) |
-| adakami.png | adakami.id — static.adakami.id/.../app-logo/logo.webp (resolusi asli 161×41, minta versi besar ke klien bila perlu) |
-| unicharm.png | Wikimedia Commons — File:Unicharm company logo.svg |
-| chint.png | Wikimedia Commons — File:Chint logo.png |
-| ferbeck.png | ferbeckinternational.com — FINT-ltt-trans-png.png (logo resmi terbaru, "part of Group LTT") |
-| allnex.png | Wikimedia Commons — File:Allnex logo.svg |
-| lalamove.png | Wikimedia Commons — File:Lalamove Logo.png |
-| apple.png | Wikimedia Commons — File:Apple logo dark grey.svg |
-| neo-energy.png | neoenergy.co.id — assets/source/images/logo/logo.svg (raster di dalam SVG diekstrak) |
-| taiheiyo-cement.png | taiheiyo-cement.co.jp — gambar OGP resmi (simbol + tulisan) |
+| affirmate.png | Affirmate (simbol emas + wordmark) |
+| adakami.png | AdaKami |
+| ksb.png | KSB dengan tagline "Solutions. For Life." |
+| unicharm.png | unicharm (dengan teks Jepang) |
+| chint.png | CHINT "Empower the World" (kotak biru) |
+| ferbeck.png | Ferbeck International |
+| allnex.png | allnex "The Coating Resins Company" |
+| lalamove.png | Lalamove |
+| apple.png | APPLE (logo "A" biru gelap; bukan Apple Inc.). Berkas bersih dari klien/owner, 18 Okt 2026, menggantikan potongan PDF |
+| neo-energy.png | Neo Energy |
+| taiheiyo-cement.png | Taiheiyo Cement |
+
+Perlu versi vektor/resolusi lebih tinggi? Minta berkas resmi ke klien (OPEN-QUESTIONS #5).

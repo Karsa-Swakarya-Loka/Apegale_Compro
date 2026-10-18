@@ -115,8 +115,12 @@ function sameOriginPath(url?: string | null): string | null | undefined {
 export function asMedia(value: unknown): Media | null {
   if (!value || typeof value !== 'object' || !('url' in value)) return null
   const media = value as Media
-  const sizes = Object.fromEntries(Object.entries(media.sizes ?? {}).map(([k, s]) => [k, s ? { ...s, url: sameOriginPath(s.url) } : s]))
-  return { ...media, url: sameOriginPath(media.url), sizes: sizes as Media['sizes'] }
+  // A re-uploaded file keeps its filename (e.g. the corrected client logos, 18 Oct 2026), so the URL carries the
+  // document's updatedAt: the Next image optimizer, browsers and CDNs then fetch the new file instead of a cached one.
+  const version = media.updatedAt ? `?v=${Date.parse(media.updatedAt) || 0}` : ''
+  const withVersion = (url: string | null | undefined) => { const p = sameOriginPath(url); return p && version && !p.includes('?') ? p + version : p }
+  const sizes = Object.fromEntries(Object.entries(media.sizes ?? {}).map(([k, s]) => [k, s ? { ...s, url: withVersion(s.url) } : s]))
+  return { ...media, url: withVersion(media.url), sizes: sizes as Media['sizes'] }
 }
 
 // ---- Services pages (step 4) ----

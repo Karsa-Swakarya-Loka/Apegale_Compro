@@ -63,7 +63,7 @@ Sistem desain website company profile **PT Ape Gale Indonesia** (apegale.com): l
 
 ## Logo klien
 
-Hanya 11 klien dari Company Profile 2026 hal. 8: Affirmate, KSB, AdaKami, unicharm, CHINT, Ferbeck, allnex, Lalamove, Apple, Neo Energy, Taiheiyo Cement. Tampilkan seragam abu (grayscale, opasitas 70%) dan berwarna saat hover. Lima yang tersedia sebagai file ada di grup **Clients**; enam lainnya pakai SVG resmi brand.
+Hanya 11 klien dari Company Profile 2026 hal. 8: Affirmate, KSB, AdaKami, unicharm, CHINT, Ferbeck, allnex, Lalamove, APPLE, Neo Energy, Taiheiyo Cement. Tampilkan seragam abu (grayscale, opasitas 70%) dan berwarna saat hover. **Semua 11 logo dipotong dari hal. 8 compro itu** (`assets/Clients/official/`, lihat `SOURCES.md`, 18 Okt 2026), bukan dari Wikimedia/situs brand. Catatan: "APPLE" di compro adalah perusahaan lain berlogo "A" biru gelap, bukan Apple Inc.
 
 ## Revisi UI sesuai arahan owner 09 Oktober 2026
 

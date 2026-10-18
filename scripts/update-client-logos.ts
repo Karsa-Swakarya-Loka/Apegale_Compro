@@ -1,5 +1,5 @@
-// Replaces every client's logo with the official files in design/assets/Clients/official (see SOURCES.md).
-// Re-runnable: uploads each file once (seedKey = path) and links it to the client by name.
+// Replaces every client's logo with the files in design/assets/Clients/official (see SOURCES.md).
+// Re-runnable: creates the media doc once (seedKey = path), re-uploads the file on later runs, and links it to the client by name.
 import 'dotenv/config'
 import path from 'node:path'
 import { getPayload } from 'payload'
@@ -23,9 +23,13 @@ try {
       media = await payload.create({ collection: 'media', locale: 'id', overrideAccess: true, filePath: path.resolve(seedKey),
         data: { alt: `Logo ${name}`, seedKey, _status: 'published' } as never })
       await payload.update({ collection: 'media', id: media.id, locale: 'en', overrideAccess: true, data: { alt: `${name} logo`, _status: 'published' } as never })
+    } else {
+      // The file on disk is the source of truth: re-upload it so a corrected logo (e.g. Apple, 18 Oct 2026) replaces the old one.
+      media = await payload.update({ collection: 'media', id: media.id, locale: 'id', overrideAccess: true, filePath: path.resolve(seedKey), overwriteExistingFiles: true,
+        data: { alt: `Logo ${name}`, _status: 'published' } as never })
     }
     await payload.update({ collection: 'clients', id: clients[0].id, overrideAccess: true, data: { logo: media.id, _status: 'published' } as never })
-    rows.push({ client: name, media: media.id, result: found.docs[0] ? 'linked (existing upload)' : 'uploaded + linked' })
+    rows.push({ client: name, media: media.id, result: found.docs[0] ? 're-uploaded + linked' : 'uploaded + linked' })
   }
   console.table(rows)
 } finally { await payload.destroy() }

@@ -11,7 +11,9 @@ const config: NextConfig = {
   // our 301, so it is off; proxy.ts strips any other trailing slash with a 301 instead.
   skipTrailingSlashRedirect: true,
   // AVIF first (smallest), WebP for browsers without it (docs/04).
-  images: { formats: ['image/avif', 'image/webp'] },
+  // Media URLs carry ?v=<updatedAt> (lib/cms.ts asMedia) so a re-uploaded file is never served stale; next/image
+  // must be told that query strings are allowed on that path. Other local images stay query-free.
+  images: { formats: ['image/avif', 'image/webp'], localPatterns: [{ pathname: '/api/media/file/**' }, { pathname: '/**', search: '' }] },
   async redirects() { return [{ source: '/en/', destination: '/en', statusCode: 301 }, ...legacyRedirects(pdfMap)] },
 }
 export default withPayload(config)
