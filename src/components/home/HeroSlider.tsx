@@ -26,12 +26,21 @@ export function HeroSlider({ slides, labels, interval = 15000 }: Props) {
     setActive(to)
   }, [active])
 
-  // Start the first slide's entrance after hydration, and honour reduced motion.
+  // Start the first slide's entrance after hydration, and honour reduced motion. On a full document load the
+  // brand preloader covers the page first; the entrance waits for its "ag:preloaded" event so it is actually seen.
   useEffect(() => {
-    const id = requestAnimationFrame(() => {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) setStopped(true)
-      setReady(true)
-    })
+    let id = 0
+    const start = () => {
+      id = requestAnimationFrame(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) setStopped(true)
+        setReady(true)
+      })
+    }
+    if (document.documentElement.hasAttribute('data-preloading')) {
+      window.addEventListener('ag:preloaded', start, { once: true })
+      return () => { window.removeEventListener('ag:preloaded', start); cancelAnimationFrame(id) }
+    }
+    start()
     return () => cancelAnimationFrame(id)
   }, [])
 

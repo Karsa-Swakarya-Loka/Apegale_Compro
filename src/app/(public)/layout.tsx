@@ -4,6 +4,7 @@ import type { ReactNode } from 'react'
 import { headers } from 'next/headers'
 import { Montserrat, Roboto } from 'next/font/google'
 import { LanguageSync } from '@/i18n/LanguageSync'
+import { Preloader } from '@/components/layout/Preloader'
 // Design v9 (template_design.jpeg): base → shell → home → pages, then motion. See design/README.md.
 import '@/styles/tokens.css'
 import '@/styles/base.css'
@@ -25,6 +26,8 @@ export default async function PublicRootLayout({ children }: { children: ReactNo
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
       </head>
       <body className="ag">
+        {/* First in the body so it paints before anything else on a full load. */}
+        <Preloader />
         <LanguageSync />
         {children}
       </body>
