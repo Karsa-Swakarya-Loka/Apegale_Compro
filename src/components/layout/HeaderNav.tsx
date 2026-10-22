@@ -172,7 +172,19 @@ export function HeaderNav({ items, cta, labels, homeHref, brand }: Props) {
                         {child.children?.length ? (
                           <ul className="ag-nav__sub2">
                             {child.children.map(g => (
-                              <li key={g.href}><Link href={g.href} onNavigate={() => navigate(g.href)} aria-current={current(g.href)}>{g.label}</Link></li>
+                              <li key={g.href} className={g.children?.length ? 'ag-nav__group' : undefined}>
+                                <Link href={g.href} onNavigate={() => navigate(g.href)} aria-current={current(g.href)}>
+                                  {g.label}{g.children?.length ? <ChevronRight size={14} aria-hidden="true" /> : null}
+                                </Link>
+                                {g.children?.length ? (
+                                  // Flyout: opens beside the parent on hover/focus (CSS), so the list stays one column.
+                                  <ul className="ag-nav__fly" aria-label={g.label}>
+                                    {g.children.map(v => (
+                                      <li key={v.href}><Link href={v.href} onNavigate={() => navigate(v.href)} aria-current={current(v.href)}>{v.label}</Link></li>
+                                    ))}
+                                  </ul>
+                                ) : null}
+                              </li>
                             ))}
                           </ul>
                         ) : null}
@@ -212,8 +224,8 @@ export function HeaderNav({ items, cta, labels, homeHref, brand }: Props) {
                 </div>
                 {item.children?.length ? (
                   <ul className="ag-mnav__sub" id={`${uid}-msub-${i}`} hidden={mobileExpanded !== i}>
-                    {item.children.flatMap(child => [child, ...(child.children ?? []).map(g => ({ ...g, nested: true }))]).map(child => (
-                      <li key={child.href} data-nested={'nested' in child || undefined}>
+                    {item.children.flatMap(child => [child, ...(child.children ?? []).flatMap(g => [{ ...g, nested: 1 }, ...(g.children ?? []).map(v => ({ ...v, nested: 2 }))])]).map(child => (
+                      <li key={child.href} data-nested={'nested' in child ? child.nested : undefined}>
                         <Link href={child.href} onNavigate={() => navigate(child.href)} aria-current={current(child.href)}>{child.label}</Link>
                       </li>
                     ))}

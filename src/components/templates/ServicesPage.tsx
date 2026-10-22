@@ -44,7 +44,7 @@ export async function ServicesPage({ locale }: { locale: Locale }) {
                 <li key={s.slug}>
                   <Reveal step={(i % 3) as 0 | 1 | 2}>
                     <ServiceCard icon={s.icon} title={s.title} summary={s.summary} href={serviceHref(s.slug)} moreLabel={ui.cta?.more || ''}
-                      subServices={s.children.map(c => ({ label: c.title, href: serviceHref(c.slug) }))} />
+                      subServices={s.children.map(c => ({ label: c.title, href: serviceHref(c.slug), children: c.children.map(g => ({ label: g.title, href: serviceHref(g.slug) })) }))} />
                   </Reveal>
                 </li>
               ))}

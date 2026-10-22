@@ -75,9 +75,94 @@
   .ag-marquee__track[aria-hidden="true"] { display: none; }
 }
 
-/* ---------- Services: title pinned left, numbered index right ---------- */
-.ag-services { display: grid; grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.65fr); gap: var(--space-16); align-items: start; }
-.ag-services__head { position: sticky; top: calc(var(--header-height) + var(--space-8)); display: grid; gap: var(--space-8); justify-items: start; }
+/* ---------- Services: the register ----------
+   Aesthetic: filing-cabinet editorial, flat maroon only (no gradient), no boxes, no pills, no arrows. One shape
+   carries the system: the slanted filing tab (the brand slash), at three scales. Index tabs on the right hold the
+   numerals 01–05; the open sheet on the left wears the same tab, filled, at its head; the tree inside the sheet hangs
+   its items from small tabs. The signature is the thread: a maroon line that runs from the chosen index tab across
+   the gutter and docks into the sheet's edge, and travels to whichever tab is chosen. Geometry: all sheets are
+   stacked in one grid cell so the sheet is as tall as its tallest page and never jumps; index rows share that height
+   evenly. Motion: rows and tree items file in one after another (--i), the rail draws itself, the thread extends from
+   the index to the sheet; on a swap the thread glides to the new tab while the old page lifts out, the rail redraws
+   and the new page files in with its tree in sequence. */
+.ag-services { display: grid; gap: var(--space-10); }
+.ag-ledger { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 0 var(--space-16); align-items: stretch; }
+
+/* Filing tab (shared geometry). The inner span un-skews the numeral. */
+.ag-folio__tab, .ag-ledger__tab { display: inline-grid; place-items: center; width: 46px; height: 24px; margin-left: 5px; transform: skewX(-24deg);
+  font-family: var(--font-label); font-size: 12px; line-height: 1; font-weight: 800; letter-spacing: 0.16em; }
+.ag-folio__tab > span, .ag-ledger__tab > span { display: block; transform: skewX(24deg); }
+
+/* Sheet: maroon rail on the left, a light edge on the right where the thread docks. */
+.ag-folio { position: relative; display: grid; padding: var(--space-6) var(--space-6) var(--space-6) var(--space-8); border-right: 1px solid var(--line);
+  scroll-margin-top: calc(var(--header-height) + var(--space-6)); }
+.ag-folio::before { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 2px; background: var(--maroon); transform-origin: top; }
+.ag-folio__panel { grid-area: 1 / 1; display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-4); }
+.ag-folio__panel:not([data-active]) { visibility: hidden; opacity: 0; }
+.ag-folio__tab { background: var(--maroon); color: var(--on-brand); }
+.ag .ag-folio h3 { font-size: 26px; line-height: 32px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; }
+.ag-folio h3 a { color: inherit; text-decoration: none; transition: color var(--motion-base); }
+.ag-folio h3 a:hover { color: var(--maroon); }
+.ag-folio__panel > p { color: var(--ink-muted); font-size: 16px; line-height: 26px; max-width: 40ch; }
+/* Filing tree: every item hangs from the rail with a small tab; the second level steps in and hangs from its parent. */
+.ag-folio__tree, .ag-folio__tree ol { list-style: none; margin: 0; padding: 0; }
+.ag-folio__tree { display: grid; gap: var(--space-1); margin-top: var(--space-1); }
+.ag-folio__tree li { position: relative; }
+.ag-folio__tree a { position: relative; display: inline-flex; align-items: center; min-height: 34px; padding-left: var(--space-6); color: var(--ink); text-decoration: none;
+  font-weight: 600; font-size: 16px; line-height: 24px; transition: color var(--motion-base), transform var(--motion-base) var(--motion-ease-out); }
+.ag-folio__tree a::before { content: ""; position: absolute; left: 0; top: 50%; width: 10px; height: 10px; margin-top: -5px; background: var(--maroon); transform: skewX(-24deg); transition: transform var(--motion-base) var(--motion-ease-out); }
+.ag-folio__tree a:hover { color: var(--maroon); transform: translateX(3px); }
+.ag-folio__tree a:hover::before { transform: skewX(-24deg) scaleX(1.4); }
+.ag-folio__tree ol { display: grid; gap: var(--space-1); margin: var(--space-1) 0 var(--space-2) var(--space-3); padding-left: var(--space-4); border-left: 1px solid var(--line-strong); }
+.ag-folio__tree ol a { min-height: 28px; font-weight: 500; font-size: 15px; color: var(--ink-muted); }
+.ag-folio__tree ol a::before { width: 7px; height: 7px; margin-top: -3.5px; background: var(--line-strong); }
+.ag-folio__tree ol a:hover::before { background: var(--maroon); }
+.ag-folio__more { display: inline-flex; align-items: center; gap: var(--space-2); margin-top: var(--space-2); color: var(--maroon); font-family: var(--font-display); font-size: 14px; font-weight: 700; text-decoration: none; }
+.ag-folio__more svg { transition: transform var(--motion-base) var(--motion-ease-out); }
+.ag-folio__more:hover svg { transform: translateX(var(--motion-icon-shift)); }
+
+/* Index: five tabs on hairlines. Each row is a tab button that opens its page in the sheet. */
+.ag-ledger__list { position: relative; list-style: none; margin: 0; padding: 0; display: grid; grid-auto-rows: minmax(0, 1fr); border-top: 1px solid var(--line-strong); }
+.ag-ledger__list > li { display: grid; }
+.ag-ledger__row { position: relative; display: grid; grid-template-columns: 56px minmax(0, 1fr); align-items: center; gap: var(--space-5); width: 100%; min-height: 64px;
+  margin: 0; padding: var(--space-3) 0; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: none; color: inherit;
+  font: inherit; text-align: left; cursor: pointer; appearance: none; -webkit-appearance: none; }
+.ag-ledger__row:focus-visible { outline-offset: -2px; }
+.ag-ledger__tab { position: relative; z-index: 2; border: 1px solid var(--line-strong); color: var(--ink-muted); background: var(--surface);
+  transition: background-color var(--motion-base), border-color var(--motion-base), color var(--motion-base), transform var(--motion-base) var(--motion-ease-out); }
+.ag-ledger__row:is(:hover, :focus-visible) .ag-ledger__tab { border-color: var(--maroon); color: var(--maroon); transform: skewX(-24deg) translateX(3px); }
+.ag-ledger__row[aria-selected="true"] .ag-ledger__tab { background: var(--maroon); border-color: var(--maroon); color: var(--on-brand); transform: skewX(-24deg); }
+.ag-ledger__title { font-family: var(--font-display); font-size: 18px; line-height: 26px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.01em; color: var(--ink); transition: color var(--motion-base); }
+.ag-ledger__row:is(:hover, :focus-visible, [aria-selected="true"]) .ag-ledger__title { color: var(--maroon); }
+
+/* The thread: from the chosen tab, across the gutter, into the sheet's edge, where it docks with a small tab.
+   --k is the chosen row, --n the row count (set inline); rows are equal, so the row centre is a percentage. */
+.ag-ledger__list::before, .ag-ledger__list::after { content: ""; position: absolute; z-index: 1; background: var(--maroon); transition: top 420ms var(--motion-ease-out), transform 600ms var(--motion-ease-out); }
+.ag-ledger__list::before { left: calc(-1 * var(--space-16) - 1px); width: calc(var(--space-16) + 1px + 28px); height: 2px; top: calc((var(--k, 0) + 0.5) * 100% / var(--n, 5) - 1px); transform-origin: right; }
+.ag-ledger__list::after { left: calc(-1 * var(--space-16) - 6px); width: 10px; height: 16px; top: calc((var(--k, 0) + 0.5) * 100% / var(--n, 5) - 8px); transform: skewX(-24deg); }
+
+/* Entrance: the rail draws down, folio items and index rows file in by --i, then the thread extends to the sheet. */
+.js .ag-ledger[data-reveal="pending"]:not([data-revealed]) .ag-folio::before { transform: scaleY(0); }
+.js .ag-ledger[data-reveal="pending"]:not([data-revealed]) :is(.ag-folio__tab, .ag-folio h3, .ag-folio__panel > p, .ag-folio__tree li, .ag-folio__more) { opacity: 0; transform: translateY(14px); }
+.js .ag-ledger[data-reveal="pending"]:not([data-revealed]) .ag-ledger__row { opacity: 0; transform: translateX(-24px); }
+.js .ag-ledger[data-reveal="pending"]:not([data-revealed]) .ag-ledger__list::before { transform: scaleX(0); }
+.js .ag-ledger[data-reveal="pending"]:not([data-revealed]) .ag-ledger__list::after { transform: skewX(-24deg) scale(0); }
+.ag-ledger[data-revealed="true"] .ag-folio::before { transition: transform 700ms var(--motion-ease-out); }
+.ag-ledger[data-revealed="true"] :is(.ag-folio__tab, .ag-folio h3, .ag-folio__panel > p, .ag-folio__tree li, .ag-folio__more) { transition: opacity var(--motion-reveal) var(--motion-ease-out), transform var(--motion-reveal) var(--motion-ease-out); transition-delay: calc(120ms + var(--i, 0) * 70ms); }
+.ag-ledger[data-revealed="true"] .ag-folio__tab { transition-delay: 0s; }
+.ag-ledger[data-revealed="true"] .ag-folio h3 { transition-delay: 80ms; }
+.ag-ledger[data-revealed="true"] .ag-folio__panel > p { transition-delay: 140ms; }
+.ag-ledger[data-revealed="true"] .ag-ledger__row { transition: opacity var(--motion-reveal) var(--motion-ease-out), transform var(--motion-reveal) var(--motion-ease-out); transition-delay: calc(var(--i, 0) * 80ms); }
+.ag-ledger[data-revealed="true"] .ag-ledger__list::before, .ag-ledger[data-revealed="true"] .ag-ledger__list::after { transition-delay: 0s, 420ms; }
+
+/* Swap: the open page lifts out (data-phase="out"); the next page files in while the rail redraws from the top and the
+   tree items follow in sequence. The thread has already glided to the chosen tab. Reduced motion skips both phases. */
+.ag-folio[data-phase="out"] .ag-folio__panel[data-active] { opacity: 0; transform: translateY(-10px); transition: opacity 160ms var(--motion-ease-out), transform 160ms var(--motion-ease-out); }
+.ag-folio[data-phase="in"]::before { animation: ag-rail-in 560ms var(--motion-ease-out) both; }
+.ag-folio[data-phase="in"] .ag-folio__panel[data-active] { animation: ag-sheet-in 420ms var(--motion-ease-out) both; }
+.ag-folio[data-phase="in"] .ag-folio__panel[data-active] .ag-folio__tree li { animation: ag-sheet-in 360ms var(--motion-ease-out) both; animation-delay: calc(80ms + var(--i, 0) * 50ms); }
+@keyframes ag-rail-in { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes ag-sheet-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 
 /* ---------- Mengapa Ape Gale: the page's red field, numbered ledger ---------- */
 .ag-approach__plane { position: absolute; top: 0; bottom: 0; right: 8%; width: 180px; background: color-mix(in srgb, var(--on-brand) 7%, transparent); clip-path: polygon(55% 0, 100% 0, 45% 100%, 0 100%); }
@@ -198,8 +283,14 @@
   .ag-hero__dots { grid-auto-flow: column; }
   .ag-hero__photo, .ag-hero__media::before { clip-path: url(#ag-hero-clip-m); }
   .ag-hero__media::before { inset: -10px 0 0 0; }
-  .ag-services, .ag-approach__in, .ag-showcase, .ag-story, .ag-closing__in { grid-template-columns: minmax(0, 1fr); gap: var(--space-10); }
-  .ag-services__head { position: static; }
+  .ag-approach__in, .ag-showcase, .ag-story, .ag-closing__in { grid-template-columns: minmax(0, 1fr); gap: var(--space-10); }
+  .ag-services { gap: var(--space-8); }
+  .ag-ledger { grid-template-columns: minmax(0, 1fr); gap: var(--space-10); }
+  .ag-folio { padding: var(--space-5) 0 var(--space-5) var(--space-6); border-right: 0; }
+  .ag-folio__panel:not([data-active]) { display: none; }
+  .ag-ledger__list { grid-auto-rows: auto; }
+  .ag-ledger__list::before, .ag-ledger__list::after { display: none; }
+  .ag-ledger__row { min-height: var(--touch-target); }
   .ag-showcase__media { margin-right: 0; padding: var(--space-8) 0 var(--space-8) var(--space-8); }
   .ag-impact, .ag-impact--duo { grid-template-columns: minmax(0, 1fr); gap: var(--space-8); }
   .ag-story__media { max-width: 520px; }

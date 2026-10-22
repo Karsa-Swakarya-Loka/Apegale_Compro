@@ -82,6 +82,19 @@
 .ag-nav .ag-nav__sub a:hover, .ag-nav .ag-nav__sub a[aria-current] { color: var(--maroon); }
 .ag-nav__sub2 { list-style: none; margin: 0; padding: 0 0 0 var(--space-4); }
 .ag-nav .ag-nav__sub2 a { font-weight: 400; font-size: 13px; color: var(--ink-muted); min-height: var(--touch-target); }
+/* Flyout for a third level (Visa Indonesia / Visa Global under Visa & Paspor): a second panel to the right of its row. */
+.ag-nav__group { position: relative; }
+.ag-nav .ag-nav__group > a { justify-content: space-between; gap: var(--space-2); }
+.ag-nav .ag-nav__group > a svg { flex: none; color: var(--line-strong); transition: transform var(--motion-base) var(--motion-ease-out); }
+.ag-nav .ag-nav__group:is(:hover, :focus-within) > a { color: var(--maroon); }
+.ag-nav .ag-nav__group:is(:hover, :focus-within) > a svg { color: var(--maroon); transform: translateX(2px); }
+.ag-nav__fly { position: absolute; top: calc(-1 * var(--space-3)); left: calc(100% + var(--space-4)); min-width: 200px; list-style: none; margin: 0;
+  padding: var(--space-3) var(--space-4) var(--space-4); background: var(--surface); border: 1px solid var(--line); border-top: 0; visibility: hidden; opacity: 0;
+  transition: opacity var(--motion-base), visibility 0s linear var(--motion-base); }
+.ag-nav__fly::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: var(--red-gradient); }
+.ag-nav__fly::after { content: ""; position: absolute; top: 0; bottom: 0; right: 100%; width: var(--space-4); }
+.ag-nav__group:is(:hover, :focus-within) > .ag-nav__fly { visibility: visible; opacity: 1; transition-delay: 0s; }
+.ag-nav .ag-nav__fly a { font-size: 13px; font-weight: 500; color: var(--ink); min-height: var(--touch-target); }
 
 /* Mobile menu button + panel */
 .ag-burger { place-items: center; width: var(--touch-target); height: var(--touch-target); padding: 0; margin-left: var(--space-3); border: 0; background: transparent; color: var(--ink); cursor: pointer; }
@@ -101,6 +114,7 @@
 .ag-mnav__sub { padding: 0 0 var(--space-3) var(--space-8); }
 .ag-mnav__sub a { display: flex; align-items: center; min-height: var(--touch-target); color: var(--ink); text-decoration: none; font-weight: 600; }
 .ag-mnav__sub li[data-nested] a { padding-left: var(--space-4); font-weight: 400; color: var(--ink-muted); }
+.ag-mnav__sub li[data-nested="2"] a { padding-left: var(--space-8); }
 .ag-mnav__cta { width: 100%; margin-top: var(--space-8); min-height: 56px; }
 
 /* Footer: white; a red-gradient band on top, maroon labels, hairlines. */

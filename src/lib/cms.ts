@@ -58,8 +58,10 @@ export const getClients = cache(async (locale: Locale) => {
   return docs as Client[]
 })
 
-export type ServiceCardData = { slug: string; title: string; summary?: string | null; icon?: string | null; children: { slug: string; title: string }[] }
-/** Published top-level services in CMS order, each with its (await onlyPublished()) children. */
+export type ServiceLink = { slug: string; title: string; children: { slug: string; title: string }[] }
+export type ServiceCardData = { slug: string; title: string; summary?: string | null; icon?: string | null; children: ServiceLink[] }
+/** Published top-level services in CMS order, each with its (await onlyPublished()) children and grandchildren
+ *  (the visa groups under Visa & Paspor), so cards and menus show the whole hierarchy without extra clicks. */
 export const getTopServices = cache(async (locale: Locale): Promise<ServiceCardData[]> => {
   const payload = await payloadClient()
   const { docs } = await payload.find({
@@ -70,7 +72,8 @@ export const getTopServices = cache(async (locale: Locale): Promise<ServiceCardD
   const parentID = (s: (typeof rows)[number]) => (typeof s.parent === 'object' && s.parent ? s.parent.id : s.parent ?? null)
   return rows.filter(s => parentID(s) === null).map(s => ({
     slug: s.slug, title: s.title, summary: s.summary, icon: s.icon,
-    children: rows.filter(c => parentID(c) === s.id).map(c => ({ slug: c.slug, title: c.title })),
+    children: rows.filter(c => parentID(c) === s.id).map(c => ({ slug: c.slug, title: c.title,
+      children: rows.filter(g => parentID(g) === c.id).map(g => ({ slug: g.slug, title: g.title })) })),
   }))
 })
 

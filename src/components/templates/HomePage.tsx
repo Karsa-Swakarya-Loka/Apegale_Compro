@@ -73,7 +73,8 @@ export async function HomePage({ locale }: { locale: Locale }) {
       {show('services') && services.length ? (
         <ServicesSection index="01" title={m.home.servicesTitle} highlight={m.home.servicesHighlight} intro={m.home.servicesIntro} moreLabel={ui.cta?.more || ''}
           all={ui.cta?.viewServices ? { label: ui.cta.viewServices, href: href(locale, 'services') } : undefined}
-          services={services.map(s => ({ slug: s.slug, title: s.title, summary: s.summary, icon: s.icon, href: serviceHref(s.slug) }))} />
+          services={services.map(s => ({ slug: s.slug, title: s.title, summary: s.summary, icon: s.icon, href: serviceHref(s.slug),
+            subServices: s.children.map(c => ({ label: c.title, href: serviceHref(c.slug), children: c.children.map(g => ({ label: g.title, href: serviceHref(g.slug) })) })) }))} />
       ) : null}
 
       {show('why') ? <WhySection index="02" eyebrow={ui.sections?.why} title={m.home.whyTitle} highlight={m.home.whyHighlight} items={home.why ?? []} /> : null}

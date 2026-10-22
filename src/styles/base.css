@@ -58,7 +58,6 @@ main:has(> .ag-pagehero) > .ag-section:nth-child(even of .ag-section:not(.ag-sec
 .ag-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 var(--space-10); counter-reset: entry; }
 .ag-grid > li { display: grid; counter-increment: entry; }
 .ag-grid > li > .ag-reveal { display: grid; }
-.ag-grid--index { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 var(--space-12); }
 .ag-wedge { display: none; }
 
 /* ---------- Type ---------- */
@@ -125,6 +124,10 @@ main:has(> .ag-pagehero) > .ag-section:nth-child(even of .ag-section:not(.ag-sec
 .ag-service__subs a { color: var(--ink); text-decoration: none; }
 .ag-service__subs a::before { content: "— "; color: var(--maroon); }
 .ag-service__subs a:hover { color: var(--maroon); text-decoration: underline; }
+/* Third level (visa groups under Visa & Paspor): indented under their parent, lighter, no dash. */
+.ag-service__subs ul { list-style: none; margin: var(--space-1) 0 0; padding: 0 0 0 var(--space-5); display: grid; gap: var(--space-1); font-size: 14px; line-height: 22px; }
+.ag-service__subs ul a { color: var(--ink-muted); }
+.ag-service__subs ul a::before { content: "· "; }
 .ag-service__more { display: inline-flex; align-items: center; gap: var(--space-2); margin-top: var(--space-2); color: var(--maroon); font-family: var(--font-display);
   font-size: 14px; font-weight: 700; pointer-events: none; }
 .ag-service__more svg { transition: transform var(--motion-base) var(--motion-ease-out); }
