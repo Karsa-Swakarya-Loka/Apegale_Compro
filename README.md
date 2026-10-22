@@ -90,7 +90,7 @@ Kebutuhan: Node.js ≥ 22.19, PostgreSQL 14+ (diuji 16), reverse proxy HTTPS (Ng
 npm ci
 npm run migrate            # src/migrations/postgres (atau sqlite)
 npm run seed               # isi awal dari content/seed — aman diulang
-npm run content:services   # isi 16 layanan (7 publish, 9 draft)
+npm run content:services   # isi 11 layanan (9 publish, 2 draft KITAS menunggu verifikasi)
 npm run content:about      # sambutan & profil Tentang Kami
 npm run content:client-logos
 npm run content:regulations  # unduh 44 PDF lama → media (perlu akses internet ke apegale.com lama, semua draft)

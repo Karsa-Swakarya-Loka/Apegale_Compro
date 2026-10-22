@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 import type { Locale } from '../i18n/config.ts'
-import { mediaAlt, seedFiles } from './manifest.ts'
+import { mediaAlt, retiredServices, seedFiles } from './manifest.ts'
 import { alignArrayIDs, atPath, list, normalizeFaq, normalizeGlobal, normalizeService, object } from './normalize.ts'
 import type { Data } from './normalize.ts'
 import type { SeedCollection, SeedStore } from './store.ts'
@@ -26,6 +26,11 @@ export async function runSeed(store: SeedStore, root: string, overwrite = false)
   if (!filename.startsWith(path.resolve(root, 'design/assets') + path.sep)) throw new Error('Seed media outside design/assets')
   const id = await upsert('media', 'seedKey', source, locale => ({ seedKey: source, alt: alt[locale], enReviewed: false, _status: 'published' }), 'alt', filename)
   mediaIDs.set(source, id)
+ }
+ // Retired services go first so a child never outlives its removal from the seed.
+ for (const slug of retiredServices) {
+  const doc = await store.find('services', 'slug', slug, 'id')
+  if (doc) await store.delete('services', doc.id as number | string)
  }
  for (const raw of list(sources.services)) {
   const slug = String(raw.slug)

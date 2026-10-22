@@ -6,6 +6,7 @@ export interface SeedStore {
  find(collection: SeedCollection, key: string, value: string, locale: Locale): Promise<Data | undefined>
  create(collection: SeedCollection, data: Data, locale: Locale, filePath?: string): Promise<Data>
  update(collection: SeedCollection, id: string | number, data: Data, locale: Locale): Promise<Data>
+ delete(collection: SeedCollection, id: string | number): Promise<void>
  global(slug: string, locale: Locale): Promise<Data>
  updateGlobal(slug: string, data: Data, locale: Locale): Promise<Data>
 }
@@ -21,6 +22,9 @@ export function payloadStore(payload: Payload): SeedStore {
   },
   async update(collection, id, data, locale) {
    return await payload.update({ collection, id, data: data as Partial<DataFromCollectionSlug<SeedCollection>>, locale, depth: 0, overrideAccess: true }) as unknown as Data
+  },
+  async delete(collection, id) {
+   await payload.delete({ collection, id, depth: 0, overrideAccess: true })
   },
   async global(slug, locale) {
    return await payload.findGlobal({ slug: slug as GlobalSlug, locale, fallbackLocale: false, depth: 0, draft: true, overrideAccess: true }) as unknown as Data

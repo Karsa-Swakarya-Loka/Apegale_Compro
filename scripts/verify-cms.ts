@@ -20,10 +20,10 @@ try {
  const regulations = second.find(r => r.collection === 'regulations')?.documents ?? 0
  assert.ok([0, 44].includes(regulations), `regulations: ${regulations}`)
  for (const locale of ['id','en'] as const) {
-  for (const [collection, expected] of Object.entries({ services:16, clients:11, faqs:5, media:15 + regulations, testimonials:0, posts:0, regulations, inquiries:0 }))
+  for (const [collection, expected] of Object.entries({ services:11, clients:11, faqs:6, media:15 + regulations, testimonials:0, posts:0, regulations, inquiries:0 }))
    assert.equal(second.find(r => r.collection === collection && r.locale === locale)?.documents, expected, collection + '/' + locale)
   const services = await payload.find({ collection:'services', locale, fallbackLocale:false, draft:true, limit:100, depth:0, overrideAccess:true })
-  assert.equal(new Set(services.docs.map(d => d.slug)).size, 16)
+  assert.equal(new Set(services.docs.map(d => d.slug)).size, 11)
   // Every service has a title; after content:services the bodies are filled and only the approved set is published.
   assert.ok(services.docs.every(d => d.title))
   const legal = services.docs.find(d => d.slug === 'legalitas-perusahaan')

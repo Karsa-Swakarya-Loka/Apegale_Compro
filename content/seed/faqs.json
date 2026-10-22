@@ -58,5 +58,17 @@
       "id": "Hubungi kami lewat WhatsApp 0811 9996 286 atau isi formulir di halaman Hubungi Kami.",
       "en": "Contact us on WhatsApp at +62 811 9996 286 or fill in the form on the Contact page."
     }
+  },
+  {
+    "category": "layanan",
+    "featured": false,
+    "question": {
+      "id": "Apakah ada fasilitas diskon untuk klien yang sudah memiliki MoU?",
+      "en": "Is there a discount for clients who already have an MoU?"
+    },
+    "answer": {
+      "id": "Ya. Perusahaan yang telah menandatangani Nota Kesepahaman (MoU) dengan Ape Gale mendapatkan fasilitas diskon untuk layanan kami. Hubungi tim kami untuk informasi skema kerja sama dan besaran diskonnya.",
+      "en": "Yes. Companies that have signed a Memorandum of Understanding (MoU) with Ape Gale receive a discount on our services. Contact our team for details of the partnership scheme and the discount."
+    }
   }
 ]

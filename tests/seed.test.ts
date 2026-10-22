@@ -33,6 +33,7 @@ class MemoryStore implements SeedStore {
   row[key] = { ...row[key], ...structuredClone(data) }
   return { ...row.shared, ...row[key], id }
  }
+ async delete(collection: SeedCollection, id: number | string) { this.rows.set(collection, (this.rows.get(collection) || []).filter(r => r.id !== id)) }
  async global(slug: string, locale: Locale) { return structuredClone(this.globals.get(slug)?.[locale] || {}) }
  async updateGlobal(slug: string, data: Data, locale: Locale) {
   const current = this.globals.get(slug) || {}; current[locale] = structuredClone(data); this.globals.set(slug, current); return data
@@ -45,14 +46,19 @@ test('seed twice: stable identities, bilingual content, exact client count, no i
  const snapshot = JSON.stringify([...store.rows])
  assert.deepEqual(await runSeed(store, root), first)
  assert.equal(JSON.stringify([...store.rows]), snapshot)
- assert.deepEqual(first, { services: 16, media: 15, clients: 11, faqs: 5, globals: 5 })
+ assert.deepEqual(first, { services: 11, media: 15, clients: 11, faqs: 6, globals: 5 })
  const service = await store.find('services','slug','legalitas-perusahaan','en')
  assert.equal(service?.title, 'Company Legalities')
  assert.equal(service?._status, 'draft')
  assert.equal(service?.body, undefined)
- const child = await store.find('services','slug','vitas','id')
+ const child = await store.find('services','slug','visa-indonesia','id')
  const parent = await store.find('services','slug','visa-paspor','id')
  assert.equal(child?.parent, parent?.id)
+ // Retired 2021 visa sub-pages are removed even when an older database still has them.
+ await store.create('services', { slug: 'vitas', title: 'VITAS', _status: 'draft' }, 'id')
+ await runSeed(store, root)
+ assert.equal(await store.find('services','slug','vitas','id'), undefined)
+ assert.equal(store.rows.get('services')?.length, 11)
  const home = await store.global('home','id')
  assert.equal(object(home.founder).quote, undefined)
  assert.equal((object(home.network).cities as Data[]).length, 13)

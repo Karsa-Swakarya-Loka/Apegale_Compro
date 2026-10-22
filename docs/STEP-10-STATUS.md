@@ -96,3 +96,63 @@ Validasi revisi ini: 24/24 unit test, lint, typecheck, dan build produksi. HTTP/
 - Area klik chevron berukuran 44px tanpa pseudo-element yang menimpa label halaman; ukuran ikon tetap. Penanda halaman persis memakai aria-current=page dan bagian induk memakai aria-current=location.
 
 Validasi: 27 unit test (termasuk route, active state, dan anchor ID/EN), lint, typecheck, serta build produksi. Pemeriksaan HTTP terhadap seluruh 36 tujuan unik navbar ID/EN memberi 200; delapan anchor ditemukan pada HTML tujuan. Uji klik, fokus, dan scroll di browser nyata belum dapat dijalankan karena CUA melaporkan tidak ada browser yang tersedia.
+
+## Revisi layanan visa (22 Okt 2026, permintaan Reza 18 Okt 2026)
+
+Keputusan #38–#41 di docs/OPEN-QUESTIONS.md.
+
+- **Struktur**: Visa & Paspor kini punya dua anak, `visa-indonesia` (Visa Indonesia / Indonesian Visas) dan `visa-global` (Visa Global / Global Visas), keduanya `showInMenu` dan dipublish bersama induknya. Enam sub-visa 2021 dihapus; seed kini menghapus slug yang tercantum di `retiredServices` (manifest) sehingga database lama ikut bersih saat `npm run seed`. Total layanan 16 → 12 (10 publish, 2 draft KITAS).
+- **Isi** (`services-content.json`): Visa & Paspor memuat dua kelompok dengan kode visa dari klien; tiap halaman anak memuat daftarnya sendiri. Kalimat fasilitas diskon MoU ditambahkan di ketiga halaman, di FAQ Layanan baru (`faq-mou-discount`, kunci ke-6 di manifest) dan di catatan harga `ui.price.note`.
+- **Redirect**: `/vitas/`, `/multiple-business-visa/`, `/visa-kunjungan/`, `/visa-tinggal-terbatas-penyatuan-keluarga/`, `/visa-on-arrival/`, `/visa-pelajar/` dan padanan EN-nya kini 301 ke `/layanan/visa-paspor` atau `/en/services/visa-paspor`. Jumlah redirect tetap 214.
+- **Database lokal**: cadangan di `.data/visa-revision-backup-20261022/apegale.db`, lalu `npm run seed` → `npm run content:services` → `npm run content:copy`.
+- **Uji**: unit 27/27, typecheck, lint, `next build` lulus; `check:redirects` 214/214; HTTP 200 untuk `/layanan`, `/layanan/visa-paspor`, `/layanan/visa-indonesia`, `/layanan/visa-global` dan padanan EN; `/layanan/kitas-kitap` tetap 307 ke induk; `/layanan/vitas` 404 (URL lama tidak pernah mengarah ke sana). Pemeriksaan visual browser belum dilakukan.
+- **Catatan teknis**: `next dev` dan `next build` gagal dengan pesan "Failed to open database / invalid digit found in string" atau "Can't resolve @vercel/turbopack-next/internal/font/google/font" bila ada `desktop.ini` Google Drive atau cache Turbopack basi di `.next`. Hapus `desktop.ini` di `.next` (atau seluruh `.next/cache/turbopack` dan `.next/dev`) sebelum menjalankan. Perubahan `legacy-redirects.ts` baru terbaca setelah `.next/dev` dihapus.
+
+## Visa sebagai sub-kategori di kartu dan menu (22 Okt 2026, keputusan #42)
+
+Owner menolak seksi baru di Beranda; hierarki Expatriate Formalities → Visa & Paspor → Visa Indonesia / Visa Global tetap.
+
+- **Kartu layanan** (`ServiceCard`): sub-layanan boleh punya anak; anak ditampilkan menjorok di bawah induknya (`.ag-service__subs ul`). `getTopServices` kini membawa dua tingkat turunan yang published. Kartu di Beranda (`ServicesSection`) menampilkan sub-layanan seperti halaman Layanan, sehingga Visa Indonesia dan Visa Global terbaca langsung dari Beranda di dalam kartu Expatriate Formalities.
+- **Navbar** (`HeaderNav`): tingkat ketiga di bawah Layanan dirender menjorok (`.ag-nav__sub3` desktop, `data-nested="2"` mobile); `SiteShell` meneruskan anak Visa & Paspor tanpa meratakan.
+- Tidak ada seksi, teks, atau kolom CMS baru.
+- Uji: unit 27/27, typecheck, lint, `next build` lulus; HTTP 200 dan tautan visa terbaca di `/`, `/en`, `/layanan`, `/en/services`; tangkapan layar 1440 kartu Beranda dan dropdown.
+
+## Navbar flyout dan grid layanan Beranda (22 Okt 2026, keputusan #43)
+
+- **Navbar** (`HeaderNav.tsx`, `shell.css`): item yang punya anak di tingkat ketiga (`.ag-nav__group`) menampilkan chevron dan membuka panel `.ag-nav__fly` di sebelah kanannya saat hover, fokus, atau Tab; jembatan hover tak terlihat agar panel tidak tertutup saat kursor pindah. Mobile tetap daftar menjorok (`data-nested="2"`).
+- **Beranda, seksi Layanan** (`ServicesSection.tsx`, `home.css`): layout kolom kiri lengket + indeks dua kolom diganti baris judul (judul kiri, "Lihat layanan" kanan) di atas grid tiga kolom (`.ag-services__grid`). Tiap entri memakai baris grid `auto auto 1fr auto` sehingga judul, ringkasan, sub-layanan, dan "Selengkapnya" sejajar di seluruh baris; padding entri 24px (sebelumnya 32/40). `.ag-grid--index` dihapus (tidak dipakai lagi).
+- Uji: unit 27/27, typecheck, lint, `next build` lulus; tangkapan layar 1440: grid 3×2 sejajar, flyout Visa Indonesia / Visa Global tampil di samping Layanan Visa & Paspor.
+
+## Seksi Layanan Beranda: sistem visual "dosir" (22 Okt 2026, keputusan #45)
+
+- **Arah**: editorial lemari arsip. Jangkar visual = folio Expatriate Formalities (`.ag-folio`): angka 02 outline Montserrat 96px, rel maroon 3px di kiri, pohon arsip (`.ag-folio__tree`) dengan tab miring skewX(-24deg) (slash merek) untuk Layanan Visa & Paspor → Visa Indonesia / Visa Global. Lima layanan lain = ledger (`.ag-ledger__list`): angka outline, judul kapital, ringkasan, panah, di atas hairline. Grid 5/7 asimetris; satu kolom di bawah 1024px.
+- **Dibuang di seksi ini**: gradasi merah pada hover, kartu kotak sama tinggi, grid 3 kolom yang seragam. Hanya maroon datar dan garis.
+- **Motion** (`home.css`, `motion.css`): rel folio menggambar diri (scaleY 700ms), item folio dan baris ledger masuk berurutan lewat `--i` (70–80ms), baris geser 12px + angka terisi maroon saat hover/fokus; `html { scroll-behavior: smooth }`; tiap `.ag-section > .ag-container` naik 28px saat masuk layar lewat `animation-timeline: view()` (di dalam `@supports`, browser lain tampil biasa). Reduced motion mematikan semuanya (aturan global yang sudah ada).
+- `ServicesSection.tsx` ditulis ulang; `ServiceCard` tetap dipakai halaman Layanan.
+- Uji: unit 27/27, typecheck, lint, `next build` lulus; tangkapan layar 1440 dan lebar ponsel; tanpa scroll horizontal. Interaksi hover/keyboard belum diuji di browser nyata, hanya lewat CSS.
+
+## Manpower Supply dihapus dan seksi Layanan dirapikan (22 Okt 2026, keputusan #46)
+
+- Manpower Supply bukan layanan Ape Gale: dihapus dari seed, tes, `verify:cms`, redirect (`/manpower-supply/` → `/layanan`, EN → `/en/services`), dan database lewat `retiredServices`. Ini sekaligus menjelaskan #44 (penghapusan sebelumnya disengaja). Hero: lead ID/EN tanpa klaim alih daya, judul EN "Expatriate permits & foreign workers" (`content:copy`).
+- Seksi Layanan Beranda (penyempurnaan #45): angka outline besar diganti label kecil Montserrat (02 dengan garis pendek di folio; 01–05 abu yang berubah maroon saat hover di ledger), rel 2px, tab pohon 10/7px, geser hover 8px. Struktur folio + ledger, maroon datar, dan animasi masuk tetap. Dengan 5 layanan, tinggi folio dan ledger kini seimbang.
+- Uji: unit 27/27, typecheck, lint, `next build` lulus; `check:redirects` 214/214; tangkapan layar 1440.
+
+## Seksi Layanan Beranda jadi interaktif (22 Okt 2026, keputusan #47)
+
+- `ServicesSection.tsx` (server) kini hanya menyusun data (nomor 01–05 sesuai urutan CMS, indeks bawaan = layanan yang punya sub-layanan) dan merender `ServicesDossier.tsx` (client) di dalam satu `Reveal`.
+- `ServicesDossier`: ledger kanan = `ol[role=tablist]` berisi `button.ag-ledger__row[role=tab]` (semua layanan, berurutan); folio kiri = `div.ag-folio[role=tabpanel]` dengan `.ag-folio__panel` ber-`key` slug sehingga React memasang ulang isi saat ganti. Fase `data-phase="out"` → `"in"` (160ms) menggerakkan animasi di `home.css`: lembar lama naik dan memudar, rel `::before` menggambar ulang (560ms), lembar baru naik (420ms), item pohon mengikuti (`--i` × 50ms). Panah atas/bawah/kiri/kanan/Home/End memindahkan fokus dan pilihan; folio di-scroll ke pandangan (`scroll-margin-top` header) bila kepalanya tersembunyi. Reduced motion: ganti langsung tanpa fase.
+- Baris terpilih: rel 2px maroon tetap, angka dan judul maroon, geser 8px, panah berputar menunjuk folio (kiri di dua kolom, atas di satu kolom). Judul ledger kini `span.ag-ledger__title` (bukan h3 di dalam tombol); h3 tetap di folio.
+- Uji: unit 27/27, typecheck, lint, `next build` lulus; di Chrome 1440 dan 485px: klik baris 01/03 menukar folio dengan animasi (opacity 0,05 di fase keluar → 1), `aria-selected` dan `aria-labelledby` berpindah, ArrowDown dan End berpindah fokus + pilihan, tanpa pesan konsol.
+
+## Seksi Layanan Beranda dirapikan (22 Okt 2026, keputusan #48)
+
+- `.ag-ledger` `align-items: stretch`, gap kolom `--space-16`; `.ag-services` gap `--space-10`. `.ag-folio` = grid dengan `border-top` kuat dan `border-bottom` tipis; setiap `.ag-folio__panel` di `grid-area: 1/1`, yang nonaktif `visibility: hidden; opacity: 0` (+ `aria-hidden` dan `inert` di markup) sehingga tinggi folio stabil = lembar tertinggi. `<1024px`: lembar nonaktif `display: none`.
+- Ledger: `.ag-ledger__list` grid `grid-auto-rows: minmax(0,1fr)`; baris = nomor + judul + panah, `align-items: center`, `min-height` 64px (44px di ponsel). Markup ringkasan (`.ag-ledger__sum`) dihapus dari `ServicesDossier.tsx`.
+- Pohon folio dipadatkan (gap 4px, item 34/28px); "Selengkapnya" langsung di bawah isi.
+- Uji: unit 27/27, typecheck, lint, `next build` lulus; Chrome 1440: kedua kolom 392px, baris 78px rata, tinggi tetap saat klik 04/05, animasi tukar tetap jalan; 485px: tinggi alami, baris 51px, tanpa konsol error.
+
+## Seksi Layanan Beranda: sistem "register arsip" (22 Okt 2026, keputusan #49)
+
+- `home.css` blok "Services: the register": `.ag-folio__tab` dan `.ag-ledger__tab` berbagi geometri (46×24px, `skewX(-24deg)`, span dalam di-unskew); tab indeks bergaris `--line-strong`, hover maroon + geser 3px, terpilih terisi maroon/`--on-brand`. `.ag-ledger__list::before` = benang (`left: -gutter-1px`, lebar gutter+29px, `top: calc((var(--k)+0.5)*100%/var(--n) - 1px)`, transisi `top` 420ms), `::after` = tab sandaran 10×16px di tepi kanan lembar (`border-right` tipis pada `.ag-folio`). Saat reveal, benang `scaleX(0)` → 1 (origin kanan) dan sandaran `scale(0)` → 1 dengan delay 420ms.
+- `ServicesDossier.tsx`: state `selected` (tab dan benang bergerak seketika) terpisah dari `active` (lembar yang tampil, berganti setelah fase keluar 160ms); `--k`/`--n` di-set inline pada `ol[role=tablist]`; markup nomor dan panah diganti tab.
+- Uji: unit 27/27, typecheck, lint, `next build` lulus; Chrome 1440: benang tepat di tengah baris terpilih (selisih 1px), meluncur ke 04 saat diklik, lembar bertukar; 485px: benang tersembunyi, baris ≥44px, tanpa overflow horizontal, tanpa konsol error.

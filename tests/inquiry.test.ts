@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import test from 'node:test'
 import { createRateLimiter, duplicateKey, readInquiry, validateInquiry, type InquiryInput } from '../src/lib/inquiry.ts'
 
-const services = ['airport-escort', 'manpower-supply']
+const services = ['airport-escort', 'legalitas-perusahaan']
 const base: InquiryInput = { variant: 'full', name: 'Rina', company: '', email: 'rina@contoh.co.id', whatsapp: '0812 3456 7890', service: 'airport-escort', message: 'Kami butuh penjemputan VIP minggu depan.', website: '' }
 
 test('valid full and compact inquiries pass', () => {

@@ -15,19 +15,20 @@ export const legacyPages: LegacyRedirect[] = [
   // Layanan (ID)
   page('expatriate-hosting', '/layanan/broad-expatriate-hosting'), page('expatriate-formalities', '/layanan/expatriate-formalities'),
   page('layanan-kitas-kitap', '/layanan/kitas-kitap'), page('layanan-visa-paspor', '/layanan/visa-paspor'),
-  ...['vitas', 'multiple-business-visa', 'visa-kunjungan', 'visa-tinggal-terbatas-penyatuan-keluarga', 'visa-on-arrival', 'visa-pelajar',
-    'all-in-one-solutions', 'kitas-lansia', 'manpower-supply', 'legalitas-perusahaan', 'airport-escort', 'hr-system-consulting',
-  ].map(slug => page(slug, `/layanan/${slug}`)),
+  ...['all-in-one-solutions', 'kitas-lansia', 'legalitas-perusahaan', 'airport-escort', 'hr-system-consulting'].map(slug => page(slug, `/layanan/${slug}`)),
+  // Manpower Supply is not offered (owner, 22 Oct 2026): its old pages land on the services index.
+  page('manpower-supply', '/layanan'),
+  // The six 2021 visa sub-pages were retired (client revision 18 Oct 2026); their URLs land on Visa & Paspor.
+  ...['vitas', 'multiple-business-visa', 'visa-kunjungan', 'visa-tinggal-terbatas-penyatuan-keluarga', 'visa-on-arrival', 'visa-pelajar']
+    .map(slug => page(slug, '/layanan/visa-paspor')),
   // Services (EN)
   page('expatriate-hosting-en', '/en/services/broad-expatriate-hosting'), page('expatriate-formalities-en', '/en/services/expatriate-formalities'),
-  page('manpower-supply-en', '/en/services/manpower-supply'), page('company-legalities', '/en/services/legalitas-perusahaan'),
+  page('manpower-supply-en', '/en/services'), page('company-legalities', '/en/services/legalitas-perusahaan'),
   page('airport-escort-2', '/en/services/airport-escort'), page('hr-system-consulting-en', '/en/services/hr-system-consulting'),
   page('kitas-kitap-services', '/en/services/kitas-kitap'), page('visa-passport-services', '/en/services/visa-paspor'),
   page('all-in-one-solutions-en', '/en/services/all-in-one-solutions'), page('senior-kitas-visa-services', '/en/services/kitas-lansia'),
-  page('vitas-en', '/en/services/vitas'), page('multiple-business-visa-en', '/en/services/multiple-business-visa'),
-  page('visitor-visa-and-visa-for-cultural-and-social-visit-vksb', '/en/services/visa-kunjungan'),
-  page('family-unification-limites-stay-visa', '/en/services/visa-tinggal-terbatas-penyatuan-keluarga'),
-  page('visa-on-arrival-en', '/en/services/visa-on-arrival'), page('student-visa', '/en/services/visa-pelajar'),
+  ...['vitas-en', 'multiple-business-visa-en', 'visitor-visa-and-visa-for-cultural-and-social-visit-vksb', 'family-unification-limites-stay-visa',
+    'visa-on-arrival-en', 'student-visa'].map(slug => page(slug, '/en/services/visa-paspor')),
   // GARIS
   ...['garis-in', 'garis-formalities-in', 'garis-airport-in', 'garis-expat-in'].map(s => page(s, '/garis')),
   ...['garis-en', 'garis-formalities-en', 'garis-airport-en', 'garis-expat-en'].map(s => page(s, '/en/garis')),

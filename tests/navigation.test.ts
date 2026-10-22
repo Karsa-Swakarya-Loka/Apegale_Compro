@@ -18,7 +18,7 @@ test('a service detail marks its own link as page and its parent as location', (
   for (const locale of ['id', 'en'] as const) {
     const home = href(locale, 'home')
     const parent = href(locale, 'services')
-    const detail = href(locale, 'services', 'manpower-supply')
+    const detail = href(locale, 'services', 'legalitas-perusahaan')
     assert.equal(navCurrent(detail, detail, home), 'page')
     assert.equal(navCurrent(detail, parent, home), 'location')
     assert.equal(navCurrent(detail, href(locale, 'services', 'airport-escort'), home), undefined)

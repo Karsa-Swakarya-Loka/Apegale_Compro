@@ -1,5 +1,5 @@
 {
-  "_about": "Deskripsi layanan publik diparafrase sesuai permintaan owner 09 Okt 2026. Sumber asli tetap di legacy/. Dokumen layanan berstatus draft tetap memerlukan verifikasi hukum (#7 dan #20).",
+  "_about": "Deskripsi layanan publik diparafrase sesuai permintaan owner 09 Okt 2026. Sumber asli tetap di legacy/. Dokumen layanan berstatus draft tetap memerlukan verifikasi hukum (#7 dan #20). Revisi klien 18 Okt 2026 (Reza): layanan visa dibagi dua kelompok (Visa Indonesia, Visa Global) dengan kode visa baru; enam sub-visa lama (kode 2021) dihapus; klien ber-MoU mendapat fasilitas diskon. 22 Okt 2026: Manpower Supply dihapus (bukan layanan Ape Gale, keputusan owner #46).",
   "services": {
     "broad-expatriate-hosting": {
       "status": "published",
@@ -42,26 +42,6 @@
             "All in One Solutions",
             "Retirement KITAS"
           ]
-        }
-      ]
-    },
-    "manpower-supply": {
-      "status": "published",
-      "source": "legacy/manpower-supply.html",
-      "id": [
-        {
-          "p": "Kami menyediakan tenaga kerja alih daya sesuai kebutuhan perusahaan, termasuk pengawasan dan pembinaan kinerja."
-        },
-        {
-          "p": "GARIS dikembangkan untuk mendukung pengelolaan data tenaga kerja dan kegiatan operasional alih daya. Akses aplikasi sedang disiapkan kembali."
-        }
-      ],
-      "en": [
-        {
-          "p": "We supply outsourced staff based on company requirements, including performance supervision and development."
-        },
-        {
-          "p": "GARIS is being developed to support workforce records and outsourcing operations. App access is being prepared for relaunch."
         }
       ]
     },
@@ -301,43 +281,69 @@
       ]
     },
     "visa-paspor": {
-      "status": "draft",
-      "source": "legacy/layanan-visa-paspor.html",
-      "verify": "Kode visa lama (312, 212, 211, C317, 316) berubah sejak 2023; sesuaikan dengan nomenklatur visa terbaru.",
+      "slug": "visa-paspor",
+      "status": "published",
+      "source": "Revisi klien (Reza, 18 Okt 2026)",
       "id": [
         {
-          "p": "Visa Izin Tinggal Terbatas khusus untuk WNA, keluarga WNA dan WNA yang menikah dengan WNI. Visa ini dipergunakan untuk tinggal dan berdiam diri di wilayah Republik Indonesia dalam jangka waktu yang ditentukan pihak Imigrasi sesuai izin yang berlaku."
+          "p": "Kami membantu pengurusan visa bagi warga negara asing yang akan masuk dan tinggal di Indonesia, serta visa bagi WNI dan ekspatriat yang akan bepergian ke luar negeri. Layanan visa kami terbagi dalam dua kelompok."
         },
         {
-          "h2": "Jenis Layanan"
+          "h2": "Visa Indonesia"
         },
         {
           "ul": [
-            "VITAS (Visa Tinggal Terbatas) 312",
-            "Multiple Business Visa 212",
-            "Visa Kunjungan & VKSB (Single) 211",
-            "Visa Tinggal Terbatas Penyatuan Keluarga C 317",
-            "Visa On Arrival (VOA)",
-            "Visa Pelajar 316"
+            "Visa Kunjungan Single Entry (C1, C2, C6, C7, C10, C11, C17, dan lainnya)",
+            "Visa Kunjungan Multiple Entry (D1, D2, D6, D17, dan lainnya)",
+            "Visa Kerja (E23, E28, dan lainnya)",
+            "Visa Lansia / Pensiun (E32)",
+            "Visa Penyatuan Keluarga / Dependent (E31)"
           ]
+        },
+        {
+          "h2": "Visa Global"
+        },
+        {
+          "ul": [
+            "Visa Schengen",
+            "Visa Australia",
+            "Visa Jepang",
+            "Visa China dan negara lainnya"
+          ]
+        },
+        {
+          "p": "Klien yang telah menandatangani Nota Kesepahaman (MoU) dengan Ape Gale mendapatkan fasilitas diskon untuk layanan ini."
         }
       ],
       "en": [
         {
-          "p": "A Limited Stay Visa specifically for foreign nationals, their families, and foreign nationals married to Indonesian citizens. This visa is used to stay and reside in the territory of the Republic of Indonesia for the period determined by Immigration according to the applicable permit."
+          "p": "We arrange visas for foreign nationals entering and staying in Indonesia, as well as visas for Indonesian citizens and expatriates travelling abroad. Our visa services fall into two groups."
         },
         {
-          "h2": "Types of Service"
+          "h2": "Indonesian Visas"
         },
         {
           "ul": [
-            "VITAS (Limited Stay Visa) 312",
-            "Multiple Business Visa 212",
-            "Visit Visa & VKSB (Single) 211",
-            "Family Unification Limited Stay Visa C 317",
-            "Visa On Arrival (VOA)",
-            "Student Visa 316"
+            "Single Entry Visit Visa (C1, C2, C6, C7, C10, C11, C17 and others)",
+            "Multiple Entry Visit Visa (D1, D2, D6, D17 and others)",
+            "Working Visa (E23, E28 and others)",
+            "Retirement Visa (E32)",
+            "Dependent Visa (E31)"
           ]
+        },
+        {
+          "h2": "Global Visas"
+        },
+        {
+          "ul": [
+            "Schengen Visa",
+            "Australia Visa",
+            "Japan Visa",
+            "China Visa and other countries"
+          ]
+        },
+        {
+          "p": "Clients who have signed a Memorandum of Understanding (MoU) with Ape Gale receive a discount on this service."
         }
       ]
     },
@@ -418,787 +424,91 @@
         }
       ]
     },
-    "vitas": {
-      "status": "draft",
-      "source": "legacy/vitas.html",
-      "verify": "Kode 312 dan kategori pemohon perlu disesuaikan dengan nomenklatur visa terbaru.",
+    "visa-indonesia": {
+      "slug": "visa-indonesia",
+      "status": "published",
+      "source": "Revisi klien (Reza, 18 Okt 2026)",
       "id": [
         {
-          "p": "Visa Izin Tinggal Terbatas khusus untuk WNA, keluarga WNA dan WNA yang menikah dengan WNI. Visa ini dipergunakan untuk tinggal dan berdiam diri di wilayah Republik Indonesia dalam jangka waktu yang ditentukan pihak Imigrasi sesuai izin yang berlaku."
+          "p": "Visa bagi warga negara asing yang akan berkunjung, bekerja, menjalani masa pensiun, atau mengikuti keluarga di Indonesia. Kami mendampingi mulai dari penentuan jenis visa yang sesuai, penyiapan dokumen sponsor, hingga visa terbit."
         },
         {
-          "h2": "Kategori Pemohon Pembuatan VITAS"
-        },
-        {
-          "ul": [
-            "Orang Asing dalam rangka penanaman modal;",
-            "Bekerja sebagai tenaga ahli;",
-            "Melakukan tugas sebagai rohaniawan;",
-            "Mengikuti pendidikan dan pelatihan;",
-            "Mengadakan penelitian ilmiah;",
-            "Menggabungkan diri dengan suami atau istri pemegang Izin Tinggal terbatas;",
-            "Menggabungkan diri dengan ayah dan/atau ibu bagi anak berkewarganegaraan asing yang mempunyai hubungan hukum kekeluargaan dengan ayah dan/atau ibu warga negara Indonesia;",
-            "Menggabungkan diri dengan ayah dan/atau ibu pemegang Izin Tinggal terbatas atau Izin Tinggal Tetap bagi anak yang berusia di bawah 18 (delapan belas) tahun dan belum kawin;",
-            "Orang Asing eks warga negara Indonesia; dan",
-            "Wisatawan lanjut usia mancanegara."
-          ]
-        },
-        {
-          "h2": "Persyaratan Umum Pembuatan VITAS"
+          "h2": "Jenis Visa"
         },
         {
           "ul": [
-            "Paspor atau surat perjalanan lain yang masih berlaku;",
-            "Tiket untuk keberangkatan dan tiket untuk kembali atau tiket untuk melanjutkan perjalanan ke negara tujuan sesuai dengan jenis visa yang diminta;",
-            "Pas foto; dan",
-            "Keterangan jaminan tersedianya biaya hidup selama berada di willayah negara Republik Indonesia."
+            "Visa Kunjungan Single Entry (C1, C2, C6, C7, C10, C11, C17, dan lainnya)",
+            "Visa Kunjungan Multiple Entry (D1, D2, D6, D17, dan lainnya)",
+            "Visa Kerja (E23, E28, dan lainnya)",
+            "Visa Lansia / Pensiun (E32)",
+            "Visa Penyatuan Keluarga / Dependent (E31)"
           ]
+        },
+        {
+          "p": "Klien yang telah menandatangani Nota Kesepahaman (MoU) dengan Ape Gale mendapatkan fasilitas diskon untuk layanan ini."
         }
       ],
       "en": [
         {
-          "p": "A Limited Stay Visa specifically for foreign nationals, their families, and foreign nationals married to Indonesian citizens. This visa is used to stay and reside in the territory of the Republic of Indonesia for the period determined by Immigration according to the applicable permit."
+          "p": "Visas for foreign nationals visiting, working, retiring or joining family in Indonesia. We assist from choosing the right visa type and preparing sponsor documents through to issuance."
         },
         {
-          "h2": "Categories of VITAS Applicants"
-        },
-        {
-          "ul": [
-            "Foreign nationals for the purpose of investment;",
-            "Working as an expert;",
-            "Carrying out duties as a member of the clergy;",
-            "Attending education and training;",
-            "Conducting scientific research;",
-            "Joining a husband or wife who holds a Limited Stay Permit;",
-            "Joining a father and/or mother, for a child of foreign nationality who has a legal family relationship with an Indonesian-citizen father and/or mother;",
-            "Joining a father and/or mother who holds a Limited Stay Permit or Permanent Stay Permit, for a child under 18 (eighteen) years of age and unmarried;",
-            "Foreign nationals who are former Indonesian citizens; and",
-            "Elderly foreign tourists."
-          ]
-        },
-        {
-          "h2": "General Requirements for a VITAS"
+          "h2": "Visa Types"
         },
         {
           "ul": [
-            "A valid passport or other travel document;",
-            "A departure ticket and a return ticket, or a ticket to continue the journey to the destination country, according to the type of visa requested;",
-            "Passport photo; and",
-            "Proof of guaranteed living expenses while in the territory of the Republic of Indonesia."
+            "Single Entry Visit Visa (C1, C2, C6, C7, C10, C11, C17 and others)",
+            "Multiple Entry Visit Visa (D1, D2, D6, D17 and others)",
+            "Working Visa (E23, E28 and others)",
+            "Retirement Visa (E32)",
+            "Dependent Visa (E31)"
           ]
+        },
+        {
+          "p": "Clients who have signed a Memorandum of Understanding (MoU) with Ape Gale receive a discount on this service."
         }
       ]
     },
-    "multiple-business-visa": {
-      "status": "draft",
-      "source": "legacy/multiple-business-visa.html",
-      "verify": "Masa berlaku 12 bulan, lama tinggal 60 hari, saldo minimum USD 1.500, dan kode 212 perlu dicek terhadap ketentuan terbaru.",
+    "visa-global": {
+      "slug": "visa-global",
+      "status": "published",
+      "source": "Revisi klien (Reza, 18 Okt 2026)",
       "id": [
         {
-          "p": "Visa yang dipergunakan oleh WNA untuk melakukan perjalanan atau kunjungan bisnis di wilayah Republik Indonesia. Visa ini memungkinkan untuk keluar dan masuk Kembali ke Indonesia hingga 12 bulan, tetapi setiap kunjungan tidak boleh lebih dari 60 hari."
+          "p": "Pengurusan visa ke luar negeri bagi WNI dan ekspatriat yang berdomisili di Indonesia, meliputi penyiapan dokumen dan pendampingan proses pengajuan."
         },
         {
-          "h2": "Persyaratan Umum untuk Memperoleh Visa Bisnis"
+          "h2": "Negara Tujuan"
         },
         {
           "ul": [
-            "Foto paspor dengan masa berlaku minimum 18 bulan;",
-            "Rekening bank dengan minimum saldo USD 1,500;",
-            "Tiket pesawat ke Jakarta atau kota lain dengan tanggal keberangkatan yang jelas;",
-            "Dokumen lain tergantung perusahaan sponsor. Yang bisa menjadi sponsor adalah:",
-            "Semua perusahaan lokal yang dimiliki asing;",
-            "Kantor perwakilan;",
-            "Institusi",
-            "Tiket kembali ke negara asal yang menunjukkan individu akan meninggalkan Indonesia dalam 60 hari dari tanggal ketibaan di Indonesia"
+            "Visa Schengen",
+            "Visa Australia",
+            "Visa Jepang",
+            "Visa China dan negara lainnya"
           ]
         },
         {
-          "h2": "Jenis-jenis Visa Bisnis di Indonesia"
-        },
-        {
-          "h2": "Single Entry"
-        },
-        {
-          "p": "Masa berlaku:"
-        },
-        {
-          "p": "60 hari"
-        },
-        {
-          "p": "Lama tinggal:"
-        },
-        {
-          "p": "60 hari, bisa diperpanjang hingga 4 kali. Batas waktu tinggal maksimum adalah 30 hari untuk setiap perpanjangan tanpa perlu meninggalkan Indonesia"
-        },
-        {
-          "h2": "Multiple Entry"
-        },
-        {
-          "p": "Masa berlaku:"
-        },
-        {
-          "p": "12 Bulan"
-        },
-        {
-          "p": "Lama tinggal:"
-        },
-        {
-          "p": "60 hari untuk setiap perpanjangan tanpa perlu meninggalkan Indonesia"
+          "p": "Klien yang telah menandatangani Nota Kesepahaman (MoU) dengan Ape Gale mendapatkan fasilitas diskon untuk layanan ini."
         }
       ],
       "en": [
         {
-          "p": "A visa used by foreign nationals for business travel or business visits within the territory of the Republic of Indonesia. This visa allows leaving and re-entering Indonesia for up to 12 months, but each visit may not exceed 60 days."
+          "p": "Visa processing for Indonesian citizens and Indonesia-based expatriates travelling abroad, covering document preparation and support throughout the application."
         },
         {
-          "h2": "General Requirements for Obtaining a Business Visa"
-        },
-        {
-          "ul": [
-            "Passport photo page with a minimum validity of 18 months;",
-            "Bank account with a minimum balance of USD 1,500;",
-            "Flight ticket to Jakarta or another city with a clear departure date;",
-            "Other documents depending on the sponsoring company. Eligible sponsors are:",
-            "All foreign-owned local companies;",
-            "Representative offices;",
-            "Institutions",
-            "A return ticket to the country of origin showing that the individual will leave Indonesia within 60 days of the date of arrival in Indonesia"
-          ]
-        },
-        {
-          "h2": "Types of Business Visa in Indonesia"
-        },
-        {
-          "h2": "Single Entry"
-        },
-        {
-          "p": "Validity:"
-        },
-        {
-          "p": "60 days"
-        },
-        {
-          "p": "Length of stay:"
-        },
-        {
-          "p": "60 days, extendable up to 4 times. The maximum stay is 30 days for each extension without needing to leave Indonesia"
-        },
-        {
-          "h2": "Multiple Entry"
-        },
-        {
-          "p": "Validity:"
-        },
-        {
-          "p": "12 Months"
-        },
-        {
-          "p": "Length of stay:"
-        },
-        {
-          "p": "60 days for each extension without needing to leave Indonesia"
-        }
-      ]
-    },
-    "visa-kunjungan": {
-      "status": "draft",
-      "source": "legacy/visa-kunjungan.html",
-      "verify": "Kode B211A–B211D dan aturan perpanjangan sudah diganti nomenklatur visa baru; isi perlu ditulis ulang sesuai ketentuan terbaru.",
-      "id": [
-        {
-          "p": "Visa yang dipergunakan WNA untuk melakukan perjalanan ke wilayah Republik Indonesia selama 60 hari. Masa berlaku Visa ini dapat diperpanjang sebanyak 4 kali untuk durasi masing-masing 30 hari, dan dilakukan di Kantor Imigrasi terdekat di Indonesia."
-        },
-        {
-          "h2": "Single Entry (B211A)"
-        },
-        {
-          "p": "Visa kunjungan diberikan kepada WNA dalam rangka:"
+          "h2": "Destinations"
         },
         {
           "ul": [
-            "Wisata;",
-            "Keluarga;",
-            "Sosial;",
-            "Seni dan budaya",
-            "Tugas pemerintahan;",
-            "Olahraga yang tidak bersifat komersial;",
-            "Studi banding, kursus singkat dan pelatihan singkat;",
-            "Memberikan bimbingan, penyuluhan dan pelatihan dalam penerapan dan inovasi teknologi industri untuk meningkatkan mutu dan desain produk industri serta kerja sama pemasaran luar negeri bagi Indonesia;"
+            "Schengen Visa",
+            "Australia Visa",
+            "Japan Visa",
+            "China Visa and other countries"
           ]
         },
         {
-          "h2": "Persyaratan :"
-        },
-        {
-          "ul": [
-            "Paspor dengan masa berlaku minimum 6 (enam) bulan;",
-            "Aplikasi Visa yang diisi dengan lengkap;",
-            "Foto wajah ukuran 4×6 cm dengan latar belakang putih;",
-            "Bukti reservasi penerbangan pulang-pergi dari Indonesia;",
-            "Bukti reservasi akomodasi/hotel selama berada di Indonesia;"
-          ]
-        },
-        {
-          "h2": "Single Entry (B211B)"
-        },
-        {
-          "p": "Visa kunjungan diberikan kepada WNA dalam rangka:"
-        },
-        {
-          "ul": [
-            "Kegiatan bisnis dan industri",
-            "Meningkatkan mutu dan audit"
-          ]
-        },
-        {
-          "h2": "Persyaratan :"
-        },
-        {
-          "ul": [
-            "Paspor dengan masa berlaku minimum 6 (enam) bulan;",
-            "Aplikasi Visa yang diisi dengan lengkap;",
-            "Foto wajah ukuran 4×6 cm dengan latar belakang putih;",
-            "Bukti reservasi penerbangan pulang-pergi dari Indonesia;",
-            "Bukti reservasi akomodasi/hotel selama berada di Indonesia;"
-          ]
-        },
-        {
-          "h2": "Single Entry (B211C)"
-        },
-        {
-          "p": "Visa kunjungan diberikan kepada WNA dalam rangka:"
-        },
-        {
-          "ul": [
-            "Kegiatan jurnalistik non-komersial",
-            "Kegiatan pembuatan film dokumenter non-komersial"
-          ]
-        },
-        {
-          "h2": "Persyaratan :"
-        },
-        {
-          "ul": [
-            "Paspor dengan masa berlaku minimum 6 (enam) bulan;",
-            "Aplikasi Visa yang diisi dengan lengkap;",
-            "Foto wajah ukuran 4×6 cm dengan latar belakang putih;",
-            "Bukti reservasi penerbangan pulang-pergi dari Indonesia;",
-            "Bukti reservasi akomodasi/hotel selama berada di Indonesia;"
-          ]
-        },
-        {
-          "h2": "Multiple Entry (B211D)"
-        },
-        {
-          "p": "Visa kunjungan diberikan kepada WNA dalam rangka:"
-        },
-        {
-          "ul": [
-            "Kunjungan keluarga,",
-            "Bisnis dan",
-            "Tugas pemerintahan."
-          ]
-        },
-        {
-          "h2": "Persyaratan :"
-        },
-        {
-          "ul": [
-            "Paspor dengan masa berlaku minimum 18 (delapan belas) bulan",
-            "Aplikasi Visa yang diisi dengan lengkap",
-            "Foto wajah ukuran 4×6 cm dengan latar belakang putih",
-            "Salinan Surat Ijin Tinggal bagi WNA yang bukan warga negara Italia, Malta, Siprus dan San Marino",
-            "Bukti reservasi penerbangan pulang-pergi dari Indonesia",
-            "Bukti reservasi akomodasi/hotel selama berada di Indonesia",
-            "Surat sponsor di Indonesia"
-          ]
-        }
-      ],
-      "en": [
-        {
-          "p": "A visa used by foreign nationals to travel to the territory of the Republic of Indonesia for 60 days. The validity of this visa can be extended 4 times, for 30 days each, at the nearest Immigration Office in Indonesia."
-        },
-        {
-          "h2": "Single Entry (B211A)"
-        },
-        {
-          "p": "A visit visa is granted to foreign nationals for the purpose of:"
-        },
-        {
-          "ul": [
-            "Tourism;",
-            "Family;",
-            "Social;",
-            "Arts and culture",
-            "Government duties;",
-            "Non-commercial sports;",
-            "Comparative studies, short courses and short training;",
-            "Providing guidance, counselling and training in the application and innovation of industrial technology to improve the quality and design of industrial products, as well as overseas marketing cooperation for Indonesia;"
-          ]
-        },
-        {
-          "h2": "Requirements:"
-        },
-        {
-          "ul": [
-            "Passport with a minimum validity of 6 (six) months;",
-            "A fully completed visa application;",
-            "Face photo, 4x6 cm, with a white background;",
-            "Proof of return flight reservation from Indonesia;",
-            "Proof of accommodation/hotel reservation while in Indonesia;"
-          ]
-        },
-        {
-          "h2": "Single Entry (B211B)"
-        },
-        {
-          "p": "A visit visa is granted to foreign nationals for the purpose of:"
-        },
-        {
-          "ul": [
-            "Business and industrial activities",
-            "Quality improvement and audit"
-          ]
-        },
-        {
-          "h2": "Requirements:"
-        },
-        {
-          "ul": [
-            "Passport with a minimum validity of 6 (six) months;",
-            "A fully completed visa application;",
-            "Face photo, 4x6 cm, with a white background;",
-            "Proof of return flight reservation from Indonesia;",
-            "Proof of accommodation/hotel reservation while in Indonesia;"
-          ]
-        },
-        {
-          "h2": "Single Entry (B211C)"
-        },
-        {
-          "p": "A visit visa is granted to foreign nationals for the purpose of:"
-        },
-        {
-          "ul": [
-            "Non-commercial journalistic activities",
-            "Non-commercial documentary film-making"
-          ]
-        },
-        {
-          "h2": "Requirements:"
-        },
-        {
-          "ul": [
-            "Passport with a minimum validity of 6 (six) months;",
-            "A fully completed visa application;",
-            "Face photo, 4x6 cm, with a white background;",
-            "Proof of return flight reservation from Indonesia;",
-            "Proof of accommodation/hotel reservation while in Indonesia;"
-          ]
-        },
-        {
-          "h2": "Multiple Entry (B211D)"
-        },
-        {
-          "p": "A visit visa is granted to foreign nationals for the purpose of:"
-        },
-        {
-          "ul": [
-            "Family visits,",
-            "Business, and",
-            "Government duties."
-          ]
-        },
-        {
-          "h2": "Requirements:"
-        },
-        {
-          "ul": [
-            "Passport with a minimum validity of 18 (eighteen) months",
-            "A fully completed visa application",
-            "Face photo, 4x6 cm, with a white background",
-            "A copy of the residence permit for foreign nationals who are not citizens of Italy, Malta, Cyprus and San Marino",
-            "Proof of return flight reservation from Indonesia",
-            "Proof of accommodation/hotel reservation while in Indonesia",
-            "Sponsor letter in Indonesia"
-          ]
-        }
-      ]
-    },
-    "visa-tinggal-terbatas-penyatuan-keluarga": {
-      "status": "draft",
-      "source": "legacy/visa-tinggal-terbatas-penyatuan-keluarga.html",
-      "verify": "Kode C317, masa berlaku paspor 18/30 bulan, dan dana minimum US$1.500 perlu dicek terhadap ketentuan terbaru.",
-      "id": [
-        {
-          "p": "Orang asing pasangan kawin campur atau dengan tujuan penyatuan keluarga bisa mengajukan permohonan Visa Tinggal Terbatas C 317."
-        },
-        {
-          "h2": "Visa Tinggal Terbatas Penyatuan Keluarga C 317"
-        },
-        {
-          "ul": [
-            "Permohonan visa bagi anak yang belum berusia 18 tahun dan belum kawin dari perkawinan yang sah antara WNA dengan WNI yang disampaikan dengan melampirkan paspor sah yang masih berlaku paling singkat 18 (delapan belas) bulan;",
-            "Permohonan visa bagi anak yang belum berusia 18 tahun dan belum kawin yang menggabungkan diri dengan orang tuanya yang memegang Izin Tinggal Terbatas atau Izin Tinggal Tetap yang disampaikan dengan melampirkan paspor sah yang masih berlaku:",
-            "Paling singkat 30 bulan bagi anak WNA yang mengikuti orang tua pemegang Izin Tinggal Terbatas atau Izin Tinggal Tetap dengan waktu masa berlakunya lebih dari 1 (satu) tahun;",
-            "Paling singkat 18 bulan bagi anak WNA yang mengikuti orang tua pemegang Izin Tinggal Terbatas atau Izin Tinggal Tetap dengan waktu masa berlakunya kurang dari 1 (satu) tahun."
-          ]
-        },
-        {
-          "h2": "Keperluan & Persyaratan"
-        },
-        {
-          "h2": "1. Visa kunjungan yang diberikan kepada WNA yang menikah dengan WNI."
-        },
-        {
-          "h2": "Persyaratan :"
-        },
-        {
-          "ul": [
-            "Permohonan visa bagi anak yang belum berusia 18 tahun dan belum kawin dari perkawinan yang sah antara WNA dengan WNI yang disampaikan dengan melampirkan paspor sah yang masih berlaku paling singkat 18 (delapan belas) bulan;",
-            "Permohonan visa bagi anak yang belum berusia 18 tahun dan belum kawin yang menggabungkan diri dengan orang tuanya yang memegang Izin Tinggal Terbatas atau Izin Tinggal Tetap yang disampaikan dengan melampirkan paspor sah yang masih berlaku:",
-            "Paling singkat 30 bulan bagi anak WNA yang mengikuti orang tua pemegang Izin Tinggal Terbatas atau Izin Tinggal Tetap dengan waktu masa berlakunya lebih dari 1 (satu) tahun;",
-            "Paling singkat 18 bulan bagi anak WNA yang mengikuti orang tua pemegang Izin Tinggal Terbatas atau Izin Tinggal Tetap dengan waktu masa berlakunya kurang dari 1 (satu) tahun.",
-            "Rekening koran asli dari bank untuk rincian transaksi selama 3 (tiga) bulan terakhir;",
-            "Surat Permohonan dari suami atau istri warga negara Indonesia (berikut salinan Kartu Tanda Penduduk pemohon);",
-            "Salinan Kutipan Akta Nikah atau Buku Nikah;",
-            "Surat Tanda Bukti Pelaporan Perkawinan dari Perwakilan Republik Indonesia dan salinan Kutipan Akta Nikah atau Buku Nikah yang telah diterjemahkan ke dalam bahasa Indonesia oleh penerjemah tersumpah, kecuali bahasa Inggris (apabila pernikahan dilakukan di luar wilayah Indonesia);",
-            "Salinan Surat Persetujuan Direktur Jenderal Imigrasi RI (TELEX)."
-          ]
-        },
-        {
-          "h2": "2. Visa kunjungan yang diberikan bagi anak yang belum berusia 18 dan belum menikah yang bergabung dengan orang tuanya pemegang ITAS/ITAP ."
-        },
-        {
-          "h2": "Persyaratan :"
-        },
-        {
-          "ul": [
-            "Fotokopi paspor dengan minimal masa berlaku 18 bulan bagi anak WNA yang mengikuti orang tua pemegang Izin Tinggal Terbatas atau Izin Tinggal Tetap dengan waktu masa berlakunya kurang dari 1 (satu) tahun;",
-            "Fotokopi paspor dengan minimal masa berlaku 30 bulan bagi anak WNA yang mengikuti orang tua pemegang Izin Tinggal Terbatas atau Izin Tinggal Tetap dengan waktu masa berlakunya lebih dari 1 (satu) tahun",
-            "Formulir Permohonan Visa yang telah dilengkapi dan ditandatangani (dicetak pada satu kertas bolak-balik);",
-            "1 (satu) pasfoto berwarna terbaru berukuran 3 cm x 4 cm (ditempel pada Formulir Permohonan Visa);",
-            "Reservasi tiket (pesawat, kapal, feri);",
-            "Keterangan tempat tinggal selama berada di wilayah Indonesia;",
-            "Sertifikat asli kepemilikan rekening dari bank dengan jumlah uang paling sedikit US$ 1500 (seribu lima ratus Dolar Amerika Serikat) sebagai bukti memiliki biaya hidup bagi pemohon dan/atau anggota keluarganya selama berada di wilayah Indonesia;",
-            "Rekening koran asli dari bank untuk rincian transaksi selama 3 (tiga) bulan terakhir;",
-            "Surat Penjaminan dari penjamin di Indonesia (berikut salinan Kartu Identitas penjamin);",
-            "Salinan Kutipan Akta Lahir yang telah diterjemahkan ke dalam bahasa Indonesia oleh penerjemah tersumpah, kecuali bahasa Inggris;",
-            "Salinan Kutipan Akta Nikah atau Buku Nikah orang tua yang telah diterjemahkan ke dalam bahasa Indonesia oleh penerjemah tersumpah, kecuali bahasa Inggris;",
-            "Salinan Kartu Izin Tinggal Terbatas atau Kartu Izin Tinggal Tetap orang tua yang masih berlaku;"
-          ]
-        },
-        {
-          "h2": "3. Visa kunjungan yang diberikan kepada WNA untuk keperluan mengikuti Istri/Suami pemegang ITAS/ITAP."
-        },
-        {
-          "ul": [
-            "Paspor sah yang masih berlaku paling singkat 18 (delapan belas) bulan untuk tinggal selama waktu kurang dari 1 (satu) tahun",
-            "Formulir Permohonan Visa yang telah dilengkapi dan ditandatangani (dicetak pada satu kertas bolak-balik);",
-            "1 (satu) pasfoto berwarna terbaru berukuran 3 cm x 4 cm (ditempel pada Formulir Permohonan Visa);",
-            "Reservasi tiket (pesawat, kapal, feri);",
-            "Keterangan tempat tinggal selama berada di wilayah Indonesia;",
-            "Sertifikat asli kepemilikan rekening dari bank dengan jumlah uang paling sedikit US$ 1500 (seribu lima ratus Dolar Amerika Serikat) sebagai bukti memiliki biaya hidup bagi pemohon dan/atau anggota keluarganya selama berada di wilayah Indonesia;",
-            "Rekening koran asli dari bank untuk rincian transaksi selama 3 (tiga) bulan terakhir;",
-            "Surat Penjaminan dari penjamin di Indonesia (berikut salinan Kartu Identitas penjamin);",
-            "Salinan Kutipan Akta Nikah atau Buku Nikah yang telah diterjemahkan ke dalam bahasa Indonesia oleh penerjemah tersumpah, kecuali dalam bahasa Inggris;",
-            "Salinan Izin Tinggal Terbatas atau Izin Tinggal Tetap atau Surat Persetujuan Visa Tinggal Terbatas suami atau isteri yang sah dan masih berlaku;",
-            "Salinan Surat Persetujuan Direktur Jenderal Imigrasi RI (TELEX)."
-          ]
-        },
-        {
-          "h2": "4. Visa kunjungan yang diberikan untuk Anak yang Sah (di bawah 18 tahun dan belum menikah) dari WNA dengan WNI."
-        },
-        {
-          "ul": [
-            "Fotokopi paspor minimal masa berlaku 18 bulan untuk 1 tahun masa tinggal;",
-            "Formulir Permohonan Visa yang telah dilengkapi dan ditandatangani (dicetak pada satu kertas bolak-balik);",
-            "1 (satu) pasfoto berwarna terbaru berukuran 3 cm x 4 cm (ditempel pada Formulir Permohonan Visa);",
-            "Reservasi tiket (pesawat, kapal, feri);",
-            "Keterangan tempat tinggal selama berada di wilayah Indonesia;",
-            "Sertifikat asli kepemilikan rekening dari bank dengan jumlah uang paling sedikit US$ 1500 (seribu lima ratus Dolar Amerika Serikat) sebagai bukti memiliki biaya hidup bagi pemohon dan/atau anggota keluarganya selama berada di wilayah Indonesia;",
-            "Rekening koran asli dari bank untuk rincian transaksi selama 3 (tiga) bulan terakhir;",
-            "Surat Permohonan dari ayah atau ibu warga negara Indonesia;",
-            "Surat Penjaminan dari penjamin di Indonesia (berikut salinan Kartu Identitas penjamin);",
-            "Salinan Kutipan Akta Lahir yang telah diterjemahkan ke dalam bahasa Indonesia oleh penerjemah tersumpah, kecuali bahasa Inggris;",
-            "Salinan Kutipan Akta Nikah atau Buku Nikah orang tua yang telah diterjemahkan ke dalam bahasa Indonesia oleh penerjemah tersumpah, kecuali dalam bahasa Inggris;",
-            "Salinan Kartu Tanda Penduduk (KTP) ayah atau ibu warga negara Indonesia;",
-            "Salinan Kartu Keluarga ayah atau ibu warga negara Indonesia;",
-            "Surat Tanda Bukti Pelaporan Perkawinan Orang Tua bagi yang melakukan perkawinan di luar wilayah Indonesia;",
-            "Salinan Surat Persetujuan Direktur Jenderal Imigrasi RI (TELEX)."
-          ]
-        }
-      ],
-      "en": [
-        {
-          "p": "Foreign nationals in a mixed marriage, or for the purpose of family unification, may apply for a Limited Stay Visa C 317."
-        },
-        {
-          "h2": "Family Unification Limited Stay Visa C 317"
-        },
-        {
-          "ul": [
-            "A visa application for a child under 18 years of age and unmarried, from a legal marriage between a foreign national and an Indonesian citizen, submitted with a valid passport with at least 18 (eighteen) months of validity;",
-            "A visa application for a child under 18 years of age and unmarried who is joining a parent holding a Limited Stay Permit or Permanent Stay Permit, submitted with a valid passport with validity of:",
-            "At least 30 months for a foreign child accompanying a parent holding a Limited Stay Permit or Permanent Stay Permit valid for more than 1 (one) year;",
-            "At least 18 months for a foreign child accompanying a parent holding a Limited Stay Permit or Permanent Stay Permit valid for less than 1 (one) year."
-          ]
-        },
-        {
-          "h2": "Purposes & Requirements"
-        },
-        {
-          "h2": "1. A visit visa granted to a foreign national married to an Indonesian citizen."
-        },
-        {
-          "h2": "Requirements:"
-        },
-        {
-          "ul": [
-            "A visa application for a child under 18 years of age and unmarried, from a legal marriage between a foreign national and an Indonesian citizen, submitted with a valid passport with at least 18 (eighteen) months of validity;",
-            "A visa application for a child under 18 years of age and unmarried who is joining a parent holding a Limited Stay Permit or Permanent Stay Permit, submitted with a valid passport with validity of:",
-            "At least 30 months for a foreign child accompanying a parent holding a Limited Stay Permit or Permanent Stay Permit valid for more than 1 (one) year;",
-            "At least 18 months for a foreign child accompanying a parent holding a Limited Stay Permit or Permanent Stay Permit valid for less than 1 (one) year.",
-            "Original bank statement detailing transactions for the last 3 (three) months;",
-            "An application letter from the Indonesian-citizen husband or wife (with a copy of the applicant's ID card);",
-            "A copy of the marriage certificate or marriage book;",
-            "Proof of marriage registration from the Representative of the Republic of Indonesia and a copy of the marriage certificate or marriage book translated into Indonesian by a sworn translator, except if in English (if the marriage took place outside Indonesia);",
-            "A copy of the Approval Letter from the Director General of Immigration of the Republic of Indonesia (TELEX)."
-          ]
-        },
-        {
-          "h2": "2. A visit visa granted to a child under 18 and unmarried who is joining a parent holding an ITAS/ITAP."
-        },
-        {
-          "h2": "Requirements:"
-        },
-        {
-          "ul": [
-            "A photocopy of the passport with at least 18 months of validity, for a foreign child accompanying a parent holding a Limited Stay Permit or Permanent Stay Permit valid for less than 1 (one) year;",
-            "A photocopy of the passport with at least 30 months of validity, for a foreign child accompanying a parent holding a Limited Stay Permit or Permanent Stay Permit valid for more than 1 (one) year",
-            "A completed and signed Visa Application Form (printed double-sided on one sheet);",
-            "1 (one) recent colour passport photo, 3 cm x 4 cm (attached to the Visa Application Form);",
-            "Ticket reservation (plane, ship, ferry);",
-            "Proof of residence while in Indonesian territory;",
-            "An original bank certificate of account ownership with a balance of at least US$ 1,500 (one thousand five hundred US dollars), as evidence of living expenses for the applicant and/or family members while in Indonesian territory;",
-            "Original bank statement detailing transactions for the last 3 (three) months;",
-            "A Letter of Guarantee from the sponsor in Indonesia (with a copy of the sponsor's identity card);",
-            "A copy of the birth certificate translated into Indonesian by a sworn translator, except if in English;",
-            "A copy of the parents' marriage certificate or marriage book translated into Indonesian by a sworn translator, except if in English;",
-            "A copy of the parent's valid Limited Stay Permit Card or Permanent Stay Permit Card;"
-          ]
-        },
-        {
-          "h2": "3. A visit visa granted to a foreign national for the purpose of accompanying a wife/husband holding an ITAS/ITAP."
-        },
-        {
-          "ul": [
-            "A valid passport with at least 18 (eighteen) months of validity, for a stay of less than 1 (one) year",
-            "A completed and signed Visa Application Form (printed double-sided on one sheet);",
-            "1 (one) recent colour passport photo, 3 cm x 4 cm (attached to the Visa Application Form);",
-            "Ticket reservation (plane, ship, ferry);",
-            "Proof of residence while in Indonesian territory;",
-            "An original bank certificate of account ownership with a balance of at least US$ 1,500 (one thousand five hundred US dollars), as evidence of living expenses for the applicant and/or family members while in Indonesian territory;",
-            "Original bank statement detailing transactions for the last 3 (three) months;",
-            "A Letter of Guarantee from the sponsor in Indonesia (with a copy of the sponsor's identity card);",
-            "A copy of the marriage certificate or marriage book translated into Indonesian by a sworn translator, except if in English;",
-            "A copy of the valid Limited Stay Permit, Permanent Stay Permit, or Limited Stay Visa Approval Letter of the legal husband or wife;",
-            "A copy of the Approval Letter from the Director General of Immigration of the Republic of Indonesia (TELEX)."
-          ]
-        },
-        {
-          "h2": "4. A visit visa granted to a legitimate child (under 18 years of age and unmarried) of a foreign national and an Indonesian citizen."
-        },
-        {
-          "ul": [
-            "A photocopy of the passport with at least 18 months of validity, for a 1-year stay;",
-            "A completed and signed Visa Application Form (printed double-sided on one sheet);",
-            "1 (one) recent colour passport photo, 3 cm x 4 cm (attached to the Visa Application Form);",
-            "Ticket reservation (plane, ship, ferry);",
-            "Proof of residence while in Indonesian territory;",
-            "An original bank certificate of account ownership with a balance of at least US$ 1,500 (one thousand five hundred US dollars), as evidence of living expenses for the applicant and/or family members while in Indonesian territory;",
-            "Original bank statement detailing transactions for the last 3 (three) months;",
-            "An application letter from the Indonesian-citizen father or mother;",
-            "A Letter of Guarantee from the sponsor in Indonesia (with a copy of the sponsor's identity card);",
-            "A copy of the birth certificate translated into Indonesian by a sworn translator, except if in English;",
-            "A copy of the parents' marriage certificate or marriage book translated into Indonesian by a sworn translator, except if in English;",
-            "A copy of the ID card (KTP) of the Indonesian-citizen father or mother;",
-            "A copy of the family card of the Indonesian-citizen father or mother;",
-            "Proof of registration of the parents' marriage, for marriages that took place outside Indonesia;",
-            "A copy of the Approval Letter from the Director General of Immigration of the Republic of Indonesia (TELEX)."
-          ]
-        }
-      ]
-    },
-    "visa-on-arrival": {
-      "status": "draft",
-      "source": "legacy/visa-on-arrival.html",
-      "verify": "Lama tinggal, perpanjangan, dan daftar keperluan VOA perlu dicek terhadap ketentuan terbaru.",
-      "id": [
-        {
-          "p": "WNA bisa memperoleh VOA pada saat kedatangannya di wilayah Indonesia, jika negaranya termasuk dalam daftar negara yang dapat memperoleh VOA. VOA diberikan untuk lama tinggal maksimal 30 hari dan dapat diperpanjang 1 kali dengan lama tinggal maksimal 30 hari."
-        },
-        {
-          "h2": "Keperluan & Persyaratan"
-        },
-        {
-          "h2": "Keperluan :"
-        },
-        {
-          "p": "VISA ON ARRIVAL (VOA) dapat digunakan untuk kunjungan:"
-        },
-        {
-          "ul": [
-            "Kerjasama antara pemerintah negara lain dengan negara Indonesia;",
-            "Wisata;",
-            "Keluarga/sosial;",
-            "Antar lembaga pendidikan;",
-            "Mengikuti pelatihan singkat;",
-            "Jurnalistk yang telah mendapat izin dari instansi yang berwenang;",
-            "Pembuatan film yang tidak bersifat komersial dan telah mendapat izin dari instansi yang berwenang;",
-            "Melakukan pembicaraan bisnis seperti transaksi jual beli barang dan jasa serta pengawasan kualitas barang atau produksi;",
-            "Memberikan ceramah atau mengikuti seminar yang tidak bersifat komersial dalam bidang sosial, budaya maupun pemerintah setelah mendapat izin dari instansi yang bersangkutan;",
-            "Mengikuti rapat yang diadakan dengan kantor pusat atau perwakilannya di Indonesia."
-          ]
-        },
-        {
-          "h2": "Persyaratan :"
-        },
-        {
-          "ul": [
-            "Surat Perjalanan atau Paspor Kebangsaan dengan masa berlaku minimal 6 (enam) bulan;",
-            "Tiket kembali atau tiket terusan untuk melanjutkan perjalanan ke negara lain, kecuali bagi awak alat angkut yang akan singgah untuk bergabung dengan kapalnya dan melanjutkan perjalanan ke negara lain;",
-            "Pas foto berwarna;",
-            "Tidak terdaftar namanya dalam Daftar Penangkalan; dan",
-            "Membayar biaya sesuai dengan ketentuan yang berlaku."
-          ]
-        }
-      ],
-      "en": [
-        {
-          "p": "Foreign nationals can obtain a VOA on arrival in Indonesian territory if their country is on the list of countries eligible for a VOA. A VOA is granted for a maximum stay of 30 days and can be extended once for a maximum of 30 days."
-        },
-        {
-          "h2": "Purposes & Requirements"
-        },
-        {
-          "h2": "Purposes:"
-        },
-        {
-          "p": "A VISA ON ARRIVAL (VOA) can be used for visits for:"
-        },
-        {
-          "ul": [
-            "Cooperation between the government of another country and Indonesia;",
-            "Tourism;",
-            "Family/social purposes;",
-            "Exchanges between educational institutions;",
-            "Attending short training;",
-            "Journalism that has obtained a permit from the competent authority;",
-            "Non-commercial film-making that has obtained a permit from the competent authority;",
-            "Holding business discussions such as the purchase and sale of goods and services, and quality control of goods or production;",
-            "Giving lectures or attending non-commercial seminars in the social, cultural or governmental fields, after obtaining a permit from the relevant authority;",
-            "Attending meetings held with the head office or its representative in Indonesia."
-          ]
-        },
-        {
-          "h2": "Requirements:"
-        },
-        {
-          "ul": [
-            "A travel document or national passport with a minimum validity of 6 (six) months;",
-            "A return ticket or onward ticket to continue the journey to another country, except for crew members of a means of transport who are stopping over to join their vessel and continue to another country;",
-            "Colour passport photo;",
-            "Not listed on the Entry Ban List; and",
-            "Payment of the fee according to the applicable provisions."
-          ]
-        }
-      ]
-    },
-    "visa-pelajar": {
-      "status": "draft",
-      "source": "legacy/visa-pelajar.html",
-      "verify": "Kode 316 dan nama kementerian (izin belajar) perlu disesuaikan dengan ketentuan terbaru.",
-      "id": [
-        {
-          "p": "Visa yang dipergunakan WNA yang bersekolah di Indonesia selama 1 tahun dan bisa diperpanjang setiap tahunnya sesuai ketentuan imigrasi yang berlaku."
-        },
-        {
-          "h2": "Prosedur & Persyaratan"
-        },
-        {
-          "h2": "Prosedur :"
-        },
-        {
-          "p": "Prosedur yang harus dipenuhi oleh WNA yang ingin menjadi mahasiswa asing di Indonesia:"
-        },
-        {
-          "ul": [
-            "Calon mahasiswa mengajukan permohonan langsung kepada Perguruan Tinggi yang dituju dengan melampirkan berkas persyaratan;",
-            "Jika sudah diterima, maka pimpinan perguruan tinggi menjawab melalui surat persetujuan dan sekaligus pernyataan sebagai sponsor/penanggung jawab selama belajar di perguruan tinggi;",
-            "Berdasarkan surat persetujuan yang diterima dari perguruan tinggi, maka yang bersangkutan dapat mengajukan permohonan visa dan Ijin Tinggal Terbatas melalui Kedubes RI setempat;",
-            "Melampirkan berkas-berkas persyaratan yang ditentukan;"
-          ]
-        },
-        {
-          "p": "Mengurus Surat Izin Belajar dari Sekretariat Jenderal Kementerian Riset Teknologi dan Pendidikan Tinggi melalui Pimpinan Perguruan Tinggi yang dituju."
-        },
-        {
-          "h2": "Persyaratan :"
-        },
-        {
-          "p": "Persyaratan bagi WNA untuk menjadi calon mahasiswa di perguruan tinggi di Indonesia:"
-        },
-        {
-          "ul": [
-            "Memenuhi persyaratan akademik untuk mengikuti Pendidikan tinggi di Indonesia;",
-            "Memiliki sumber pembiayaan untuk menjamin kelangsungan mengikuti pendidikan di perguruan tinggi;",
-            "Diterima oleh perguruan tinggi sebagai mahasiswa;",
-            "Memiliki izin belajar dari Sekretariat Jenderal Kementerian Riset Teknologi dan Pendidikan Tinggi;",
-            "Memiliki visa atau izin tinggal di Indonesia; dan",
-            "Mematuhi peraturan perundang-undangan di Indonesia dan ketentuan perguruan tinggi yang dituju"
-          ]
-        }
-      ],
-      "en": [
-        {
-          "p": "A visa used by foreign nationals studying in Indonesia, valid for 1 year and extendable every year according to the applicable immigration provisions."
-        },
-        {
-          "h2": "Procedure & Requirements"
-        },
-        {
-          "h2": "Procedure:"
-        },
-        {
-          "p": "The procedure to be followed by foreign nationals who wish to become foreign students in Indonesia:"
-        },
-        {
-          "ul": [
-            "The prospective student applies directly to the intended higher education institution, attaching the required documents;",
-            "If accepted, the head of the institution replies with a letter of approval that also serves as a statement of sponsorship/responsibility for the duration of study at the institution;",
-            "Based on the letter of approval received from the institution, the person concerned can apply for a visa and Limited Stay Permit through the local Indonesian Embassy;",
-            "Attach the required documents;"
-          ]
-        },
-        {
-          "p": "Obtain a Study Permit from the Secretariat General of the Ministry of Research, Technology and Higher Education through the head of the intended institution."
-        },
-        {
-          "h2": "Requirements:"
-        },
-        {
-          "p": "Requirements for foreign nationals to become prospective students at a higher education institution in Indonesia:"
-        },
-        {
-          "ul": [
-            "Meet the academic requirements for higher education in Indonesia;",
-            "Have a source of funding to guarantee continued study at the institution;",
-            "Be accepted by the institution as a student;",
-            "Hold a study permit from the Secretariat General of the Ministry of Research, Technology and Higher Education;",
-            "Hold a visa or stay permit in Indonesia; and",
-            "Comply with Indonesian laws and regulations and the rules of the intended institution"
-          ]
+          "p": "Clients who have signed a Memorandum of Understanding (MoU) with Ape Gale receive a discount on this service."
         }
       ]
     }

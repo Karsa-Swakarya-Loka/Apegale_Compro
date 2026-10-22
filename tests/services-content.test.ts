@@ -5,14 +5,16 @@ import { toLexical, validateContent, type ServicesContentFile } from '../src/see
 
 const file = JSON.parse(await readFile(new URL('../content/seed/services-content.json', import.meta.url), 'utf8')) as ServicesContentFile
 
-test('services content: all 16 services, parallel ID/EN, drafts carry a verify note', () => {
+test('services content: all 11 services, parallel ID/EN, drafts carry a verify note', () => {
   assert.deepEqual(validateContent(file), [])
-  assert.equal(Object.keys(file.services).length, 16)
+  assert.equal(Object.keys(file.services).length, 11)
 })
 
-test('services content: only general descriptions are published (decisions #7, #20)', () => {
+test('services content: general descriptions and the client-revised visa pages are published (decisions #7, #20, #38)', () => {
   const published = Object.entries(file.services).filter(([, c]) => c.status === 'published').map(([slug]) => slug).sort()
-  assert.deepEqual(published, ['airport-escort', 'all-in-one-solutions', 'broad-expatriate-hosting', 'expatriate-formalities', 'hr-system-consulting', 'legalitas-perusahaan', 'manpower-supply'])
+  assert.deepEqual(published, ['airport-escort', 'all-in-one-solutions', 'broad-expatriate-hosting', 'expatriate-formalities', 'hr-system-consulting', 'legalitas-perusahaan', 'visa-global', 'visa-indonesia', 'visa-paspor'])
+  const drafts = Object.entries(file.services).filter(([, c]) => c.status === 'draft').map(([slug]) => slug).sort()
+  assert.deepEqual(drafts, ['kitas-kitap', 'kitas-lansia'])
 })
 
 test('toLexical builds paragraphs, headings, bullet lists and bold text', () => {

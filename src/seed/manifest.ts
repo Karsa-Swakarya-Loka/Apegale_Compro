@@ -1,6 +1,13 @@
 // Stable identities: keep these keys even when the wording changes.
 export const faqKeys = [
- 'faq-kitas-kitap', 'faq-documents', 'faq-garis', 'faq-nationwide', 'faq-consultation',
+ 'faq-kitas-kitap', 'faq-documents', 'faq-garis', 'faq-nationwide', 'faq-consultation', 'faq-mou-discount',
+] as const
+// Services removed from the seed on purpose; the seed deletes them wherever they still exist.
+// 18 Oct 2026: the six 2021 visa sub-pages were replaced by Visa Indonesia and Visa Global under Visa & Paspor.
+// 22 Oct 2026: Manpower Supply is not an Ape Gale service (owner decision #46).
+export const retiredServices = [
+ 'vitas', 'multiple-business-visa', 'visa-kunjungan', 'visa-tinggal-terbatas-penyatuan-keluarga', 'visa-on-arrival', 'visa-pelajar',
+ 'manpower-supply',
 ] as const
 export const mediaAlt: Record<string, { id: string; en: string }> = {
  'design/assets/Photography/hero-meeting-city.jpg': { id: 'Empat orang berbincang di ruang rapat dengan latar gedung kota.', en: 'Four people talking in a meeting room overlooking city buildings.' },

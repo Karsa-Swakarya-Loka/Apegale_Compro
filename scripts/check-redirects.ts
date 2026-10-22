@@ -9,7 +9,7 @@ const base = (process.argv[2] || process.env.NEXT_PUBLIC_SITE_URL || 'http://loc
 const pdfMap = JSON.parse(readFileSync(path.resolve(import.meta.dirname, '../content/seed/legacy-pdf-redirects.json'), 'utf8'))
 const cases = [
   ...legacyRedirects(pdfMap).map(r => ({ from: r.source, to: r.destination })),
-  { from: '/en/', to: '/en' }, { from: '/layanan/', to: '/layanan' }, { from: '/en/services/manpower-supply/', to: '/en/services/manpower-supply' },
+  { from: '/en/', to: '/en' }, { from: '/layanan/', to: '/layanan' }, { from: '/en/services/airport-escort/', to: '/en/services/airport-escort' },
   { from: '/regulasi/?kategori=lainnya', to: '/regulasi?kategori=lainnya' }, { from: '/news/', to: '/news' }, { from: '/hubungi-kami/', to: '/hubungi-kami' },
 ]
 

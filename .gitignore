@@ -26,3 +26,8 @@ reference/
 .vercel
 .env*
 !.env.example
+
+# Agent tool clutter
+.agents/
+.claude/
+skills-lock.json
