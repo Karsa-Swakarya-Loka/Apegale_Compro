@@ -156,3 +156,11 @@ Owner menolak seksi baru di Beranda; hierarki Expatriate Formalities → Visa & 
 - `home.css` blok "Services: the register": `.ag-folio__tab` dan `.ag-ledger__tab` berbagi geometri (46×24px, `skewX(-24deg)`, span dalam di-unskew); tab indeks bergaris `--line-strong`, hover maroon + geser 3px, terpilih terisi maroon/`--on-brand`. `.ag-ledger__list::before` = benang (`left: -gutter-1px`, lebar gutter+29px, `top: calc((var(--k)+0.5)*100%/var(--n) - 1px)`, transisi `top` 420ms), `::after` = tab sandaran 10×16px di tepi kanan lembar (`border-right` tipis pada `.ag-folio`). Saat reveal, benang `scaleX(0)` → 1 (origin kanan) dan sandaran `scale(0)` → 1 dengan delay 420ms.
 - `ServicesDossier.tsx`: state `selected` (tab dan benang bergerak seketika) terpisah dari `active` (lembar yang tampil, berganti setelah fase keluar 160ms); `--k`/`--n` di-set inline pada `ol[role=tablist]`; markup nomor dan panah diganti tab.
 - Uji: unit 27/27, typecheck, lint, `next build` lulus; Chrome 1440: benang tepat di tengah baris terpilih (selisih 1px), meluncur ke 04 saat diklik, lembar bertukar; 485px: benang tersembunyi, baris ≥44px, tanpa overflow horizontal, tanpa konsol error.
+
+## Visa & Paspor jadi layanan utama, hierarki selalu ikut seed (22 Okt 2026, keputusan #50)
+
+- `content/seed/services.json`: `visa-paspor` order 3, parent null (anak: visa-indonesia, visa-global). `services-content.json`: daftar di body Expatriate Formalities tidak lagi menyebut Visa & Paspor.
+- `src/seed/run.ts`: loop relasi kini menulis `{ parent, order }` untuk setiap layanan bila berbeda dari database (sebelumnya hanya bila parent kosong atau `SEED_OVERWRITE`), sehingga database lama (termasuk produksi) ikut berpindah tanpa menimpa judul/isi. Tes: layanan yang sengaja dipindahkan di bawah Expatriate Formalities kembali ke tingkat atas setelah seed.
+- Redirect: `/manpower-supply/` → `/layanan/visa-paspor`, `/manpower-supply-en/` → `/en/services/visa-paspor` (214 tetap).
+- Navbar: Visa & Paspor tampil di tingkat kedua dropdown Layanan dengan Visa Indonesia/Global menjorok di bawahnya (flyout tingkat ketiga tetap ada untuk cabang lebih dalam bila nanti ada). Beranda: register 6 tab, lembar Visa & Paspor dengan pohonnya sendiri.
+- Produksi: `DATABASE_URI=<postgres> npm run seed && npm run content:services` (lihat README), lalu cek `/layanan` dan navbar.

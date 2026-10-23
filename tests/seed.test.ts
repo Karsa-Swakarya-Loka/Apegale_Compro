@@ -54,6 +54,14 @@ test('seed twice: stable identities, bilingual content, exact client count, no i
  const child = await store.find('services','slug','visa-indonesia','id')
  const parent = await store.find('services','slug','visa-paspor','id')
  assert.equal(child?.parent, parent?.id)
+ // Visa & Paspor is the third top-level service (owner, 22 Oct 2026). An older database that still files it under
+ // Expatriate Formalities is corrected by the seed: hierarchy and order always follow the seed.
+ assert.equal(parent?.parent ?? null, null); assert.equal(parent?.order, 3)
+ const formalities = await store.find('services','slug','expatriate-formalities','id')
+ await store.update('services', parent!.id as number, { parent: formalities!.id, order: 8 }, 'id')
+ await runSeed(store, root)
+ const moved = await store.find('services','slug','visa-paspor','id')
+ assert.equal(moved?.parent ?? null, null); assert.equal(moved?.order, 3)
  // Retired 2021 visa sub-pages are removed even when an older database still has them.
  await store.create('services', { slug: 'vitas', title: 'VITAS', _status: 'draft' }, 'id')
  await runSeed(store, root)

@@ -40,6 +40,26 @@
     "priceItems": []
   },
   {
+    "slug": "visa-paspor",
+    "order": 3,
+    "parent": null,
+    "showInMenu": true,
+    "icon": "stamp",
+    "title": {
+      "id": "Layanan Visa & Paspor",
+      "en": "Visa & Passport Services"
+    },
+    "summary": {
+      "id": "Visa Indonesia bagi WNA serta visa global untuk perjalanan ke luar negeri. Klien yang telah memiliki MoU mendapatkan fasilitas diskon.",
+      "en": "Indonesian visas for foreign nationals and global visas for travel abroad. Clients with an MoU receive a discount."
+    },
+    "body": {
+      "source": "Revisi klien (Reza, 18 Okt 2026): layanan visa dibagi dua kelompok, Visa Indonesia dan Visa Global.",
+      "note": "Isi di services-content.json. Kode visa memakai nomenklatur baru dari klien (C1, D1, E23, E31, E32). 22 Okt 2026: layanan utama ke-3 (menggantikan slot Manpower Supply), bukan lagi anak Expatriate Formalities (owner, #50)."
+    },
+    "priceItems": []
+  },
+  {
     "slug": "legalitas-perusahaan",
     "order": 4,
     "parent": null,
@@ -116,26 +136,6 @@
     "body": {
       "source": "legacy/layanan-kitas-kitap.html",
       "note": "Migrasi isi dari file lama (ID), rapikan, terjemahkan ke EN. Kode & durasi visa di halaman lama (2021) harus dicek ulang terhadap regulasi terbaru sebelum publish."
-    },
-    "priceItems": []
-  },
-  {
-    "slug": "visa-paspor",
-    "order": 8,
-    "parent": "expatriate-formalities",
-    "showInMenu": true,
-    "icon": "stamp",
-    "title": {
-      "id": "Layanan Visa & Paspor",
-      "en": "Visa & Passport Services"
-    },
-    "summary": {
-      "id": "Visa Indonesia bagi WNA serta visa global untuk perjalanan ke luar negeri. Klien yang telah memiliki MoU mendapatkan fasilitas diskon.",
-      "en": "Indonesian visas for foreign nationals and global visas for travel abroad. Clients with an MoU receive a discount."
-    },
-    "body": {
-      "source": "Revisi klien (Reza, 18 Okt 2026): layanan visa dibagi dua kelompok, Visa Indonesia dan Visa Global.",
-      "note": "Isi di services-content.json. Kode visa memakai nomenklatur baru dari klien (C1, D1, E23, E31, E32)."
     },
     "priceItems": []
   },

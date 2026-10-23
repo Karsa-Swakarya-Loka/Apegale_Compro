@@ -36,12 +36,15 @@ export async function runSeed(store: SeedStore, root: string, overwrite = false)
   const slug = String(raw.slug)
   serviceIDs.set(slug, await upsert('services', 'slug', slug, locale => normalizeService(raw, locale), 'title'))
  }
- // Relations resolve only after every service exists, and never create extra services.
- for (const raw of list(sources.services)) if (raw.parent) {
-  const parent = serviceIDs.get(String(raw.parent))
-  if (parent == null) throw new Error('Unknown service parent ' + raw.parent)
+ // Relations resolve only after every service exists, and never create extra services. Hierarchy and order are
+ // structure, not editorial content, so an existing row follows the seed (e.g. Visa & Paspor moved to the top level
+ // on 22 Oct 2026); titles and bodies stay untouched unless overwrite is set.
+ for (const raw of list(sources.services)) {
+  const parent = raw.parent ? serviceIDs.get(String(raw.parent)) ?? null : null
+  if (raw.parent && parent == null) throw new Error('Unknown service parent ' + raw.parent)
   const current = await store.find('services', 'slug', String(raw.slug), 'id')
-  if (overwrite || !current?.parent) await store.update('services', serviceIDs.get(String(raw.slug))!, { parent }, 'id')
+  const order = Number(raw.order)
+  if ((current?.parent ?? null) !== parent || current?.order !== order) await store.update('services', serviceIDs.get(String(raw.slug))!, { parent, order }, 'id')
  }
  for (const raw of list(sources.clients)) {
   await upsert('clients', 'name', String(raw.name), () => ({ ...raw, logo: raw.logo ? mediaIDs.get(String(raw.logo)) : null, _status: 'published', enReviewed: false }), 'name')

@@ -1,5 +1,5 @@
 {
-  "_about": "Deskripsi layanan publik diparafrase sesuai permintaan owner 09 Okt 2026. Sumber asli tetap di legacy/. Dokumen layanan berstatus draft tetap memerlukan verifikasi hukum (#7 dan #20). Revisi klien 18 Okt 2026 (Reza): layanan visa dibagi dua kelompok (Visa Indonesia, Visa Global) dengan kode visa baru; enam sub-visa lama (kode 2021) dihapus; klien ber-MoU mendapat fasilitas diskon. 22 Okt 2026: Manpower Supply dihapus (bukan layanan Ape Gale, keputusan owner #46).",
+  "_about": "Deskripsi layanan publik diparafrase sesuai permintaan owner 09 Okt 2026. Sumber asli tetap di legacy/. Dokumen layanan berstatus draft tetap memerlukan verifikasi hukum (#7 dan #20). Revisi klien 18 Okt 2026 (Reza): layanan visa dibagi dua kelompok (Visa Indonesia, Visa Global) dengan kode visa baru; enam sub-visa lama (kode 2021) dihapus; klien ber-MoU mendapat fasilitas diskon. 22 Okt 2026: Manpower Supply dihapus (bukan layanan Ape Gale, keputusan owner #46). 22 Okt 2026 (#50): Layanan Visa & Paspor menjadi layanan utama ke-3 (slot bekas Manpower Supply), terpisah dari Expatriate Formalities; seed kini selalu menerapkan parent dan urutan dari seed.",
   "services": {
     "broad-expatriate-hosting": {
       "status": "published",
@@ -25,7 +25,6 @@
         {
           "ul": [
             "Layanan KITAS & KITAP",
-            "Layanan Visa & Paspor",
             "All in One Solutions",
             "KITAS Lansia"
           ]
@@ -38,7 +37,6 @@
         {
           "ul": [
             "KITAS & KITAP Services",
-            "Visa & Passport Services",
             "All in One Solutions",
             "Retirement KITAS"
           ]

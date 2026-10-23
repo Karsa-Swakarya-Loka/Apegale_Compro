@@ -20,7 +20,7 @@ Indonesian tanpa prefix, English di bawah `/en`. Segmen halaman statis dilokalka
 Layout global di semua halaman: **Header** (topbar + nav + toggle bahasa + CTA "Konsultasi Gratis") · konten · **CTA banner** (kecuali Hubungi Kami) · **Footer** · **WhatsAppFloat**.
 
 ## Menu utama
-Home · Tentang Kami ▾ (Salam dari Kami, Profil Perusahaan, Founder, Organigram — anchor di satu halaman) · Layanan ▾ (6 layanan; Expatriate Formalities punya sub-menu: KITAS & KITAP, Visa & Paspor, All in One Solutions, KITAS Lansia) · GARIS · Regulasi · News · Hubungi Kami.
+Home · Tentang Kami ▾ (Salam dari Kami, Profil Perusahaan, Founder, Organigram — anchor di satu halaman) · Layanan ▾ (6 layanan; Expatriate Formalities punya sub-menu: KITAS & KITAP, All in One Solutions, KITAS Lansia; Layanan Visa & Paspor punya sub-menu: Visa Indonesia, Visa Global) · GARIS · Regulasi · News · Hubungi Kami.
 Menu diambil dari CMS (`services` dengan `showInMenu`), bukan di-hardcode.
 
 ## Susunan section per template
