@@ -14,11 +14,11 @@ type Props = {
 const num = (i: number) => String(i + 1).padStart(2, '0')
 
 /** Services as a dossier: all services run in CMS order as a numbered ledger on the right; the folio on the left opens
- *  the selected one (by default the service that carries sub-services, Expatriate Formalities, with its filing tree).
+ *  the selected one (by default the first service, 01 Broad Expatriate Hosting; choosing a tab swaps the sheet).
  *  One Reveal wraps the index so rows and tree items enter in sequence (CSS --i delays); swapping is handled client-side. */
 export function ServicesSection({ title, highlight, intro, services, moreLabel, all, index }: Props) {
   if (!services.length) return null
-  const initial = Math.max(0, services.findIndex(s => s.subServices?.length))
+  const initial = 0
   const rows = services.map((s, i) => ({ slug: s.slug, title: s.title, summary: s.summary, href: s.href, subServices: s.subServices, n: num(i) }))
 
   return (
