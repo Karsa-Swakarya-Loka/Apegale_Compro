@@ -10,7 +10,7 @@ export const Regulations: CollectionConfig = {
   text('title', true, { label: 'Judul peraturan' }),
   row({ name: 'category', type: 'select', required: true, label: 'Kategori', admin: { width: '40%' }, options: [
     { label: 'Undang-undang Cipta Kerja', value: 'cipta-kerja' }, { label: 'Ketentuan Perizinan TKA', value: 'perizinan-tka' },
-    { label: 'Ketentuan Keimigrasian TKA', value: 'keimigrasian-tka' }, { label: 'Ketentuan Manpower Supply', value: 'manpower-supply' },
+    { label: 'Ketentuan Keimigrasian TKA', value: 'keimigrasian-tka' }, { label: 'Ketentuan Alih Daya (Outsourcing)', value: 'manpower-supply' },
     { label: 'Ketentuan lainnya', value: 'lainnya' }] },
    { name: 'number', type: 'text', label: 'Nomor peraturan', admin: { width: '35%', placeholder: 'mis. PP No. 34 Tahun 2021' } },
    { name: 'issuedAt', type: 'date', label: 'Tanggal terbit', admin: { width: '25%', date: { pickerAppearance: 'dayOnly' } } }),
