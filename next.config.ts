@@ -15,5 +15,7 @@ const config: NextConfig = {
   // must be told that query strings are allowed on that path. Other local images stay query-free.
   images: { formats: ['image/avif', 'image/webp'], localPatterns: [{ pathname: '/api/media/file/**' }, { pathname: '/**', search: '' }] },
   async redirects() { return [{ source: '/en/', destination: '/en', statusCode: 301 }, ...legacyRedirects(pdfMap)] },
+  // Security-advisory reminders for coding-agent upgrades (next upgrade --agent); does not upgrade on its own.
+  experimental: { agentUpgrade: 'security' },
 }
 export default withPayload(config)
