@@ -7,7 +7,7 @@ import type { Locale } from '@/i18n/config'
 import type { Messages } from '@/i18n/messages'
 import { href } from '@/i18n/routes'
 import { telHref, whatsappHref } from '@/lib/whatsapp'
-import { InstagramIcon, WhatsAppIcon } from '@/components/ui/BrandIcons'
+import { InstagramIcon, TikTokIcon, WhatsAppIcon } from '@/components/ui/BrandIcons'
 import { formatWhatsApp } from './Header'
 
 type FooterLink = { label: string; href: string }
@@ -16,10 +16,12 @@ type Props = { locale: Locale; site: Site; services: FooterLink[]; company: Foot
 export function Footer({ locale, site, services, company, messages }: Props) {
   const wa = whatsappHref(site.whatsapp, site.whatsappDefaultMessage)
   const instagram = site.social?.find(s => s.platform === 'instagram')
+  const tiktok = site.social?.find(s => s.platform === 'tiktok')
   const phoneLabel = messages.contact.phone + ': ' + (site.phone ?? '')
   const whatsappLabel = 'WhatsApp: ' + formatWhatsApp(site.whatsapp)
   const emailLabel = 'Email: ' + (site.email ?? '')
   const instagramLabel = 'Instagram: Ape Gale Indonesia'
+  const tiktokLabel = 'TikTok: @' + (tiktok?.url.replace(/\/+$/, '').split('/').pop() ?? '').replace(/^@/, '')
   const regulations = messages.regulationCategories.map(c => ({
     label: c.label, href: `${href(locale, 'regulations')}?kategori=${c.value}`,
   }))
@@ -35,6 +37,7 @@ export function Footer({ locale, site, services, company, messages }: Props) {
             {wa ? <li><a className="ag-footer__contact-icon" href={wa} target="_blank" rel="noopener noreferrer" aria-label={whatsappLabel} title={whatsappLabel}><WhatsAppIcon size={20} /></a></li> : null}
             {site.email ? <li><a className="ag-footer__contact-icon" href={"mailto:" + site.email} aria-label={emailLabel} title={emailLabel}><Mail size={20} aria-hidden="true" /></a></li> : null}
             {instagram ? <li><a className="ag-footer__contact-icon" href={instagram.url} target="_blank" rel="noopener noreferrer" aria-label={instagramLabel} title={instagramLabel}><InstagramIcon size={20} /></a></li> : null}
+            {tiktok ? <li><a className="ag-footer__contact-icon" href={tiktok.url} target="_blank" rel="noopener noreferrer" aria-label={tiktokLabel} title={tiktokLabel}><TikTokIcon size={20} /></a></li> : null}
           </ul>
         </div>
         {services.length ? <FooterList title={messages.footer.services} links={services} /> : null}

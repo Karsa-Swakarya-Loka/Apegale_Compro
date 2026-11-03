@@ -13,7 +13,7 @@ import { ContactForm } from '@/components/forms/ContactForm'
 import { formLabels } from '@/components/forms/labels'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Button } from '@/components/ui/Button'
-import { InstagramIcon, WhatsAppIcon } from '@/components/ui/BrandIcons'
+import { InstagramIcon, TikTokIcon, WhatsAppIcon } from '@/components/ui/BrandIcons'
 import { formatWhatsApp } from '@/components/layout/Header'
 
 export async function contactMetadata(locale: Locale): Promise<Metadata> {
@@ -28,6 +28,7 @@ export async function ContactPage({ locale }: { locale: Locale }) {
   const m = getMessages(locale)
   const wa = whatsappHref(site.whatsapp, site.whatsappDefaultMessage)
   const instagram = site.social?.find(s => s.platform === 'instagram')
+  const tiktok = site.social?.find(s => s.platform === 'tiktok')
   const options = services.flatMap(s => [{ value: s.slug, label: s.title }, ...s.children.map(c => ({ value: c.slug, label: `— ${c.title}` }))])
 
   return (
@@ -60,6 +61,10 @@ export async function ContactPage({ locale }: { locale: Locale }) {
               {instagram ? (
                 <li><span className="ag-contact__icon"><InstagramIcon size={20} /></span>
                   <div><b className="ag-visually-hidden">Instagram: </b><a href={instagram.url} target="_blank" rel="noopener noreferrer">@{instagram.url.replace(/\/+$/, '').split('/').pop()}</a></div></li>
+              ) : null}
+              {tiktok ? (
+                <li><span className="ag-contact__icon"><TikTokIcon size={20} /></span>
+                  <div><b className="ag-visually-hidden">TikTok: </b><a href={tiktok.url} target="_blank" rel="noopener noreferrer">{tiktok.url.replace(/\/+$/, '').split('/').pop()}</a></div></li>
               ) : null}
             </ul>
             {wa ? <Button variant="wa" href={wa} label={ui.cta?.whatsapp || ''} icon={<WhatsAppIcon size={20} />} /> : null}

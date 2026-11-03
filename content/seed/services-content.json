@@ -86,7 +86,7 @@
         },
         {
           "ul": [
-            "Meeting guests with a name board",
+            "Meet-and-greet with a name board",
             "Assistance with travel and baggage documents",
             "Support through visa and immigration procedures",
             "Baggage collection and customs clearance",
@@ -170,7 +170,7 @@
           "p": "Izin mempekerjakan TKA sesuai dengan ketentuan yang diberlakukan oleh pemerintah/Kemenaker setempat. IMTA ini dipergunakan sebagai rekomendasi bagi TKA untuk medapatkan Telex Visa (e-visa)."
         },
         {
-          "h2": "TELEX VISA (e-visa)"
+          "h2": "Telex Visa (e-Visa)"
         },
         {
           "p": "Visa yang diberikan secara elektronik oleh pejabat yang berwenang yang memuat persetujuan bagi WNA untuk melakukan perjalanan ke wilayah Indonesia dan menjadi dasar untuk pemberian Izin Tinggal."
@@ -226,55 +226,55 @@
           "h2": "RPTKA (Foreign Worker Utilisation Plan)"
         },
         {
-          "p": "The Foreign Worker Utilisation Plan (RPTKA) is a plan for employing foreign workers in specific positions, prepared by the employer of the foreign worker for a period determined by the Ministry of Manpower. In certain conditions an RPTKA may be granted for a short period and cannot be extended, depending on the nature and type of work required by the employer."
+          "p": "The Foreign Worker Utilisation Plan (RPTKA) is a plan for employing foreign workers in specific positions, prepared by the employer for a period determined by the Ministry of Manpower. In certain cases an RPTKA may be granted for a short period and cannot be extended, depending on the nature and type of work required by the employer."
         },
         {
-          "h2": "IMTA Notification (PERMIT TO EMPLOY FOREIGN WORKERS)"
+          "h2": "IMTA Notification (Permit to Employ Foreign Workers)"
         },
         {
-          "p": "A permit to employ foreign workers in accordance with the provisions of the government/local Ministry of Manpower. The IMTA is used as a recommendation for the foreign worker to obtain a Telex Visa (e-visa)."
+          "p": "A permit to employ foreign workers, issued in accordance with the provisions of the central or regional Ministry of Manpower. The IMTA serves as the recommendation for the foreign worker to obtain a Telex Visa (e-visa)."
         },
         {
-          "h2": "TELEX VISA (e-visa)"
+          "h2": "Telex Visa (e-Visa)"
         },
         {
-          "p": "A visa issued electronically by the authorised official, containing approval for a foreign national to travel to Indonesian territory and serving as the basis for granting a stay permit."
+          "p": "A visa issued electronically by the authorised immigration official, containing approval for a foreign national to travel to Indonesia and serving as the basis for granting a stay permit."
         },
         {
-          "h2": "KITAS (LIMITED STAY PERMIT CARD)"
+          "h2": "KITAS (Limited Stay Permit Card)"
         },
         {
           "p": "A Limited Stay Permit is a type of immigration permit granted to foreign nationals to stay in Indonesian territory for a limited period."
         },
         {
-          "h2": "KITAP (PERMANENT STAY PERMIT CARD)"
+          "h2": "KITAP (Permanent Stay Permit Card)"
         },
         {
           "p": "A document held by foreign nationals who already hold an ITAS (Limited Stay Permit) and have lived in Indonesia for 5 consecutive years."
         },
         {
-          "h2": "MERP (MULTIPLE EXIT RE-ENTRY PERMIT)"
+          "h2": "MERP (Multiple Exit Re-Entry Permit)"
         },
         {
-          "p": "A permit issued by the local immigration office to holders of an online KITAS. It is used by foreign nationals to leave and re-enter Indonesia from abroad. The permit takes the form of an immigration stamp in the passport."
+          "p": "A permit issued by the local immigration office to holders of an online KITAS. It allows foreign nationals to leave and re-enter Indonesia. The permit takes the form of an immigration stamp in the passport."
         },
         {
           "h2": "STM (Police Report Certificate)"
         },
         {
-          "p": "A permit issued by the regional or local police to foreign nationals according to their place of residence while in Indonesia. Foreign nationals must report their presence no later than 14 working days after arriving in Indonesia so that their presence is recorded in police data."
+          "p": "A certificate issued by the regional or local police to foreign nationals according to their place of residence in Indonesia. Foreign nationals must report their presence within 14 working days of arriving in Indonesia so that it is recorded in police data."
         },
         {
           "h2": "SKTT (Certificate of Residence)"
         },
         {
-          "p": "The SKTT (Certificate of Residence) is prepared and issued by the Population and Civil Registration Office for foreign nationals with a limited stay period, under binding regulations."
+          "p": "The SKTT (Certificate of Residence) is issued by the Population and Civil Registration Office to foreign nationals holding a limited stay permit, in accordance with prevailing regulations."
         },
         {
-          "h2": "PRESENCE REPORT"
+          "h2": "Presence Report"
         },
         {
-          "p": "A report to the PTSP (One-Stop Integrated Service) in each sub-district or the local Manpower Office, according to the domicile of the company where the foreign national works, stating that the person has arrived and is ready to work at that company."
+          "p": "A report to the PTSP (One-Stop Integrated Service) in each sub-district or the local Manpower Office, according to the domicile of the company where the foreign national works, confirming that the person has arrived and is ready to work at that company."
         }
       ]
     },
@@ -335,9 +335,9 @@
         {
           "ul": [
             "Schengen Visa",
-            "Australia Visa",
-            "Japan Visa",
-            "China Visa and other countries"
+            "Australian Visa",
+            "Japanese Visa",
+            "Chinese Visa and visas for other countries"
           ]
         },
         {
@@ -368,7 +368,7 @@
             "berbadan sehat.",
             "Melampirkan paspor sah yang masih berlaku paling singkat 18 bulan;",
             "Formulir Permohonan Visa yang telah dilengkapi dan ditandatangani (dicetak pada satu kertas bolak-balik);",
-            "1 pasfoto berwarna terbaru berukuran 3 cm x 4 cm (ditempel pada Formulir Permohonan Visa);",
+            "1 pasfoto berwarna terbaru berukuran 3 × 4 cm (ditempel pada Formulir Permohonan Visa);",
             "Salinan Surat Persetujuan Direktur Jenderal Imigrasi RI (TELEX);",
             "Reservasi tiket (pesawat, kapal, feri);",
             "Bukti dari bank/lembaga pengelola dana pensiun dari negara asal atau di Indonesia yang membuktikan tersedianya dana paling sedikit US$1.500 per bulan sebagai bukti memiliki biaya hidup bagi pemohon selama berada di wilayah Indonesia;",
@@ -387,37 +387,37 @@
       ],
       "en": [
         {
-          "p": "**Retirement KITAS** is a Limited Stay Permit issued by the Directorate General of Immigration to elderly foreign tourists to stay in Indonesia for 1 year, extendable every year up to a maximum of 5 years. After that, if the foreign national decides to keep living in Indonesia, they may apply for a KITAP."
+          "p": "**Retirement KITAS** is a Limited Stay Permit issued by the Directorate General of Immigration to elderly foreign nationals to stay in Indonesia for 1 year, extendable annually for up to 5 years. After that, a foreign national who wishes to keep living in Indonesia may apply for a KITAP."
         },
         {
           "h2": "General Requirements for Obtaining a Retirement KITAS & Visa"
         },
         {
           "ul": [
-            "The foreign national is at least 55 years old;",
-            "Has proof of finances (pension);",
-            "Has insurance;",
-            "Has an Indonesian citizen as sponsor;",
-            "A passport valid for at least 18 months;",
-            "Passport photo with a red background;",
-            "no longer working;",
-            "in good health.",
-            "Attach a valid passport with at least 18 months of validity;",
+            "Be at least 55 years old;",
+            "Have proof of finances (pension);",
+            "Have insurance;",
+            "Have an Indonesian citizen as sponsor;",
+            "Hold a passport valid for at least 18 months;",
+            "Provide a passport photo with a red background;",
+            "Be no longer working;",
+            "Be in good health.",
+            "A valid passport with at least 18 months of validity;",
             "A completed and signed Visa Application Form (printed double-sided on one sheet);",
-            "1 recent colour passport photo, 3 cm x 4 cm (attached to the Visa Application Form);",
+            "1 recent colour passport photo, 3 × 4 cm (attached to the Visa Application Form);",
             "A copy of the Approval Letter from the Director General of Immigration of the Republic of Indonesia (TELEX);",
-            "Ticket reservation (plane, ship, ferry);",
+            "Onward ticket reservation (plane, ship or ferry);",
             "Proof from a bank/pension fund manager in the country of origin or in Indonesia showing funds of at least US$1,500 per month, as evidence of living expenses for the applicant while in Indonesian territory;",
             "Original bank statement detailing transactions for the last 3 months;",
             "Letter of Guarantee (with a copy of the sponsor's ID card);",
             "SIUP (Business Licence) and NPWP (Taxpayer Identification Number) of the travel agency;",
             "Curriculum vitae, employment and education history (CV) of the foreign national concerned;",
             "Health, death and third-party civil liability insurance in the country of origin and in Indonesia;",
-            "A statement letter undertaking to employ at least 2 Indonesian citizens;",
+            "A statement letter confirming the undertaking to employ at least 2 Indonesian citizens;",
             "Proof of residence while in Indonesian territory, based on the purchase of accommodation worth at least US$35,000 or a monthly rental of at least:",
-            "US$ 500 for residence in DKI Jakarta, Bandung and Bali;",
-            "US$ 300 for residence elsewhere in Java, Batam and Medan; or",
-            "US$ 200 for residence in areas other than those mentioned above."
+            "US$500 for residence in DKI Jakarta, Bandung and Bali;",
+            "US$300 for residence elsewhere in Java, Batam and Medan; or",
+            "US$200 for residence in areas other than those mentioned above."
           ]
         }
       ]
@@ -500,9 +500,9 @@
         {
           "ul": [
             "Schengen Visa",
-            "Australia Visa",
-            "Japan Visa",
-            "China Visa and other countries"
+            "Australian Visa",
+            "Japanese Visa",
+            "Chinese Visa and visas for other countries"
           ]
         },
         {

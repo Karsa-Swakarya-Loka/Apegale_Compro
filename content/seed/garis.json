@@ -4,14 +4,14 @@
   "trialUrl": "",
   "intro": {
     "id": "GARIS membantu pengelolaan data dan dokumen untuk Expatriate Hosting, Formalities Service, dan Airport Escort. Akses aplikasi sedang disiapkan kembali.",
-    "en": "GARIS supports data and document management for Expatriate Hosting, Formalities Service, and Airport Escort. App access is being prepared for relaunch."
+    "en": "GARIS supports data and document management for Expatriate Hosting, Expatriate Formalities, and Airport Escort. App access is being prepared for relaunch."
   },
   "variants": [
     {
       "name": "GARIS Formalities Services",
       "text": {
         "id": "Kelola dokumen perizinan tenaga kerja asing dalam satu sistem.\n\nModul ini dirancang untuk mencatat pengurusan perizinan, memantau progres, dan menyediakan dokumen untuk diunduh.",
-        "en": "Manage foreign worker permit documents in one system.\n\nThis module is designed to record permit applications, track progress, and make documents available for download."
+        "en": "Manage foreign worker permit documents in one place.\n\nThis module is designed to record permit applications, track progress, and make documents available for download."
       }
     },
     {
@@ -35,7 +35,7 @@
   ],
   "ctaDisabledLabel": {
     "id": "Segera Hadir",
-    "en": "Coming Soon"
+    "en": "Coming soon"
   },
   "_source": "Parafrase legacy/garis-in.html dan garis-*-in.html, sesuai permintaan owner 09 Okt 2026. Akses aplikasi tetap nonaktif.",
   "features": [

@@ -8,7 +8,7 @@
   "email": "apegale.admin@apegale.com",
   "address": {
     "id": "Ascott Sudirman Jakarta, Affirmate Floor 31st Ciputra World II, Jl. Prof. Dr. Satrio Kav. 11, Kel. Karet Kuningan, Kec. Setiabudi, Jakarta Selatan",
-    "en": "Ascott Sudirman Jakarta, Affirmate Floor 31st Ciputra World II, Jl. Prof. Dr. Satrio Kav. 11, Karet Kuningan, Setiabudi, South Jakarta"
+    "en": "Affirmate, 31st Floor, Ascott Sudirman Jakarta, Ciputra World 2, Jl. Prof. Dr. Satrio Kav. 11, Karet Kuningan, Setiabudi, South Jakarta"
   },
   "stats": [
     {
@@ -30,6 +30,10 @@
     {
       "platform": "instagram",
       "url": "https://www.instagram.com/apegaleindonesia/"
+    },
+    {
+      "platform": "tiktok",
+      "url": "https://www.tiktok.com/@apegale.01"
     }
   ],
   "seoDefault": {
@@ -39,7 +43,7 @@
     },
     "description": {
       "id": "Pengurusan KITAS, KITAP, visa, dan izin tenaga kerja asing di 35+ kota oleh tim berpengalaman lebih dari 20 tahun.",
-      "en": "KITAS, KITAP, visa and foreign-worker permit services in 35+ Indonesian cities by a team with over 20 years of experience."
+      "en": "KITAS, KITAP, visa and foreign worker permit services across 35+ Indonesian cities, delivered by a team with over 20 years of experience."
     }
   },
   "_notes": "Akun sosial lain (LinkedIn, YouTube, Facebook) belum dikonfirmasi klien; jangan diisi tebakan.",

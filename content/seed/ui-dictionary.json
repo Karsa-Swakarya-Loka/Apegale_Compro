@@ -102,7 +102,7 @@
     },
     "success": {
       "id": "Pesan Anda sudah diterima. Tim kami akan menghubungi Anda.",
-      "en": "Your message has been received. Our team will contact you."
+      "en": "Your message has been received. Our team will contact you shortly."
     }
   },
   "price": {
@@ -181,7 +181,7 @@
     "contact": {
       "intro": {
         "id": "Sampaikan kebutuhan layanan Anda melalui formulir, telepon, atau WhatsApp.",
-        "en": "Tell us what you need using the form, by phone, or on WhatsApp."
+        "en": "Tell us what you need by form, phone, or WhatsApp."
       }
     }
   }

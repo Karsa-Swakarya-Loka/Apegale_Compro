@@ -22,7 +22,7 @@ export const Site: GlobalConfig = {
     ] },
     { name: 'social', type: 'array', label: 'Media sosial', labels: { singular: 'Akun', plural: 'Akun' }, admin: listAdmin(), fields: [
      row({ name: 'platform', type: 'select', required: true, label: 'Platform', admin: { width: '30%' }, options: [
-       { label: 'Instagram', value: 'instagram' }, { label: 'LinkedIn', value: 'linkedin' }, { label: 'YouTube', value: 'youtube' }, { label: 'Facebook', value: 'facebook' }] },
+       { label: 'Instagram', value: 'instagram' }, { label: 'LinkedIn', value: 'linkedin' }, { label: 'YouTube', value: 'youtube' }, { label: 'Facebook', value: 'facebook' }, { label: 'TikTok', value: 'tiktok' }] },
       { name: 'url', type: 'text', required: true, validate: httpUrl, label: 'Link profil', admin: { width: '70%', placeholder: 'https://' } }),
     ] },
    ]),

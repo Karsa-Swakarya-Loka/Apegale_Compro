@@ -21,3 +21,13 @@ export function InstagramIcon({ size = 20, className }: Props) {
     </svg>
   )
 }
+
+/** TikTok glyph in the same 2px stroke style as the Lucide icons. */
+export function TikTokIcon({ size = 20, className }: Props) {
+  return (
+    <svg viewBox="0 0 24 24" width={size} height={size} fill="none" stroke="currentColor" strokeWidth={2}
+      strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className={className}>
+      <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+    </svg>
+  )
+}
