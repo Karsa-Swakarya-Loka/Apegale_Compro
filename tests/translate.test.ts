@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { planWrites, translatePair, type Translation } from '../src/lib/translate.ts'
+import { guessLang, planWrites, translatePair, type Translation } from '../src/lib/translate.ts'
 
 const idTr: Translation = { lang: 'id', quote: { id: 'Halo', en: 'Hello' }, role: { id: 'Direktur', en: 'Director' } }
 const enTr: Translation = { lang: 'en', quote: { id: 'Halo', en: 'Hello' } }
@@ -27,10 +27,25 @@ test('editing the English quote never overwrites existing Indonesian text', () =
 test('an unchanged save writes nothing when both languages exist', () => {
   assert.deepEqual(planWrites({ saved: 'id', changed: false, enReviewed: false, current: { id: { quote: 'Halo' }, en: { quote: 'Hi' } }, tr: enTr }), {})
 })
-test('no API key: translation is skipped, nothing breaks', async () => {
+test('language guess', () => {
+  assert.equal(guessLang('Pelayanannya ramah dan cepat, saya sangat puas.'), 'id')
+  assert.equal(guessLang('Friendly and fast service, I am very satisfied.'), 'en')
+  assert.equal(guessLang('Direktur'), 'id')
+})
+test('no API key: the keyless fallback translates quote and job title in the detected direction', async () => {
   const key = process.env.ANTHROPIC_API_KEY
   delete process.env.ANTHROPIC_API_KEY
-  assert.equal(await translatePair({ quote: 'Halo' }), null)
+  const fake = (async (u: string) => {
+    const url = new URL(u)
+    const q = url.searchParams.get('q')!, pair = url.searchParams.get('langpair')!
+    return new Response(JSON.stringify({ responseStatus: 200, responseData: { translatedText: `${pair}:${q}` } }))
+  }) as unknown as typeof fetch
+  assert.deepEqual(await translatePair({ quote: 'Saya sangat puas dengan layanan ini.', role: 'Direktur' }, fake),
+    { lang: 'id', quote: { id: 'Saya sangat puas dengan layanan ini.', en: 'id|en:Saya sangat puas dengan layanan ini.' }, role: { id: 'Direktur', en: 'id|en:Direktur' } })
+  assert.deepEqual(await translatePair({ quote: 'Great service and a very fast team.' }, fake),
+    { lang: 'en', quote: { en: 'Great service and a very fast team.', id: 'en|id:Great service and a very fast team.' } })
+  const limited = (async () => new Response(JSON.stringify({ responseStatus: 429, quotaFinished: true, responseData: { translatedText: 'MYMEMORY WARNING' } }))) as unknown as typeof fetch
+  assert.equal(await translatePair({ quote: 'Halo' }, limited), null)
   if (key) process.env.ANTHROPIC_API_KEY = key
 })
 test('translatePair parses the model reply and rejects malformed ones', async () => {
