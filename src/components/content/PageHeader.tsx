@@ -13,7 +13,13 @@ type Props = {
   locale: Locale; eyebrow?: string | null; title: string; intro?: string | null; crumbs: Crumb[]; crumbLabel: string; actions?: ReactNode
   /** News pages keep the plain v10 header (white, red slash) under the floating navbar; every other page gets the home-style header. */
   plain?: boolean
+  /** Slug of a per-page photo in public/headers (e.g. 'about', a service slug, 'regulations'). Unknown or missing: the home hero photo. */
+  headerImage?: string
 }
+
+/** Per-page header photos (public/headers/<slug>.jpg, 2400x1800). Keep in sync with assets/img/headers. */
+const HEADER_IMAGES = new Set(['about', 'services', 'broad-expatriate-hosting', 'expatriate-formalities', 'kitas-kitap', 'all-in-one-solutions',
+  'kitas-lansia', 'visa-paspor', 'visa-indonesia', 'visa-global', 'legalitas-perusahaan', 'airport-escort', 'hr-system-consulting', 'garis', 'regulations', 'contact'])
 
 function Crumbs({ crumbs, label, className }: { crumbs: Crumb[]; label: string; className?: string }) {
   return (
@@ -33,7 +39,7 @@ function Crumbs({ crumbs, label, className }: { crumbs: Crumb[]; label: string; 
 /** Inner-page header. Default: the home hero's look without the slider (reference: unifato "Cargon" home 3) — light
  *  field under the floating capsule header, breadcrumb in the badge, large title, intro, optional pill actions, the
  *  hero photo in the slanted rounded panel, entrance animation on load. `plain`: the v10 header used by the news pages. */
-export async function PageHeader({ locale, eyebrow, title, intro, crumbs, crumbLabel, actions, plain }: Props) {
+export async function PageHeader({ locale, eyebrow, title, intro, crumbs, crumbLabel, actions, plain, headerImage }: Props) {
   if (plain) {
     return (
       <section className="ag-pagehead">
@@ -51,9 +57,10 @@ export async function PageHeader({ locale, eyebrow, title, intro, crumbs, crumbL
       </section>
     )
   }
-  const home = await getHome(locale)
-  const image = asMedia(home.hero?.image)
-  const photo = image?.sizes?.hero?.url ? image.sizes.hero : image
+  const own = headerImage && HEADER_IMAGES.has(headerImage) ? `/headers/${headerImage}.jpg` : null
+  const home = own ? null : await getHome(locale)
+  const image = home ? asMedia(home.hero?.image) : null
+  const photo = own ? { url: own, width: 2400, height: 1800 } : image?.sizes?.hero?.url ? image.sizes.hero : image
   return (
     <section className="ag-pagehero">
       <JsonLd data={breadcrumbLd(crumbs)} />
