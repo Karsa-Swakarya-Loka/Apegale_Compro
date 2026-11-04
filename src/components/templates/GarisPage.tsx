@@ -32,8 +32,6 @@ export async function GarisPage({ locale }: { locale: Locale }) {
   const soon = ui.cta?.comingSoon || ''
   const action = (label: string, url?: string | null, variant: 'primary' | 'outline' | 'light' = 'primary') =>
     live && url ? <Button variant={variant} href={url} label={label} /> : <Button disabled label={`${label} · ${soon}`} />
-  // Only the laptop preview (first gallery image); the phone preview is no longer shown.
-  const shots = (garis.gallery ?? []).map(g => asMedia(g.image)).filter(x => x?.url && x.width && x.height).slice(0, 1)
   const logo = asMedia(garis.logo)
   const modules = (garis.variants ?? []).filter(v => v.name)
   const features = (garis.features ?? []).filter(f => f.title)
@@ -47,23 +45,14 @@ export async function GarisPage({ locale }: { locale: Locale }) {
           {action(m.home.garisLogin, garis.loginUrl, 'light')}
         </>} />
 
-      {shots.length ? (
-        <section className="ag-section" aria-labelledby="garis-overview-title">
-          <div className="ag-container ag-garis">
-            <Reveal className="ag-garis__copy">
-              {logo?.url && logo.width && logo.height ? <Image src={logo.url} alt="GARIS" width={logo.width} height={logo.height} className="ag-garis__logo" /> : null}
-              <SectionHeading id="garis-overview-title" title={m.home.garisTitle} intro={garis.intro} />
-            </Reveal>
-            <Reveal step={1} className="ag-garis__shots">
-              {shots.map((s, i) => s && (
-                <div key={s.id} className={`ag-garis__shot ag-garis__shot--${i === 0 ? 'wide' : 'phone'}`}>
-                  <Image src={s.url!} alt={s.alt || ''} width={s.width!} height={s.height!} sizes={i === 0 ? '(max-width: 1023px) 100vw, 45vw' : '220px'} />
-                </div>
-              ))}
-            </Reveal>
-          </div>
-        </section>
-      ) : null}
+      <section className="ag-section" aria-labelledby="garis-overview-title">
+        <div className="ag-container">
+          <Reveal className="ag-garis__copy">
+            {logo?.url && logo.width && logo.height ? <Image src={logo.url} alt="GARIS" width={logo.width} height={logo.height} className="ag-garis__logo" /> : null}
+            <SectionHeading id="garis-overview-title" title={m.home.garisTitle} intro={garis.intro} />
+          </Reveal>
+        </div>
+      </section>
 
       {modules.length ? (
         <section className="ag-section ag-section--red" aria-labelledby="garis-modules-title">
