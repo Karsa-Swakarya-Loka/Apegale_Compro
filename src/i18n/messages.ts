@@ -122,7 +122,7 @@ const messages = {
     home: {
       servicesTitle: 'Layanan Ape Gale',
       servicesHighlight: 'Ape Gale',
-      servicesIntro: '',
+      servicesIntro: 'Perizinan dan pendampingan ekspatriat untuk perusahaan yang mempekerjakan tenaga kerja asing: dari RPTKA, KITAS, dan visa sampai legalitas perusahaan dan sistem HR. Pilih layanan di bawah, atau minta penawaran langsung.',
       whyTitle: 'Mengapa Ape Gale Indonesia',
       whyHighlight: 'Ape Gale Indonesia',
       whyTagline: 'Lebih dari sekadar layanan, kami menghadirkan nilai dan ketenangan pikiran',
@@ -275,7 +275,7 @@ const messages = {
     home: {
       servicesTitle: 'Ape Gale Services',
       servicesHighlight: 'Services',
-      servicesIntro: '',
+      servicesIntro: 'Permits and support for expatriates, for companies that employ foreign workers: from RPTKA, KITAS, and visas to company legality and HR systems. Pick a service below, or request a quote directly.',
       whyTitle: 'Why Ape Gale Indonesia',
       whyHighlight: 'Ape Gale Indonesia',
       whyTagline: 'More than a service, we deliver value and peace of mind',

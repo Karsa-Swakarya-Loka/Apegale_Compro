@@ -1,20 +1,26 @@
 import { Icon } from '@/components/ui/Icon'
 import { SectionHeading } from '@/components/ui/SectionHeading'
+import type { ReactNode } from 'react'
 import { Reveal } from '@/components/motion/Reveal'
 
 type Item = { icon?: string | null; title?: string | null; text?: string | null }
-type Props = { index?: string; eyebrow?: string | null; title: string; highlight?: string; intro?: string | null; items: Item[] }
+type Props = { index?: string; eyebrow?: string | null; title: string; highlight?: string; intro?: string | null; tagline?: string | null; actions?: ReactNode; items: Item[] }
 
 /** The four strengths from the 2026 company profile on the page's red-gradient field: title on the left, a numbered
  *  ledger on the right. */
-export function WhySection({ index, eyebrow, title, highlight, intro, items }: Props) {
+export function WhySection({ index, eyebrow, title, highlight, intro, tagline, actions, items }: Props) {
   const rows = items.filter(i => i.title)
   if (!rows.length) return null
   return (
     <section className="ag-section ag-section--red ag-approach" aria-labelledby="why-title">
       <span className="ag-approach__plane" aria-hidden="true" />
       <div className="ag-container ag-approach__in">
-        <Reveal><SectionHeading index={index} id="why-title" eyebrow={eyebrow} title={title} highlight={highlight} intro={intro} /></Reveal>
+        <Reveal className="ag-why__lead">
+          <SectionHeading index={index} id="why-title" eyebrow={eyebrow} title={title} highlight={highlight} />
+          {tagline ? <p className="ag-why__tagline">{tagline}</p> : null}
+          {intro ? <p className="ag-why__intro">{intro}</p> : null}
+          {actions ? <div className="ag-row">{actions}</div> : null}
+        </Reveal>
         <ul className="ag-why">
           {rows.map((w, i) => (
             <li key={w.title}>

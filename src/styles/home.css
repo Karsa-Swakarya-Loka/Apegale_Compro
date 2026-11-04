@@ -325,3 +325,11 @@
 .ag-pillar p { color: var(--ink-muted); font-size: 15px; line-height: 24px; }
 @media (max-width: 1023px) { .ag-pillars { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 599px) { .ag-pillars { grid-template-columns: minmax(0, 1fr); } }
+
+/* Home 02: the red field's left column reads in order: title, one-line promise, what we do, next step. */
+.ag-why__lead { display: grid; gap: var(--space-5); align-content: start; }
+.ag-why__tagline { color: var(--on-brand); font-size: 22px; line-height: 32px; font-weight: 700; max-width: 30ch; }
+.ag-why__intro { color: color-mix(in srgb, var(--on-brand) 88%, transparent); font-size: var(--fs-lead); line-height: var(--lh-lead); max-width: var(--reading-width); }
+.ag-why__link { color: var(--on-brand); font-weight: 700; text-decoration: underline; text-underline-offset: 6px; }
+.ag-why__lead .ag-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-6); margin-top: var(--space-3); }
+.ag-services__head .ag-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); }

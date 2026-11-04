@@ -8,7 +8,7 @@ import { ServicesDossier } from '@/components/home/ServicesDossier'
 type Service = { slug: string; title: string; summary?: string | null; icon?: string | null; href: string; subServices?: SubService[] }
 type Props = {
   title: string; highlight?: string; intro?: string | null; services: Service[]; moreLabel: string
-  all?: { label: string; href: string }; index?: string
+  all?: { label: string; href: string }; quote?: { label: string; href?: string }; index?: string
 }
 
 const num = (i: number) => String(i + 1).padStart(2, '0')
@@ -16,7 +16,7 @@ const num = (i: number) => String(i + 1).padStart(2, '0')
 /** Services as a dossier: all services run in CMS order as a numbered ledger on the right; the folio on the left opens
  *  the selected one (by default the first service, 01 Broad Expatriate Hosting; choosing a tab swaps the sheet).
  *  One Reveal wraps the index so rows and tree items enter in sequence (CSS --i delays); swapping is handled client-side. */
-export function ServicesSection({ title, highlight, intro, services, moreLabel, all, index }: Props) {
+export function ServicesSection({ title, highlight, intro, services, moreLabel, all, quote, index }: Props) {
   if (!services.length) return null
   const initial = 0
   const rows = services.map((s, i) => ({ slug: s.slug, title: s.title, summary: s.summary, href: s.href, subServices: s.subServices, n: num(i) }))
@@ -26,7 +26,12 @@ export function ServicesSection({ title, highlight, intro, services, moreLabel, 
       <div className="ag-container ag-services">
         <div className="ag-headrow ag-services__head">
           <Reveal><SectionHeading id="services-title" index={index} title={title} highlight={highlight} intro={intro} /></Reveal>
-          {all ? <Button variant="ghost" href={all.href} label={all.label} icon={<ArrowRight size={18} aria-hidden="true" />} /> : null}
+          {all || quote ? (
+            <div className="ag-row">
+              {quote?.href ? <Button href={quote.href} label={quote.label} icon={<ArrowRight size={18} aria-hidden="true" />} /> : null}
+              {all ? <Button variant="ghost" href={all.href} label={all.label} icon={<ArrowRight size={18} aria-hidden="true" />} /> : null}
+            </div>
+          ) : null}
         </div>
         <Reveal className="ag-ledger">
           <ServicesDossier services={rows} initial={initial} moreLabel={moreLabel} label={title} />

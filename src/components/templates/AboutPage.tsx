@@ -103,7 +103,7 @@ export async function AboutPage({ locale }: { locale: Locale }) {
         </section>
       ) : null}
 
-      <WhySection eyebrow={m.home.whyTagline} title={m.home.whyTitle} highlight={m.home.whyHighlight} intro={m.home.whyIntro} items={home.why ?? []} />
+      <WhySection title={m.home.whyTitle} highlight={m.home.whyHighlight} tagline={m.home.whyTagline} intro={m.home.whyIntro} items={home.why ?? []} />
 
       {about.organigram?.length ? (
         <section className="ag-section" id="organigram" aria-labelledby="organigram-title">
