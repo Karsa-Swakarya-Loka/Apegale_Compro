@@ -74,14 +74,12 @@ export async function HomePage({ locale }: { locale: Locale }) {
       {show('services') && services.length ? (
         <ServicesSection index="01" title={m.home.servicesTitle} highlight={m.home.servicesHighlight} intro={m.home.servicesIntro} moreLabel={ui.cta?.more || ''}
           all={ui.cta?.viewServices ? { label: ui.cta.viewServices, href: href(locale, 'services') } : undefined}
-          quote={home.hero?.primaryCta?.label ? cta(home.hero.primaryCta) : undefined}
           services={services.map(s => ({ slug: s.slug, title: s.title, summary: s.summary, icon: s.icon, href: serviceHref(s.slug),
             subServices: toSubServices(s, serviceHref) }))} />
       ) : null}
 
       {show('why') ? <WhySection index="02" title={m.home.whyTitle} highlight={m.home.whyHighlight} tagline={m.home.whyTagline} intro={m.home.whyIntro} items={home.why ?? []}
           actions={<>
-            {home.hero?.primaryCta?.label ? <Button variant="light" href={cta(home.hero.primaryCta).href} label={cta(home.hero.primaryCta).label} icon={<ArrowRight size={18} aria-hidden="true" />} /> : null}
             <a className="ag-why__link" href={href(locale, 'about')}>{ui.cta?.more}</a>
           </>} /> : null}
 
