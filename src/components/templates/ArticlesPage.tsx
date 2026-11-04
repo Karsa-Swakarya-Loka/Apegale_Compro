@@ -70,6 +70,8 @@ export async function ArticlesPage({ kind, locale, query }: { kind: Kind; locale
             ...categories.map(c => ({ label: c.label, href: listHref({ kategori: c.value }), active: category === c.value })),
           ]} />
 
+          {isReg && result.docs.length ? <p className="ag-reg-note" role="note">{m.articles.regulationsNote}</p> : null}
+
           {result.docs.length ? (
             <ul className="ag-grid ag-grid--3">
               {result.docs.map((d, i) => {

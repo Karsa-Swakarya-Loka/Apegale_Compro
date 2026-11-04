@@ -62,6 +62,7 @@ const messages = {
     articles: {
       regulationsTitle: "Regulasi",
       regulationsIntro: '',
+      regulationsNote: 'Dokumen ini dikumpulkan sebagai referensi dan dapat berubah atau dicabut sewaktu-waktu. Pastikan status berlakunya sebelum dipakai, atau tanyakan kepada tim kami.',
       relatedRegulations: 'Regulasi terkait',
       relatedNews: 'Artikel lainnya',
       newsTitle: 'Berita Ape Gale',
@@ -216,6 +217,7 @@ const messages = {
     articles: {
       regulationsTitle: "Regulations",
       regulationsIntro: '',
+      regulationsNote: 'These documents are collected for reference and may be amended or revoked at any time. Please confirm that a regulation is still in force before relying on it, or ask our team.',
       relatedRegulations: 'Related regulations',
       relatedNews: 'More articles',
       newsTitle: 'Ape Gale News',

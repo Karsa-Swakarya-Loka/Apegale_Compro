@@ -262,3 +262,6 @@
 /* News pages keep the plain header; it starts below the floating capsule navbar. */
 .ag-masthead[data-float] ~ main .ag-pagehead__in { padding-top: 168px; }
 @media (max-width: 767px) { .ag-masthead[data-float] ~ main .ag-pagehead__in { padding-top: 120px; } }
+
+/* Regulation archive disclaimer. */
+.ag-reg-note { max-width: var(--reading-width); padding-left: var(--space-4); border-left: 3px solid var(--maroon); color: var(--ink-muted); font-size: 15px; line-height: 24px; }
