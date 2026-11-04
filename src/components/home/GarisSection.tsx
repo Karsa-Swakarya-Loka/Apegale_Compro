@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { ArrowRight, CircleCheck } from 'lucide-react'
 import type { Garis } from '@/payload-types'
-import { asMedia } from '@/lib/cms'
 import { Button } from '@/components/ui/Button'
 import { WhatsAppIcon } from '@/components/ui/BrandIcons'
 import { SectionHeading } from '@/components/ui/SectionHeading'
@@ -17,7 +16,6 @@ type Props = {
  *  until the CMS enables them. */
 export function GarisSection({ index, garis, title, highlight, intro, labels, whatsapp, id, more }: Props) {
   const live = Boolean(garis.enabled)
-  const shot = (garis.gallery ?? []).map(g => asMedia(g.image)).find(m => m?.url && m.width && m.height)
   const modules = (garis.variants ?? []).filter(v => v.name)
   const app = [{ label: labels.login, url: garis.loginUrl }, { label: labels.trial, url: garis.trialUrl }]
   return (
@@ -42,11 +40,9 @@ export function GarisSection({ index, garis, title, highlight, intro, labels, wh
         </Reveal>
         <Reveal step={1} className="ag-showcase__media">
           <span className="ag-showcase__plane" aria-hidden="true" />
-          {shot ? (
-            <div className="ag-showcase__shot">
-              <Image src={shot.url!} alt={shot.alt || ''} width={shot.width!} height={shot.height!} sizes="(max-width: 1023px) 100vw, 50vw" />
-            </div>
-          ) : null}
+          <div className="ag-showcase__shot ag-showcase__shot--photo">
+            <Image src="/headers/garis.jpg" alt="Dasbor GARIS di laptop dan ponsel" width={2400} height={1800} sizes="(max-width: 1023px) 100vw, 50vw" />
+          </div>
         </Reveal>
       </div>
     </section>
