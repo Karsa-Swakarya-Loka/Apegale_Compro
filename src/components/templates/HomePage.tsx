@@ -16,7 +16,7 @@ import { Reveal } from '@/components/motion/Reveal'
 import { ClientStrip } from '@/components/content/ClientStrip'
 import { toSubServices } from '@/components/content/ServiceCard'
 import { ServicesSection } from '@/components/home/ServicesSection'
-import { Testimonial } from '@/components/content/Testimonial'
+import { TestimonialsSection } from '@/components/home/TestimonialsSection'
 import { FAQList } from '@/components/content/FAQ'
 import { NewsCard } from '@/components/content/NewsCard'
 import { Hero } from '@/components/home/Hero'
@@ -99,14 +99,7 @@ export async function HomePage({ locale }: { locale: Locale }) {
           more={{ label: ui.cta?.more || '', href: href(locale, 'about') }} />
       ) : null}
 
-      {show('testimonials') && visibleTestimonials.length ? (
-        <section className="ag-section" aria-labelledby="testimonials-title">
-          <div className="ag-container ag-stack">
-            <Reveal><SectionHeading id="testimonials-title" title={m.home.testimonialsTitle} highlight={m.home.testimonialsHighlight} /></Reveal>
-            <div className="ag-grid ag-grid--3">{visibleTestimonials.slice(0, 3).map(t => <Testimonial key={t.id} item={t} />)}</div>
-          </div>
-        </section>
-      ) : null}
+      {show('testimonials') ? <TestimonialsSection title={m.home.testimonialsTitle} highlight={m.home.testimonialsHighlight} items={visibleTestimonials} labels={m.home.testimonialsNav} /> : null}
 
       {show('faq') && faqs.length ? (
         <section className="ag-section ag-section--soft" aria-labelledby="faq-title">

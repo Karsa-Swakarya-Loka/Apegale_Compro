@@ -24,7 +24,7 @@
     "seed": "tsx src/seed/index.ts",
     "seed:report": "tsx scripts/seed-report.ts",
     "setup:admin": "tsx scripts/create-admin.ts",
-    "test": "node --experimental-strip-types --test tests/seed.test.ts tests/schema.test.ts tests/services-content.test.ts tests/inquiry.test.ts tests/redirects.test.ts tests/preview.test.ts tests/navigation.test.ts",
+    "test": "node --experimental-strip-types --test tests/seed.test.ts tests/schema.test.ts tests/services-content.test.ts tests/inquiry.test.ts tests/redirects.test.ts tests/preview.test.ts tests/navigation.test.ts tests/translate.test.ts",
     "verify:cms": "tsx scripts/verify-cms.ts",
     "tokens": "node scripts/build-tokens.mjs",
     "content:services": "tsx scripts/migrate-services-content.ts",

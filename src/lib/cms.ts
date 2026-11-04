@@ -79,9 +79,13 @@ export const getTopServices = cache(async (locale: Locale): Promise<ServiceCardD
 
 export const getTestimonials = cache(async (locale: Locale) => {
   const payload = await payloadClient()
-  const { docs } = await payload.find({ collection: 'testimonials', locale, ...(await view()), depth: 1, limit: 12, sort: 'order',
-    where: { and: [(await onlyPublished()), { consent: { equals: true } }] } })
-  return docs as Testimonial[]
+  const query = async (l: Locale) => (await payload.find({ collection: 'testimonials', locale: l, fallbackLocale: false, ...(await view()), depth: 1, limit: 48, sort: 'order',
+    where: { and: [(await onlyPublished()), { consent: { equals: true } }] } })).docs as Testimonial[]
+  const docs = await query(locale)
+  if (docs.every(d => d.quote)) return docs
+  // A quote written in one language only (auto-translation off or not finished yet) still shows in the other language.
+  const other = new Map((await query(locale === 'id' ? 'en' : 'id')).map(d => [d.id, d]))
+  return docs.map(d => d.quote ? d : { ...d, quote: other.get(d.id)?.quote ?? d.quote, role: d.role ?? other.get(d.id)?.role })
 })
 
 export const getFeaturedFaqs = cache(async (locale: Locale) => {

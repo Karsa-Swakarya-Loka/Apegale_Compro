@@ -333,3 +333,19 @@
 .ag-why__link { color: var(--on-brand); font-weight: 700; text-decoration: underline; text-underline-offset: 6px; }
 .ag-why__lead .ag-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-6); margin-top: var(--space-3); }
 .ag-services__head .ag-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); }
+
+/* Testimonials carousel (four or more quotes): three per view, snap scrolling. */
+.ag-tcar { display: grid; gap: var(--space-6); }
+.ag-tcar__track { list-style: none; margin: 0; padding: 0 0 var(--space-2); display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 2 * var(--space-10)) / 3); gap: var(--space-10); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
+.ag-tcar__track::-webkit-scrollbar { display: none; }
+.ag-tcar__track > li { scroll-snap-align: start; display: grid; }
+.ag-tcar__track:focus-visible { outline: 2px solid var(--maroon); outline-offset: 4px; }
+.ag-tcar .ag-quote { height: 100%; align-content: start; }
+.ag-tcar__bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); }
+.ag-tcar__count { color: var(--ink-muted); font-size: 14px; font-weight: 700; letter-spacing: 0.04em; }
+.ag-tcar__btns { display: flex; gap: var(--space-3); }
+.ag-tcar__btns button { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--maroon); background: transparent; color: var(--maroon); cursor: pointer; transition: background .2s, color .2s; }
+.ag-tcar__btns button:hover:not(:disabled) { background: var(--maroon); color: #fff; }
+.ag-tcar__btns button:disabled { opacity: .35; cursor: default; }
+@media (max-width: 1023px) { .ag-tcar__track { grid-auto-columns: calc((100% - var(--space-8)) / 2); gap: var(--space-8); } }
+@media (max-width: 599px) { .ag-tcar__track { grid-auto-columns: 88%; gap: var(--space-5); } }
