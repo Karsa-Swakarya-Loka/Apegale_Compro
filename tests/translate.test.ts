@@ -4,7 +4,6 @@ import { planWrites, translatePair, type Translation } from '../src/lib/translat
 
 const idTr: Translation = { lang: 'id', quote: { id: 'Halo', en: 'Hello' }, role: { id: 'Direktur', en: 'Director' } }
 const enTr: Translation = { lang: 'en', quote: { id: 'Halo', en: 'Hello' } }
-const empty = { id: {}, en: {} }
 
 test('Indonesian quote on a new testimonial fills English, and the job title', () => {
   assert.deepEqual(planWrites({ saved: 'id', changed: true, enReviewed: false, current: { id: { quote: 'Halo', role: 'Direktur' }, en: {} }, tr: idTr }),
