@@ -103,7 +103,7 @@ export async function AboutPage({ locale }: { locale: Locale }) {
         </section>
       ) : null}
 
-      <WhySection title={m.home.whyTitle} highlight={m.home.whyHighlight} items={home.why ?? []} />
+      <WhySection eyebrow={m.home.whyTagline} title={m.home.whyTitle} highlight={m.home.whyHighlight} intro={m.home.whyIntro} items={home.why ?? []} />
 
       {about.organigram?.length ? (
         <section className="ag-section" id="organigram" aria-labelledby="organigram-title">
@@ -115,8 +115,8 @@ export async function AboutPage({ locale }: { locale: Locale }) {
       ) : null}
 
       {home.network?.title ? (
-        <NetworkSection tone="soft" title={home.network.title} text={home.network.text}
-          cities={home.network.cities ?? []} citiesLabel={m.home.networkCities} />
+        <NetworkSection tone="soft" eyebrow={m.home.networkEyebrow} title={home.network.title} text={home.network.text}
+          cities={home.network.cities ?? []} citiesLabel={m.home.networkCities} pillars={m.home.networkPillars} />
       ) : null}
 
       <CtaBanner title={m.ctaBanner.title} highlight={m.ctaBanner.highlight} text={m.ctaBanner.text}

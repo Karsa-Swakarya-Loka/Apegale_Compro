@@ -18,6 +18,8 @@ type Props = {
 }
 
 /** Per-page header photos (public/headers/<slug>.jpg, 2400x1800). Keep in sync with assets/img/headers. */
+/** Services without a photo of their own borrow a fitting one. */
+const HEADER_ALIAS: Record<string, string> = { 'conversant-expatriate': 'garis', 'management-advisory': 'about' }
 const HEADER_IMAGES = new Set(['about', 'services', 'broad-expatriate-hosting', 'expatriate-formalities', 'kitas-kitap', 'all-in-one-solutions',
   'kitas-lansia', 'visa-paspor', 'visa-indonesia', 'visa-global', 'legalitas-perusahaan', 'airport-escort', 'hr-system-consulting', 'garis', 'regulations', 'contact'])
 
@@ -57,7 +59,8 @@ export async function PageHeader({ locale, eyebrow, title, intro, crumbs, crumbL
       </section>
     )
   }
-  const own = headerImage && HEADER_IMAGES.has(headerImage) ? `/headers/${headerImage}.jpg` : null
+  const headerFile = headerImage ? HEADER_ALIAS[headerImage] ?? headerImage : null
+  const own = headerFile && HEADER_IMAGES.has(headerFile) ? `/headers/${headerFile}.jpg` : null
   const home = own ? null : await getHome(locale)
   const image = home ? asMedia(home.hero?.image) : null
   const photo = own ? { url: own, width: 2400, height: 1800 } : image?.sizes?.hero?.url ? image.sizes.hero : image

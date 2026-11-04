@@ -3,18 +3,18 @@ import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Reveal } from '@/components/motion/Reveal'
 
 type Item = { icon?: string | null; title?: string | null; text?: string | null }
-type Props = { index?: string; eyebrow?: string | null; title: string; highlight?: string; items: Item[] }
+type Props = { index?: string; eyebrow?: string | null; title: string; highlight?: string; intro?: string | null; items: Item[] }
 
 /** The four strengths from the 2026 company profile on the page's red-gradient field: title on the left, a numbered
  *  ledger on the right. */
-export function WhySection({ index, eyebrow, title, highlight, items }: Props) {
+export function WhySection({ index, eyebrow, title, highlight, intro, items }: Props) {
   const rows = items.filter(i => i.title)
   if (!rows.length) return null
   return (
     <section className="ag-section ag-section--red ag-approach" aria-labelledby="why-title">
       <span className="ag-approach__plane" aria-hidden="true" />
       <div className="ag-container ag-approach__in">
-        <Reveal><SectionHeading index={index} id="why-title" eyebrow={eyebrow} title={title} highlight={highlight} /></Reveal>
+        <Reveal><SectionHeading index={index} id="why-title" eyebrow={eyebrow} title={title} highlight={highlight} intro={intro} /></Reveal>
         <ul className="ag-why">
           {rows.map((w, i) => (
             <li key={w.title}>

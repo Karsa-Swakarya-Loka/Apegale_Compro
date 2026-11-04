@@ -70,8 +70,8 @@ export function ServicesDossier({ services, initial, moreLabel, label }: Props) 
               {s.subServices?.length ? (
                 <ol className="ag-folio__tree">
                   {s.subServices.map((sub, j) => (
-                    <li key={sub.href} style={{ '--i': j + 1 } as React.CSSProperties}>
-                      <Link href={sub.href}>{sub.label}</Link>
+                    <li key={sub.href ?? sub.label} style={{ '--i': j + 1 } as React.CSSProperties}>
+                      {sub.href ? <Link href={sub.href}>{sub.label}</Link> : sub.label}
                       {sub.children?.length ? (
                         <ol>
                           {sub.children.map((c, k) => (

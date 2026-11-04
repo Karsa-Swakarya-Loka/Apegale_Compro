@@ -20,26 +20,12 @@
       "source": "legacy/expatriate-formalities.html",
       "id": [
         {
-          "p": "Tim kami memiliki pengalaman lebih dari 20 tahun dalam pengurusan ekspatriat. Kami membantu perusahaan menyiapkan dan mengurus dokumen melalui layanan berikut."
-        },
-        {
-          "ul": [
-            "Layanan KITAS & KITAP",
-            "All in One Solutions",
-            "KITAS Lansia"
-          ]
+          "p": "Tim kami memiliki pengalaman lebih dari 20 tahun dalam pengurusan ekspatriat. Kami membantu perusahaan menyiapkan dan mengurus dokumen melalui layanan berikut:"
         }
       ],
       "en": [
         {
-          "p": "Our team has more than 20 years of experience in expatriate administration. We help companies prepare and arrange documents through the following services."
-        },
-        {
-          "ul": [
-            "KITAS & KITAP Services",
-            "All in One Solutions",
-            "Retirement KITAS"
-          ]
+          "p": "Our team has more than 20 years of experience in expatriate administration. We help companies prepare and process documents through the following services:"
         }
       ]
     },
@@ -507,6 +493,34 @@
         },
         {
           "p": "Clients who have signed a Memorandum of Understanding (MoU) with Ape Gale receive a discount on this service."
+        }
+      ]
+    },
+    "conversant-expatriate": {
+      "status": "published",
+      "source": "Company Profile 2026 hal. 4",
+      "id": [
+        {
+          "p": "Layanan dalam kelompok ini mencakup:"
+        }
+      ],
+      "en": [
+        {
+          "p": "Services in this group include:"
+        }
+      ]
+    },
+    "management-advisory": {
+      "status": "published",
+      "source": "Company Profile 2026 hal. 4",
+      "id": [
+        {
+          "p": "Kami mendampingi organisasi dengan cakupan berikut:"
+        }
+      ],
+      "en": [
+        {
+          "p": "We support organizations across the following areas:"
         }
       ]
     }

@@ -14,6 +14,7 @@ import { Button } from '@/components/ui/Button'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Reveal } from '@/components/motion/Reveal'
 import { ClientStrip } from '@/components/content/ClientStrip'
+import { toSubServices } from '@/components/content/ServiceCard'
 import { ServicesSection } from '@/components/home/ServicesSection'
 import { Testimonial } from '@/components/content/Testimonial'
 import { FAQList } from '@/components/content/FAQ'
@@ -74,10 +75,10 @@ export async function HomePage({ locale }: { locale: Locale }) {
         <ServicesSection index="01" title={m.home.servicesTitle} highlight={m.home.servicesHighlight} intro={m.home.servicesIntro} moreLabel={ui.cta?.more || ''}
           all={ui.cta?.viewServices ? { label: ui.cta.viewServices, href: href(locale, 'services') } : undefined}
           services={services.map(s => ({ slug: s.slug, title: s.title, summary: s.summary, icon: s.icon, href: serviceHref(s.slug),
-            subServices: s.children.map(c => ({ label: c.title, href: serviceHref(c.slug), children: c.children.map(g => ({ label: g.title, href: serviceHref(g.slug) })) })) }))} />
+            subServices: toSubServices(s, serviceHref) }))} />
       ) : null}
 
-      {show('why') ? <WhySection index="02" eyebrow={ui.sections?.why} title={m.home.whyTitle} highlight={m.home.whyHighlight} items={home.why ?? []} /> : null}
+      {show('why') ? <WhySection index="02" eyebrow={m.home.whyTagline} title={m.home.whyTitle} highlight={m.home.whyHighlight} intro={m.home.whyIntro} items={home.why ?? []} /> : null}
 
       {show('garis') ? (
         <GarisSection index="03" garis={garis} title={m.home.garisTitle} highlight={m.home.garisHighlight} intro={m.home.garisIntro} whatsapp={wa} more={{ label: ui.cta?.more || '', href: href(locale, 'garis') }}
@@ -85,8 +86,8 @@ export async function HomePage({ locale }: { locale: Locale }) {
       ) : null}
 
       {show('network') && home.network?.title ? (
-        <NetworkSection index="04" tone="plain" title={home.network.title} text={home.network.text}
-          cities={home.network.cities ?? []} citiesLabel={m.home.networkCities} />
+        <NetworkSection index="04" tone="plain" eyebrow={m.home.networkEyebrow} title={home.network.title} text={home.network.text}
+          cities={home.network.cities ?? []} citiesLabel={m.home.networkCities} pillars={m.home.networkPillars} />
       ) : null}
 
       {show('founder') ? (

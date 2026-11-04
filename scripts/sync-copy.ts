@@ -1,6 +1,6 @@
 // Pushes the copy fields of content/seed/*.json into the CMS for both locales WITHOUT touching anything else
 // (status, bodies, media, relations stay as they are). Use it after editing copy in the seed files.
-// Covered: service title/summary (by slug), globals ui (all labels), site.seoDefault, home.hero texts, home.why, home.network title/text,
+// Covered: service title/summary/requirements (by slug), globals ui (all labels), site.seoDefault, home.hero texts, home.why, home.network title/text,
 // about vision/mission/values, garis intro/variants/features.
 // Run with the dev server stopped (SQLite lock): npm run content:copy
 import 'dotenv/config'
@@ -28,12 +28,12 @@ function localize(value: unknown, locale: Locale): unknown {
 const payload = await getPayload({ config })
 const rows: { target: string; locale: Locale; result: string }[] = []
 try {
-  const services = await seed('services') as { slug: string; title: Localized; summary: Localized }[]
+  const services = await seed('services') as { slug: string; title: Localized; summary: Localized; requirements?: { id: { text: string }[]; en: { text: string }[] } }[]
   for (const s of services) for (const locale of locales) {
     const { docs } = await payload.find({ collection: 'services', where: { slug: { equals: s.slug } }, locale, draft: true, depth: 0, limit: 1, overrideAccess: true })
     if (!docs[0]) { rows.push({ target: `services/${s.slug}`, locale, result: 'missing' }); continue }
     await payload.update({ collection: 'services', id: docs[0].id, locale, depth: 0, overrideAccess: true, draft: docs[0]._status !== 'published',
-      data: { title: pick(s.title, locale), summary: pick(s.summary, locale) } })
+      data: { title: pick(s.title, locale), summary: pick(s.summary, locale), ...(s.requirements ? { requirements: s.requirements[locale] } : {}) } })
     rows.push({ target: `services/${s.slug}`, locale, result: docs[0]._status === 'published' ? 'published copy updated' : 'draft copy updated' })
   }
 

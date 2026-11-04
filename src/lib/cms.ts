@@ -59,19 +59,19 @@ export const getClients = cache(async (locale: Locale) => {
 })
 
 export type ServiceLink = { slug: string; title: string; children: { slug: string; title: string }[] }
-export type ServiceCardData = { slug: string; title: string; summary?: string | null; icon?: string | null; children: ServiceLink[] }
+export type ServiceCardData = { slug: string; title: string; summary?: string | null; icon?: string | null; items?: string[]; children: ServiceLink[] }
 /** Published top-level services in CMS order, each with its (await onlyPublished()) children and grandchildren
  *  (the visa groups under Visa & Paspor), so cards and menus show the whole hierarchy without extra clicks. */
 export const getTopServices = cache(async (locale: Locale): Promise<ServiceCardData[]> => {
   const payload = await payloadClient()
   const { docs } = await payload.find({
     collection: 'services', locale, ...(await view()), depth: 0, limit: 200, sort: 'order', where: (await onlyPublished()),
-    select: { slug: true, title: true, summary: true, icon: true, parent: true },
+    select: { slug: true, title: true, summary: true, icon: true, parent: true, requirements: true },
   })
-  const rows = docs as Pick<Service, 'id' | 'slug' | 'title' | 'summary' | 'icon' | 'parent'>[]
+  const rows = docs as Pick<Service, 'id' | 'slug' | 'title' | 'summary' | 'icon' | 'parent' | 'requirements'>[]
   const parentID = (s: (typeof rows)[number]) => (typeof s.parent === 'object' && s.parent ? s.parent.id : s.parent ?? null)
   return rows.filter(s => parentID(s) === null).map(s => ({
-    slug: s.slug, title: s.title, summary: s.summary, icon: s.icon,
+    slug: s.slug, title: s.title, summary: s.summary, icon: s.icon, items: (s.requirements ?? []).map(r => r.text).filter(Boolean),
     children: rows.filter(c => parentID(c) === s.id).map(c => ({ slug: c.slug, title: c.title,
       children: rows.filter(g => parentID(g) === c.id).map(g => ({ slug: g.slug, title: g.title })) })),
   }))

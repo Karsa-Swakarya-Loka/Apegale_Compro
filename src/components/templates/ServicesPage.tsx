@@ -1,4 +1,4 @@
-// /layanan · /en/services — page header, six services, featured price list, service FAQs, CTA.
+// /layanan · /en/services — page header, the services (Company Profile p. 4), featured price list, service FAQs, CTA.
 import type { Metadata } from 'next'
 import { pageMetadata } from '@/lib/seo'
 import type { Locale } from '@/i18n/config'
@@ -7,7 +7,7 @@ import { href } from '@/i18n/routes'
 import { getFaqs, getFeaturedPrices, getSite, getTopServices, getUi } from '@/lib/cms'
 import { whatsappHref } from '@/lib/whatsapp'
 import { PageHeader } from '@/components/content/PageHeader'
-import { ServiceCard } from '@/components/content/ServiceCard'
+import { ServiceCard, toSubServices } from '@/components/content/ServiceCard'
 import { PriceTable } from '@/components/content/PriceTable'
 import { FAQList } from '@/components/content/FAQ'
 import { SectionHeading } from '@/components/ui/SectionHeading'
@@ -44,7 +44,7 @@ export async function ServicesPage({ locale }: { locale: Locale }) {
                 <li key={s.slug}>
                   <Reveal step={(i % 3) as 0 | 1 | 2}>
                     <ServiceCard icon={s.icon} title={s.title} summary={s.summary} href={serviceHref(s.slug)} moreLabel={ui.cta?.more || ''}
-                      subServices={s.children.map(c => ({ label: c.title, href: serviceHref(c.slug), children: c.children.map(g => ({ label: g.title, href: serviceHref(g.slug) })) }))} />
+                      subServices={toSubServices(s, serviceHref)} />
                   </Reveal>
                 </li>
               ))}

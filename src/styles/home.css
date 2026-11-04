@@ -316,3 +316,12 @@
   .ag-closing__copy { gap: var(--space-8); }
   .ag-closing__form { padding: var(--space-6) var(--space-5); }
 }
+
+/* Network pillars (Company Profile p. 9): four short columns under the map. */
+.ag-pillars { list-style: none; margin: var(--space-10) 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-8); }
+.ag-pillar { display: grid; gap: var(--space-3); align-content: start; padding-top: var(--space-5); border-top: 1px solid var(--line); }
+.ag-pillar__icon { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--maroon); color: #fff; }
+.ag .ag-pillar h3 { font-size: 16px; line-height: 24px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; }
+.ag-pillar p { color: var(--ink-muted); font-size: 15px; line-height: 24px; }
+@media (max-width: 1023px) { .ag-pillars { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 599px) { .ag-pillars { grid-template-columns: minmax(0, 1fr); } }

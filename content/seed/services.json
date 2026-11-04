@@ -1,7 +1,123 @@
 [
   {
-    "slug": "broad-expatriate-hosting",
+    "slug": "conversant-expatriate",
     "order": 1,
+    "parent": null,
+    "showInMenu": true,
+    "icon": "monitor-check",
+    "title": {
+      "id": "Conversant Expatriate",
+      "en": "Conversant Expatriate"
+    },
+    "summary": {
+      "id": "Layanan expatriate hosting kami memanfaatkan teknologi digital terbaru yang memberi nilai tambah bagi klien dalam memenuhi kebutuhan ekspatriat, agar klien tetap fokus meningkatkan dan menjaga kinerja serta keunggulan kompetitifnya.",
+      "en": "Our expatriate hosting services use the latest digital technology to add value for clients in fulfilling expatriate needs, so clients can stay focused on improving and maintaining their performance and competitive advantage."
+    },
+    "requirements": {
+      "id": [
+        {
+          "text": "KITAS (Izin Tinggal)"
+        },
+        {
+          "text": "KITAP"
+        },
+        {
+          "text": "Layanan Visa & Paspor"
+        },
+        {
+          "text": "All in One Solutions"
+        },
+        {
+          "text": "KITAS Lansia"
+        },
+        {
+          "text": "Layanan Visa Lansia"
+        }
+      ],
+      "en": [
+        {
+          "text": "KITAS (Stay Permit)"
+        },
+        {
+          "text": "KITAP"
+        },
+        {
+          "text": "Visa & Passport Services"
+        },
+        {
+          "text": "All in One Solutions"
+        },
+        {
+          "text": "Senior KITAS"
+        },
+        {
+          "text": "Senior Visa Services"
+        }
+      ]
+    },
+    "body": {
+      "source": "Company Profile 2026 hal. 4"
+    },
+    "priceItems": []
+  },
+  {
+    "slug": "management-advisory",
+    "order": 2,
+    "parent": null,
+    "showInMenu": true,
+    "icon": "users",
+    "title": {
+      "id": "Management Advisory",
+      "en": "Management Advisory"
+    },
+    "summary": {
+      "id": "Mendukung organisasi melalui konsultasi bisnis strategis, pengembangan organisasi, perbaikan operasional, manajemen risiko, dan solusi kepatuhan untuk membantu klien mencapai pertumbuhan berkelanjutan dan keunggulan bisnis.",
+      "en": "Supporting organizations with strategic business advisory, organizational development, operational improvement, risk management, and compliance solutions to help clients achieve sustainable growth and business excellence."
+    },
+    "requirements": {
+      "id": [
+        {
+          "text": "Konsultasi bisnis strategis"
+        },
+        {
+          "text": "Pengembangan organisasi"
+        },
+        {
+          "text": "Perbaikan operasional"
+        },
+        {
+          "text": "Manajemen risiko"
+        },
+        {
+          "text": "Solusi kepatuhan"
+        }
+      ],
+      "en": [
+        {
+          "text": "Strategic business advisory"
+        },
+        {
+          "text": "Organizational development"
+        },
+        {
+          "text": "Operational improvement"
+        },
+        {
+          "text": "Risk management"
+        },
+        {
+          "text": "Compliance solutions"
+        }
+      ]
+    },
+    "body": {
+      "source": "Company Profile 2026 hal. 4"
+    },
+    "priceItems": []
+  },
+  {
+    "slug": "broad-expatriate-hosting",
+    "order": 3,
     "parent": null,
     "showInMenu": true,
     "icon": "globe",
@@ -10,8 +126,8 @@
       "en": "Broad Expatriate Hosting"
     },
     "summary": {
-      "id": "Pendampingan kebutuhan ekspatriat di Indonesia, dengan dukungan administrasi dan pengelolaan layanan.",
-      "en": "Support for expatriates in Indonesia, including administration and service coordination."
+      "id": "Kami adalah pelopor teknologi layanan Expatriate Hosting, sehingga pemenuhan kebutuhan ekspatriat klien di seluruh Indonesia dapat dilakukan jauh lebih cepat dan terkelola dengan baik, tetap berpedoman pada hukum yang berlaku di Indonesia.",
+      "en": "We are a pioneer in expatriate hosting services technology, so fulfilling expatriate needs for clients across Indonesia can be done much faster and managed well, while remaining guided by the applicable laws in Indonesia."
     },
     "body": {
       "source": "legacy/expatriate-hosting.html",
@@ -21,47 +137,99 @@
   },
   {
     "slug": "expatriate-formalities",
-    "order": 2,
+    "order": 4,
     "parent": null,
     "showInMenu": true,
     "icon": "file-text",
     "title": {
-      "id": "Expatriate Formalities",
-      "en": "Expatriate Formalities"
+      "id": "Expatriate Formalities Services",
+      "en": "Expatriate Formalities Services"
     },
     "summary": {
-      "id": "Pengurusan dokumen dan perizinan ekspatriat melalui jaringan layanan kami di Indonesia.",
-      "en": "Assistance with expatriate documents and permits through our service network across Indonesia."
+      "id": "Berbekal jaringan luas di seluruh Indonesia, kami melayani klien dalam pengurusan izin ekspatriat di seluruh Indonesia.",
+      "en": "Based on a wide network across Indonesia, we are here to serve clients in arranging expatriate permits throughout Indonesia."
     },
     "body": {
       "source": "legacy/expatriate-formalities.html",
       "note": "Migrasi isi dari file lama (ID), rapikan, terjemahkan ke EN. Kode & durasi visa di halaman lama (2021) harus dicek ulang terhadap regulasi terbaru sebelum publish."
     },
-    "priceItems": []
-  },
-  {
-    "slug": "visa-paspor",
-    "order": 3,
-    "parent": null,
-    "showInMenu": true,
-    "icon": "stamp",
-    "title": {
-      "id": "Layanan Visa & Paspor",
-      "en": "Visa & Passport Services"
-    },
-    "summary": {
-      "id": "Visa Indonesia bagi WNA serta visa global untuk perjalanan ke luar negeri. Klien yang telah memiliki MoU mendapatkan fasilitas diskon.",
-      "en": "Indonesian visas for foreign nationals and global visas for travel abroad. Clients with an MoU receive a discount."
-    },
-    "body": {
-      "source": "Revisi klien (Reza, 18 Okt 2026): layanan visa dibagi dua kelompok, Visa Indonesia dan Visa Global.",
-      "note": "Isi di services-content.json. Kode visa memakai nomenklatur baru dari klien (C1, D1, E23, E31, E32). 22 Okt 2026: layanan utama ke-3 (menggantikan slot Manpower Supply), bukan lagi anak Expatriate Formalities (owner, #50)."
-    },
-    "priceItems": []
+    "priceItems": [],
+    "requirements": {
+      "id": [
+        {
+          "text": "RPTKA (Izin Posisi)"
+        },
+        {
+          "text": "Notifikasi IMTA"
+        },
+        {
+          "text": "KITAS (Izin Tinggal)"
+        },
+        {
+          "text": "MERP"
+        },
+        {
+          "text": "SKTT"
+        },
+        {
+          "text": "STM"
+        },
+        {
+          "text": "KITAP"
+        },
+        {
+          "text": "Sponsor Visa Lansia (Retirement)"
+        },
+        {
+          "text": "KITAS Investor"
+        },
+        {
+          "text": "Visa Bisnis Indonesia"
+        },
+        {
+          "text": "Dokumen Pengurusan Paspor Indonesia"
+        }
+      ],
+      "en": [
+        {
+          "text": "RPTKA (Position Licence)"
+        },
+        {
+          "text": "Notification IMTA"
+        },
+        {
+          "text": "KITAS (Stay Permit)"
+        },
+        {
+          "text": "MERP"
+        },
+        {
+          "text": "SKTT"
+        },
+        {
+          "text": "STM"
+        },
+        {
+          "text": "KITAP"
+        },
+        {
+          "text": "Sponsorship for Retirement VISA"
+        },
+        {
+          "text": "KITAS Investor"
+        },
+        {
+          "text": "Indonesian Business VISA"
+        },
+        {
+          "text": "Indonesian Passport Formalities Documents"
+        }
+      ]
+    }
   },
   {
     "slug": "legalitas-perusahaan",
-    "order": 4,
+    "order": 5,
     "parent": null,
     "showInMenu": true,
     "icon": "building-2",
@@ -81,7 +249,7 @@
   },
   {
     "slug": "airport-escort",
-    "order": 5,
+    "order": 6,
     "parent": null,
     "showInMenu": true,
     "icon": "plane",
@@ -101,7 +269,7 @@
   },
   {
     "slug": "hr-system-consulting",
-    "order": 6,
+    "order": 7,
     "parent": null,
     "showInMenu": true,
     "icon": "briefcase",
@@ -121,8 +289,8 @@
   },
   {
     "slug": "kitas-kitap",
-    "order": 7,
-    "parent": "expatriate-formalities",
+    "order": 8,
+    "parent": "conversant-expatriate",
     "showInMenu": true,
     "icon": "id-card",
     "title": {
@@ -140,9 +308,29 @@
     "priceItems": []
   },
   {
-    "slug": "all-in-one-solutions",
+    "slug": "visa-paspor",
     "order": 9,
-    "parent": "expatriate-formalities",
+    "parent": "conversant-expatriate",
+    "showInMenu": true,
+    "icon": "stamp",
+    "title": {
+      "id": "Layanan Visa & Paspor",
+      "en": "Visa & Passport Services"
+    },
+    "summary": {
+      "id": "Visa Indonesia bagi WNA serta visa global untuk perjalanan ke luar negeri. Klien yang telah memiliki MoU mendapatkan fasilitas diskon.",
+      "en": "Indonesian visas for foreign nationals and global visas for travel abroad. Clients with an MoU receive a discount."
+    },
+    "body": {
+      "source": "Revisi klien (Reza, 18 Okt 2026): layanan visa dibagi dua kelompok, Visa Indonesia dan Visa Global.",
+      "note": "Isi di services-content.json. Kode visa memakai nomenklatur baru dari klien (C1, D1, E23, E31, E32). 22 Okt 2026: layanan utama ke-3 (menggantikan slot Manpower Supply), bukan lagi anak Expatriate Formalities (owner, #50)."
+    },
+    "priceItems": []
+  },
+  {
+    "slug": "all-in-one-solutions",
+    "order": 10,
+    "parent": "conversant-expatriate",
     "showInMenu": true,
     "icon": "layers",
     "title": {
@@ -161,13 +349,13 @@
   },
   {
     "slug": "kitas-lansia",
-    "order": 10,
-    "parent": "expatriate-formalities",
+    "order": 11,
+    "parent": "conversant-expatriate",
     "showInMenu": true,
     "icon": "sun",
     "title": {
-      "id": "KITAS Lansia",
-      "en": "Retirement KITAS"
+      "id": "KITAS & Visa Lansia",
+      "en": "Senior KITAS & Visa Services"
     },
     "summary": {
       "id": "",
@@ -181,7 +369,7 @@
   },
   {
     "slug": "visa-indonesia",
-    "order": 11,
+    "order": 12,
     "parent": "visa-paspor",
     "showInMenu": true,
     "icon": "stamp",
@@ -201,7 +389,7 @@
   },
   {
     "slug": "visa-global",
-    "order": 12,
+    "order": 13,
     "parent": "visa-paspor",
     "showInMenu": true,
     "icon": "globe",

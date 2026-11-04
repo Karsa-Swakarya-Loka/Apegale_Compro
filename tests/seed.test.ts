@@ -46,7 +46,7 @@ test('seed twice: stable identities, bilingual content, exact client count, no i
  const snapshot = JSON.stringify([...store.rows])
  assert.deepEqual(await runSeed(store, root), first)
  assert.equal(JSON.stringify([...store.rows]), snapshot)
- assert.deepEqual(first, { services: 11, media: 15, clients: 11, faqs: 6, globals: 5 })
+ assert.deepEqual(first, { services: 13, media: 15, clients: 11, faqs: 6, globals: 5 })
  const service = await store.find('services','slug','legalitas-perusahaan','en')
  assert.equal(service?.title, 'Company Legalities')
  assert.equal(service?._status, 'draft')
@@ -54,19 +54,20 @@ test('seed twice: stable identities, bilingual content, exact client count, no i
  const child = await store.find('services','slug','visa-indonesia','id')
  const parent = await store.find('services','slug','visa-paspor','id')
  assert.equal(child?.parent, parent?.id)
- // Visa & Paspor is the third top-level service (owner, 22 Oct 2026). An older database that still files it under
- // Expatriate Formalities is corrected by the seed: hierarchy and order always follow the seed.
- assert.equal(parent?.parent ?? null, null); assert.equal(parent?.order, 3)
+ // Company Profile 2026 p. 4: Visa & Passport Services sits under Conversant Expatriate (owner, 4 Nov 2026). An older
+ // database that files it elsewhere is corrected by the seed: hierarchy and order always follow the seed.
+ const conversant = await store.find('services','slug','conversant-expatriate','id')
+ assert.equal(parent?.parent, conversant?.id); assert.equal(parent?.order, 9)
  const formalities = await store.find('services','slug','expatriate-formalities','id')
  await store.update('services', parent!.id as number, { parent: formalities!.id, order: 8 }, 'id')
  await runSeed(store, root)
  const moved = await store.find('services','slug','visa-paspor','id')
- assert.equal(moved?.parent ?? null, null); assert.equal(moved?.order, 3)
+ assert.equal(moved?.parent, conversant?.id); assert.equal(moved?.order, 9)
  // Retired 2021 visa sub-pages are removed even when an older database still has them.
  await store.create('services', { slug: 'vitas', title: 'VITAS', _status: 'draft' }, 'id')
  await runSeed(store, root)
  assert.equal(await store.find('services','slug','vitas','id'), undefined)
- assert.equal(store.rows.get('services')?.length, 11)
+ assert.equal(store.rows.get('services')?.length, 13)
  const home = await store.global('home','id')
  assert.equal(object(home.founder).quote, undefined)
  assert.equal((object(home.network).cities as Data[]).length, 13)

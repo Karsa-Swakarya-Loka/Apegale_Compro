@@ -1,45 +1,45 @@
 {
   "vision": {
-    "id": "Menjadi pemimpin layanan perizinan ekspatriat dan pengelolaan tenaga kerja berbasis digital di Indonesia.",
-    "en": "To be the leading provider of digital expatriate permit services and workforce management in Indonesia."
+    "id": "Menjadi pemimpin pasar layanan perizinan ekspatriat berbasis digital dan pengelolaan tenaga kerja di Indonesia.",
+    "en": "Become a market leader in digital-based expatriate permit services and workforce management in Indonesia."
   },
   "mission": [
     {
-      "id": "Memahami kebutuhan klien dalam menggunakan layanan dan produk Ape Gale Indonesia.",
-      "en": "Understand our clients’ needs in using the services and products of Ape Gale Indonesia."
+      "id": "Mengakomodasi kebutuhan dan memberikan layanan terbaik kepada klien.",
+      "en": "Accommodating needs and providing the foremost services to clients."
     },
     {
-      "id": "Menggunakan proses digital untuk mendukung pelayanan kepada klien.",
-      "en": "Use digital processes to support client services."
+      "id": "Menjadikan proses digital sebagai dasar untuk menciptakan nilai tambah bagi klien.",
+      "en": "Making the digital process the basis for creating added value for clients."
     },
     {
-      "id": "Menjaga kejujuran dan integritas dalam setiap kerja sama.",
-      "en": "Maintain honesty and integrity in every working relationship."
+      "id": "Jujur dalam bermitra dengan klien dan menjunjung tinggi integritas.",
+      "en": "Honest in partnering with clients and uphold integrity."
     },
     {
-      "id": "Menyesuaikan pengurusan perizinan dan pengelolaan tenaga kerja dengan kebutuhan klien.",
-      "en": "Adapt permit assistance and workforce management to client requirements."
+      "id": "Memberikan solusi yang paling adaptif dan tepat dalam proses layanan perizinan ekspatriat dan pengelolaan tenaga kerja sesuai kebutuhan klien.",
+      "en": "Providing the most adaptive and appropriate solutions in the service process of expatriate licensing and workforce management in accordance with clients’ needs."
     }
   ],
   "values": [
     {
       "title": {
-        "id": "Komitmen pelayanan",
-        "en": "Service commitment"
+        "id": "Komitmen pada Layanan",
+        "en": "Commitment to Service"
       },
       "text": {
-        "id": "Memahami kebutuhan klien dan menindaklanjuti layanan yang disepakati.",
-        "en": "Understand client needs and follow through on agreed services."
+        "id": "Melayani klien dengan lebih baik dengan mengenali, memahami, dan memenuhi kebutuhan serta harapan klien.",
+        "en": "Serve clients better by identifying, understanding and satisfying clients’ needs and expectations."
       }
     },
     {
       "title": {
-        "id": "Pendekatan sesuai kebutuhan",
-        "en": "A practical approach"
+        "id": "Solusi Adaptif",
+        "en": "Adaptive Solutions"
       },
       "text": {
-        "id": "Menyesuaikan proses dan dukungan teknologi dengan kebutuhan setiap klien.",
-        "en": "Tailor processes and technology support to each client’s requirements."
+        "id": "Memberikan solusi terbaik sesuai kebutuhan klien melalui pemanfaatan teknologi digital.",
+        "en": "Provide the best solutions in accordance with clients’ needs through empowering digital technology."
       }
     },
     {
@@ -48,8 +48,8 @@
         "en": "Integrity"
       },
       "text": {
-        "id": "Bekerja secara transparan, jujur, dan memenuhi komitmen kepada klien.",
-        "en": "Work transparently, act honestly, and honour our commitments to clients."
+        "id": "Transparan, jujur, dan memenuhi komitmen untuk menjaga reputasi dan kepercayaan klien.",
+        "en": "Be transparent, honest and fulfill the commitment to maintain reputation and trust of clients."
       }
     }
   ],
@@ -142,5 +142,5 @@
       "parent": "Djoko Mulyono"
     }
   ],
-  "_source": "Visi, misi, nilai, organigram: Company Profile 2026 hal. 2 & 5. Salam dari Kami & profil: migrasi dari legacy/salam-dari-kami.html dan legacy/profil-perusahaan.html."
+  "_source": "Visi, misi, nilai, organigram: Company Profile 2026 hal. 2 & 5. Salam dari Kami & profil: migrasi dari legacy/salam-dari-kami.html dan legacy/profil-perusahaan.html. Visi, misi, nilai disamakan dengan Company Profile 2026 hal. 2 dan 5 (4 Nov 2026); frasa \"Manpower Supply\" tidak dipakai (keputusan #46)."
 }

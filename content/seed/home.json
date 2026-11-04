@@ -36,56 +36,56 @@
     {
       "icon": "monitor-check",
       "title": {
-        "id": "Dukungan digital",
-        "en": "Digital support"
+        "id": "Digital Monitoring",
+        "en": "Digital Monitoring"
       },
       "text": {
-        "id": "GARIS dirancang untuk pengelolaan data, dokumen, dan proses layanan. Akses aplikasi akan dibuka kembali.",
-        "en": "GARIS is designed to manage data, documents, and service progress. App access is being prepared for relaunch."
+        "id": "Kami memanfaatkan sistem digital untuk memantau setiap proses secara real time. Klien dapat melacak progres kapan saja dan di mana saja demi transparansi dan kendali penuh.",
+        "en": "We utilize digital systems to monitor every process in real time. Clients can track progress anytime, anywhere for full transparency and control."
       }
     },
     {
       "icon": "timer",
       "title": {
-        "id": "Pendampingan tim",
-        "en": "Team support"
+        "id": "Fast Response",
+        "en": "Fast Response"
       },
       "text": {
-        "id": "Diskusikan kebutuhan dan proses layanan dengan tim kami melalui telepon atau WhatsApp.",
-        "en": "Speak with our team by phone or WhatsApp about your requirements and the service process."
+        "id": "Tim kami siap merespons dengan cepat dan memberikan solusi yang akurat. Kami menghargai waktu Anda dan memastikan setiap proses berjalan efisien.",
+        "en": "Our team is ready to respond quickly and provide accurate solutions. We value your time and ensure every process moves forward efficiently."
       }
     },
     {
       "icon": "shield-check",
       "title": {
-        "id": "Pengurusan perizinan",
-        "en": "Permit assistance"
+        "id": "Compliance Driven",
+        "en": "Compliance Driven"
       },
       "text": {
-        "id": "Pendampingan administrasi dan dokumen untuk kebutuhan ekspatriat serta perusahaan.",
-        "en": "Administrative and document support for expatriates and companies."
+        "id": "Kami memastikan seluruh layanan sepenuhnya sesuai dengan peraturan Indonesia, meminimalkan risiko dan memberi Anda keyakinan di setiap langkah.",
+        "en": "We ensure all services are fully compliant with Indonesian regulations, minimizing risks and giving you confidence in every step."
       }
     },
     {
       "icon": "map",
       "title": {
-        "id": "Jaringan 35+ kota",
-        "en": "A network in 35+ cities"
+        "id": "Nationwide Service",
+        "en": "Nationwide Service"
       },
       "text": {
-        "id": "Jaringan layanan kami menjangkau lebih dari 35 kota di Indonesia.",
-        "en": "Our service network covers more than 35 cities in Indonesia."
+        "id": "Dengan jaringan yang kuat di seluruh Indonesia, kami mampu mendukung kebutuhan bisnis Anda di mana saja dan kapan saja dengan kualitas yang konsisten.",
+        "en": "With a strong network across Indonesia, we are able to support your business needs anywhere, anytime with consistent quality."
       }
     }
   ],
   "network": {
     "title": {
-      "id": "Jaringan di 35+ kota",
-      "en": "A network across 35+ cities"
+      "id": "Cakupan Nasional, Koneksi Global",
+      "en": "Nationwide Coverage, Global Connections"
     },
     "text": {
-      "id": "Kami mendukung kebutuhan layanan di berbagai wilayah Indonesia melalui jaringan di lebih dari 35 kota.",
-      "en": "We support clients across Indonesia through a service network in more than 35 cities."
+      "id": "Dengan jaringan luas di seluruh Indonesia dan kemitraan strategis di seluruh dunia, kami berkomitmen menghadirkan solusi yang andal dan efisien di mana pun klien kami membutuhkan.",
+      "en": "With a wide network across Indonesia and strategic partnerships worldwide, we are committed to delivering reliable and efficient solutions wherever our clients need us."
     },
     "cities": [
       {
@@ -168,5 +168,5 @@
       "en": "[Translate the approved quote]"
     }
   },
-  "_source": "hero: teks asli apegale.com (index.html). why & network: Company Profile 2026 hal. 3 dan 9. Copy diparafrase sesuai permintaan owner 09 Okt 2026; akses GARIS belum aktif. Hero ditulis ulang 12 Okt 2026 (atas permintaan owner): above the fold menjawab untuk siapa, apa, kenapa penting, dan langkah berikutnya; fakta dari services-content (RPTKA, KITAS, Manpower Supply)."
+  "_source": "hero: teks asli apegale.com (index.html). why & network: Company Profile 2026 hal. 3 dan 9. Copy diparafrase sesuai permintaan owner 09 Okt 2026; akses GARIS belum aktif. Hero ditulis ulang 12 Okt 2026 (atas permintaan owner): above the fold menjawab untuk siapa, apa, kenapa penting, dan langkah berikutnya; fakta dari services-content (RPTKA, KITAS, Manpower Supply). Why & Network disamakan dengan Company Profile 2026 hal. 3 dan 9 (4 Nov 2026)."
 }
