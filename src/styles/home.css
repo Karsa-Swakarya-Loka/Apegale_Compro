@@ -194,9 +194,6 @@
 .ag-showcase__shot::after, .ag-garis__shot--wide::after { content: ""; position: absolute; z-index: -1; left: 6%; right: 4%; bottom: 1%; height: 7%; border-radius: 50%;
   background: color-mix(in srgb, var(--ink) 38%, transparent); filter: blur(16px); }
 .ag-showcase__shot img { display: block; width: 100%; height: auto; }
-/* Photo (dashboard on a desk), not a cut-out: rounded frame, no cut-out shadows. */
-.ag-showcase__shot--photo img { border-radius: var(--radius-lg); filter: none; box-shadow: 0 24px 48px color-mix(in srgb, var(--ink) 24%, transparent); }
-.ag-showcase__shot--photo::after { display: none; }
 
 /* ---------- Network: map in the red gradient, city index beside it ---------- */
 .ag-impact { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr) minmax(0, 0.9fr); gap: var(--space-12); align-items: center; }
