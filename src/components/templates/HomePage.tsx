@@ -6,11 +6,9 @@ import type { Locale } from '@/i18n/config'
 import { getMessages } from '@/i18n/messages'
 import { href, localizeHref } from '@/i18n/routes'
 import {
-  asMedia, getAbout, getClients, getFeaturedFaqs, getGaris, getHome, getLatestArticles, getSite, getTestimonials, getTopServices, getUi,
+  asMedia, getAbout, getClients, getFeaturedFaqs, getGaris, getHome, getSite, getTestimonials, getTopServices, getUi,
 } from '@/lib/cms'
 import { telHref, whatsappHref } from '@/lib/whatsapp'
-import { ArrowRight } from 'lucide-react'
-import { Button } from '@/components/ui/Button'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Reveal } from '@/components/motion/Reveal'
 import { ClientStrip } from '@/components/content/ClientStrip'
@@ -18,7 +16,6 @@ import { toSubServices } from '@/components/content/ServiceCard'
 import { ServicesSection } from '@/components/home/ServicesSection'
 import { TestimonialsSection } from '@/components/home/TestimonialsSection'
 import { FAQList } from '@/components/content/FAQ'
-import { NewsCard } from '@/components/content/NewsCard'
 import { Hero } from '@/components/home/Hero'
 import { WhySection } from '@/components/home/WhySection'
 import { GarisSection } from '@/components/home/GarisSection'
@@ -38,9 +35,9 @@ export async function homeMetadata(locale: Locale): Promise<Metadata> {
 }
 
 export async function HomePage({ locale }: { locale: Locale }) {
-  const [home, site, ui, about, garis, clients, services, testimonials, faqs, articles] = await Promise.all([
+  const [home, site, ui, about, garis, clients, services, testimonials, faqs] = await Promise.all([
     getHome(locale), getSite(locale), getUi(locale), getAbout(locale), getGaris(locale), getClients(locale),
-    getTopServices(locale), getTestimonials(locale), getFeaturedFaqs(locale), getLatestArticles(locale, 3),
+    getTopServices(locale), getTestimonials(locale), getFeaturedFaqs(locale),
   ])
   const m = getMessages(locale)
   const show = (key: keyof NonNullable<typeof home.sectionsVisible>) => home.sectionsVisible?.[key] !== false
@@ -106,24 +103,6 @@ export async function HomePage({ locale }: { locale: Locale }) {
           <div className="ag-container ag-split">
             <Reveal><SectionHeading index="06" id="faq-title" title={m.home.faqTitle} highlight={m.home.faqHighlight} /></Reveal>
             <Reveal step={1}><FAQList items={faqs} /></Reveal>
-          </div>
-        </section>
-      ) : null}
-
-      {show('news') && articles.length ? (
-        <section className="ag-section" aria-labelledby="news-title">
-          <div className="ag-container ag-stack">
-            <div className="ag-headrow">
-              <Reveal><SectionHeading index="07" id="news-title" title={m.home.newsTitle} highlight={m.home.newsHighlight} /></Reveal>
-              <Button variant="ghost" href={href(locale, 'news')} label={ui.cta?.more || ''} icon={<ArrowRight size={18} aria-hidden="true" />} />
-            </div>
-            <div className="ag-grid ag-grid--3">
-              {articles.map(a => (
-                <NewsCard key={`${a.kind}-${a.slug}`} locale={locale} title={a.title} cover={a.cover} date={a.date} readLabel={ui.cta?.read || ''}
-                  category={a.kind === 'regulation' ? m.home.categories.regulation : m.home.categories[a.category as 'news' | 'panduan'] ?? a.category}
-                  href={href(locale, a.kind === 'regulation' ? 'regulations' : 'news', a.slug)} />
-              ))}
-            </div>
           </div>
         </section>
       ) : null}
